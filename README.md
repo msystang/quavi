@@ -46,6 +46,6 @@ Coming Soon!
 ## Contributors
 - Project Manager/Meeting Facilitator - [Sunni Tang](https://github.com/msystang)
 - Tech Lead/Git Master - [Ayoola Abudu](https://github.com/aabudu16)
-- Notes Manager - [Rad Valogno](https://github.com/RadBV)
+- UI/Notes Manager - [Rad Valogno](https://github.com/RadBV)
 - Communications/App Ideator - [Alexander George Legaspi](https://github.com/aglegaspi)
 
