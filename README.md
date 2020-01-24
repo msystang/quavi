@@ -44,8 +44,8 @@ Coming Soon!
 
 
 ## Contributors
-- Project Manager - [Sunni Tang](https://github.com/msystang)
-- Tech Lead - [Ayoola Abudu](https://github.com/aabudu16)
-- UI - [Rad Valogno](https://github.com/RadBV)
-- Git Master - [Alexander George Legaspi](https://github.com/aglegaspi)
+- [Sunni Tang](https://github.com/msystang)
+- [Ayoola Abudu](https://github.com/aabudu16)
+- [Rad Valogno](https://github.com/RadBV)
+- [Alexander George Legaspi](https://github.com/aglegaspi)
 
