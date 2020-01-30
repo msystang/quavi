@@ -17,6 +17,7 @@
 		EAF7173323E381A900DD8703 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173223E381A900DD8703 /* Tour.swift */; };
 		EAF7173523E381B500DD8703 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173423E381B500DD8703 /* POI.swift */; };
 		EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173723E3823C00DD8703 /* MapViewController.swift */; };
+		EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173B23E3857500DD8703 /* FirestoreService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		EAF7173223E381A900DD8703 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		EAF7173423E381B500DD8703 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
 		EAF7173723E3823C00DD8703 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EAF7173B23E3857500DD8703 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				EAF7173123E3818B00DD8703 /* Models */,
 				EAF7173623E3821200DD8703 /* Controllers */,
 				EAF7170F23E3804200DD8703 /* AppDelegate.swift */,
+				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7171123E3804200DD8703 /* SceneDelegate.swift */,
 				EAF7171323E3804200DD8703 /* ViewController.swift */,
 				EAF7171523E3804200DD8703 /* Main.storyboard */,
@@ -122,6 +125,22 @@
 				EAF7173723E3823C00DD8703 /* MapViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EAF7173923E3854100DD8703 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7173A23E3856900DD8703 /* Firebase */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EAF7173A23E3856900DD8703 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				EAF7171423E3804200DD8703 /* ViewController.swift in Sources */,
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
