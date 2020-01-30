@@ -21,6 +21,7 @@
 		EAF7174423E3879200DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174323E3879200DD8703 /* File.swift */; };
 		EAF7174723E387D300DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* File.swift */; };
 		EAF7174A23E3884600DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* File.swift */; };
+		EAF7174D23E388D000DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		EAF7174323E3879200DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		EAF7174623E387D300DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		EAF7174923E3884600DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		EAF7174C23E388D000DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				EAF7173A23E3856900DD8703 /* Firebase */,
 				EAF7174223E3878A00DD8703 /* Networking */,
 				EAF7173D23E385DC00DD8703 /* UIDesign */,
+				EAF7174B23E388C400DD8703 /* Enums */,
 				EAF7174523E387C700DD8703 /* Protocols */,
 				EAF7174823E3882800DD8703 /* Extensions */,
 			);
@@ -198,6 +201,14 @@
 				EAF7174923E3884600DD8703 /* File.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAF7174B23E388C400DD8703 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7174C23E388D000DD8703 /* File.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				EAF7174423E3879200DD8703 /* File.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EAF7174723E387D300DD8703 /* File.swift in Sources */,
+				EAF7174D23E388D000DD8703 /* File.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
