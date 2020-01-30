@@ -20,6 +20,7 @@
 		EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173E23E385EB00DD8703 /* UIDesign.swift */; };
 		EAF7174423E3879200DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174323E3879200DD8703 /* File.swift */; };
 		EAF7174723E387D300DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* File.swift */; };
+		EAF7174A23E3884600DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		EAF7173E23E385EB00DD8703 /* UIDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDesign.swift; sourceTree = "<group>"; };
 		EAF7174323E3879200DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		EAF7174623E387D300DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		EAF7174923E3884600DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +132,11 @@
 		EAF7173923E3854100DD8703 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7174523E387C700DD8703 /* Protocols */,
-				EAF7174223E3878A00DD8703 /* Networking */,
 				EAF7173A23E3856900DD8703 /* Firebase */,
+				EAF7174223E3878A00DD8703 /* Networking */,
 				EAF7173D23E385DC00DD8703 /* UIDesign */,
+				EAF7174523E387C700DD8703 /* Protocols */,
+				EAF7174823E3882800DD8703 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -187,6 +190,14 @@
 				EAF7174623E387D300DD8703 /* File.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EAF7174823E3882800DD8703 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7174923E3884600DD8703 /* File.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
+				EAF7174A23E3884600DD8703 /* File.swift in Sources */,
 				EAF7174423E3879200DD8703 /* File.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EAF7174723E387D300DD8703 /* File.swift in Sources */,
