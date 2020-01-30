@@ -18,6 +18,7 @@
 		EAF7173523E381B500DD8703 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173423E381B500DD8703 /* POI.swift */; };
 		EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173723E3823C00DD8703 /* MapViewController.swift */; };
 		EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173B23E3857500DD8703 /* FirestoreService.swift */; };
+		EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173E23E385EB00DD8703 /* UIDesign.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		EAF7173423E381B500DD8703 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
 		EAF7173723E3823C00DD8703 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EAF7173B23E3857500DD8703 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		EAF7173E23E385EB00DD8703 /* UIDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDesign.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				EAF7173A23E3856900DD8703 /* Firebase */,
+				EAF7173D23E385DC00DD8703 /* UIDesign */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -141,6 +144,14 @@
 				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		EAF7173D23E385DC00DD8703 /* UIDesign */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7173E23E385EB00DD8703 /* UIDesign.swift */,
+			);
+			path = UIDesign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
+				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
 				EAF7171423E3804200DD8703 /* ViewController.swift in Sources */,
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
