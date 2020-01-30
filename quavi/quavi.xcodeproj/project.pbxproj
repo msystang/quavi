@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
+		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
+		EAF7171423E3804200DD8703 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171323E3804200DD8703 /* ViewController.swift */; };
+		EAF7171723E3804200DD8703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171523E3804200DD8703 /* Main.storyboard */; };
+		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
+		EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171A23E3804500DD8703 /* LaunchScreen.storyboard */; };
+		EAF7172723E3804600DD8703 /* quaviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7172623E3804600DD8703 /* quaviTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAF7172323E3804500DD8703 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAF7170423E3804200DD8703 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAF7170B23E3804200DD8703;
+			remoteInfo = quavi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EAF7171323E3804200DD8703 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAF7171623E3804200DD8703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAF7171823E3804500DD8703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAF7171B23E3804500DD8703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAF7171D23E3804500DD8703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF7172223E3804500DD8703 /* quaviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quaviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF7172623E3804600DD8703 /* quaviTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quaviTests.swift; sourceTree = "<group>"; };
+		EAF7172823E3804600DD8703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAF7170923E3804200DD8703 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF7171F23E3804500DD8703 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAF7170323E3804200DD8703 = {
+			isa = PBXGroup;
+			children = (
+				EAF7170E23E3804200DD8703 /* quavi */,
+				EAF7172523E3804600DD8703 /* quaviTests */,
+				EAF7170D23E3804200DD8703 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAF7170D23E3804200DD8703 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7170C23E3804200DD8703 /* quavi.app */,
+				EAF7172223E3804500DD8703 /* quaviTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAF7170E23E3804200DD8703 /* quavi */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7170F23E3804200DD8703 /* AppDelegate.swift */,
+				EAF7171123E3804200DD8703 /* SceneDelegate.swift */,
+				EAF7171323E3804200DD8703 /* ViewController.swift */,
+				EAF7171523E3804200DD8703 /* Main.storyboard */,
+				EAF7171823E3804500DD8703 /* Assets.xcassets */,
+				EAF7171A23E3804500DD8703 /* LaunchScreen.storyboard */,
+				EAF7171D23E3804500DD8703 /* Info.plist */,
+			);
+			path = quavi;
+			sourceTree = "<group>";
+		};
+		EAF7172523E3804600DD8703 /* quaviTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAF7172623E3804600DD8703 /* quaviTests.swift */,
+				EAF7172823E3804600DD8703 /* Info.plist */,
+			);
+			path = quaviTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAF7170B23E3804200DD8703 /* quavi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF7172B23E3804600DD8703 /* Build configuration list for PBXNativeTarget "quavi" */;
+			buildPhases = (
+				EAF7170823E3804200DD8703 /* Sources */,
+				EAF7170923E3804200DD8703 /* Frameworks */,
+				EAF7170A23E3804200DD8703 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = quavi;
+			productName = quavi;
+			productReference = EAF7170C23E3804200DD8703 /* quavi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAF7172123E3804500DD8703 /* quaviTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF7172E23E3804600DD8703 /* Build configuration list for PBXNativeTarget "quaviTests" */;
+			buildPhases = (
+				EAF7171E23E3804500DD8703 /* Sources */,
+				EAF7171F23E3804500DD8703 /* Frameworks */,
+				EAF7172023E3804500DD8703 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAF7172423E3804500DD8703 /* PBXTargetDependency */,
+			);
+			name = quaviTests;
+			productName = quaviTests;
+			productReference = EAF7172223E3804500DD8703 /* quaviTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAF7170423E3804200DD8703 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Sunni Tang";
+				TargetAttributes = {
+					EAF7170B23E3804200DD8703 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					EAF7172123E3804500DD8703 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = EAF7170B23E3804200DD8703;
+					};
+				};
+			};
+			buildConfigurationList = EAF7170723E3804200DD8703 /* Build configuration list for PBXProject "quavi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAF7170323E3804200DD8703;
+			productRefGroup = EAF7170D23E3804200DD8703 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAF7170B23E3804200DD8703 /* quavi */,
+				EAF7172123E3804500DD8703 /* quaviTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAF7170A23E3804200DD8703 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
+				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
+				EAF7171723E3804200DD8703 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF7172023E3804500DD8703 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAF7170823E3804200DD8703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF7171423E3804200DD8703 /* ViewController.swift in Sources */,
+				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
+				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAF7171E23E3804500DD8703 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF7172723E3804600DD8703 /* quaviTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAF7172423E3804500DD8703 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAF7170B23E3804200DD8703 /* quavi */;
+			targetProxy = EAF7172323E3804500DD8703 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAF7171523E3804200DD8703 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAF7171623E3804200DD8703 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAF7171A23E3804500DD8703 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAF7171B23E3804500DD8703 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAF7172923E3804600DD8703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EAF7172A23E3804600DD8703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAF7172C23E3804600DD8703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				INFOPLIST_FILE = quavi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1-Capstone.quavi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAF7172D23E3804600DD8703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				INFOPLIST_FILE = quavi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1-Capstone.quavi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EAF7172F23E3804600DD8703 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				INFOPLIST_FILE = quaviTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1-Capstone.quaviTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quavi.app/quavi";
+			};
+			name = Debug;
+		};
+		EAF7173023E3804600DD8703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				INFOPLIST_FILE = quaviTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1-Capstone.quaviTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/quavi.app/quavi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAF7170723E3804200DD8703 /* Build configuration list for PBXProject "quavi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF7172923E3804600DD8703 /* Debug */,
+				EAF7172A23E3804600DD8703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF7172B23E3804600DD8703 /* Build configuration list for PBXNativeTarget "quavi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF7172C23E3804600DD8703 /* Debug */,
+				EAF7172D23E3804600DD8703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF7172E23E3804600DD8703 /* Build configuration list for PBXNativeTarget "quaviTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF7172F23E3804600DD8703 /* Debug */,
+				EAF7173023E3804600DD8703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAF7170423E3804200DD8703 /* Project object */;
+}
