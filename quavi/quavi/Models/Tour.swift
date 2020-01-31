@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Tours {
+    var name: String
+    var category: String
+    var stops: [POI]
+    
+    static let dummyData: Tours = Tours(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
+}
