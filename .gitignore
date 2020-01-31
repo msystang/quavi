@@ -3,3 +3,5 @@ Pods
 
 xcuserdata
 *.xcworkspace
+
+.DS_Store
