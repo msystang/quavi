@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
-		EAF7171723E3804200DD8703 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171523E3804200DD8703 /* Main.storyboard */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
 		EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171A23E3804500DD8703 /* LaunchScreen.storyboard */; };
 		EAF7172723E3804600DD8703 /* quaviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7172623E3804600DD8703 /* quaviTests.swift */; };
@@ -18,10 +17,10 @@
 		EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173723E3823C00DD8703 /* MapViewController.swift */; };
 		EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173B23E3857500DD8703 /* FirestoreService.swift */; };
 		EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173E23E385EB00DD8703 /* UIDesign.swift */; };
-		EAF7174423E3879200DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174323E3879200DD8703 /* File.swift */; };
-		EAF7174723E387D300DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* File.swift */; };
-		EAF7174A23E3884600DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* File.swift */; };
-		EAF7174D23E388D000DD8703 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* File.swift */; };
+		EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174323E3879200DD8703 /* NetworkingFile.swift */; };
+		EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* ProtocolFile.swift */; };
+		EAF7174A23E3884600DD8703 /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* ExtensionFile.swift */; };
+		EAF7174D23E388D000DD8703 /* EnumFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* EnumFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,6 @@
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EAF7171623E3804200DD8703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAF7171823E3804500DD8703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAF7171B23E3804500DD8703 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAF7171D23E3804500DD8703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,10 +48,10 @@
 		EAF7173723E3823C00DD8703 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EAF7173B23E3857500DD8703 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		EAF7173E23E385EB00DD8703 /* UIDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDesign.swift; sourceTree = "<group>"; };
-		EAF7174323E3879200DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		EAF7174623E387D300DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		EAF7174923E3884600DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		EAF7174C23E388D000DD8703 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		EAF7174323E3879200DD8703 /* NetworkingFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingFile.swift; sourceTree = "<group>"; };
+		EAF7174623E387D300DD8703 /* ProtocolFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFile.swift; sourceTree = "<group>"; };
+		EAF7174923E3884600DD8703 /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
+		EAF7174C23E388D000DD8703 /* EnumFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +161,6 @@
 		EAF7174023E386BE00DD8703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7171523E3804200DD8703 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,7 +179,7 @@
 		EAF7174223E3878A00DD8703 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7174323E3879200DD8703 /* File.swift */,
+				EAF7174323E3879200DD8703 /* NetworkingFile.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -190,7 +187,7 @@
 		EAF7174523E387C700DD8703 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7174623E387D300DD8703 /* File.swift */,
+				EAF7174623E387D300DD8703 /* ProtocolFile.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -198,7 +195,7 @@
 		EAF7174823E3882800DD8703 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7174923E3884600DD8703 /* File.swift */,
+				EAF7174923E3884600DD8703 /* ExtensionFile.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,7 +203,7 @@
 		EAF7174B23E388C400DD8703 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7174C23E388D000DD8703 /* File.swift */,
+				EAF7174C23E388D000DD8703 /* EnumFile.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -294,7 +291,6 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EAF7171723E3804200DD8703 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,11 +313,11 @@
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
-				EAF7174A23E3884600DD8703 /* File.swift in Sources */,
-				EAF7174423E3879200DD8703 /* File.swift in Sources */,
+				EAF7174A23E3884600DD8703 /* ExtensionFile.swift in Sources */,
+				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
-				EAF7174723E387D300DD8703 /* File.swift in Sources */,
-				EAF7174D23E388D000DD8703 /* File.swift in Sources */,
+				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
+				EAF7174D23E388D000DD8703 /* EnumFile.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EAF7171523E3804200DD8703 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EAF7171623E3804200DD8703 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EAF7171A23E3804500DD8703 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
