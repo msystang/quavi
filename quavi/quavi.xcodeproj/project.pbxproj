@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
+		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 		EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* ProtocolFile.swift */; };
 		EAF7174A23E3884600DD8703 /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* ExtensionFile.swift */; };
 		EAF7174D23E388D000DD8703 /* EnumFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* EnumFile.swift */; };
+		EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */; };
+		EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quaviTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.debug.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.debug.xcconfig"; sourceTree = "<group>"; };
+		B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.release.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.release.xcconfig"; sourceTree = "<group>"; };
+		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +61,9 @@
 		EAF7174623E387D300DD8703 /* ProtocolFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFile.swift; sourceTree = "<group>"; };
 		EAF7174923E3884600DD8703 /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
 		EAF7174C23E388D000DD8703 /* EnumFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumFile.swift; sourceTree = "<group>"; };
+		EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapBox.swift"; sourceTree = "<group>"; };
+		EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Constraints.swift"; sourceTree = "<group>"; };
+		F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.debug.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,18 +79,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12D997E2FC08A07F36EADEC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */,
+				B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */,
+				F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */,
+				E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		97354F9799978F4BB10274F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */,
+				1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EAF7170323E3804200DD8703 = {
 			isa = PBXGroup;
 			children = (
 				EAF7170E23E3804200DD8703 /* quavi */,
 				EAF7172523E3804600DD8703 /* quaviTests */,
 				EAF7170D23E3804200DD8703 /* Products */,
+				12D997E2FC08A07F36EADEC6 /* Pods */,
+				97354F9799978F4BB10274F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				EAF7173723E3823C00DD8703 /* MapViewController.swift */,
+				EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */,
+				EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,9 +253,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAF7172B23E3804600DD8703 /* Build configuration list for PBXNativeTarget "quavi" */;
 			buildPhases = (
+				EAA57382008BF4FBD1CFF393 /* [CP] Check Pods Manifest.lock */,
 				EAF7170823E3804200DD8703 /* Sources */,
 				EAF7170923E3804200DD8703 /* Frameworks */,
 				EAF7170A23E3804200DD8703 /* Resources */,
+				A7852BC7513E0DD219B8019E /* [CP] Embed Pods Frameworks */,
+				EAF7175023E8AE2700DD8703 /* MapBox Access Token */,
 			);
 			buildRules = (
 			);
@@ -232,6 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAF7172E23E3804600DD8703 /* Build configuration list for PBXNativeTarget "quaviTests" */;
 			buildPhases = (
+				247F04489C11D036B25ED458 /* [CP] Check Pods Manifest.lock */,
 				EAF7171E23E3804500DD8703 /* Sources */,
 				EAF7171F23E3804500DD8703 /* Frameworks */,
 				EAF7172023E3804500DD8703 /* Resources */,
@@ -303,12 +345,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		247F04489C11D036B25ED458 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-quaviTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7852BC7513E0DD219B8019E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-quavi/Pods-quavi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-quavi/Pods-quavi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-quavi/Pods-quavi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAA57382008BF4FBD1CFF393 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-quavi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAF7175023E8AE2700DD8703 /* MapBox Access Token */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "MapBox Access Token";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "token_file=~/Desktop/mapbox_access_token.mapbox\ntoken=\"$(cat $token_file 2>/dev/null)\"\nif [ \"$token\" ]; then\n  plutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://account.mapbox.com/access-tokens/'\n  echo \"warning: Get an access token from <https://account.mapbox.com/access-tokens/>, then create a new file at $token_file that contains the access token.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EAF7170823E3804200DD8703 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */,
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
+				EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */,
 				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
@@ -468,6 +595,7 @@
 		};
 		EAF7172C23E3804600DD8703 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +614,7 @@
 		};
 		EAF7172D23E3804600DD8703 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +633,7 @@
 		};
 		EAF7172F23E3804600DD8703 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -526,6 +656,7 @@
 		};
 		EAF7173023E3804600DD8703 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
