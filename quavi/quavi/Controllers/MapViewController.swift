@@ -16,20 +16,26 @@ class MapViewController: UIViewController {
 
     lazy var mapView: NavigationMapView = {
         let mapView = NavigationMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.lightStyleURL
+        mapView.styleURL = MGLStyle.darkStyleURL
         mapView.delegate = self
         mapView.setUserTrackingMode(.followWithCourse, animated: true, completionHandler: nil)
         mapView.tintColor = .yellow
         mapView.showsUserLocation = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return mapView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
+        addSubviews()
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addConstraints()
+    }
 
     /*
     // MARK: - Navigation
