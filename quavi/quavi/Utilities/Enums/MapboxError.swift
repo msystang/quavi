@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MapboxError.swift
 //  quavi
 //
 //  Created by Sunni Tang on 1/30/20.
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+enum MapboxError: Error {
+    case generatingOptionsError
+}
