@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapboxDirections
 
 struct POI {
     var name: String
@@ -17,6 +18,13 @@ struct POI {
     var longDesc: String
     var tableViewImage: UIImage
     var popoverImage: UIImage
+    
+    //MARK: - Computed Variables
+    var waypoint: Waypoint {
+        let coordinate = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)
+        let waypoint = Waypoint(coordinate: coordinate, coordinateAccuracy: -1, name: self.name)
+        return waypoint
+    }
     
     static let pointsOfinterest:[POI] = [
         POI(
