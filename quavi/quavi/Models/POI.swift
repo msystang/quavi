@@ -11,13 +11,13 @@ import UIKit
 import MapboxDirections
 
 struct POI {
-    var name: String
-    var lat: Double
-    var long: Double
-    var shortDesc: String
-    var longDesc: String
-    var tableViewImage: UIImage
-    var popoverImage: UIImage
+    let name: String
+    let lat: Double
+    let long: Double
+    let shortDesc: String
+    let longDesc: String
+    let tableViewImage: UIImage
+    let popoverImage: UIImage
     
     //MARK: - Computed Variables
     var waypoint: Waypoint {

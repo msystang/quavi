@@ -10,9 +10,9 @@ import Foundation
 import MapboxDirections
 
 struct Tour {
-    var name: String
-    var category: String
-    var stops: [POI]
+    let name: String
+    let category: String
+    let stops: [POI]
     
     static let dummyData: Tour = Tour(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
     
