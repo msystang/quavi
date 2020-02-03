@@ -2,6 +2,8 @@ Secrets.swift
 Pods
 Podfile.lock
 
+quavi_access_token.mapbox
+
 xcuserdata
 *.xcworkspace
 
