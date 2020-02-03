@@ -14,6 +14,16 @@ import MapboxDirections
 
 class MapViewController: UIViewController {
 
+    lazy var mapView: NavigationMapView = {
+        let mapView = NavigationMapView(frame: view.bounds)
+        mapView.styleURL = MGLStyle.lightStyleURL
+        mapView.delegate = self
+        mapView.setUserTrackingMode(.followWithCourse, animated: true, completionHandler: nil)
+        mapView.tintColor = .yellow
+        mapView.showsUserLocation = true
+        return mapView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
