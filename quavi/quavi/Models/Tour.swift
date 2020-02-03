@@ -7,11 +7,17 @@
 //
 
 import Foundation
+import MapboxDirections
 
-struct Tours {
+struct Tour {
     var name: String
     var category: String
     var stops: [POI]
     
-    static let dummyData: Tours = Tours(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
+    static let dummyData: Tour = Tour(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
+    
+    func generateWaypoints(from tour: Tour) -> [Waypoint] {
+        let waypoints = tour.stops.map { $0.waypoint }
+        return waypoints
+    }
 }
