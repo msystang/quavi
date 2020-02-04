@@ -9,5 +9,6 @@
 import Foundation
 
 enum MapboxError: Error {
-    case generatingOptionsError
+    case noInitalUserLocation
+    case generatingRouteError
 }
