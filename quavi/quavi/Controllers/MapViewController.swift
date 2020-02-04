@@ -25,11 +25,19 @@ class MapViewController: UIViewController {
         return mapView
     }()
     
+    // MARK: - Internal Properties
+    var selectedRoute: Route?
+    
+    
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
+        
         addSubviews()
-        // Do any additional setup after loading the view.
+        
+        getSelectedRoute()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

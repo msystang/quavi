@@ -11,35 +11,35 @@ import MapboxDirections
 import MapboxCoreNavigation
 
 struct Tour {
+    // MARK: - Internal Properties
     let name: String
     let category: String
     let stops: [POI]
     
+    // MARK: - Static Properties
     static let dummyData: Tour = Tour(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
     
-    private func generateWaypoints(from tour: Tour) -> [Waypoint] {
-        let waypoints = tour.stops.map { $0.waypoint }
-        return waypoints
-    }
-    
-    func generateNaviationRouteOptions(from tour: Tour, initialLocation: CLLocationCoordinate2D?, navigationType: MBDirectionsProfileIdentifier, completion: @escaping ((Result<NavigationRouteOptions, MapboxError>) -> ())) {
+    // MARK: - Static Functions
+    static func generateNavigationRouteOptions(from tour: Tour, initialLocation: CLLocationCoordinate2D?, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
         
-        //TODO: Handle else statement
-        guard let initialLocation = initialLocation else { return }
+        guard let initialLocation = initialLocation else { throw MapboxError.noInitalUserLocation }
         
+        // Get all waypoints for initialLocation and stops in tour
+        let stops = tour.stops.map { $0.waypoint }
         let initialWaypoint = Waypoint(coordinate: initialLocation, coordinateAccuracy: -1, name: "Initial Location")
-        let stops = generateWaypoints(from: tour)
         
+        // Create array of waypoints
         var waypoints = [Waypoint]()
         waypoints.append(initialWaypoint)
-        waypoints.append(contentsOf: stops)
+        for stop in stops {
+            waypoints.append(stop)
+        }
         
+        // Create RouteOptions from waypoints
+        //TODO: Determine if we need to handle async for getting options from API
         let options = NavigationRouteOptions(waypoints: waypoints, profileIdentifier: navigationType)
         
-        completion(.success(options))
-        completion(.failure(MapboxError.generatingOptionsError))
+        return options
     }
-    
-    //TODO: make generateRoute(from options:...) func in MapVC
     
 }
