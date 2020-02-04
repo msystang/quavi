@@ -13,7 +13,7 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
-
+    // MARK: - Lazy UI Variables
     lazy var mapView: NavigationMapView = {
         let mapView = NavigationMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.darkStyleURL
