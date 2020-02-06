@@ -13,29 +13,61 @@ import MapboxNavigation
 import MapboxDirections
 
 extension MapViewController: MGLMapViewDelegate {
+    //TODO: Draw polyline for route
+    //TODO: Place polyline on mapView
+    
     // MARK: - Internal Methods
     //TODO: Refactor with initalLocation from user!
     func getSelectedRoute() {
+        //TODO: User's current location must require mapView to load first, must deal with async
+        
         // For Testing...
-        let testInitialLocation = CLLocationCoordinate2D(latitude: Tour.dummyData.stops.first!.lat, longitude: Tour.dummyData.stops.first!.long)
+        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.758896, longitude: -73.985130)
         let testProfileIdentifier = MBDirectionsProfileIdentifier.walking
         
-        do {
-            let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: testProfileIdentifier)
-            
-            //Generate route from options
-            self.generateRoute(from: options) { (result) in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let route):
-                    self.selectedRoute = route
-                    print("Succesfully got route. Lat: \(route.routeOptions.waypoints.first!.coordinate.latitude)")
+        
+        DispatchQueue.main.async {
+            do {
+                let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: testProfileIdentifier)
+                
+                //Generate route from options
+                //TODO: Make async
+                self.generateRoute(from: options) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let route):
+                        self.selectedRoute = route
+                        self.testSelectedRoute()
+                        self.addMapAnnotations(from: route)
+                    }
                 }
+            } catch let error {
+                print("error in getSelectedRoute: \(error)")
             }
-        } catch let error {
-            print("error in getSelectedRoute: \(error)")
         }
+    }
+    
+    func addMapAnnotations(from selectedRoute: Route) {
+        //Creating points as an array of MGLPointAnnotations then adding as annotations in mapView
+        //TODO: Remove annotation for first annotation
+        let waypoints = selectedRoute.routeOptions.waypoints
+        var routePoints = [MGLPointAnnotation]()
+        
+        waypoints.forEach { (waypoint) in
+            let pointAnnotation = MGLPointAnnotation()
+            pointAnnotation.coordinate = waypoint.coordinate
+            pointAnnotation.title = waypoint.name ?? "Could not get name for waypoint"
+            
+            routePoints.append(pointAnnotation)
+        }
+        
+        mapView.addAnnotations(routePoints)
+    }
+    
+    // MARK: - MapBox Delegate Methods
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
     }
     
     

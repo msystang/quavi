@@ -28,7 +28,6 @@ class MapViewController: UIViewController {
     // MARK: - Internal Properties
     var selectedRoute: Route?
     
-    
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +36,20 @@ class MapViewController: UIViewController {
         addSubviews()
         
         getSelectedRoute()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addConstraints()
+        
     }
-
+    
+    func testSelectedRoute() {
+        print("selectedRoute.routeOptions.waypoints:  \(selectedRoute!.routeOptions.waypoints)")
+        print("selectedRoute.coordinates: \(selectedRoute!.coordinates)")
+        print("selectedRoute.legs: \(selectedRoute!.legs)")
+        print("selectedRoute.legs.first.distance: \(selectedRoute!.legs.first!.distance)")
+    }
 
 
 }
