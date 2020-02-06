@@ -16,16 +16,18 @@ struct POI {
     let long: Double
     let shortDesc: String
     let longDesc: String
+    //TODO: Change type of images to be compatible with Firebase/KingFisher i.e. URL
     let tableViewImage: UIImage
     let popoverImage: UIImage
     
-    //MARK: - Computed Variables
+    // MARK: - Computed Variables
     var waypoint: Waypoint {
         let coordinate = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)
         let waypoint = Waypoint(coordinate: coordinate, coordinateAccuracy: -1, name: self.name)
         return waypoint
     }
     
+    // MARK: - Static Variables
     static let pointsOfinterest:[POI] = [
         POI(
             name: "Empire State Building",

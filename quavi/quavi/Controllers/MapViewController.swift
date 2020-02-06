@@ -15,6 +15,7 @@ import MapboxDirections
 class MapViewController: UIViewController {
     // MARK: - Lazy UI Variables
     lazy var mapView: NavigationMapView = {
+        // TODO: Refactor code, see what makes sense to go here
         let mapView = NavigationMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.darkStyleURL
         mapView.delegate = self
