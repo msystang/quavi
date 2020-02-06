@@ -1,19 +1,21 @@
 # QUAVI
 #### (pronounced KWEY-VEE)
 
-#### Introduction
+## Introduction
+#### Problem Statement
 Being in a new city is intimidating when you don’t know much about it. You’re in a strange new world, lost, and you just want somewhere to start. There are guided tours, but they can be costly and inflexible in terms of time and the points of interests. You could look up locations on a map, but in a busy place like NYC, it’s sometimes hard to find what you’re actually looking for whether you’re hungry or want some history.
 
+#### Solution
 Quavi makes exploring a new city easier and catered to the individual’s experience. Our app would allow a user to be their own interactive tour guide at their own leisure with no cost to them. Users have the option to select and download preset tour routes based on the categories that interest them (i.e. History, Arts & Culture, Religion, Food, etc). This eliminates the need to meticulously plan out their sightseeing course from scouring through multiple resources.
 
-#### Technologies
+## Technologies
 1. Swift 5
 1. MapBox (including AR and Machine Learning capabilities)
 1. CoreLocation
 1. Google Firebase
 1. Kingfisher
 
-#### Usage Example
+## Usage Example
 - The user is presented with the map loaded on the screen and on the bottom is the “Map” tab and “Profile” tab at the bottom of the screen:
   - The map will include a collection of route categories that the user can select from
   - The user can select a category which will plot annotations on the map for the tour
@@ -37,13 +39,12 @@ Quavi makes exploring a new city easier and catered to the individual’s experi
 - The “Profile” tab will allow users to update/edit their profile info and view their saved tours and points of interested
 
 
-#### GIFs & Images
+## GIFs & Images
 Coming Soon!
 
 
-#### Contributors
-- Project Manager/Meeting Facilitator - [Sunni Tang](https://github.com/msystang)
-- Tech Lead/Git Master - [Ayoola Abudu](https://github.com/aabudu16)
-- Notes Manager - [Rad Valogno](https://github.com/RadBV)
-- Communications/App Ideator - [Alexander George Legaspi](https://github.com/aglegaspi)
-
+## Contributors
+- [Sunni Tang](https://github.com/msystang)
+- [Ayoola Abudu](https://github.com/aabudu16)
+- [Rad Valogno](https://github.com/RadBV)
+- [Alexander George Legaspi](https://github.com/aglegaspi)

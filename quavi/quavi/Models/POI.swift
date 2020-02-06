@@ -12,6 +12,7 @@ import MapboxDirections
 
 struct POI {
     let name: String
+    let isCellExpanded: Bool
     let lat: Double
     let long: Double
     let shortDesc: String
@@ -19,6 +20,7 @@ struct POI {
     //TODO: Change type of images to be compatible with Firebase/KingFisher i.e. URL
     let tableViewImage: UIImage
     let popoverImage: UIImage
+
     
     // MARK: - Computed Variables
     var waypoint: Waypoint {
@@ -31,6 +33,7 @@ struct POI {
     static let pointsOfinterest:[POI] = [
         POI(
             name: "Empire State Building",
+            isCellExpanded: false,
             lat: 40.748817,
             long: -73.985428,
             shortDesc: "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan, New York City. It was designed by Shreve, Lamb & Harmon and completed in 1931. The building has a roof height of 1,250 feet (380 m) and stands a total of 1,454 feet (443.2 m) tall, including its antenna. Its name is derived from 'Empire State', the nickname of New York.",
@@ -39,6 +42,7 @@ struct POI {
             popoverImage: UIImage(named: "empireState2")!),
         POI(
             name: "National Museum of Mathematics",
+            isCellExpanded: false,
             lat: 40.743445,
             long: -73.987228,
             shortDesc: "The National Museum of Mathematics or MoMath is a museum dedicated to mathematics in Manhattan, New York City. It opened on December 15, 2012. It is located at 11 East 26th Street between Fifth and Madison Avenues, across from Madison Square Park in the NoMad neighborhood.",
