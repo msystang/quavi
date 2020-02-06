@@ -13,8 +13,9 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
-
+    // MARK: - Lazy UI Variables
     lazy var mapView: NavigationMapView = {
+        // TODO: Refactor code, see what makes sense to go here
         let mapView = NavigationMapView(frame: view.bounds)
         mapView.styleURL = MGLStyle.darkStyleURL
         mapView.delegate = self
@@ -25,26 +26,25 @@ class MapViewController: UIViewController {
         return mapView
     }()
     
+    // MARK: - Internal Properties
+    var selectedRoute: Route?
+    
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
+        
         addSubviews()
-        // Do any additional setup after loading the view.
+        
+        getSelectedRoute()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addConstraints()
+        
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
