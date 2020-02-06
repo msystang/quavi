@@ -38,8 +38,8 @@ extension MapViewController: MGLMapViewDelegate {
                         print(error)
                     case .success(let route):
                         self.selectedRoute = route
-                        self.testSelectedRoute()
                         self.addMapAnnotations(from: route)
+                        self.generatePolylineSource(from: route)
                     }
                 }
             } catch let error {
@@ -65,6 +65,28 @@ extension MapViewController: MGLMapViewDelegate {
         mapView.addAnnotations(routePoints)
     }
     
+    func generatePolylineSource(from selectedRoute: Route) {
+        //Draws line for the route based on waypoints and turns
+        guard selectedRoute.coordinateCount > 0 else { return }
+        
+        guard let coordinates = selectedRoute.coordinates else { return }
+        
+        let polyline = MGLPolylineFeature(coordinates: coordinates, count: selectedRoute.coordinateCount)
+        
+        //If there's already a polyline, we reset the polyline to the new route. If not, it creates a new polyline
+        //TODO: make enum for these keys
+        
+        if let source = mapView.style?.source(withIdentifier: "route-source") as? MGLShapeSource {
+            source.shape = polyline
+        } else {
+            //TODO: Look into what options are?
+            let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
+            mapView.style?.addSource(source)
+            generatePolylineStyle(source: source)
+        }
+    }
+    
+    
     // MARK: - MapBox Delegate Methods
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         return true
@@ -85,4 +107,12 @@ extension MapViewController: MGLMapViewDelegate {
         })
     }
     
+    private func generatePolylineStyle(source: MGLShapeSource) {
+        let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
+        
+        lineStyle.lineWidth = NSExpression(forConstantValue: 5)
+        lineStyle.lineColor = NSExpression(forConstantValue: UIColor.yellow)
+        
+        mapView.style?.addLayer(lineStyle)
+    }
 }
