@@ -44,13 +44,7 @@ class MapViewController: UIViewController {
         addConstraints()
         
     }
-    
-    func testSelectedRoute() {
-        print("selectedRoute.routeOptions.waypoints:  \(selectedRoute!.routeOptions.waypoints)")
-        print("selectedRoute.coordinates: \(selectedRoute!.coordinates)")
-        print("selectedRoute.legs: \(selectedRoute!.legs)")
-        print("selectedRoute.legs.first.distance: \(selectedRoute!.legs.first!.distance)")
-    }
+
 
 
 }
