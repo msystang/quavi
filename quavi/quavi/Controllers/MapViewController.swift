@@ -26,6 +26,16 @@ class MapViewController: UIViewController {
         return mapView
     }()
     
+    //TODO:- Adds image to button
+    lazy var startNavigationButton:UIButton = {
+        let button = UIButton()
+        button.setTitle("Navigate", for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.yellow.cgColor
+        button.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Internal Properties
     var selectedRoute: Route?
     
@@ -35,7 +45,6 @@ class MapViewController: UIViewController {
         view.backgroundColor = .yellow
         
         addSubviews()
-        
         getSelectedRoute()
     }
     
