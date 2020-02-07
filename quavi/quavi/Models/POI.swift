@@ -48,5 +48,21 @@ struct POI {
             shortDesc: "The National Museum of Mathematics or MoMath is a museum dedicated to mathematics in Manhattan, New York City. It opened on December 15, 2012. It is located at 11 East 26th Street between Fifth and Madison Avenues, across from Madison Square Park in the NoMad neighborhood.",
             longDesc: "In 2006 the Goudreau Museum on Long Island, at the time the only museum in the United States dedicated to mathematics, closed its doors. In response, a group led by founder and former CEO Glen Whitney met to explore the opening of a new museum. They received a charter from the New York State Department of Education in 2009, and raised over 22 million dollars in under four years. With this funding, a 19,000 square feet (1,800 m2) space was leased in the Goddard Building at 11-13 East 26th Street, located in the Madison Square North Historic District. Despite some opposition to the architectural plans within the local community, permission for construction was granted by the New York City Landmarks Preservation Commission and the Department of Buildings.",
             tableViewImage: UIImage(named: "moMath1")!,
-            popoverImage: UIImage(named: "moMath2")!)]
+            popoverImage: UIImage(named: "moMath2")!),
+        POI(
+            name: "Rubin Museum of Art",
+            isCellExpanded: false,
+            lat: 40.7422526,
+            long: -73.9974155,
+            shortDesc: "The Rubin Museum of Art is a dynamic environment that stimulates learning, promotes understanding, and inspires personal connections to the ideas, cultures, and art of Himalayan regions.",
+            longDesc: """
+            The Rubin Museum of Art is a dynamic environment that stimulates learning, promotes understanding, and inspires personal connections to the ideas, cultures, and art of Himalayan regions.
+            
+            We believe in taking an open and active approach to engaging learners at all levels and helping them to understand our world. We do this by encouraging deep connections and transformational experiences in a welcoming, enjoyable, and beautiful environment.
+
+            Visitors are at our core. We share with all communities our collection and broadly conceived exhibitions as a catalyst for dialogues about art and culture.
+            """,
+            tableViewImage: UIImage(named: "theRubin1")!,
+            popoverImage: UIImage(named: "theRubin2")!)
+    ]
 }
