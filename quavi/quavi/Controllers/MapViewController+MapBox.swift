@@ -47,7 +47,7 @@ extension MapViewController: MGLMapViewDelegate {
             }
         }
     }
-    
+
     func addMapAnnotations(from selectedRoute: Route) {
         //Creating points as an array of MGLPointAnnotations then adding as annotations in mapView
         //TODO: Remove annotation for first annotation
