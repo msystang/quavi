@@ -9,7 +9,6 @@
 import Foundation
 import Mapbox
 import MapboxCoreNavigation
-import MapboxNavigation
 import MapboxDirections
 
 extension MapViewController: MGLMapViewDelegate {
