@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import MapboxNavigation
+import MapboxDirections
+
+extension MapViewController {
+    
+    @objc func startNavigationButtonPressed() {
+        // TODO: Handle error (enum or alert?)
+        guard let selectedRoute = selectedRoute else { return }
+        
+        let navigationVC = NavigationViewController(for: selectedRoute)
+        navigationVC.modalPresentationStyle = .fullScreen
+        
+        present(navigationVC, animated: true)
+    }
+    
+}
