@@ -12,7 +12,7 @@ import MapboxDirections
 
 struct POI {
     let name: String
-    let isCellExpanded: Bool
+    var isCellExpanded: Bool
     let lat: Double
     let long: Double
     let shortDesc: String
