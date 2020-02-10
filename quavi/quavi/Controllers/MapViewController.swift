@@ -65,7 +65,7 @@ class MapViewController: UIViewController {
         button.setTitle("Navigate", for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.yellow.cgColor
-       // button.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         return button
     }()
     
