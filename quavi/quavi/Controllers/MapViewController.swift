@@ -321,7 +321,7 @@ class MapViewController: UIViewController {
         poiTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             poiTableView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 10),
-            poiTableView.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),
+            poiTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor)
         ])
