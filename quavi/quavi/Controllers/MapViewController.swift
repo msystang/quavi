@@ -13,6 +13,9 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
+    
+    var sampleData = POI.pointsOfinterest
+    
     // MARK: - Lazy UI Variables
     lazy var mapView: NavigationMapView = {
         // TODO: Refactor code, see what makes sense to go here
@@ -63,19 +66,6 @@ class MapViewController: UIViewController {
     // MARK: - Internal Properties
     var selectedRoute: Route?
     
-    var sampleData: [CellData] = [
-        CellData(isOpen: false, title: "Empire State Building",
-                 sectionData: """
-                    First Stop
-                    Another Stop
-                    Food Stop
-                    """, category: Enums.categories.History.rawValue),
-        CellData(isOpen: false, title: "National Museum of Mathematics", sectionData: """
-           Second Stop
-           Restroom Stop
-           """, category: Enums.categories.History.rawValue),
-        CellData(isOpen: false, title: "Central Parks", sectionData: "Third Stop", category: Enums.categories.History.rawValue)
-    ]
     
     let sampleCategoryData: [CategoryData] = [
         CategoryData(name: Enums.categories.History.rawValue),
@@ -296,10 +286,10 @@ class MapViewController: UIViewController {
     //MARK: -OBJ-C FUNCTIONS
     @objc func buttonPressed(sender: UIButton) {
         print(sender.tag)
-        if sampleData[sender.tag].isOpen {
-            sampleData[sender.tag].isOpen = false
+        if sampleData[sender.tag].isCellExpanded {
+            sampleData[sender.tag].isCellExpanded = false
         } else {
-            sampleData[sender.tag].isOpen = true
+            sampleData[sender.tag].isCellExpanded = true
         }
         
         let incides: IndexSet = [sender.tag]
@@ -358,7 +348,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if sampleData[section].isOpen == false {
+        if sampleData[section].isCellExpanded == false {
             return 0
         } else {
             return 1
@@ -376,7 +366,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
             
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
-            button.setTitle(sampleData[section].title, for: .normal)
+            button.setTitle(sampleData[section].name, for: .normal)
             button.backgroundColor = .yellow
             button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchDown)
             button.setTitleColor(.black, for: .normal)
@@ -395,6 +385,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let stop = sampleData[indexPath.section]
         
         guard let cell = poiTableView.dequeueReusableCell(withIdentifier: Enums.cellIdentifiers.StopCell.rawValue, for: indexPath) as? StopsTableViewCell else { return UITableViewCell() }
         
@@ -405,7 +396,8 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.alpha = 1
         })
         
-        cell.stopLabel.text = sampleData[indexPath.section].sectionData
+        cell.stopImage.image = stop.tableViewImage
+        cell.stopLabel.text = sampleData[indexPath.section].shortDesc
         return cell
     }
     
