@@ -11,11 +11,14 @@ import UIKit
 
 extension MapViewController {
     func addSubviews() {
+        //TODO: -- re-assign this to the view when the collectionview is added
         view.addSubview(mapView)
+        mapView.addSubview(startNavigationButton)
     }
     
     func addConstraints() {
         setMapViewConstraints()
+        setStartNavigationButtonConstraints()
     }
     
     //MARK: -mapView Constraints
@@ -31,4 +34,14 @@ extension MapViewController {
         ])
     }
     
+    func setStartNavigationButtonConstraints(){
+        startNavigationButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            startNavigationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -15),
+            startNavigationButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -30),
+            startNavigationButton.heightAnchor.constraint(equalToConstant: 40),
+            startNavigationButton.heightAnchor.constraint(equalToConstant: 40),
+        ])
+    }
 }
