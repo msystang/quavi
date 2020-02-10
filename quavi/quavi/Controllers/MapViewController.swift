@@ -162,7 +162,7 @@ class MapViewController: UIViewController {
     }
 
     private func createSliderViewConstraints() {
-        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 400)
+        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
         sliderViewTopConstraints?.isActive = true
 
         newSliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
