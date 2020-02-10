@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		851C487B23EE078D0054C25E /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851C487A23EE078D0054C25E /* MapViewController+Navigation.swift */; };
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
 		1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */; };
 		1D91608E23F0DA8B009B1F97 /* TableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608D23F0DA8B009B1F97 /* TableViewCellData.swift */; };
@@ -45,11 +46,13 @@
 /* Begin PBXFileReference section */
 		1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quaviTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.debug.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.debug.xcconfig"; sourceTree = "<group>"; };
+		851C487A23EE078D0054C25E /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
 		1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D91608D23F0DA8B009B1F97 /* TableViewCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellData.swift; sourceTree = "<group>"; };
 		1D91608F23F0DACD009B1F97 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1D91609123F0DB3F009B1F97 /* CategoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+>>>>>>> 475920770e9a103c12259feb4c8643f4554aebca
 		B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.release.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.release.xcconfig"; sourceTree = "<group>"; };
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 			children = (
 				EAF7173723E3823C00DD8703 /* MapViewController.swift */,
 				EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */,
+				851C487A23EE078D0054C25E /* MapViewController+Navigation.swift */,
 				EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */,
 			);
 			path = Controllers;
@@ -466,6 +470,7 @@
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
+				851C487B23EE078D0054C25E /* MapViewController+Navigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
