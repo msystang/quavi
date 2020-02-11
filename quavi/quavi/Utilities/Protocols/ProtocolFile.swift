@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol WaypointConfirmationViewControllerDelegate: NSObject {
+    func proceedToNextLegInTour(_ controller: POIInfoViewController)
+}
