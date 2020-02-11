@@ -31,4 +31,6 @@ class POIInfoViewController: UIViewController {
     @objc func continueButtonPressed(_ sender: Any) {
     
     }
+    
+    
 }
