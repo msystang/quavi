@@ -13,6 +13,7 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
+// TODO: Create new file and instantiante a view. Put UI properties into a view in separate file and reference it here. Refactor constraints to reference view. MapViewController+UIObjects
     
     var sampleData = POI.pointsOfinterest
     
@@ -80,7 +81,7 @@ class MapViewController: UIViewController {
     // MARK: - Internal Properties
     var selectedRoute: Route?
     
-    
+    // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData: [CategoryData] = [
         CategoryData(name: Enums.categories.History.rawValue),
         CategoryData(name: Enums.categories.Art.rawValue),
@@ -89,6 +90,7 @@ class MapViewController: UIViewController {
         CategoryData(name: Enums.categories.Yeet.rawValue)
     ]
     
+    //TODO: Rename constraints to be more specific and indicate state of slider
     var sliderViewTopConstraints: NSLayoutConstraint?
     var newSliderViewTopConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
@@ -125,6 +127,7 @@ class MapViewController: UIViewController {
     
     //MARK: -PRIVATE FUNCTIONS
     
+    //TODO: Add to constraints extension file
     private func addSliderViewSubViews() {
         view.addSubview(sliderView)
         sliderView.addSubview(chevronArrows)
@@ -132,12 +135,15 @@ class MapViewController: UIViewController {
         sliderView.addSubview(poiTableView)
     }
     
+    //TODO: Add to constraints extension file
     private func addSliderViewConstraints() {
         constrainSliderView()
         constrainChevronImage()
         constrainCategoriesCollectionView()
         constrainPOITableView()
     }
+    
+    //TODO: Create extension of MapViewController file called MapViewController+SliderView and add anything related to that file
     private func loadGestures() {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
         swipeDown.direction = .down
@@ -151,7 +157,6 @@ class MapViewController: UIViewController {
         self.chevronArrows.addGestureRecognizer(tap)
     }
     
-
     func directionOfChevron(state: Enums.sliderViewStates) {
         
         switch state {
@@ -165,6 +170,7 @@ class MapViewController: UIViewController {
         }
     }
 
+    //TODO: add to constraints extension
     private func createSliderViewConstraints() {
         sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 400)
         sliderViewTopConstraints?.isActive = true
@@ -193,6 +199,8 @@ class MapViewController: UIViewController {
         sliderViewTopConstraints?.isActive = false
         newSliderViewTopConstraints?.isActive = true
     }
+    
+    //TODO: Create extension of MapViewController file called MapViewController+CollectionView and add anything related to that file
     private func handleCollectionViewCellPressed(item: Int) {
         if item == 0 {
             currentSelectedCategory = Enums.categories.History.rawValue
@@ -207,6 +215,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //TODO: Move to slider view extension file
     //MARK: -RESPOND TO GESTURE
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         print(gesture)
@@ -296,7 +305,7 @@ class MapViewController: UIViewController {
         
     }
     
-    
+    //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
     @objc func buttonPressed(sender: UIButton) {
         print(sender.tag)
@@ -311,8 +320,9 @@ class MapViewController: UIViewController {
         
     }
     
-    //MARK: -CONSTRAINTS
     
+    //TODO: Add to constraints file, specific for the sliderView, collectionView, or TableView (indicate with MARK)
+    //MARK: -CONSTRAINTS
     private func constrainSliderView() {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -357,6 +367,7 @@ class MapViewController: UIViewController {
 
 }
 
+//TODO: Make file extension of MapViewController named MapViewController+TableView
 //MARK: -EXT. TABLEVIEW DELEGATE & DATASOURCE
 extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -422,6 +433,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//TODO: Make file extension of MapViewController named MapViewController+CollectionView
 extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sampleCategoryData.count

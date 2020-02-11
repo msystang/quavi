@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//TODO: Delete this file. Was for testing.
 struct CellData {
     var isOpen: Bool
     let title: String

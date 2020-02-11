@@ -13,8 +13,6 @@ import MapboxNavigation
 import MapboxDirections
 
 extension MapViewController: MGLMapViewDelegate {
-    //TODO: Draw polyline for route
-    //TODO: Place polyline on mapView
     
     // MARK: - Internal Methods
     //TODO: Refactor with initalLocation from user!

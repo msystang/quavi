@@ -8,7 +8,7 @@
 import UIKit
 
 struct Enums {
-    
+//TODO: Separate enums and put Category enum as a model, other enums that are not models go in Enum folder
     enum categories: String {
         case History, Art, Science, Religion, Yeet
     }
