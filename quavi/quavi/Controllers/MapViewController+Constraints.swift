@@ -13,7 +13,7 @@ extension MapViewController {
     func addSubviews() {
         //TODO: -- re-assign this to the view when the collectionview is added
         view.addSubview(mapView)
-        mapView.addSubview(startNavigationButton)
+        sliderView.addSubview(startNavigationButton)
     }
     
     func addConstraints() {
