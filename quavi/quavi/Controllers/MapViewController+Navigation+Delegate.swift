@@ -14,9 +14,11 @@ import MapboxDirections
 
 extension MapViewController:NavigationMapViewDelegate{
     
-     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint)-> Bool {
-
-        return true
+    func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint)-> Bool {
+        
+        let poiInfoViewController = POIInfoViewController()
+        navigationViewController.present(poiInfoViewController, animated: true, completion: nil)
+        return false
     }
-
+    
 }
