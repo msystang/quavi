@@ -10,13 +10,13 @@ import UIKit
 extension POIInfoViewController{
     
     func addSubviews() {
-        view.addSubview(ContinueButton)
+        view.addSubview(continueButton)
     }
     
      func continueButtonConstraints(){
         
-        ContinueButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([ContinueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), ContinueButton.centerYAnchor.constraint(equalTo: view.centerYAnchor), ContinueButton.heightAnchor.constraint(equalToConstant: 100), ContinueButton.widthAnchor.constraint(equalToConstant: 100)])
+        continueButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), continueButton.centerYAnchor.constraint(equalTo: view.centerYAnchor), continueButton.heightAnchor.constraint(equalToConstant: 100), continueButton.widthAnchor.constraint(equalToConstant: 100)])
     }
 
 }
