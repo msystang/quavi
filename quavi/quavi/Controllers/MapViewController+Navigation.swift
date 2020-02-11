@@ -9,6 +9,7 @@
 import Foundation
 import MapboxNavigation
 import MapboxDirections
+import MapboxCoreNavigation
 
 extension MapViewController {
 

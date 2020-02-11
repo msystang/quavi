@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import Mapbox
+import MapboxCoreNavigation
+import MapboxNavigation
+import MapboxDirections
+
+extension MapViewController:NavigationMapViewDelegate{
+    
+     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint)-> Bool {
+
+        return true
+    }
+
+}
