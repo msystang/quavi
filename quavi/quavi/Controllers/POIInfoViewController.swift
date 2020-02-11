@@ -21,6 +21,8 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
+    weak var delegate: WaypointConfirmationViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          setBackgroundColor()
@@ -33,7 +35,7 @@ class POIInfoViewController: UIViewController {
     }
 
     @objc func continueButtonPressed(_ sender: Any) {
-    
+        delegate?.proceedToNextLegInTour(self)
     }
     
     
