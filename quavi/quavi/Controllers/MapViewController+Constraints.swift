@@ -37,11 +37,6 @@ extension MapViewController {
     func setStartNavigationButtonConstraints(){
         startNavigationButton.translatesAutoresizingMaskIntoConstraints = false
 
-        NSLayoutConstraint.activate([
-            startNavigationButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -15),
-            startNavigationButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -30),
-            startNavigationButton.heightAnchor.constraint(equalToConstant: 40),
-            startNavigationButton.heightAnchor.constraint(equalToConstant: 40),
-        ])
+        NSLayoutConstraint.activate([startNavigationButton.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: -(startNavigationButton.frame.height / 2)), startNavigationButton.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor, constant:  -5), startNavigationButton.heightAnchor.constraint(equalToConstant: 50), startNavigationButton.widthAnchor.constraint(equalToConstant: 50)])
     }
 }
