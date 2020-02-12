@@ -172,7 +172,7 @@ class MapViewController: UIViewController {
 
     //TODO: add to constraints extension
     private func createSliderViewConstraints() {
-        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 400)
+        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
         sliderViewTopConstraints?.isActive = true
 
         newSliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
@@ -226,8 +226,8 @@ class MapViewController: UIViewController {
             case 1:
                 print("one tap")
                 
-                sliderViewTopConstraints?.isActive = true
-                newSliderViewTopConstraints?.isActive = false
+                setHalfOpenSliderViewConstraints()
+                sliderViewState = .halfOpen
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
                     self?.directionOfChevron(state: .halfOpen)
@@ -263,7 +263,13 @@ class MapViewController: UIViewController {
                 
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                    self?.directionOfChevron(state: .closed)
+                    if self?.sliderViewState == .closed {
+                        self?.directionOfChevron(state: .closed)
+                    } else if self?.sliderViewState == .halfOpen {
+                        self?.directionOfChevron(state: .halfOpen)
+                    } else if self?.sliderViewState == .fullOpen {
+                        self?.directionOfChevron(state: .fullOpen)
+                    }
                     self?.view.layoutIfNeeded()
                     
                     if self?.sliderViewState == .closed {
@@ -289,7 +295,13 @@ class MapViewController: UIViewController {
                 }
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                    self?.directionOfChevron(state: .halfOpen)
+                    if self?.sliderViewState == .closed {
+                        self?.directionOfChevron(state: .closed)
+                    } else if self?.sliderViewState == .halfOpen {
+                        self?.directionOfChevron(state: .halfOpen)
+                    } else if self?.sliderViewState == .fullOpen {
+                        self?.directionOfChevron(state: .fullOpen)
+                    }
                     self?.view.layoutIfNeeded()
                     
                     self?.sliderView.alpha = 1.0
@@ -367,7 +379,6 @@ class MapViewController: UIViewController {
 
 }
 
-//TODO: Make file extension of MapViewController named MapViewController+TableView
 
 
 //TODO: Make file extension of MapViewController named MapViewController+CollectionView
