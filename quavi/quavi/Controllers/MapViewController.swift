@@ -379,7 +379,10 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sampleData.count
+        if currentSelectedCategory == Enums.categories.History.rawValue {
+            return sampleData.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
