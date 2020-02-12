@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: Rename to CategoryCollectionViewCell
+
 class CategoriesCollectionViewCell: UICollectionViewCell {
     //MARK: -- Object Properties
     lazy var categoryLabel: UILabel = {

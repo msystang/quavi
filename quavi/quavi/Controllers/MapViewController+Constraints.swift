@@ -10,15 +10,25 @@ import Foundation
 import UIKit
 
 extension MapViewController {
+//TODO: Add all constraints for objects here, marked and labeled
+    
+//TODO: Create addSubview and addConstraint func for specific objects i.e. addCollectionViewSubviews(), addCollectionViewConstraints
+    
+    //TODO: rename to addMapViewSubviews()
     func addSubviews() {
+        //TODO: -- re-assign this to the view when the collectionview is added
         view.addSubview(mapView)
+        sliderView.addSubview(startNavigationButton)
     }
     
+    //TODO: rename to addMapViewConstraints()
     func addConstraints() {
         setMapViewConstraints()
+        setStartNavigationButtonConstraints()
     }
     
     //MARK: -mapView Constraints
+    //TODO: make funcs private
     func setMapViewConstraints() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -27,8 +37,20 @@ extension MapViewController {
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        
+            
         ])
     }
     
+    func setStartNavigationButtonConstraints(){
+        startNavigationButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([startNavigationButton.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: -(startNavigationButton.frame.height / 2)),
+                        startNavigationButton.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor, constant:  -5),
+                        startNavigationButton.heightAnchor.constraint(equalToConstant: 50),
+                        startNavigationButton.widthAnchor.constraint(equalToConstant: 50)])
+    }
+    
+    //MARK: -collectionView Constraints
+    
+    //MARK: -tableView Constraints
 }

@@ -8,14 +8,20 @@
 
 import UIKit
 
+// TODO: Rename to POITableViewCell
 class StopsTableViewCell: UITableViewCell {
-    //MARK: -- Data types
     
-    //MARK: -- Objects
+    //MARK: -- Views
+    lazy var stopImage: UIImageView = {
+        var view = UIImageView()
+        
+        return view
+    }()
+    
     lazy var stopLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Avenir-Light", size: 26)
+        label.font = UIFont(name: "Avenir-Light", size: 12)
         label.textColor = .black
         label.text = "Testing"
         label.numberOfLines = 0
@@ -26,7 +32,8 @@ class StopsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureStopLabelConstraints()
+        constrainStopImage()
+        constrainStopLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -35,9 +42,30 @@ class StopsTableViewCell: UITableViewCell {
     
     
     //MARK:-- Private constraints
-    private func configureStopLabelConstraints() {
+    private func constrainStopImage() {
+        self.addSubview(stopImage)
+        stopImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stopImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            stopImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            stopImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            stopImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            //stopImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stopImage.heightAnchor.constraint(equalToConstant: 300),
+            
+        ])
+    }
+    
+    private func constrainStopLabel() {
         self.addSubview(stopLabel)
         stopLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([stopLabel.topAnchor.constraint(equalTo: self.topAnchor), stopLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor), stopLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor), stopLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
+        NSLayoutConstraint.activate([
+            stopLabel.topAnchor.constraint(equalTo: stopImage.bottomAnchor, constant: 10),
+            stopLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            stopLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            stopLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
+    
+    
+    
 }

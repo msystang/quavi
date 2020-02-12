@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: Refactor by directly using category enum or categories directly from firebase
 struct CategoryData {
     var name: String
 //    var tours: [Tours] = {

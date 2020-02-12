@@ -13,6 +13,10 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
+// TODO: Create new file and instantiante a view. Put UI properties into a view in separate file and reference it here. Refactor constraints to reference view. MapViewController+UIObjects
+    
+    var sampleData = POI.pointsOfinterest
+    
     // MARK: - Lazy UI Variables
     lazy var mapView: NavigationMapView = {
         // TODO: Refactor code, see what makes sense to go here
@@ -59,24 +63,25 @@ class MapViewController: UIViewController {
         return collectionView
     }()
     
+    //TODO:- Adds image to button
+    lazy var startNavigationButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setTitle("GO", for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = button.frame.height / 2
+        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
+        button.layer.borderWidth = 2
+        button.backgroundColor = .systemGreen
+        button.setTitleColor(.white, for: .normal)
+        button.showsTouchWhenHighlighted = true
+        button.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+        return button
+    }()
     
     // MARK: - Internal Properties
     var selectedRoute: Route?
     
-    var sampleData: [CellData] = [
-        CellData(isOpen: false, title: "Empire State Building",
-                 sectionData: """
-                    First Stop
-                    Another Stop
-                    Food Stop
-                    """, category: Enums.categories.History.rawValue),
-        CellData(isOpen: false, title: "National Museum of Mathematics", sectionData: """
-           Second Stop
-           Restroom Stop
-           """, category: Enums.categories.History.rawValue),
-        CellData(isOpen: false, title: "Central Parks", sectionData: "Third Stop", category: Enums.categories.History.rawValue)
-    ]
-    
+    // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData: [CategoryData] = [
         CategoryData(name: Enums.categories.History.rawValue),
         CategoryData(name: Enums.categories.Art.rawValue),
@@ -85,6 +90,7 @@ class MapViewController: UIViewController {
         CategoryData(name: Enums.categories.Yeet.rawValue)
     ]
     
+    //TODO: Rename constraints to be more specific and indicate state of slider
     var sliderViewTopConstraints: NSLayoutConstraint?
     var newSliderViewTopConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
@@ -121,6 +127,7 @@ class MapViewController: UIViewController {
     
     //MARK: -PRIVATE FUNCTIONS
     
+    //TODO: Add to constraints extension file
     private func addSliderViewSubViews() {
         view.addSubview(sliderView)
         sliderView.addSubview(chevronArrows)
@@ -128,12 +135,15 @@ class MapViewController: UIViewController {
         sliderView.addSubview(poiTableView)
     }
     
+    //TODO: Add to constraints extension file
     private func addSliderViewConstraints() {
         constrainSliderView()
         constrainChevronImage()
         constrainCategoriesCollectionView()
         constrainPOITableView()
     }
+    
+    //TODO: Create extension of MapViewController file called MapViewController+SliderView and add anything related to that file
     private func loadGestures() {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
         swipeDown.direction = .down
@@ -147,7 +157,6 @@ class MapViewController: UIViewController {
         self.chevronArrows.addGestureRecognizer(tap)
     }
     
-
     func directionOfChevron(state: Enums.sliderViewStates) {
         
         switch state {
@@ -161,6 +170,7 @@ class MapViewController: UIViewController {
         }
     }
 
+    //TODO: add to constraints extension
     private func createSliderViewConstraints() {
         sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
         sliderViewTopConstraints?.isActive = true
@@ -189,6 +199,8 @@ class MapViewController: UIViewController {
         sliderViewTopConstraints?.isActive = false
         newSliderViewTopConstraints?.isActive = true
     }
+    
+    //TODO: Create extension of MapViewController file called MapViewController+CollectionView and add anything related to that file
     private func handleCollectionViewCellPressed(item: Int) {
         if item == 0 {
             currentSelectedCategory = Enums.categories.History.rawValue
@@ -203,6 +215,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    //TODO: Move to slider view extension file
     //MARK: -RESPOND TO GESTURE
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         print(gesture)
@@ -304,14 +317,14 @@ class MapViewController: UIViewController {
         
     }
     
-    
+    //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
     @objc func buttonPressed(sender: UIButton) {
         print(sender.tag)
-        if sampleData[sender.tag].isOpen {
-            sampleData[sender.tag].isOpen = false
+        if sampleData[sender.tag].isCellExpanded {
+            sampleData[sender.tag].isCellExpanded = false
         } else {
-            sampleData[sender.tag].isOpen = true
+            sampleData[sender.tag].isCellExpanded = true
         }
         
         let incides: IndexSet = [sender.tag]
@@ -319,8 +332,9 @@ class MapViewController: UIViewController {
         
     }
     
-    //MARK: -CONSTRAINTS
     
+    //TODO: Add to constraints file, specific for the sliderView, collectionView, or TableView (indicate with MARK)
+    //MARK: -CONSTRAINTS
     private func constrainSliderView() {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -365,72 +379,9 @@ class MapViewController: UIViewController {
 
 }
 
-//MARK: -EXT. TABLEVIEW DELEGATE & DATASOURCE
-extension MapViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if sampleData[section].isOpen == false {
-            return 0
-        } else {
-            return 1
-        }
-        
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if currentSelectedCategory == Enums.categories.History.rawValue {
-            return sampleData.count
-        }
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if currentSelectedCategory == Enums.categories.History.rawValue {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
-            
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
-            button.setTitle(sampleData[section].title, for: .normal)
-            button.backgroundColor = .yellow
-            button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchDown)
-            button.setTitleColor(.black, for: .normal)
-            button.tag = section
-            view.addSubview(button)
-            
-            view.backgroundColor = .gray
-            return view
-        }
-        
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = poiTableView.dequeueReusableCell(withIdentifier: Enums.cellIdentifiers.StopCell.rawValue, for: indexPath) as? StopsTableViewCell else { return UITableViewCell() }
-        
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.05 * Double(indexPath.row),
-            animations: {
-                cell.alpha = 1
-        })
-        
-        cell.stopLabel.text = sampleData[indexPath.section].sectionData
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    
-}
 
+
+//TODO: Make file extension of MapViewController named MapViewController+CollectionView
 extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sampleCategoryData.count
