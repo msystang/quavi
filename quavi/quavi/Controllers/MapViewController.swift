@@ -64,7 +64,7 @@ class MapViewController: UIViewController {
     }()
     
     //TODO:- Adds image to button
-    lazy var startNavigationButton:UIButton = {
+    lazy var startNavigationButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setTitle("GO", for: .normal)
         button.layer.borderWidth = 2
