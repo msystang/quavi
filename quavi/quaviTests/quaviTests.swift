@@ -23,6 +23,7 @@ class quaviTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    //MARK: - Tour Model
     func testGenerateNavigationRouteOptions() {
         //Arrange: create test POI, Tour, and initialLocation
         let testPointA = POI(name: "Point A", isCellExpanded: false, lat: 40.7011, long: -74.0011, shortDesc: "Short Description A", longDesc: "Long Discription A", tableViewImage: UIImage(), popoverImage: UIImage())
@@ -38,8 +39,15 @@ class quaviTests: XCTestCase {
         } catch {
             XCTFail("Could not generate nagivation route options: \(error)")
         }
-        
-        
     }
+    
+    //MARK: - POI Model
+    func testWaypointComputedVariable() {
+        //Arrange & Act: Create test POI. POI model has a computed variable waypoint
+        let testPointA = POI(name: "Point A", isCellExpanded: false, lat: 40.7011, long: -74.0011, shortDesc: "Short Description A", longDesc: "Long Discription A", tableViewImage: UIImage(), popoverImage: UIImage())
         
+        //Assert: Assert that the waypoint is computed correctly by testing the original latitude to the latitude of the computed waypoint
+        XCTAssert(testPointA.lat == testPointA.waypoint.coordinate.latitude, "Expected latitude of \(testPointA.lat) but got \(testPointA.waypoint.coordinate.latitude)")
+    }
+    
 }
