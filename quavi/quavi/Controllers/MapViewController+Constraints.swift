@@ -10,15 +10,18 @@ import Foundation
 import UIKit
 
 extension MapViewController {
-//TODO: Add all constraints for objects here, marked and labeled
+    //TODO: Add all constraints for objects here, marked and labeled
     
-//TODO: Create addSubview and addConstraint func for specific objects i.e. addCollectionViewSubviews(), addCollectionViewConstraints
+    //TODO: Create addSubview and addConstraint func for specific objects i.e. addCollectionViewSubviews(), addCollectionViewConstraints
     
     //TODO: rename to addMapViewSubviews()
     func addSubviews() {
         //TODO: -- re-assign this to the view when the collectionview is added
         view.addSubview(mapView)
         sliderView.addSubview(startNavigationButton)
+        mapView.addSubview(bikeButton)
+        mapView.addSubview(carButton)
+        mapView.addSubview(walkButton)
     }
     
     //TODO: rename to addMapViewConstraints()
