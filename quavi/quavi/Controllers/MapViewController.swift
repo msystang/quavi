@@ -94,8 +94,13 @@ class MapViewController: UIViewController {
     var sliderViewTopConstraints: NSLayoutConstraint?
     var newSliderViewTopConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
+    
+    var mapViewBottomConstraintHalf: NSLayoutConstraint?
+    var mapViewBottomConstraintClosed: NSLayoutConstraint?
+    
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
+    
     var currentSelectedCategory: String = Enums.categories.History.rawValue {
         didSet {
             poiTableView.reloadData()
@@ -180,6 +185,12 @@ class MapViewController: UIViewController {
 
         fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         fullScreenSliderViewConstraints?.isActive = false
+        
+        mapViewBottomConstraintHalf = mapView.bottomAnchor.constraint(equalTo: sliderView.topAnchor,constant: 75)
+        mapViewBottomConstraintHalf?.isActive = true
+        
+        mapViewBottomConstraintClosed = mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        mapViewBottomConstraintClosed?.isActive = false
     }
     
     private func setFullOpenSliderViewConstraints() {
@@ -189,12 +200,16 @@ class MapViewController: UIViewController {
     }
     
     private func setHalfOpenSliderViewConstraints() {
+        mapViewBottomConstraintHalf?.isActive = true
+        mapViewBottomConstraintClosed?.isActive = false
         fullScreenSliderViewConstraints?.isActive = false
         sliderViewTopConstraints?.isActive = true
         newSliderViewTopConstraints?.isActive = false
     }
     
     private func setClosedSliderViewConstraints() {
+        mapViewBottomConstraintHalf?.isActive = false
+        mapViewBottomConstraintClosed?.isActive = true
         fullScreenSliderViewConstraints?.isActive = false
         sliderViewTopConstraints?.isActive = false
         newSliderViewTopConstraints?.isActive = true
@@ -226,10 +241,11 @@ class MapViewController: UIViewController {
             case 1:
                 print("one tap")
                 
-                setHalfOpenSliderViewConstraints()
+                
                 sliderViewState = .halfOpen
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                    self?.setHalfOpenSliderViewConstraints()
                     self?.directionOfChevron(state: .halfOpen)
                     self?.view.layoutIfNeeded()
                     self?.sliderView.alpha = 1.0
@@ -250,19 +266,24 @@ class MapViewController: UIViewController {
                 print("Swiped down")
                 
                 
-                switch sliderViewState {
-                case .fullOpen:
-                    setHalfOpenSliderViewConstraints()
-                    sliderViewState = .halfOpen
-                case .halfOpen:
-                    setClosedSliderViewConstraints()
-                    sliderViewState = .closed
-                case .closed:
-                    print("it's already closed")
-                }
+                
                 
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                    
+                    switch self?.sliderViewState {
+                    case .fullOpen:
+                        self?.setHalfOpenSliderViewConstraints()
+                        self?.sliderViewState = .halfOpen
+                    case .halfOpen:
+                        self?.setClosedSliderViewConstraints()
+                        self?.sliderViewState = .closed
+                    case .closed:
+                        print("it's already closed")
+                    case .none:
+                        return
+                    }
+                    
                     if self?.sliderViewState == .closed {
                         self?.directionOfChevron(state: .closed)
                     } else if self?.sliderViewState == .halfOpen {
@@ -283,18 +304,23 @@ class MapViewController: UIViewController {
             case UISwipeGestureRecognizer.Direction.up:
                 print("Swiped Up")
                 
-                switch sliderViewState {
-                case .fullOpen:
-                    print("it's fully opened")
-                case .halfOpen:
-                    setFullOpenSliderViewConstraints()
-                    sliderViewState = .fullOpen
-                case .closed:
-                    setHalfOpenSliderViewConstraints()
-                    sliderViewState = .halfOpen
-                }
+                
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                    
+                    switch self?.sliderViewState {
+                    case .fullOpen:
+                        print("it's fully opened")
+                    case .halfOpen:
+                        self?.setFullOpenSliderViewConstraints()
+                        self?.sliderViewState = .fullOpen
+                    case .closed:
+                        self?.setHalfOpenSliderViewConstraints()
+                        self?.sliderViewState = .halfOpen
+                    case .none:
+                        return
+                    }
+                    
                     if self?.sliderViewState == .closed {
                         self?.directionOfChevron(state: .closed)
                     } else if self?.sliderViewState == .halfOpen {
