@@ -36,15 +36,7 @@ class MapViewController: UIViewController {
         return view
     }()
     
-    lazy var poiTableView: UITableView = {
-        let tableview = UITableView(frame: .zero, style: .grouped)
-        tableview.register(StopsTableViewCell.self, forCellReuseIdentifier: Enums.cellIdentifiers.StopCell.rawValue)
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.backgroundColor = .clear
-        tableview.separatorStyle = .none
-        return tableview
-    }()
+    lazy var poiTableView = QuaviTableView()
     
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
@@ -114,6 +106,9 @@ class MapViewController: UIViewController {
         addSubviews()
         getSelectedRoute()
         
+        poiTableView.dataSource = self
+        poiTableView.delegate = self
+        
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
         
@@ -127,8 +122,6 @@ class MapViewController: UIViewController {
         addConstraints()
         
     }
-
-    
     
     //MARK: -PRIVATE FUNCTIONS
     
@@ -265,10 +258,6 @@ class MapViewController: UIViewController {
             case UISwipeGestureRecognizer.Direction.down:
                 print("Swiped down")
                 
-                
-                
-                
-                
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
                     
                     switch self?.sliderViewState {
@@ -370,7 +359,6 @@ class MapViewController: UIViewController {
     
     
     private func constrainPOITableView() {
-        poiTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             poiTableView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 10),
             poiTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
