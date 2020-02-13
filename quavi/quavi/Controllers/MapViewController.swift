@@ -13,14 +13,15 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
-// TODO: Create new file and instantiante a view. Put UI properties into a view in separate file and reference it here. Refactor constraints to reference view. MapViewController+UIObjects
-    
+
     var sampleData = POI.pointsOfinterest
     
     // MARK: - VIEWS
     lazy var mapView = MapView(frame: view.bounds)
     let sliderView = SliderView()
     lazy var poiTableView = QuaviTableView()
+    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
+    var startNavigationButton = NavigationUIButton()
     
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
@@ -30,29 +31,6 @@ class MapViewController: UIViewController {
         return image
     }()
     
-    lazy var categoriesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
-        collectionView.backgroundColor = .clear
-        return collectionView
-    }()
-    
-    //TODO:- Adds image to button
-    lazy var startNavigationButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        button.setTitle("GO", for: .normal)
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
-        button.layer.borderWidth = 2
-        button.backgroundColor = .systemGreen
-        button.setTitleColor(.white, for: .normal)
-        button.showsTouchWhenHighlighted = true
-        button.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
-        return button
-    }()
     
     // MARK: - Internal Properties
     var selectedRoute: Route?
@@ -100,6 +78,8 @@ class MapViewController: UIViewController {
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
+        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,9 +89,8 @@ class MapViewController: UIViewController {
     
     //MARK: -PRIVATE FUNCTIONS
     
-    //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
-    @objc func buttonPressed(sender: UIButton) {
+    @objc func tvCellSectionButtonPressed(sender: UIButton) {
         print(sender.tag)
         if sampleData[sender.tag].isCellExpanded {
             sampleData[sender.tag].isCellExpanded = false

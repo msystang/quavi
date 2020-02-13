@@ -38,6 +38,8 @@
 		EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */; };
 		EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094523F5CDA7001D04CF /* SliderView.swift */; };
 		EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094723F5CF1C001D04CF /* MapView.swift */; };
+		EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094923F5DCB4001D04CF /* CollectionView.swift */; };
+		EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView+Constraints.swift"; sourceTree = "<group>"; };
 		EC7D094523F5CDA7001D04CF /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		EC7D094723F5CF1C001D04CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = quavi/Views/MapView.swift; sourceTree = SOURCE_ROOT; };
+		EC7D094923F5DCB4001D04CF /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUIButton.swift; sourceTree = "<group>"; };
 		F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.debug.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,6 +241,8 @@
 				1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */,
 				1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */,
 				EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */,
+				EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */,
+				EC7D094923F5DCB4001D04CF /* CollectionView.swift */,
 				EC7D094523F5CDA7001D04CF /* SliderView.swift */,
 			);
 			path = Views;
@@ -473,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */,
+				EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */,
 				8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */,
 				EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */,
 				EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */,
@@ -490,6 +497,7 @@
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
 				1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */,
 				EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */,
+				EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */,
 				EAF7174A23E3884600DD8703 /* ExtensionFile.swift in Sources */,
 				1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,

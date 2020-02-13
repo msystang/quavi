@@ -164,7 +164,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
             button.setTitle(sampleData[section].name, for: .normal)
             button.backgroundColor = .yellow
-            button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchDown)
+            button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
             button.setTitleColor(.black, for: .normal)
             button.tag = section
             view.addSubview(button)
