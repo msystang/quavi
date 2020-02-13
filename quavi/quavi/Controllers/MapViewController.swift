@@ -13,14 +13,17 @@ import MapboxNavigation
 import MapboxDirections
 
 class MapViewController: UIViewController {
-// TODO: Create new file and instantiante a view. Put UI properties into a view in separate file and reference it here. Refactor constraints to reference view. MapViewController+UIObjects
     
+    // MARK: -PROPERTIES
     var sampleData = POI.pointsOfinterest
+    var selectedRoute: Route?
     
     // MARK: - VIEWS
     lazy var mapView = MapView(frame: view.bounds)
     let sliderView = SliderView()
     lazy var poiTableView = QuaviTableView()
+    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
+    var startNavigationButton = NavigationUIButton()
     
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
@@ -29,33 +32,6 @@ class MapViewController: UIViewController {
         image.isUserInteractionEnabled = true
         return image
     }()
-    
-    lazy var categoriesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
-        collectionView.backgroundColor = .clear
-        return collectionView
-    }()
-    
-    //TODO:- Adds image to button
-    lazy var startNavigationButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        button.setTitle("GO", for: .normal)
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
-        button.layer.borderWidth = 2
-        button.backgroundColor = .systemGreen
-        button.setTitleColor(.white, for: .normal)
-        button.showsTouchWhenHighlighted = true
-        button.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
-        return button
-    }()
-    
-    // MARK: - Internal Properties
-    var selectedRoute: Route?
     
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData: [CategoryData] = [
@@ -78,9 +54,7 @@ class MapViewController: UIViewController {
     let sliderViewHeight: CGFloat = 900
     
     var currentSelectedCategory: String = Enums.categories.History.rawValue {
-        didSet {
-            poiTableView.reloadData()
-        }
+        didSet { poiTableView.reloadData() }
     }
     
     // MARK: - Lifecycle Functions
@@ -100,6 +74,7 @@ class MapViewController: UIViewController {
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
+        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -142,20 +117,5 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 50)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        handleCollectionViewCellPressed(item: indexPath.item)
-        print(currentSelectedCategory)
-        
-    }
     
 }
-
-
