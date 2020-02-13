@@ -60,16 +60,16 @@ extension MapViewController {
     //MARK: -bike button constraints
     func setBikeButtonConstraints(){
         bikeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([bikeButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 30), bikeButton.centerXAnchor.constraint(equalTo: mapView.centerXAnchor), mapView.heightAnchor.constraint(equalToConstant: 50), mapView.widthAnchor.constraint(equalToConstant: 50)])
+        NSLayoutConstraint.activate([bikeButton.topAnchor.constraint(equalTo: mapView.topAnchor, constant: 35), bikeButton.centerXAnchor.constraint(equalTo: mapView.centerXAnchor), bikeButton.heightAnchor.constraint(equalToConstant: 50), bikeButton.widthAnchor.constraint(equalToConstant: 50)])
     }
     
     //MARK: -car button constraints
     func setCarButtonConstraints(){
-        
+        carButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([carButton.topAnchor.constraint(equalTo: bikeButton.topAnchor), carButton.trailingAnchor.constraint(equalTo: bikeButton.leadingAnchor, constant: -40), carButton.heightAnchor.constraint(equalTo: bikeButton.heightAnchor), carButton.widthAnchor.constraint(equalTo: bikeButton.widthAnchor)])
     }
     
     //MARK: -walk button constraints
-
     func setWalkButtonConstraints(){
         
     }

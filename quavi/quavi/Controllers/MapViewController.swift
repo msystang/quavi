@@ -133,6 +133,7 @@ class MapViewController: UIViewController {
         categoriesCollectionView.delegate = self
         
         setBikeButtonConstraints()
+        setCarButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
