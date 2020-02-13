@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sunni Tang. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension MapViewController {
