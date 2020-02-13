@@ -40,6 +40,7 @@
 		EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094723F5CF1C001D04CF /* MapView.swift */; };
 		EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094923F5DCB4001D04CF /* CollectionView.swift */; };
 		EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */; };
+		EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		EC7D094723F5CF1C001D04CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = quavi/Views/MapView.swift; sourceTree = SOURCE_ROOT; };
 		EC7D094923F5DCB4001D04CF /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUIButton.swift; sourceTree = "<group>"; };
+		EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.debug.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				EAF7173723E3823C00DD8703 /* MapViewController.swift */,
+				EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */,
 				EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */,
 				EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */,
 				EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */,
@@ -483,6 +486,7 @@
 				8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */,
 				EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */,
 				EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */,
+				EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
 				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,

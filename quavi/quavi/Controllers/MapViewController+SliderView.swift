@@ -49,6 +49,8 @@ extension MapViewController {
         }
     }
     
+    
+    //MARK: -OBJ-C FUNCTIONS
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         print(gesture)
         
@@ -143,6 +145,17 @@ extension MapViewController {
                 break
             }
         }
+    }
+    
+    @objc func tvCellSectionButtonPressed(sender: UIButton) {
+        print(sender.tag)
+        if sampleData[sender.tag].isCellExpanded {
+            sampleData[sender.tag].isCellExpanded = false
+        } else {
+            sampleData[sender.tag].isCellExpanded = true
+        }
+        let incides: IndexSet = [sender.tag]
+        poiTableView.reloadSections(incides, with: .fade)
     }
 }
 
