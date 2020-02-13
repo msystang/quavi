@@ -23,7 +23,7 @@ class quaviTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testgenerateNavigationRouteOptions() {
+    func testGenerateNavigationRouteOptions() {
         //Arrange: create test POI, Tour, and initialLocation
         let testPointA = POI(name: "Point A", isCellExpanded: false, lat: 40.7011, long: -74.0011, shortDesc: "Short Description A", longDesc: "Long Discription A", tableViewImage: UIImage(), popoverImage: UIImage())
         let testPointB = POI(name: "Point B", isCellExpanded: false, lat: 40.7022, long: -74.0022, shortDesc: "Short Description B", longDesc: "Long Discription B", tableViewImage: UIImage(), popoverImage: UIImage())
