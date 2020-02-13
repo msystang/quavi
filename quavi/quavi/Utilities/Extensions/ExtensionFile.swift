@@ -6,4 +6,19 @@
 //  Copyright © 2020 Sunni Tang. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIButton{
+    convenience init(image:UIImage, borderWidth:CGFloat){
+        self.init()
+        self.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.layer.cornerRadius = self.frame.height / 2
+        self.contentMode = .center
+        self.layer.masksToBounds = true
+        self.backgroundColor = .white
+        self.setBackgroundImage(image, for: .normal)
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = UIColor.white.cgColor
+        self.showsTouchWhenHighlighted = true
+    }
+}
