@@ -109,6 +109,7 @@ class MapViewController: UIViewController {
     
     //MARK: -PRIVATE FUNCTIONS
     
+
     //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
     @objc func buttonPressed(sender: UIButton) {
