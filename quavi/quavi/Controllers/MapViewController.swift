@@ -99,23 +99,3 @@ class MapViewController: UIViewController {
     }
     
 }
-
-
-
-//TODO: Make file extension of MapViewController named MapViewController+CollectionView
-extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sampleCategoryData.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let category = sampleCategoryData[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue, for: indexPath) as? CategoriesCollectionViewCell else {return UICollectionViewCell()}
-        
-        cell.setUpCells(cell: cell, data: category)
-        
-        return cell
-    }
-    
-    
-}
