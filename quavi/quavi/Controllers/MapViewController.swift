@@ -81,7 +81,7 @@ class MapViewController: UIViewController {
         view.backgroundColor = .yellow
         addSubviews()
         mapView.delegate = self
-        getSelectedRoute()
+        getSelectedRoute(navigationType: .walking)
         
         poiTableView.dataSource = self
         poiTableView.delegate = self
@@ -118,5 +118,7 @@ class MapViewController: UIViewController {
         let incides: IndexSet = [sender.tag]
         poiTableView.reloadSections(incides, with: .fade)
     }
+    
+    
     
 }
