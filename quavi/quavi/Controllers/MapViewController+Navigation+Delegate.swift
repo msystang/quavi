@@ -12,7 +12,7 @@ import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
 
-extension MapViewController:NavigationMapViewDelegate{
+extension MapViewController:NavigationViewControllerDelegate{
     
     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint)-> Bool {
         // When the user arrives, present a view controller that prompts the user to continue to their next destination
