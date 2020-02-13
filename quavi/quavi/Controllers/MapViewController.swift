@@ -17,6 +17,11 @@ class MapViewController: UIViewController {
     // MARK: -PROPERTIES
     var sampleData = POI.pointsOfinterest
     var selectedRoute: Route?
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+        }
+    }
     
     // MARK: - VIEWS
     lazy var mapView = MapView(frame: view.bounds)
@@ -84,7 +89,6 @@ class MapViewController: UIViewController {
         view.backgroundColor = .yellow
         addSubviews()
         mapView.delegate = self
-        getSelectedRoute(navigationType: .walking)
         
         poiTableView.dataSource = self
         poiTableView.delegate = self
