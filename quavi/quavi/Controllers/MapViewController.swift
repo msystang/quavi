@@ -44,9 +44,8 @@ class MapViewController: UIViewController {
         CategoryData(name: Enums.categories.Yeet.rawValue)
     ]
     
-    //TODO: Rename constraints to be more specific and indicate state of slider
-    var sliderViewTopConstraints: NSLayoutConstraint?
-    var newSliderViewTopConstraints: NSLayoutConstraint?
+    var sliderViewTopConstraintMidState: NSLayoutConstraint?
+    var sliderViewTopConstraintsBottomState: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
     
     var mapViewBottomConstraintHalf: NSLayoutConstraint?

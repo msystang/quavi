@@ -24,11 +24,11 @@ extension MapViewController {
     }
     
     func createSliderViewConstraints() {
-        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
-        sliderViewTopConstraints?.isActive = true
+        sliderViewTopConstraintMidState = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
+        sliderViewTopConstraintMidState?.isActive = true
 
-        newSliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
-        newSliderViewTopConstraints?.isActive = false
+        sliderViewTopConstraintsBottomState = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
+        sliderViewTopConstraintsBottomState?.isActive = false
 
         fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         fullScreenSliderViewConstraints?.isActive = false
@@ -42,24 +42,24 @@ extension MapViewController {
     
     func setFullOpenSliderViewConstraints() {
         fullScreenSliderViewConstraints?.isActive = true
-        sliderViewTopConstraints?.isActive = false
-        newSliderViewTopConstraints?.isActive = false
+        sliderViewTopConstraintMidState?.isActive = false
+        sliderViewTopConstraintsBottomState?.isActive = false
     }
     
     func setHalfOpenSliderViewConstraints() {
         mapViewBottomConstraintHalf?.isActive = true
         mapViewBottomConstraintClosed?.isActive = false
         fullScreenSliderViewConstraints?.isActive = false
-        sliderViewTopConstraints?.isActive = true
-        newSliderViewTopConstraints?.isActive = false
+        sliderViewTopConstraintMidState?.isActive = true
+        sliderViewTopConstraintsBottomState?.isActive = false
     }
     
     func setClosedSliderViewConstraints() {
         mapViewBottomConstraintHalf?.isActive = false
         mapViewBottomConstraintClosed?.isActive = true
         fullScreenSliderViewConstraints?.isActive = false
-        sliderViewTopConstraints?.isActive = false
-        newSliderViewTopConstraints?.isActive = true
+        sliderViewTopConstraintMidState?.isActive = false
+        sliderViewTopConstraintsBottomState?.isActive = true
     }
     
     //MARK: -CONSTRAINTS
