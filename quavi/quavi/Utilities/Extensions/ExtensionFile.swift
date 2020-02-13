@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Custom UIButton extension used to design the car, bike and walk button
 extension UIButton{
     convenience init(image:UIImage, borderWidth:CGFloat){
         self.init()
