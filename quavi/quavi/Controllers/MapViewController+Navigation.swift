@@ -20,6 +20,7 @@ extension MapViewController {
         let navigationService = MapboxNavigationService(route: selectedRoute, simulating: .always )
         let navigationOptions = NavigationOptions(navigationService: navigationService)
         let navigationVC = NavigationViewController(for: selectedRoute, options: navigationOptions)
+        navigationVC.delegate = self
         navigationVC.modalPresentationStyle = .fullScreen
 
         present(navigationVC, animated: true)

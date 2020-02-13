@@ -17,34 +17,10 @@ class MapViewController: UIViewController {
     
     var sampleData = POI.pointsOfinterest
     
-    // MARK: - Lazy UI Variables
-    lazy var mapView: NavigationMapView = {
-        // TODO: Refactor code, see what makes sense to go here
-        let mapView = NavigationMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.darkStyleURL
-        mapView.delegate = self
-        mapView.setUserTrackingMode(.followWithCourse, animated: true, completionHandler: nil)
-        mapView.tintColor = .yellow
-        mapView.showsUserLocation = true
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        return mapView
-    }()
-    
-    lazy var sliderView: UIView = {
-        var view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    lazy var poiTableView: UITableView = {
-        let tableview = UITableView(frame: .zero, style: .grouped)
-        tableview.register(StopsTableViewCell.self, forCellReuseIdentifier: Enums.cellIdentifiers.StopCell.rawValue)
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.backgroundColor = .clear
-        tableview.separatorStyle = .none
-        return tableview
-    }()
+    // MARK: - VIEWS
+    lazy var mapView = MapView(frame: view.bounds)
+    let sliderView = SliderView()
+    lazy var poiTableView = QuaviTableView()
     
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
@@ -64,7 +40,7 @@ class MapViewController: UIViewController {
     }()
     
     //TODO:- Adds image to button
-    lazy var startNavigationButton:UIButton = {
+    lazy var startNavigationButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setTitle("GO", for: .normal)
         button.layer.borderWidth = 2
@@ -94,8 +70,13 @@ class MapViewController: UIViewController {
     var halfScreenSliderViewConstraints: NSLayoutConstraint?
     var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
+    
+    var mapViewBottomConstraintHalf: NSLayoutConstraint?
+    var mapViewBottomConstraintClosed: NSLayoutConstraint?
+    
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
+    
     var currentSelectedCategory: String = Enums.categories.History.rawValue {
         didSet {
             poiTableView.reloadData()
@@ -107,7 +88,11 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
+        mapView.delegate = self
         getSelectedRoute()
+        
+        poiTableView.dataSource = self
+        poiTableView.delegate = self
         
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
@@ -120,10 +105,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addConstraints()
-        
     }
-
-    
     
     //MARK: -PRIVATE FUNCTIONS
     
@@ -324,57 +306,10 @@ class MapViewController: UIViewController {
         } else {
             sampleData[sender.tag].isCellExpanded = true
         }
-        
         let incides: IndexSet = [sender.tag]
         poiTableView.reloadSections(incides, with: .fade)
-        
     }
     
-    
-    //TODO: Add to constraints file, specific for the sliderView, collectionView, or TableView (indicate with MARK)
-    //MARK: -CONSTRAINTS
-    private func constrainSliderView() {
-        sliderView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor), sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor), sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)])
-        createSliderViewConstraints()
-    }
-    
-    
-    private func constrainPOITableView() {
-        poiTableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            poiTableView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 10),
-            poiTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor)
-        ])
-    }
-    
-    private func constrainChevronImage() {
-        chevronArrows.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 10),
-            chevronArrows.centerXAnchor.constraint(equalTo: sliderView.centerXAnchor),
-            chevronArrows.bottomAnchor.constraint(equalTo: categoriesCollectionView.topAnchor, constant: -10),
-            chevronArrows.widthAnchor.constraint(equalToConstant: 40),
-            chevronArrows.heightAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
-    private func constrainCategoriesCollectionView() {
-        categoriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            categoriesCollectionView.topAnchor.constraint(equalTo: chevronArrows.bottomAnchor, constant: 10),
-            categoriesCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            categoriesCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            categoriesCollectionView.bottomAnchor.constraint(equalTo: poiTableView.topAnchor, constant: -10),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 40)
-        ])
-    }
-
-
-
 }
 
 
