@@ -132,6 +132,7 @@ class MapViewController: UIViewController {
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
         
+        setBikeButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
