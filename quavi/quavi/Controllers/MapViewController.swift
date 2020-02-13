@@ -95,7 +95,7 @@ class MapViewController: UIViewController {
         
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
-        
+        getSelectedRoute(navigationType: modeOfTransit)
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
