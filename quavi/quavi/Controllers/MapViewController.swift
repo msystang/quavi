@@ -91,8 +91,8 @@ class MapViewController: UIViewController {
     ]
     
     //TODO: Rename constraints to be more specific and indicate state of slider
-    var sliderViewTopConstraints: NSLayoutConstraint?
-    var newSliderViewTopConstraints: NSLayoutConstraint?
+    var halfScreenSliderViewConstraints: NSLayoutConstraint?
+    var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
@@ -172,11 +172,11 @@ class MapViewController: UIViewController {
 
     //TODO: add to constraints extension
     private func createSliderViewConstraints() {
-        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
-        sliderViewTopConstraints?.isActive = true
+        halfScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
+        halfScreenSliderViewConstraints?.isActive = true
 
-        newSliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
-        newSliderViewTopConstraints?.isActive = false
+        closedSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)
+        closedSliderViewConstraints?.isActive = false
 
         fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         fullScreenSliderViewConstraints?.isActive = false
@@ -184,20 +184,20 @@ class MapViewController: UIViewController {
     
     private func setFullOpenSliderViewConstraints() {
         fullScreenSliderViewConstraints?.isActive = true
-        sliderViewTopConstraints?.isActive = false
-        newSliderViewTopConstraints?.isActive = false
+        halfScreenSliderViewConstraints?.isActive = false
+        closedSliderViewConstraints?.isActive = false
     }
     
     private func setHalfOpenSliderViewConstraints() {
         fullScreenSliderViewConstraints?.isActive = false
-        sliderViewTopConstraints?.isActive = true
-        newSliderViewTopConstraints?.isActive = false
+        halfScreenSliderViewConstraints?.isActive = true
+        closedSliderViewConstraints?.isActive = false
     }
     
     private func setClosedSliderViewConstraints() {
         fullScreenSliderViewConstraints?.isActive = false
-        sliderViewTopConstraints?.isActive = false
-        newSliderViewTopConstraints?.isActive = true
+        halfScreenSliderViewConstraints?.isActive = false
+        closedSliderViewConstraints?.isActive = true
     }
     
     //TODO: Create extension of MapViewController file called MapViewController+CollectionView and add anything related to that file
@@ -273,9 +273,7 @@ class MapViewController: UIViewController {
                     self?.view.layoutIfNeeded()
                     
                     if self?.sliderViewState == .closed {
-                        self?.sliderView.alpha = 0.5
                         self?.poiTableView.alpha = 0
-                        self?.categoriesCollectionView.alpha = 0
                     }
                     
                     }, completion: nil)
