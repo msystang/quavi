@@ -71,6 +71,7 @@ extension MapViewController {
     
     //MARK: -walk button constraints
     func setWalkButtonConstraints(){
-        
+        walkButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([walkButton.topAnchor.constraint(equalTo: bikeButton.topAnchor), walkButton.leadingAnchor.constraint(equalTo: bikeButton.trailingAnchor, constant: 40), walkButton.heightAnchor.constraint(equalTo: bikeButton.heightAnchor), walkButton.widthAnchor.constraint(equalTo: bikeButton.widthAnchor)])
     }
 }

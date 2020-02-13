@@ -134,6 +134,7 @@ class MapViewController: UIViewController {
         
         setBikeButtonConstraints()
         setCarButtonConstraints()
+        setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
