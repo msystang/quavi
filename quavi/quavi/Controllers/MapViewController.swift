@@ -84,12 +84,13 @@ class MapViewController: UIViewController {
     }()
     
     lazy var carButton:UIButton = {
-        let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2)
+        let button = UIButton(image: UIImage(systemName: "car")!, borderWidth: 2)
+        button.tintColor = .black
         return button
     }()
     
     lazy var walkButton:UIButton = {
-        let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2)
+        let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2)
         return button
     }()
     
