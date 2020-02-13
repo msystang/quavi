@@ -42,8 +42,9 @@ class MapViewController: UIViewController {
         CategoryData(name: Enums.categories.Yeet.rawValue)
     ]
     
-    var sliderViewTopConstraintMidState: NSLayoutConstraint?
-    var sliderViewTopConstraintsBottomState: NSLayoutConstraint?
+    //TODO: Rename constraints to be more specific and indicate state of slider
+    var halfScreenSliderViewConstraints: NSLayoutConstraint?
+    var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
     
     var mapViewBottomConstraintHalf: NSLayoutConstraint?
@@ -83,6 +84,38 @@ class MapViewController: UIViewController {
     
     //MARK: -PRIVATE FUNCTIONS
     
+
+    //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
+    //MARK: -OBJ-C FUNCTIONS
+    @objc func buttonPressed(sender: UIButton) {
+        print(sender.tag)
+        if sampleData[sender.tag].isCellExpanded {
+            sampleData[sender.tag].isCellExpanded = false
+        } else {
+            sampleData[sender.tag].isCellExpanded = true
+        }
+        let incides: IndexSet = [sender.tag]
+        poiTableView.reloadSections(incides, with: .fade)
+    }
+    
+}
+
+
+
+//TODO: Make file extension of MapViewController named MapViewController+CollectionView
+extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sampleCategoryData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let category = sampleCategoryData[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue, for: indexPath) as? CategoriesCollectionViewCell else {return UICollectionViewCell()}
+        
+        cell.setUpCells(cell: cell, data: category)
+        
+        return cell
+    }
     
     
 }

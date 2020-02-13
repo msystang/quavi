@@ -104,9 +104,7 @@ extension MapViewController {
                     self?.view.layoutIfNeeded()
                     
                     if self?.sliderViewState == .closed {
-                        self?.sliderView.alpha = 0.5
                         self?.poiTableView.alpha = 0
-                        self?.categoriesCollectionView.alpha = 0
                     }
                     
                     }, completion: nil)
