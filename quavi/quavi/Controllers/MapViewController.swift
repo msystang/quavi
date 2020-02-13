@@ -78,6 +78,28 @@ class MapViewController: UIViewController {
         return button
     }()
     
+    lazy var bikeButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setImage(UIImage(named: "bike"), for: .normal)
+        button.showsTouchWhenHighlighted = true
+        return button
+    }()
+    
+    
+    lazy var carButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setImage(UIImage(named: "bike"), for: .normal)
+        button.showsTouchWhenHighlighted = true
+        return button
+    }()
+    
+    lazy var walkButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setImage(UIImage(named: "bike"), for: .normal)
+        button.showsTouchWhenHighlighted = true
+        return button
+    }()
+    
     // MARK: - Internal Properties
     var selectedRoute: Route?
     
