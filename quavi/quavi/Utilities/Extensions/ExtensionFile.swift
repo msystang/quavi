@@ -20,6 +20,7 @@ extension UIButton{
         self.setBackgroundImage(image, for: .normal)
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = UIColor.white.cgColor
+        self.alpha = 0.5
         self.showsTouchWhenHighlighted = true
     }
 }
