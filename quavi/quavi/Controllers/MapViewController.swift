@@ -17,34 +17,10 @@ class MapViewController: UIViewController {
     
     var sampleData = POI.pointsOfinterest
     
-    // MARK: - Lazy UI Variables
-    lazy var mapView: NavigationMapView = {
-        // TODO: Refactor code, see what makes sense to go here
-        let mapView = NavigationMapView(frame: view.bounds)
-        mapView.styleURL = MGLStyle.darkStyleURL
-        mapView.delegate = self
-        mapView.setUserTrackingMode(.followWithCourse, animated: true, completionHandler: nil)
-        mapView.tintColor = .yellow
-        mapView.showsUserLocation = true
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        return mapView
-    }()
-    
-    lazy var sliderView: UIView = {
-        var view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    lazy var poiTableView: UITableView = {
-        let tableview = UITableView(frame: .zero, style: .grouped)
-        tableview.register(StopsTableViewCell.self, forCellReuseIdentifier: Enums.cellIdentifiers.StopCell.rawValue)
-        tableview.delegate = self
-        tableview.dataSource = self
-        tableview.backgroundColor = .clear
-        tableview.separatorStyle = .none
-        return tableview
-    }()
+    // MARK: - VIEWS
+    lazy var mapView = MapView(frame: view.bounds)
+    let sliderView = SliderView()
+    lazy var poiTableView = QuaviTableView()
     
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
@@ -94,8 +70,13 @@ class MapViewController: UIViewController {
     var sliderViewTopConstraints: NSLayoutConstraint?
     var newSliderViewTopConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
+    
+    var mapViewBottomConstraintHalf: NSLayoutConstraint?
+    var mapViewBottomConstraintClosed: NSLayoutConstraint?
+    
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
+    
     var currentSelectedCategory: String = Enums.categories.History.rawValue {
         didSet {
             poiTableView.reloadData()
@@ -107,7 +88,11 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
+        mapView.delegate = self
         getSelectedRoute()
+        
+        poiTableView.dataSource = self
+        poiTableView.delegate = self
         
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
@@ -120,190 +105,9 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addConstraints()
-        
     }
-
-    
     
     //MARK: -PRIVATE FUNCTIONS
-    
-    //TODO: Add to constraints extension file
-    private func addSliderViewSubViews() {
-        view.addSubview(sliderView)
-        sliderView.addSubview(chevronArrows)
-        sliderView.addSubview(categoriesCollectionView)
-        sliderView.addSubview(poiTableView)
-    }
-    
-    //TODO: Add to constraints extension file
-    private func addSliderViewConstraints() {
-        constrainSliderView()
-        constrainChevronImage()
-        constrainCategoriesCollectionView()
-        constrainPOITableView()
-    }
-    
-    //TODO: Create extension of MapViewController file called MapViewController+SliderView and add anything related to that file
-    private func loadGestures() {
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
-        swipeDown.direction = .down
-        self.sliderView.addGestureRecognizer(swipeDown)
-        
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
-        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
-        self.sliderView.addGestureRecognizer(swipeUp)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
-        self.chevronArrows.addGestureRecognizer(tap)
-    }
-    
-    func directionOfChevron(state: Enums.sliderViewStates) {
-        
-        switch state {
-        case .halfOpen:
-            self.chevronArrows.image = UIImage(systemName: "minus")
-        case .fullOpen:
-            self.chevronArrows.image = UIImage(systemName: "chevron.compact.down")
-        case .closed:
-            self.chevronArrows.image = UIImage(systemName: "chevron.compact.up")
-            
-        }
-    }
-
-    //TODO: add to constraints extension
-    private func createSliderViewConstraints() {
-        sliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 400)
-        sliderViewTopConstraints?.isActive = true
-
-        newSliderViewTopConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -65)
-        newSliderViewTopConstraints?.isActive = false
-
-        fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
-        fullScreenSliderViewConstraints?.isActive = false
-    }
-    
-    private func setFullOpenSliderViewConstraints() {
-        fullScreenSliderViewConstraints?.isActive = true
-        sliderViewTopConstraints?.isActive = false
-        newSliderViewTopConstraints?.isActive = false
-    }
-    
-    private func setHalfOpenSliderViewConstraints() {
-        fullScreenSliderViewConstraints?.isActive = false
-        sliderViewTopConstraints?.isActive = true
-        newSliderViewTopConstraints?.isActive = false
-    }
-    
-    private func setClosedSliderViewConstraints() {
-        fullScreenSliderViewConstraints?.isActive = false
-        sliderViewTopConstraints?.isActive = false
-        newSliderViewTopConstraints?.isActive = true
-    }
-    
-    //TODO: Create extension of MapViewController file called MapViewController+CollectionView and add anything related to that file
-    private func handleCollectionViewCellPressed(item: Int) {
-        if item == 0 {
-            currentSelectedCategory = Enums.categories.History.rawValue
-        } else if item == 1 {
-            currentSelectedCategory = Enums.categories.Art.rawValue
-        } else if item == 2 {
-            currentSelectedCategory = Enums.categories.Science.rawValue
-        } else if item == 3 {
-            currentSelectedCategory = Enums.categories.Religion.rawValue
-        } else if item == 4 {
-            currentSelectedCategory = Enums.categories.Yeet.rawValue
-        }
-    }
-    
-    //TODO: Move to slider view extension file
-    //MARK: -RESPOND TO GESTURE
-    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        print(gesture)
-        
-        if let tapGesture = gesture as? UITapGestureRecognizer {
-            print("tapped")
-            switch tapGesture.numberOfTouches {
-            case 1:
-                print("one tap")
-                
-                sliderViewTopConstraints?.isActive = true
-                newSliderViewTopConstraints?.isActive = false
-                
-                UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                    self?.directionOfChevron(state: .halfOpen)
-                    self?.view.layoutIfNeeded()
-                    self?.sliderView.alpha = 1.0
-                    self?.poiTableView.alpha = 1.0
-                    self?.categoriesCollectionView.alpha = 1.0
-                    }, completion: nil)
-            case 2:
-                print("two tap")
-            default:
-                print("dunno know")
-            }
-            
-        }
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizer.Direction.down:
-                print("Swiped down")
-                
-                
-                switch sliderViewState {
-                case .fullOpen:
-                    setHalfOpenSliderViewConstraints()
-                    sliderViewState = .halfOpen
-                case .halfOpen:
-                    setClosedSliderViewConstraints()
-                    sliderViewState = .closed
-                case .closed:
-                    print("it's already closed")
-                }
-                
-                
-                UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                    self?.directionOfChevron(state: .closed)
-                    self?.view.layoutIfNeeded()
-                    
-                    if self?.sliderViewState == .closed {
-                        self?.sliderView.alpha = 0.5
-                        self?.poiTableView.alpha = 0
-                        self?.categoriesCollectionView.alpha = 0
-                    }
-                    
-                    }, completion: nil)
-                
-            case UISwipeGestureRecognizer.Direction.up:
-                print("Swiped Up")
-                
-                switch sliderViewState {
-                case .fullOpen:
-                    print("it's fully opened")
-                case .halfOpen:
-                    setFullOpenSliderViewConstraints()
-                    sliderViewState = .fullOpen
-                case .closed:
-                    setHalfOpenSliderViewConstraints()
-                    sliderViewState = .halfOpen
-                }
-                
-                UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                    self?.directionOfChevron(state: .halfOpen)
-                    self?.view.layoutIfNeeded()
-                    
-                    self?.sliderView.alpha = 1.0
-                    self?.poiTableView.alpha = 1.0
-                    self?.categoriesCollectionView.alpha = 1.0
-                    }, completion: nil)
-                
-            default:
-                break
-            }
-            
-        }
-        
-    }
     
     //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
@@ -314,60 +118,12 @@ class MapViewController: UIViewController {
         } else {
             sampleData[sender.tag].isCellExpanded = true
         }
-        
         let incides: IndexSet = [sender.tag]
         poiTableView.reloadSections(incides, with: .fade)
-        
     }
     
-    
-    //TODO: Add to constraints file, specific for the sliderView, collectionView, or TableView (indicate with MARK)
-    //MARK: -CONSTRAINTS
-    private func constrainSliderView() {
-        sliderView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor), sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor), sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)])
-        createSliderViewConstraints()
-    }
-    
-    
-    private func constrainPOITableView() {
-        poiTableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            poiTableView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 10),
-            poiTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor)
-        ])
-    }
-    
-    private func constrainChevronImage() {
-        chevronArrows.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 10),
-            chevronArrows.centerXAnchor.constraint(equalTo: sliderView.centerXAnchor),
-            chevronArrows.bottomAnchor.constraint(equalTo: categoriesCollectionView.topAnchor, constant: -10),
-            chevronArrows.widthAnchor.constraint(equalToConstant: 40),
-            chevronArrows.heightAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
-    private func constrainCategoriesCollectionView() {
-        categoriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            categoriesCollectionView.topAnchor.constraint(equalTo: chevronArrows.bottomAnchor, constant: 10),
-            categoriesCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            categoriesCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            categoriesCollectionView.bottomAnchor.constraint(equalTo: poiTableView.topAnchor, constant: -10),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 40)
-        ])
-    }
-
-
-
 }
 
-//TODO: Make file extension of MapViewController named MapViewController+TableView
 
 
 //TODO: Make file extension of MapViewController named MapViewController+CollectionView
