@@ -34,18 +34,21 @@ class MapViewController: UIViewController {
     }()
     
     lazy var bikeButton:UIButton = {
-        let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2)
+        let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
     lazy var carButton:UIButton = {
-        let button = UIButton(image: UIImage(systemName: "car")!, borderWidth: 2)
+        let button = UIButton(image: UIImage(systemName: "car")!, borderWidth: 2, tag: 0)
         button.tintColor = .black
+         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
     lazy var walkButton:UIButton = {
-        let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2)
+        let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
+         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     

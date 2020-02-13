@@ -22,7 +22,6 @@ extension MapViewController: MGLMapViewDelegate {
         // For Testing...
         let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7498204, longitude: -73.9899533)
         
-        
         DispatchQueue.main.async {
             do {
                 let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: navigationType)
