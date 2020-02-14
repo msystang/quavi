@@ -49,6 +49,6 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     func setUpCells(cell: CategoriesCollectionViewCell, data: CategoryData) {
         self.categoryLabel.text = data.name
         cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 25
+        cell.layer.cornerRadius = cell.frame.height/2
     }
 }
