@@ -74,6 +74,7 @@ extension MapViewController: MGLMapViewDelegate {
         
         if let source = mapView.style?.source(withIdentifier: "route-source") as? MGLShapeSource {
             source.shape = polyline
+            generatePolylineStyle(source: source)
         } else {
             //TODO: Look into what options are?
             let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
@@ -104,9 +105,29 @@ extension MapViewController: MGLMapViewDelegate {
     }
     
     private func generatePolylineStyle(source: MGLShapeSource) {
+        //MARK: -- We check to see if a lineStyle has been added, then we remove it from the mapview style later
+        if let oldLineSyle  = mapView.style?.layer(withIdentifier: "route-style"){
+           mapView.style?.removeLayer(oldLineSyle)
+        }
+        
         let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
         
-        lineStyle.lineWidth = NSExpression(forConstantValue: 5)
+        //MARK: - This switch statement is used to design the polyline based on the users mode of transportation
+        switch modeOfTransit{
+        case .automobile:
+            lineStyle.lineDashPattern = NSExpression(forConstantValue: [2.5, 0])
+            lineStyle.lineWidth = NSExpression(forConstantValue: 4)
+        case .cycling:
+            lineStyle.lineDashPattern = NSExpression(forConstantValue: [8, 2])
+            lineStyle.lineGapWidth = NSExpression(forConstantValue: 3)
+            lineStyle.lineWidth = NSExpression(forConstantValue: 2)
+        case .walking:
+            lineStyle.lineDashPattern = NSExpression(forConstantValue: [3.5, 1.5])
+            lineStyle.lineWidth = NSExpression(forConstantValue: 4)
+        default:
+            return
+        }
+        lineStyle.lineJoin = NSExpression(forConstantValue: "round")
         lineStyle.lineColor = NSExpression(forConstantValue: UIColor.yellow)
         
         mapView.style?.addLayer(lineStyle)
