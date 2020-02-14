@@ -104,19 +104,13 @@ extension MapViewController: MGLMapViewDelegate {
         })
     }
     
-    private func generatePolylineStyle(source: MGLShapeSource) {
-        //MARK: -- We check to see if a lineStyle has been added, then we remove it from the mapview style later
-        if let oldLineSyle  = mapView.style?.layer(withIdentifier: "route-style"){
-           mapView.style?.removeLayer(oldLineSyle)
-        }
-        
-        let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
-        
+    private func designPolyLine(lineStyle:MGLLineStyleLayer){
         //MARK: - This switch statement is used to design the polyline based on the users mode of transportation
         switch modeOfTransit{
         case .automobile:
             lineStyle.lineDashPattern = NSExpression(forConstantValue: [2.5, 0])
             lineStyle.lineWidth = NSExpression(forConstantValue: 4)
+            lineStyle.lineCap = NSExpression(forConstantValue: "round")
         case .cycling:
             lineStyle.lineDashPattern = NSExpression(forConstantValue: [8, 2])
             lineStyle.lineGapWidth = NSExpression(forConstantValue: 3)
@@ -131,5 +125,15 @@ extension MapViewController: MGLMapViewDelegate {
         lineStyle.lineColor = NSExpression(forConstantValue: UIColor.yellow)
         
         mapView.style?.addLayer(lineStyle)
+    }
+    
+    private func generatePolylineStyle(source: MGLShapeSource) {
+        //MARK: -- We check to see if a lineStyle has been added, then we remove it from the mapview style later
+        if let oldLineSyle  = mapView.style?.layer(withIdentifier: "route-style"){
+            mapView.style?.removeLayer(oldLineSyle)
+        }
+        
+        let lineStyle = MGLLineStyleLayer(identifier: "route-style", source: source)
+        designPolyLine(lineStyle: lineStyle)
     }
 }
