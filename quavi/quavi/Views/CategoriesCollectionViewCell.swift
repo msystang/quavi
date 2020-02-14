@@ -23,7 +23,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .systemYellow
         self.addSubview(categoryLabel)
         setUpConstraints()
     
@@ -49,6 +49,6 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     func setUpCells(cell: CategoriesCollectionViewCell, data: CategoryData) {
         self.categoryLabel.text = data.name
         cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 13
+        cell.layer.cornerRadius = 25
     }
 }
