@@ -16,17 +16,15 @@ extension MapViewController: MGLMapViewDelegate {
     
     // MARK: - Internal Methods
     //TODO: Refactor with initalLocation from user!
-    func getSelectedRoute() {
+    func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
         //TODO: User's current location must require mapView to load first, must deal with async
         
         // For Testing...
         let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7498204, longitude: -73.9899533)
-        let testProfileIdentifier = MBDirectionsProfileIdentifier.walking
-        
         
         DispatchQueue.main.async {
             do {
-                let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: testProfileIdentifier)
+                let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: navigationType)
                 
                 //Generate route from options
                 //TODO: Make async

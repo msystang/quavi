@@ -17,6 +17,11 @@ class MapViewController: UIViewController {
     // MARK: -PROPERTIES
     var sampleData = POI.pointsOfinterest
     var selectedRoute: Route?
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+        }
+    }
     
     // MARK: - VIEWS
     lazy var mapView = MapView(frame: view.bounds)
@@ -32,6 +37,26 @@ class MapViewController: UIViewController {
         image.isUserInteractionEnabled = true
         return image
     }()
+    
+    lazy var bikeButton:UIButton = {
+        let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var carButton:UIButton = {
+        let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
+         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var walkButton:UIButton = {
+        let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
+         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
+
     
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData: [CategoryData] = [
@@ -63,14 +88,16 @@ class MapViewController: UIViewController {
         view.backgroundColor = .yellow
         addSubviews()
         mapView.delegate = self
-        getSelectedRoute()
         
         poiTableView.dataSource = self
         poiTableView.delegate = self
         
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
-        
+        getSelectedRoute(navigationType: modeOfTransit)
+        setBikeButtonConstraints()
+        setCarButtonConstraints()
+        setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
@@ -96,6 +123,19 @@ class MapViewController: UIViewController {
         }
         let incides: IndexSet = [sender.tag]
         poiTableView.reloadSections(incides, with: .fade)
+    }
+    
+    @objc func handleSelectingModeOfTransportation(sender:UIButton) {
+        switch sender.tag{
+        case 0:
+            modeOfTransit = .automobile
+        case 1:
+            modeOfTransit = .cycling
+        case 2:
+            modeOfTransit = .walking
+        default :
+            return
+        }
     }
     
 }
