@@ -9,9 +9,10 @@ Being in a new city is intimidating when you don’t know much about it. You’r
 Quavi makes exploring a new city easier and catered to the individual’s experience. Our app would allow a user to be their own interactive tour guide at their own leisure with no cost to them. Users have the option to select and download preset tour routes based on the categories that interest them (i.e. History, Arts & Culture, Religion, Food, etc). This eliminates the need to meticulously plan out their sightseeing course from scouring through multiple resources.
 
 ## Technologies
-1. Swift 5
+1. Swift 5 / Xcode 11.3
 1. MapBox (including AR and Machine Learning capabilities)
 1. CoreLocation
+1. Quick/Nimble
 1. Google Firebase
 1. Kingfisher
 
@@ -37,7 +38,6 @@ Quavi makes exploring a new city easier and catered to the individual’s experi
 - When the tour is completed a congratulation pop up with confetti with load. With other tours presented to them and the option to save or share the tour.
 
 - The “Profile” tab will allow users to update/edit their profile info and view their saved tours and points of interested
-
 
 ## GIFs & Images
 Coming Soon!
