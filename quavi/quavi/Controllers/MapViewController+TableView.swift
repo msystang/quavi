@@ -25,13 +25,13 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             //TO-DO: SEPERATE INTO IT'S OWN FILE
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
             button.setTitle(sampleData[section].name, for: .normal)
-            button.backgroundColor = .yellow
+            button.backgroundColor = .systemYellow
             button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
             button.setTitleColor(.black, for: .normal)
             button.tag = section
             view.addSubview(button)
             
-            view.backgroundColor = .gray
+            view.backgroundColor = .clear
             return view
         }
         
@@ -51,7 +51,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             animations: {
                 cell.alpha = 1
         })
-        
+        cell.backgroundColor = .clear
         cell.stopImage.image = stop.tableViewImage
         cell.stopLabel.text = sampleData[indexPath.section].shortDesc
         return cell

@@ -22,6 +22,10 @@ class SliderView: UIView {
     func configure() {
         backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 5
     }
 
 }
