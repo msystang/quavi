@@ -16,6 +16,16 @@ Quavi makes exploring a new city easier and catered to the individual’s experi
 1. Google Firebase
 1. Kingfisher
 
+## Set Up
+- Clone the repo in your terminal:
+  - ```git clone https://github.com/msystang/quavi.git```
+- Install CocoaPods in your terminal (relevant pods are already in the project Podfile):
+  - ```pod install```
+- Set up your MapBox acccess token:
+  - On your **Desktop**, create a file named `mapbox_access_token.mapbox`. Ensure that the file extension is `.mapbox` and not a `.txt`.
+  - Add your MapBox access token in this file and save.
+  - Learn more about MapBox access tokens [here](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#how-access-tokens-work).
+  
 ## Usage Example
 - The user is presented with the map loaded on the screen and on the bottom is the “Map” tab and “Profile” tab at the bottom of the screen:
   - The map will include a collection of route categories that the user can select from
