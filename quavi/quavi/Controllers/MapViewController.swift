@@ -45,8 +45,7 @@ class MapViewController: UIViewController {
     }()
     
     lazy var carButton:UIButton = {
-        let button = UIButton(image: UIImage(systemName: "car")!, borderWidth: 2, tag: 0)
-        button.tintColor = .black
+        let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
          button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
