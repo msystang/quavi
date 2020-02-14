@@ -30,7 +30,7 @@ struct POI {
     }
     
     // MARK: - Static Variables
-    static let pointsOfinterest:[POI] = [
+    static let pointsOfinterest:[[POI]] = [[
         POI(
             name: "Empire State Building",
             isCellExpanded: false,
@@ -64,5 +64,33 @@ struct POI {
             """,
             tableViewImage: UIImage(named: "theRubin1")!,
             popoverImage: UIImage(named: "theRubin2")!)
-    ]
+    ],
+    [POI(
+        name: "Pursuit Building",
+        isCellExpanded: false,
+        lat: 40.743230,
+        long: -73.941760,
+        shortDesc: "Through our four-year intensive program, we train adults with the most need and potential to get their first tech jobs, advance in their careers, and become the next generation of leaders in tech. Our graduates are hired by leading companies like Pinterest, Kickstarter, LinkedIn, BlackRock, and JPMorgan Chase, and increase their average annual salaries from $18,000 to over $85,000.",
+        longDesc: "Through our four-year intensive program, we train adults with the most need and potential to get their first tech jobs, advance in their careers, and become the next generation of leaders in tech. Our graduates are hired by leading companies like Pinterest, Kickstarter, LinkedIn, BlackRock, and JPMorgan Chase, and increase their average annual salaries from $18,000 to over $85,000.",
+        tableViewImage: UIImage(named: "pursuit")!,
+        popoverImage: UIImage(named: "pursuit")!),
+    POI(
+    name: "The Factory",
+    isCellExpanded: false,
+    lat: 40.7430,
+    long: -73.9363,
+    shortDesc: "The Factory is one of Long Island City’s most desirable workspaces. A center for cultivating the growth of forward-thinking companies as they enter traditional sectors and reinvent them – The Factory is driven by people’s passion for their work",
+    longDesc: "The Factory is one of Long Island City’s most desirable workspaces. A center for cultivating the growth of forward-thinking companies as they enter traditional sectors and reinvent them – The Factory is driven by people’s passion for their work",
+    tableViewImage: UIImage(named: "Factory")!,
+    popoverImage: UIImage(named: "Factory")!),
+    POI(
+    name: "Smiling Hogshead Ranch",
+    isCellExpanded: false,
+    lat: 40.743187,
+    long: -73.943063,
+    shortDesc: "Smiling Hogshead Ranch is an urban farm collective whose mission is to create a culture that empowers and connects our communities through ecology, education and collaboration",
+    longDesc: "Smiling Hogshead Ranch is an urban farm collective whose mission is to create a culture that empowers and connects our communities through ecology, education and collaboration",
+    tableViewImage: UIImage(named: "SmilingHogsheadRanch")!,
+    popoverImage: UIImage(named: "SmilingHogsheadRanch")!),
+    ]]
 }

@@ -17,7 +17,7 @@ struct Tour {
     let stops: [POI]
     
     // MARK: - Static Properties
-    static let dummyData: Tour = Tour(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
+    static let dummyData: [Tour] = [Tour(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest[0]), Tour(name: "DummyArt", category: "Art", stops: POI.pointsOfinterest[1])]
     
     // MARK: - Static Functions
     static func generateNavigationRouteOptions(from tour: Tour, initialLocation: CLLocationCoordinate2D?, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
