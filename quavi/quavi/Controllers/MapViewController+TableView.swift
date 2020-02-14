@@ -15,15 +15,16 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         if sampleData[section].isCellExpanded == false { return 0 } else { return 1 }
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int { return sampleData.count }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if currentSelectedCategory == Enums.categories.History.rawValue {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
             
             //TO-DO: SEPERATE INTO IT'S OWN FILE
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
             button.setTitle(sampleData[section].name, for: .normal)
             button.backgroundColor = .systemYellow
             button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
@@ -38,7 +39,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         return nil
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 50 }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 70 }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let stop = sampleData[indexPath.section]
