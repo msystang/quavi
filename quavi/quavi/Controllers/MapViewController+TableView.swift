@@ -32,6 +32,11 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             button.tag = section
             view.addSubview(button)
             
+            let sectionHeaderArrows = UIImageView(image: UIImage(systemName: "chevron.compact.down"))
+            sectionHeaderArrows.tintColor = .black
+            button.addSubview(sectionHeaderArrows)
+            constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
+            
             view.backgroundColor = .clear
             return view
         }

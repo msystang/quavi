@@ -101,4 +101,16 @@ extension MapViewController {
             categoriesCollectionView.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+    
+    func constrainTVSectionArrow(button: UIButton, sectionHeaderArrows:UIImageView) {
+        sectionHeaderArrows.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sectionHeaderArrows.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10),
+            sectionHeaderArrows.topAnchor.constraint(equalTo: button.topAnchor, constant: button.frame.height/2),
+            sectionHeaderArrows.heightAnchor.constraint(equalToConstant: 25),
+            sectionHeaderArrows.widthAnchor.constraint(equalToConstant: 20)
+            
+        
+        ])
+    }
 }
