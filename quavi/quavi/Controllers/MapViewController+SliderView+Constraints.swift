@@ -113,4 +113,9 @@ extension MapViewController {
         
         ])
     }
+    
+    func constrainTVSectionImage(button: UIButton, sectionHeaderImage:UIImageView){
+        sectionHeaderImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([sectionHeaderImage.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 5), sectionHeaderImage.centerYAnchor.constraint(equalTo: button.centerYAnchor), sectionHeaderImage.heightAnchor.constraint(equalToConstant: 60), sectionHeaderImage.widthAnchor.constraint(equalToConstant: 60)])
+    }
 }
