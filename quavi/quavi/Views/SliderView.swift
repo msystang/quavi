@@ -26,6 +26,7 @@ class SliderView: UIView {
         layer.shadowOpacity = 1
         layer.shadowOffset = .zero
         layer.shadowRadius = 5
+        layer.cornerRadius = 15
     }
 
 }
