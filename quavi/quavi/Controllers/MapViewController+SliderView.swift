@@ -37,7 +37,7 @@ extension MapViewController {
         self.chevronArrows.addGestureRecognizer(tap)
     }
     
-    func directionOfChevron(state: Enums.sliderViewStates) {
+  private func directionOfChevron(state: Enums.sliderViewStates) {
         
         switch state {
         case .halfOpen:
