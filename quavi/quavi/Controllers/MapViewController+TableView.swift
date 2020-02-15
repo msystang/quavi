@@ -34,8 +34,6 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             
             let sectionImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
             sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
-            sectionImage.layer.borderWidth = 0.5
-            sectionImage.layer.borderColor = UIColor.black.cgColor
             sectionImage.layer.masksToBounds = true
             sectionImage.image = sampleData[section].popoverImage
             
