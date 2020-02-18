@@ -14,7 +14,7 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let category = sampleCategoryData[indexPath.row]
+        let category: Enums.categories = .History
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue, for: indexPath) as? CategoriesCollectionViewCell else {return UICollectionViewCell()}
         
         cell.setUpCells(cell: cell, data: category)

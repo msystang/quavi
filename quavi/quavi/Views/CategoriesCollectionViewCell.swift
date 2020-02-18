@@ -46,8 +46,8 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func setUpCells(cell: CategoriesCollectionViewCell, data: CategoryData) {
-        self.categoryLabel.text = data.name
+    func setUpCells(cell: CategoriesCollectionViewCell, data: Enums.categories) {
+        self.categoryLabel.text = data.rawValue
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = cell.frame.height/2
     }

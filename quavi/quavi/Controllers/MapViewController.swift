@@ -24,11 +24,22 @@ class MapViewController: UIViewController {
     }
     
     // MARK: - VIEWS
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     lazy var mapView = MapView(frame: view.bounds)
     let sliderView = SliderView()
     lazy var poiTableView = QuaviTableView()
     lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
     var startNavigationButton = NavigationUIButton()
+    
+    var sliderViewState: Enums.sliderViewStates = .halfOpen
+    
+    var scrollViewTopAnchor: NSLayoutConstraint?
+    var scrollViewBottomAnchor: NSLayoutConstraint?
+    
+    let sliderViewHeight: CGFloat = 900
+    
     
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
@@ -38,69 +49,57 @@ class MapViewController: UIViewController {
         return image
     }()
     
-    lazy var bikeButton:UIButton = {
+    lazy var bikeButton: UIButton = {
         let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
-    lazy var carButton:UIButton = {
+    lazy var carButton: UIButton = {
         let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
-         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
-    lazy var walkButton:UIButton = {
+    lazy var walkButton: UIButton = {
         let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
-         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
-
     
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData: [CategoryData] = [
-        CategoryData(name: Enums.categories.History.rawValue),
-        CategoryData(name: Enums.categories.Art.rawValue),
-        CategoryData(name: Enums.categories.Science.rawValue),
-        CategoryData(name: Enums.categories.Religion.rawValue),
-        CategoryData(name: Enums.categories.Yeet.rawValue)
+        CategoryData(name: .History),
+        CategoryData(name: .Art),
+        CategoryData(name: .Science),
+        CategoryData(name: .Religion),
+        CategoryData(name: .Yeet)
     ]
     
-    //TODO: Rename constraints to be more specific and indicate state of slider
-    var halfScreenSliderViewConstraints: NSLayoutConstraint?
-    var closedSliderViewConstraints: NSLayoutConstraint?
-    var fullScreenSliderViewConstraints: NSLayoutConstraint?
     
-    var mapViewBottomConstraintHalf: NSLayoutConstraint?
-    var mapViewBottomConstraintClosed: NSLayoutConstraint?
-    
-    var sliderViewState: Enums.sliderViewStates = .halfOpen
-    let sliderViewHeight: CGFloat = 900
-    
-    var currentSelectedCategory: String = Enums.categories.History.rawValue {
+    var currentSelectedCategory: Enums.categories = .History {
         didSet { poiTableView.reloadData() }
     }
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .systemYellow
         addSubviews()
-        mapView.delegate = self
+        configureScrollView()
         
-        poiTableView.dataSource = self
-        poiTableView.delegate = self
-        
-        categoriesCollectionView.dataSource = self
-        categoriesCollectionView.delegate = self
+        configureDelegates()
         getSelectedRoute(navigationType: modeOfTransit)
+        
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
+        
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
+        
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
     }
     
@@ -111,7 +110,37 @@ class MapViewController: UIViewController {
     
     //MARK: -PRIVATE FUNCTIONS
     
-
+    func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        //scrollView.pinToEdges(of: view)
+        contentView.pinToEdges(of: scrollView)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewTopAnchor = scrollView.topAnchor.constraint(equalTo: view.topAnchor)
+        scrollViewTopAnchor?.isActive = true
+        
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 600)
+        ])
+        
+    }
+    
+    func configureDelegates() {
+        mapView.delegate = self
+        
+        poiTableView.dataSource = self
+        poiTableView.delegate = self
+        
+        categoriesCollectionView.dataSource = self
+        categoriesCollectionView.delegate = self
+    }
+    
     //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
     @objc func buttonPressed(sender: UIButton) {

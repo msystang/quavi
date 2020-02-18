@@ -16,8 +16,10 @@ extension MapViewController {
     //TODO: rename to addMapViewSubviews()
     func addSubviews() {
         //TODO: -- re-assign this to the view when the collectionview is added
-        view.addSubview(mapView)
+        contentView.addSubview(mapView)
+        
         sliderView.addSubview(startNavigationButton)
+        
         mapView.addSubview(bikeButton)
         mapView.addSubview(carButton)
         mapView.addSubview(walkButton)
@@ -35,9 +37,10 @@ extension MapViewController {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            mapView.topAnchor.constraint(equalTo: view.topAnchor)
+            mapView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
         
@@ -52,10 +55,7 @@ extension MapViewController {
                                      startNavigationButton.widthAnchor.constraint(equalToConstant: 50)])
     }
     
-    //MARK: -collectionView Constraints
-    
-    //MARK: -tableView Constraints
-    
+
     //MARK: -bike button constraints
     func setBikeButtonConstraints(){
         bikeButton.translatesAutoresizingMaskIntoConstraints = false

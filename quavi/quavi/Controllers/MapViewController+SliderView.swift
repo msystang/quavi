@@ -6,21 +6,16 @@
 //  Copyright © 2020 Sunni Tang. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 extension MapViewController {
     
     func handleCollectionViewCellPressed(item: Int) {
-        if item == 0 {
-            currentSelectedCategory = Enums.categories.History.rawValue
-        } else if item == 1 {
-            currentSelectedCategory = Enums.categories.Art.rawValue
-        } else if item == 2 {
-            currentSelectedCategory = Enums.categories.Science.rawValue
-        } else if item == 3 {
-            currentSelectedCategory = Enums.categories.Religion.rawValue
-        } else if item == 4 {
-            currentSelectedCategory = Enums.categories.Yeet.rawValue
+        if item == 0 { currentSelectedCategory = .History
+        } else if item == 1 { currentSelectedCategory = .Art
+        } else if item == 2 { currentSelectedCategory = .Science
+        } else if item == 3 { currentSelectedCategory = .Religion
+        } else if item == 4 { currentSelectedCategory = .Yeet
         }
     }
     
@@ -61,12 +56,16 @@ extension MapViewController {
                 sliderViewState = .halfOpen
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-                    self?.setHalfOpenSliderViewConstraints()
-                    self?.directionOfChevron(state: .halfOpen)
-                    self?.view.layoutIfNeeded()
-                    self?.sliderView.alpha = 1.0
-                    self?.poiTableView.alpha = 1.0
-                    self?.categoriesCollectionView.alpha = 1.0
+                    guard let self = self else { return }
+                    
+                    self.directionOfChevron(state: .halfOpen)
+                    
+                    self.view.layoutIfNeeded()
+                    
+                    self.sliderView.alpha = 1.0
+                    self.poiTableView.alpha = 1.0
+                    self.categoriesCollectionView.alpha = 1.0
+                    
                     }, completion: nil)
             default:
                 print("dunno know")
@@ -81,62 +80,59 @@ extension MapViewController {
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
                     
-                    switch self?.sliderViewState {
+                    guard let self = self else { return }
+                    
+                    switch self.sliderViewState {
+                        
                     case .fullOpen:
-                        self?.setHalfOpenSliderViewConstraints()
-                        self?.sliderViewState = .halfOpen
+                       
+                        self.sliderViewState = .halfOpen
+                        
                     case .halfOpen:
-                        self?.setClosedSliderViewConstraints()
-                        self?.sliderViewState = .closed
+                       
+                        self.sliderViewState = .closed
+                        
                     case .closed:
                         print("it's already closed")
-                    case .none:
-                        return
+                        
                     }
                     
-                    if self?.sliderViewState == .closed {
-                        self?.directionOfChevron(state: .closed)
-                    } else if self?.sliderViewState == .halfOpen {
-                        self?.directionOfChevron(state: .halfOpen)
-                    } else if self?.sliderViewState == .fullOpen {
-                        self?.directionOfChevron(state: .fullOpen)
-                    }
-                    self?.view.layoutIfNeeded()
+                  
+                    self.view.layoutIfNeeded()
                     
-                    if self?.sliderViewState == .closed {
-                        self?.poiTableView.alpha = 0
+                    if self.sliderViewState == .closed {
+                        self.poiTableView.alpha = 0
                     }
                     
                     }, completion: nil)
                 
             case UISwipeGestureRecognizer.Direction.up:
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+                    guard let self = self else { return }
                     
-                    switch self?.sliderViewState {
+                    switch self.sliderViewState {
                     case .fullOpen:
                         print("it's fully opened")
+                        
                     case .halfOpen:
-                        self?.setFullOpenSliderViewConstraints()
-                        self?.sliderViewState = .fullOpen
+                        self.sliderViewState = .fullOpen
+                        
                     case .closed:
-                        self?.setHalfOpenSliderViewConstraints()
-                        self?.sliderViewState = .halfOpen
-                    case .none:
-                        return
+                        self.sliderViewState = .halfOpen
                     }
                     
-                    if self?.sliderViewState == .closed {
-                        self?.directionOfChevron(state: .closed)
-                    } else if self?.sliderViewState == .halfOpen {
-                        self?.directionOfChevron(state: .halfOpen)
-                    } else if self?.sliderViewState == .fullOpen {
-                        self?.directionOfChevron(state: .fullOpen)
+                    if self.sliderViewState == .closed {
+                        self.directionOfChevron(state: .closed)
+                    } else if self.sliderViewState == .halfOpen {
+                        self.directionOfChevron(state: .halfOpen)
+                    } else if self.sliderViewState == .fullOpen {
+                        self.directionOfChevron(state: .fullOpen)
                     }
-                    self?.view.layoutIfNeeded()
+                    self.view.layoutIfNeeded()
                     
-                    self?.sliderView.alpha = 1.0
-                    self?.poiTableView.alpha = 1.0
-                    self?.categoriesCollectionView.alpha = 1.0
+                    self.sliderView.alpha = 1.0
+                    self.poiTableView.alpha = 1.0
+                    self.categoriesCollectionView.alpha = 1.0
                     }, completion: nil)
                 
             default:
