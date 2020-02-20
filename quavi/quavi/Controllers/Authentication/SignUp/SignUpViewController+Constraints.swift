@@ -23,6 +23,7 @@ extension SignUpViewController {
         setSignUpButtonConstraints()
     }
     
+    //MARK: - Private Functions
     private func setTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         

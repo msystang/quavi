@@ -15,14 +15,17 @@ extension LoginViewController {
         view.addSubview(logInStackView)
         view.addSubview(titleLabel)
         view.addSubview(createAccountButton)
+        view.addSubview(forgotPasswordButton)
     }
     
     func addConstraints() {
         setLogInStackViewConstraints()
         setTitleLabelConstraints()
         setCreateAccountButtonConstraints()
+        setForgotPasswordButtonConstraints()
     }
     
+    //MARK: - Private Functions
     private func setLogInStackViewConstraints() {
         logInStackView.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -58,8 +61,19 @@ extension LoginViewController {
             createAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             createAccountButton.leadingAnchor.constraint(equalTo: logInStackView.leadingAnchor),
             createAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
-            createAccountButton.heightAnchor.constraint(equalToConstant: 100)
+            createAccountButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 
+    private func setForgotPasswordButtonConstraints() {
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            forgotPasswordButton.leadingAnchor.constraint(equalTo: logInStackView.leadingAnchor),
+            forgotPasswordButton.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: 5),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
 }
