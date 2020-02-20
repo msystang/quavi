@@ -147,10 +147,18 @@
 		EA97DA8023FF082B00CB6B32 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				EA97DA8523FF0ED300CB6B32 /* Login */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		EA97DA8523FF0ED300CB6B32 /* Login */ = {
+			isa = PBXGroup;
+			children = (
 				EA97DA8123FF085900CB6B32 /* LoginViewController.swift */,
 				EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */,
 			);
-			path = Authentication;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		EAF7170323E3804200DD8703 = {
