@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
     lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
-        //TODO: Add target for loginButtonPressed func
+        button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -58,18 +58,11 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         addSubviews()
         addConstraints()
-        // Do any additional setup after loading the view.
+
+    }
+
+    @objc func loginButtonPressed() {
+        //Handle login button pressed with firebaseAuth service
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
