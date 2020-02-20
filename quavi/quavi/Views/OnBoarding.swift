@@ -30,9 +30,12 @@ class OnBoarding: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureScrollView()
-        setUpAllPages()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setUpAllPages()
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
