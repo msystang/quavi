@@ -49,9 +49,22 @@ class QuaviOnboardOverlay:UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-      
+        pageControlConstraint()
+        continueButtonConstraint()
+        skipButtonConstraint()
+        prevLabelConstraint()
+        nextLabelConstraint()
     }
     
+    // this overide func is needed to enable any views that are behind this view.. Since this view is static and is an overlay, access to anything behind it cant be accessed
+    override open func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        for subview in subviews {
+            if !subview.isHidden && subview.alpha > 0 && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
+                return true
+            }
+        }
+        return false
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
