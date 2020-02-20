@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        //TODO: Handle login button pressed with firebaseAuth service using email and password
+        //TODO: Handle login button pressed with firebaseAuth service using email and passwordl
     }
     
     @objc func forgotPasswordButtonPressed() {
