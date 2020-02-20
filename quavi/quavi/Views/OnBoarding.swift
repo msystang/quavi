@@ -9,6 +9,13 @@
 import UIKit
 
 class OnBoarding: UIView {
+    
+    //MARK: -- properties
+    weak var delegate:QuaviOnBoardingDelegate?
+    weak var dataSource:QuaviOnBoardingDataSource?
+    weak var onBoardingOverlay:QuaviOnboardOverlay?
+    var pageCount = 0
+    
      //MARK: -- Objects
     lazy var containerView:UIScrollView = {
         let scrollView = UIScrollView()
