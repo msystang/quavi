@@ -37,7 +37,7 @@ extension MapViewController {
         self.chevronArrows.addGestureRecognizer(tap)
     }
     
-    func directionOfChevron(state: Enums.sliderViewStates) {
+  private func directionOfChevron(state: Enums.sliderViewStates) {
         
         switch state {
         case .halfOpen:
@@ -49,7 +49,13 @@ extension MapViewController {
         }
     }
     
+    private func addCornerRadiusToSliderView(){
+        sliderView.layer.cornerRadius = 15
+    }
     
+    private func removeCornerRadiusToSliderView(){
+        sliderView.layer.cornerRadius = 0
+    }
     //MARK: -OBJ-C FUNCTIONS
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         print(gesture)
@@ -67,6 +73,7 @@ extension MapViewController {
                     self?.sliderView.alpha = 1.0
                     self?.poiTableView.alpha = 1.0
                     self?.categoriesCollectionView.alpha = 1.0
+                    self?.addCornerRadiusToSliderView()
                     }, completion: nil)
             default:
                 print("dunno know")
@@ -88,6 +95,7 @@ extension MapViewController {
                     case .halfOpen:
                         self?.setClosedSliderViewConstraints()
                         self?.sliderViewState = .closed
+                        self?.removeCornerRadiusToSliderView()
                     case .closed:
                         print("it's already closed")
                     case .none:
@@ -121,6 +129,7 @@ extension MapViewController {
                     case .closed:
                         self?.setHalfOpenSliderViewConstraints()
                         self?.sliderViewState = .halfOpen
+                        self?.addCornerRadiusToSliderView()
                     case .none:
                         return
                     }
