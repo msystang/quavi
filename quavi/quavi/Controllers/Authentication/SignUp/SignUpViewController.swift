@@ -37,14 +37,26 @@ class SignUpViewController: UIViewController {
     lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         //TODO: Add target for signUpButton pressed
         return button
+    }()
+    
+    lazy var signUpStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.axis = .vertical
+        return stackView
     }()
     
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = .white
+        addSubviews()
+        addConstraints()
 
     }
 
