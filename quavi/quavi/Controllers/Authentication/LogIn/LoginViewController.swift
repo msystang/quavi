@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Quavi"
+        label.textAlignment = .center
         return label
     }()
     
