@@ -44,6 +44,15 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     
+    lazy var forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Forgot Password?", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.showsTouchWhenHighlighted = true
+        //TODO: Add target
+        return button
+    }()
+    
     lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
