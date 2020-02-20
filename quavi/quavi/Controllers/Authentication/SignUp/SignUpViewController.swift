@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         //TODO: Handle initial button color (should indicate disabled)
         button.setTitleColor(.gray, for: .disabled)
-        //TODO: Add target for signUpButton pressed
+        button.addTarget(self, action: #selector(trySignUp), for: .touchUpInside)
         return button
     }()
     
@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
 
     }
     
-    //MARK: - Private Methods
+    //MARK: - Objective-C Methods
     @objc func validateFields() {
         guard emailTextField.hasText, passwordTextField.hasText else {
             signUpButton.isEnabled = false
@@ -70,6 +70,27 @@ class SignUpViewController: UIViewController {
         }
         signUpButton.isEnabled = true
     }
+    
+    @objc func trySignUp() {
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            showAlert(title: "Error", message: "Please fill out all fields.")
+            return
+        }
+        
+        guard email.isValidEmail else {
+            showAlert(title: "Error", message: "Please enter a valid email")
+            return
+        }
+        
+        guard password.isValidPassword else {
+            showAlert(title: "Error", message: "Please enter a valid password. Passwords must have at least 8 characters.")
+            return
+        }
+        
+        //TODO: handle creating new user using FirebaseAuth
+        print("Try sign up success")
+    }
 
-
+    //MARK: - Private Methods
+    
 }
