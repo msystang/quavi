@@ -66,6 +66,19 @@ class OnBoarding: UIView {
               containerView.contentSize = CGSize(width: self.frame.width * CGFloat(pageCount), height: self.frame.height)
         }
     }
+    
+    //MARK: -- Set up the static ovelay page that doesnt move with the siderview
+    private func setUpOverlayView() {
+        if let dataSource = dataSource {
+            if let overlay = dataSource.quaviOnboardViewForOverlay(self) {
+                overlay.numberOfPages(count: pageCount)
+                self.addSubview(overlay)
+                let overLayFrame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+                overlay.frame = overLayFrame
+                onBoardingOverlay = overlay
+            }
+        }
+    }
     //MARK: -- Private constraints
     private func configureScrollView() {
         self.addSubview(containerView)
