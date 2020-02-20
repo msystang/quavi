@@ -18,6 +18,7 @@
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
+		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				EA97DA8123FF085900CB6B32 /* LoginViewController.swift */,
+				EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
+				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
