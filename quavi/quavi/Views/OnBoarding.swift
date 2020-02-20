@@ -16,7 +16,7 @@ class OnBoarding: UIView {
     weak var onBoardingOverlay:QuaviOnboardOverlay?
     var pageCount = 0
     
-     //MARK: -- Objects
+    //MARK: -- Objects
     lazy var containerView:UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -39,10 +39,23 @@ class OnBoarding: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK:-- @objc func
     
+    @objc func handlePageControllerTapped(_ sender: UIPageControl) {
+        let pageIndex = sender.currentPage
+        // calls the goToPage func to animate and present the appropriate view by internally incrementing and decrimenting index
+        goToPage(index: pageIndex, animated: true)
+        
+    }
     
     //MARK: -- private func
-    //MARK: -- set up all pages of the onBoarding views 6
+    //  func to set the sliderView content offset to be the view based on the appropriate index
+    func goToPage(index: Int, animated:Bool) {
+        let index = CGFloat(index)
+        containerView.setContentOffset(CGPoint(x: index * self.frame.width, y: 0), animated: animated)
+    }
+    
+    //MARK: -- set up all pages of the onBoarding views
     private func setUpAllPages() {
         // un wrap the dataSource
         if let dataSource = dataSource{
@@ -53,17 +66,17 @@ class OnBoarding: UIView {
                 if let eachView = dataSource.quaviOnboardPageForIndex(self, index: index) {
                     if let color = dataSource.quaviOnboardBackgroundColorFor(self, atIndex: index){
                         eachView.backgroundColor = color
-                    // add to scroll view subview
-                    containerView.addSubview(eachView)
-                    // Create a frame to fit each view for there index by multiplying the frame by the amount of views it has
-                    var viewFrame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-                    viewFrame.origin.x = self.frame.width * CGFloat(index)
-                    eachView.frame = viewFrame
-                }
+                        // add to scroll view subview
+                        containerView.addSubview(eachView)
+                        // Create a frame to fit each view for there index by multiplying the frame by the amount of views it has
+                        var viewFrame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+                        viewFrame.origin.x = self.frame.width * CGFloat(index)
+                        eachView.frame = viewFrame
+                    }
                 }
             }
             // this resizes the container ScrollView to be able to scroll to all the pages added.. Although all the views are on the screen, we wont be able to scroll to see see them.
-              containerView.contentSize = CGSize(width: self.frame.width * CGFloat(pageCount), height: self.frame.height)
+            containerView.contentSize = CGSize(width: self.frame.width * CGFloat(pageCount), height: self.frame.height)
         }
     }
     
@@ -76,6 +89,9 @@ class OnBoarding: UIView {
                 let overLayFrame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
                 overlay.frame = overLayFrame
                 onBoardingOverlay = overlay
+                
+                //MARK:-- add funtion to pagecontroller for when it gets tapped
+                onBoardingOverlay?.pageControl.addTarget(self, action: #selector(handlePageControllerTapped), for: .allTouchEvents)
             }
         }
     }
