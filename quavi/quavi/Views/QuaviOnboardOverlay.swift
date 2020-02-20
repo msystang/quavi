@@ -70,6 +70,18 @@ class QuaviOnboardOverlay:UIView {
     }
     
     //MARK: -- Private func
+    // function to set the amount of pages the controller is to indicate
+    func numberOfPages(count:Int){
+        pageControl.numberOfPages = count
+    }
+    
+    //func to set the page controllers current page
+    func currentPage(index: Int) {
+        pageControl.currentPage = index
+    }
+    
+    
+    //MARK: -- Private func constraints
     private func pageControlConstraint() {
         self.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
