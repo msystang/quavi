@@ -81,6 +81,8 @@ class LoginViewController: UIViewController {
     
     
     @objc func createAccountButtonPressed() {
-        //Handle createAccount button pressed with firebaseAuth service
+        let signupVC = SignUpViewController()
+        signupVC.modalPresentationStyle = .formSheet
+        present(signupVC, animated: true, completion: nil)
     }
 }
