@@ -48,10 +48,11 @@ class LoginViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
         button.showsTouchWhenHighlighted = true
-        //TODO: Add target for createAccountButtonPressed func
+        button.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
         return button
     }()
     
+    //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,8 +62,13 @@ class LoginViewController: UIViewController {
 
     }
 
+    //MARK: - Objective-C Functions
     @objc func loginButtonPressed() {
         //Handle login button pressed with firebaseAuth service
     }
     
+    
+    @objc func createAccountButtonPressed() {
+        //Handle createAccount button pressed with firebaseAuth service
+    }
 }
