@@ -76,7 +76,24 @@ class LoginViewController: UIViewController {
 
     //MARK: - Objective-C Functions
     @objc func loginButtonPressed() {
-        //Handle login button pressed with firebaseAuth service
+        loginButton.isEnabled = false
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            showAlert(title: "Error", message: "Please fill out all fields.")
+            return
+        }
+        
+        //TODO:remove whitespace (if any) from email/password
+        guard email.isValidEmail else {
+            showAlert(title: "Error", message: "Please enter a valid email")
+            return
+        }
+        
+        guard password.isValidPassword else {
+            showAlert(title: "Error", message: "Please enter a valid password. Passwords must have at least 8 characters.")
+            return
+        }
+        
+        //TODO: Handle login button pressed with firebaseAuth service using email and password
     }
     
     @objc func forgotPasswordButtonPressed() {
