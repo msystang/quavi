@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Email"
-        //TODO: Add target for field validation
+        textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
         return textField
     }()
     
@@ -30,7 +30,7 @@ class SignUpViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Enter Password"
         textField.isSecureTextEntry = true
-        //TODO: Add target for field validation
+        textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
         return textField
     }()
     
@@ -38,6 +38,8 @@ class SignUpViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        //TODO: Handle initial button color (should indicate disabled)
+        button.setTitleColor(.gray, for: .disabled)
         //TODO: Add target for signUpButton pressed
         return button
     }()
@@ -59,5 +61,15 @@ class SignUpViewController: UIViewController {
         addConstraints()
 
     }
+    
+    //MARK: - Private Methods
+    @objc func validateFields() {
+        guard emailTextField.hasText, passwordTextField.hasText else {
+            signUpButton.isEnabled = false
+            return
+        }
+        signUpButton.isEnabled = true
+    }
+
 
 }
