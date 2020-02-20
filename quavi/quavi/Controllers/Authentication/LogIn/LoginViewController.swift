@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Forgot Password?", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.showsTouchWhenHighlighted = true
-        //TODO: Add target
+        button.addTarget(self, action: #selector(forgotPasswordButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -79,6 +79,11 @@ class LoginViewController: UIViewController {
         //Handle login button pressed with firebaseAuth service
     }
     
+    @objc func forgotPasswordButtonPressed() {
+        let forgotPasswordVC = ForgotPasswordViewController()
+        forgotPasswordVC.modalPresentationStyle = .formSheet
+        present(forgotPasswordVC, animated: true, completion: nil)
+    }
     
     @objc func createAccountButtonPressed() {
         let signupVC = SignUpViewController()
