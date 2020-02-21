@@ -14,6 +14,7 @@
 		85021EE623FF2C9800F8AD7B /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EE523FF2C9800F8AD7B /* OnBoarding.swift */; };
 		85021EE823FF2F6300F8AD7B /* QuaviOnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EE723FF2F6300F8AD7B /* QuaviOnBoardingPage.swift */; };
 		85021EEA23FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EE923FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift */; };
+		85021EEC24004EC800F8AD7B /* onBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EEB24004EC700F8AD7B /* onBoardingViewController.swift */; };
 		8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669523F215C0003AD65C /* MapViewController+Navigation.swift */; };
 		8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */; };
 		8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669B23F344C1003AD65C /* POIInfoViewController.swift */; };
@@ -67,6 +68,7 @@
 		85021EE523FF2C9800F8AD7B /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		85021EE723FF2F6300F8AD7B /* QuaviOnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnBoardingPage.swift; sourceTree = "<group>"; };
 		85021EE923FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardOverlay.swift; sourceTree = "<group>"; };
+		85021EEB24004EC700F8AD7B /* onBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingViewController.swift; sourceTree = "<group>"; };
 		8502669523F215C0003AD65C /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation+Delegate.swift"; sourceTree = "<group>"; };
 		8502669B23F344C1003AD65C /* POIInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIInfoViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */,
 				8502669B23F344C1003AD65C /* POIInfoViewController.swift */,
 				8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */,
+				85021EEB24004EC700F8AD7B /* onBoardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */,
 				8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */,
+				85021EEC24004EC800F8AD7B /* onBoardingViewController.swift in Sources */,
 				EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */,
 				EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */,
 				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
