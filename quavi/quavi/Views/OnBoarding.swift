@@ -25,6 +25,7 @@ class OnBoarding: UIView {
         scrollView.isUserInteractionEnabled = true
         scrollView.isScrollEnabled = true
         scrollView.bounces = false
+        scrollView.delegate = self
         return scrollView
     }()
     
