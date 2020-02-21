@@ -116,11 +116,9 @@ extension OnBoarding: UIScrollViewDelegate {
         let currentPosition = calculateCurrentPosition()
         onBoardingOverlay?.currentPage(index: Int(currentPosition))
         
-        
+    //allows us to modify properies of the overlay view based on the index we are currently in
         if let overlay = onBoardingOverlay {
             dataSource?.quaviOnboardOverlayForPosition(self, overlay: overlay, for: Double(currentPosition))
         }
     }
-    
-    
 }

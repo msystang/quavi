@@ -14,15 +14,13 @@ protocol WaypointConfirmationViewControllerDelegate: NSObject {
 
 //onBoarding delegate
  protocol QuaviOnBoardingDelegate: AnyObject {
-    
-    func quaviOnBoarding(_ quaviOnBoarding: OnBoarding, currentPage index: Int)
+
     func quaviOnBoarding(_ quaviOnBoarding: OnBoarding, tapped index: Int)
     
 }
 //  extension to onBoarding delegate to make functions not required when conforming
 extension QuaviOnBoardingDelegate {
-    func quaviOnBoarding(_ quaviOnBoarding: OnBoarding, currentPage index: Int){}
-    
+
     func quaviOnBoarding(_ quaviOnBoarding: OnBoarding, tapped index: Int){}
 }
 
