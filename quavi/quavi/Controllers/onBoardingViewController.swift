@@ -27,8 +27,13 @@ class onBoardingViewController: UIViewController {
         super.viewWillAppear(animated)
         configureScrollViewConstraints()
     }
-    //MARK: -- private func
     
+    //MARK:-- Objc func
+    @objc func handleSkip() {
+        onBoardingScrollView.goToPage(index: 3, animated: true)
+    }
+    
+    //MARK: -- private func
     private func addSubView(){
         view.addSubview(onBoardingScrollView)
     }
@@ -68,4 +73,10 @@ extension onBoardingViewController: QuaviOnBoardingDataSource{
         return page
     }
     
+    func quaviOnboardViewForOverlay(_ quickGrubOnBoarding: OnBoarding) -> QuaviOnboardOverlay? {
+        let overlay = QuaviOnboardOverlay()
+        
+        overlay.skipButton.addTarget(self, action: #selector(handleSkip), for: .touchUpInside)
+        return overlay
+    }
 }
