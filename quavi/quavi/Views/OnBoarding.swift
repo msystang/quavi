@@ -115,6 +115,11 @@ extension OnBoarding: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentPosition = calculateCurrentPosition()
         onBoardingOverlay?.currentPage(index: Int(currentPosition))
+        
+        
+        if let overlay = onBoardingOverlay {
+            dataSource?.quaviOnboardOverlayForPosition(self, overlay: overlay, for: Double(currentPosition))
+        }
     }
     
     
