@@ -94,5 +94,6 @@ extension onBoardingViewController: QuaviOnBoardingDataSource{
         overlay.continueButton.isHidden = quaviOnBoarding.currentPage == 3 ? false : true
         overlay.continueButton.isEnabled = quaviOnBoarding.currentPage == 3 ? true : false
         
+        overlay.nextLabel.isHidden = quaviOnBoarding.currentPage == 3 ? true : false
     }
 }
