@@ -24,6 +24,7 @@ class OnBoarding: UIView {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isUserInteractionEnabled = true
         scrollView.isScrollEnabled = true
+        scrollView.bounces = false
         return scrollView
     }()
     
@@ -35,6 +36,7 @@ class OnBoarding: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setUpAllPages()
+        setUpOverlayView()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
