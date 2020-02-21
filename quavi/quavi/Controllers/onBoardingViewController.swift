@@ -9,10 +9,11 @@
 import UIKit
 
 class onBoardingViewController: UIViewController {
-//MARK:-- Objects
+    //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoarding = {
         let scrollView = OnBoarding()
         scrollView.backgroundColor = .clear
+        scrollView.dataSource = self
         return scrollView
     }()
     
