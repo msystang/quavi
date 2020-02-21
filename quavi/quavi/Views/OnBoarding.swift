@@ -90,7 +90,7 @@ class OnBoarding: UIView {
                 overlay.frame = overLayFrame
                 onBoardingOverlay = overlay
                 
-                //MARK:-- add funtion to pagecontroller for when it gets tapped
+                //MARK:-- add function to pagecontroller for when it gets tapped
                 onBoardingOverlay?.pageControl.addTarget(self, action: #selector(handlePageControllerTapped), for: .allTouchEvents)
             }
         }
@@ -101,4 +101,8 @@ class OnBoarding: UIView {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: self.topAnchor), containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor), containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor), containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
+}
+//MARK: Creates an extension on QuickGrubOnBoarding to handle Scrollview delgate
+extension OnBoarding: UIScrollViewDelegate {
+    
 }
