@@ -49,6 +49,13 @@ class OnBoarding: UIView {
     }
     
     //MARK: -- private func
+    // func to calculate current position of scrollview
+    private func calculateCurrentPosition()-> CGFloat {
+        let width = containerView.frame.width
+        let contentOffSet = containerView.contentOffset.x
+        return contentOffSet / width
+    }
+    
     //  func to set the sliderView content offset to be the view based on the appropriate index
     func goToPage(index: Int, animated:Bool) {
         let index = CGFloat(index)
