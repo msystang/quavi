@@ -41,6 +41,7 @@ class QuaviOnboardOverlay:UIView {
     open var prevLabel: UILabel = {
         let label = UILabel()
         label.text = "Prev"
+        label.isHidden = false
         return label
     }()
     
