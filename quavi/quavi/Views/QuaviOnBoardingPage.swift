@@ -52,7 +52,7 @@ class QuaviOnBoardingPage: UIView {
      private func pageImageViewConstraint() {
          self.addSubview(pageImageView)
          pageImageView.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([pageImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 30), pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30), pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30), pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5)])
+         NSLayoutConstraint.activate([pageImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 70), pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30), pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30), pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.45)])
      }
      
      private func pageTitleConstraint() {
