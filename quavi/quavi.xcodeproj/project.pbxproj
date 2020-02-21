@@ -17,6 +17,13 @@
 		8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */; };
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
+		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
+		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
+		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
+		EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8923FF279900CB6B32 /* SignUpViewController+Constraints.swift */; };
+		EA97DA8C23FF2C1B00CB6B32 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8B23FF2C1B00CB6B32 /* String+Validation.swift */; };
+		EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8D23FF2C4C00CB6B32 /* ViewController+Alert.swift */; };
+		EA97DA9123FF3B4000CB6B32 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -29,7 +36,7 @@
 		EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173E23E385EB00DD8703 /* UIDesign.swift */; };
 		EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174323E3879200DD8703 /* NetworkingFile.swift */; };
 		EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* ProtocolFile.swift */; };
-		EAF7174A23E3884600DD8703 /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* ExtensionFile.swift */; };
+		EAF7174A23E3884600DD8703 /* Button+ModesOfTransitStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174923E3884600DD8703 /* Button+ModesOfTransitStyle.swift */; };
 		EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* MapboxError.swift */; };
 		EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */; };
 		EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */; };
@@ -68,6 +75,13 @@
 		B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.release.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.release.xcconfig"; sourceTree = "<group>"; };
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
+		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EA97DA8923FF279900CB6B32 /* SignUpViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+Constraints.swift"; sourceTree = "<group>"; };
+		EA97DA8B23FF2C1B00CB6B32 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
+		EA97DA8D23FF2C4C00CB6B32 /* ViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alert.swift"; sourceTree = "<group>"; };
+		EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +98,7 @@
 		EAF7173E23E385EB00DD8703 /* UIDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDesign.swift; sourceTree = "<group>"; };
 		EAF7174323E3879200DD8703 /* NetworkingFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingFile.swift; sourceTree = "<group>"; };
 		EAF7174623E387D300DD8703 /* ProtocolFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFile.swift; sourceTree = "<group>"; };
-		EAF7174923E3884600DD8703 /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
+		EAF7174923E3884600DD8703 /* Button+ModesOfTransitStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+ModesOfTransitStyle.swift"; sourceTree = "<group>"; };
 		EAF7174C23E388D000DD8703 /* MapboxError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxError.swift; sourceTree = "<group>"; };
 		EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapBox.swift"; sourceTree = "<group>"; };
 		EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -138,6 +152,42 @@
 				1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA97DA8023FF082B00CB6B32 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				EA97DA8523FF0ED300CB6B32 /* LogIn */,
+				EA97DA8623FF10B300CB6B32 /* SignUp */,
+				EA97DA8F23FF3B1F00CB6B32 /* Forgot Password */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		EA97DA8523FF0ED300CB6B32 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				EA97DA8123FF085900CB6B32 /* LoginViewController.swift */,
+				EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		EA97DA8623FF10B300CB6B32 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */,
+				EA97DA8923FF279900CB6B32 /* SignUpViewController+Constraints.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		EA97DA8F23FF3B1F00CB6B32 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */,
+			);
+			path = "Forgot Password";
 			sourceTree = "<group>";
 		};
 		EAF7170323E3804200DD8703 = {
@@ -196,6 +246,7 @@
 		EAF7173623E3821200DD8703 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA97DA8023FF082B00CB6B32 /* Authentication */,
 				EAF7173723E3823C00DD8703 /* MapViewController.swift */,
 				EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */,
 				EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */,
@@ -284,7 +335,9 @@
 		EAF7174823E3882800DD8703 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EAF7174923E3884600DD8703 /* ExtensionFile.swift */,
+				EAF7174923E3884600DD8703 /* Button+ModesOfTransitStyle.swift */,
+				EA97DA8B23FF2C1B00CB6B32 /* String+Validation.swift */,
+				EA97DA8D23FF2C4C00CB6B32 /* ViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -502,11 +555,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */,
 				8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */,
 				EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */,
 				8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */,
 				EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */,
 				EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */,
+				EA97DA8C23FF2C1B00CB6B32 /* String+Validation.swift in Sources */,
+				EA97DA9123FF3B4000CB6B32 /* ForgotPasswordViewController.swift in Sources */,
 				EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
 				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
@@ -515,6 +571,7 @@
 				8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */,
 				EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */,
 				EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */,
+				EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */,
 				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
 				1D91609023F0DACD009B1F97 /* Enums.swift in Sources */,
 				EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */,
@@ -524,10 +581,13 @@
 				1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */,
 				EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */,
 				EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */,
-				EAF7174A23E3884600DD8703 /* ExtensionFile.swift in Sources */,
+				EAF7174A23E3884600DD8703 /* Button+ModesOfTransitStyle.swift in Sources */,
 				1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */,
+				EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
+				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
+				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
