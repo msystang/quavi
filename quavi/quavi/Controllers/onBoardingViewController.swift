@@ -33,6 +33,12 @@ class onBoardingViewController: UIViewController {
         onBoardingScrollView.goToPage(index: 3, animated: true)
     }
     
+    @objc func handleContinue(sender: UIButton) {
+      let mainVC = MapViewController()
+      mainVC.modalPresentationStyle = .fullScreen
+      present(mainVC, animated: true, completion: nil)
+    }
+    
     //MARK: -- private func
     private func addSubView(){
         view.addSubview(onBoardingScrollView)
@@ -77,11 +83,12 @@ extension onBoardingViewController: QuaviOnBoardingDataSource{
         let overlay = QuaviOnboardOverlay()
         //Allow you to skip to a specific page
         overlay.skipButton.addTarget(self, action: #selector(handleSkip), for: .touchUpInside)
-        
+        overlay.continueButton.addTarget(self, action: #selector(handleContinue), for: .touchUpInside)
+
         return overlay
     }
     
     func quaviOnboardOverlayForPosition(_ quaviOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double) {
-        //overlay.continueButton.isHidden = QuaviOnBoarding
+        //overlay.continueButton.isHidden = quaviOnBoarding
     }
 }
