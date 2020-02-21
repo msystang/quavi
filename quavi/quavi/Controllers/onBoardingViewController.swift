@@ -45,7 +45,7 @@ class onBoardingViewController: UIViewController {
 }
 
 extension onBoardingViewController: QuaviOnBoardingDataSource{
-    func quaviOnboardBackgroundColorFor(_ quickGrubOnBoarding: OnBoarding, atIndex index: Int) -> UIColor? {
+    func quaviOnboardBackgroundColorFor(_ quaviOnBoarding: OnBoarding, atIndex index: Int) -> UIColor? {
         
         //TODO: set background color dynamically
         switch index{
@@ -62,21 +62,26 @@ extension onBoardingViewController: QuaviOnBoardingDataSource{
         }
     }
     
-    func quaviOnboardNumberOfPages(_ quickGrubOnBoarding: OnBoarding) -> Int {
+    func quaviOnboardNumberOfPages(_ quaviOnBoarding: OnBoarding) -> Int {
         return 4
     }
     
-    func quaviOnboardPageForIndex(_ quickGrubOnBoarding: OnBoarding, index: Int) -> QuaviOnBoardingPage? {
+    func quaviOnboardPageForIndex(_ quaviOnBoarding: OnBoarding, index: Int) -> QuaviOnBoardingPage? {
         let page = QuaviOnBoardingPage()
         
         //TODO: Set information to each onboarding page here
         return page
     }
     
-    func quaviOnboardViewForOverlay(_ quickGrubOnBoarding: OnBoarding) -> QuaviOnboardOverlay? {
+    func quaviOnboardViewForOverlay(_ quaviOnBoarding: OnBoarding) -> QuaviOnboardOverlay? {
         let overlay = QuaviOnboardOverlay()
-        
+        //Allow you to skip to a specific page
         overlay.skipButton.addTarget(self, action: #selector(handleSkip), for: .touchUpInside)
+        
         return overlay
+    }
+    
+    func quaviOnboardOverlayForPosition(_ quaviOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double) {
+        //overlay.continueButton.isHidden = QuaviOnBoarding
     }
 }

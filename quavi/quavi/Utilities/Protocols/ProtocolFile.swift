@@ -27,18 +27,18 @@ extension QuaviOnBoardingDelegate {
 
 //onBoarding dataSource
  protocol QuaviOnBoardingDataSource: AnyObject {
-    func quaviOnboardBackgroundColorFor(_ quickGrubOnBoarding: OnBoarding, atIndex index: Int) -> UIColor?
-    func quaviOnboardNumberOfPages(_ quickGrubOnBoarding: OnBoarding) -> Int
-    func quaviOnboardPageForIndex(_ quickGrubOnBoarding: OnBoarding, index: Int) -> QuaviOnBoardingPage?
-    func quaviOnboardViewForOverlay(_ quickGrubOnBoarding: OnBoarding) -> QuaviOnboardOverlay?
-    func quaviOnboardOverlayForPosition(_ quickGrubOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double)
+    func quaviOnboardBackgroundColorFor(_ quaviOnBoarding: OnBoarding, atIndex index: Int) -> UIColor?
+    func quaviOnboardNumberOfPages(_ quaviOnBoarding: OnBoarding) -> Int
+    func quaviOnboardPageForIndex(_ quaviOnBoarding: OnBoarding, index: Int) -> QuaviOnBoardingPage?
+    func quaviOnboardViewForOverlay(_ quaviOnBoarding: OnBoarding) -> QuaviOnboardOverlay?
+    func quaviOnboardOverlayForPosition(_ quaviOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double)
     
 }
 
 //  extension to onBoarding dataSource to make functions not required when conforming
 extension QuaviOnBoardingDataSource{
-      func quaviOnboardOverlayForPosition(_ quickGrubOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double) {}
-      func quaviOnboardViewForOverlay(_ quickGrubOnBoarding: OnBoarding) -> QuaviOnboardOverlay? {
+      func quaviOnboardOverlayForPosition(_ quaviOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double) {}
+      func quaviOnboardViewForOverlay(_ quaviOnBoarding: OnBoarding) -> QuaviOnboardOverlay? {
           return QuaviOnboardOverlay()
       }
 }
