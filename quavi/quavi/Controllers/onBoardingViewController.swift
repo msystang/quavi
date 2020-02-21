@@ -85,10 +85,14 @@ extension onBoardingViewController: QuaviOnBoardingDataSource{
         overlay.skipButton.addTarget(self, action: #selector(handleSkip), for: .touchUpInside)
         overlay.continueButton.addTarget(self, action: #selector(handleContinue), for: .touchUpInside)
 
+        
         return overlay
     }
     
     func quaviOnboardOverlayForPosition(_ quaviOnBoarding: OnBoarding, overlay: QuaviOnboardOverlay, for position: Double) {
-        //overlay.continueButton.isHidden = quaviOnBoarding
+        //enables and presents the continue button when on onBoarding page is at an index
+        overlay.continueButton.isHidden = quaviOnBoarding.currentPage == 3 ? false : true
+        overlay.continueButton.isEnabled = quaviOnBoarding.currentPage == 3 ? true : false
+        
     }
 }
