@@ -26,6 +26,7 @@ class QuaviOnboardOverlay:UIView {
         button.isEnabled = false
         return button
     }()
+    
     //TODO:-- remove borderWidth and borderColor
     open var skipButton: UIButton = {
         let button = UIButton(type: .system)

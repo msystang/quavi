@@ -16,6 +16,10 @@ class OnBoarding: UIView {
     weak var onBoardingOverlay:QuaviOnboardOverlay?
     var pageCount = 0
     
+    var currentPage:Int {
+        return Int(calculateCurrentPosition())
+    }
+    
     //MARK: -- Objects
     lazy var containerView:UIScrollView = {
         let scrollView = UIScrollView()
