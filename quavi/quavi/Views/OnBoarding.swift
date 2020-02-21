@@ -111,5 +111,11 @@ class OnBoarding: UIView {
 }
 //MARK: Creates an extension on QuickGrubOnBoarding to handle Scrollview delgate
 extension OnBoarding: UIScrollViewDelegate {
+    // changes the current page indicated in the page controller
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentPosition = calculateCurrentPosition()
+        onBoardingOverlay?.currentPage(index: Int(currentPosition))
+    }
+    
     
 }
