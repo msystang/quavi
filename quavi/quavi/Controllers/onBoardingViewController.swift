@@ -96,5 +96,8 @@ extension onBoardingViewController: QuaviOnBoardingDataSource{
         
         overlay.nextLabel.isHidden = quaviOnBoarding.currentPage == 3 ? true : false
         overlay.prevLabel.isHidden = quaviOnBoarding.currentPage == 0 ? true : false
+        
+        overlay.skipButton.isHidden = quaviOnBoarding.currentPage == 3 ? true : false
+        overlay.skipButton.isEnabled = quaviOnBoarding.currentPage == 3 ? false : true
     }
 }
