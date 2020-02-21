@@ -35,11 +35,11 @@ class OnBoarding: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureScrollView()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        configureScrollView()
         setUpAllPages()
         setUpOverlayView()
     }
