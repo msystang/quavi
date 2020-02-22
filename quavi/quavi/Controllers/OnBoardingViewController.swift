@@ -1,5 +1,5 @@
 //
-//  onBoardingViewController.swift
+//  OnBoardingViewController.swift
 //  quavi
 //
 //  Created by Mr Wonderful on 2/21/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class onBoardingViewController: UIViewController {
+class OnBoardingViewController: UIViewController {
     //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoarding = {
         let scrollView = OnBoarding()
@@ -50,7 +50,7 @@ class onBoardingViewController: UIViewController {
     }
 }
 
-extension onBoardingViewController: QuaviOnBoardingDataSource{
+extension OnBoardingViewController: QuaviOnBoardingDataSource{
     func quaviOnboardBackgroundColorFor(_ quaviOnBoarding: OnBoarding, atIndex index: Int) -> UIColor? {
         
         //TODO: set background color dynamically
