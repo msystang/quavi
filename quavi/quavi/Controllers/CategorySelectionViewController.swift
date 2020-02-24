@@ -61,3 +61,14 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
         return cell
     }
 }
+
+extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
+        layout.minimumInteritemSpacing = 5
+        let virticalCellCGSize = CGSize(width: (collectionView.frame.size.width - 20), height: collectionView.frame.size.height / 4)
+        return virticalCellCGSize
+    }
+}
+
