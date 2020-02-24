@@ -21,7 +21,7 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
-    weak var delegate: WaypointConfirmationViewControllerDelegate?
+    //weak var delegate: WaypointConfirmationViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class POIInfoViewController: UIViewController {
     }
 
     @objc func continueButtonPressed(_ sender: Any) {
-        delegate?.proceedToNextLegInTour(self)
+        //delegate?.proceedToNextLegInTour(self)
     }
     
     

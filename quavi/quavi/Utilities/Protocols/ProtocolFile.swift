@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WaypointConfirmationViewControllerDelegate: NSObject {
-    func proceedToNextLegInTour(_ controller: POIInfoViewController)
+    func proceedToNextLegInTour(_ controller: POIPopUpViewController)
 }

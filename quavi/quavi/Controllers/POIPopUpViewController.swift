@@ -13,13 +13,34 @@ class POIPopUpViewController: UIViewController {
     lazy var reachedLabel: UILabel = {
         var label = UILabel()
         label.text = "You've reached:"
+        label.font = label.font.withSize(20)
+        label.textAlignment = .left
         return label
     }()
     
     lazy var pointNameLabel: UILabel = {
         var label = UILabel()
         label.text = "The Empire State Building"
+        label.font = label.font.withSize(35)
+        label.numberOfLines = 0
+        label.textAlignment = .left
         return label
+    }()
+    
+    lazy var continueTourButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Continue Tour", for: .normal)
+        button.backgroundColor = .systemGreen
+        button.layer.cornerRadius = 20
+        return button
+    }()
+    
+    lazy var cancelTourButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Cancel Tour", for: .normal)
+        button.backgroundColor = .systemRed
+        button.layer.cornerRadius = 20
+        return button
     }()
 
     lazy var continueButton:UIButton = {
@@ -33,13 +54,13 @@ class POIPopUpViewController: UIViewController {
            return button
        }()
        
-       //weak var delegate: WaypointConfirmationViewControllerDelegate?
+       weak var delegate: WaypointConfirmationViewControllerDelegate?
        
        override func viewDidLoad() {
            super.viewDidLoad()
             setBackgroundColor()
             addSubviews()
-            continueButtonConstraints()
+            addConstraints()
        }
        
        private func setBackgroundColor(){
@@ -47,7 +68,7 @@ class POIPopUpViewController: UIViewController {
        }
 
        @objc func continueButtonPressed(_ sender: Any) {
-           //delegate?.proceedToNextLegInTour(self)
+           delegate?.proceedToNextLegInTour(self)
        }
        
 
