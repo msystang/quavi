@@ -35,7 +35,7 @@ class CategoryTableViewCell: UITableViewCell {
         super.init(style:style, reuseIdentifier: reuseIdentifier)
         constraintContainerView()
         constaintChevronIcon()
-        constraintCategoryLabel
+        constraintCategoryLabel()
     }
     
     required init?(coder: NSCoder) {
