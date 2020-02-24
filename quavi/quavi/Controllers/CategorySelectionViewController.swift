@@ -47,3 +47,17 @@ class CategorySelectionViewController: UIViewController {
         NSLayoutConstraint.activate([categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor), categoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor), categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor), categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
     }
 }
+
+extension CategorySelectionViewController: UICollectionViewDelegate{}
+
+extension CategorySelectionViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.categoryCell.rawValue, for: indexPath) as? CatergoryCollectionViewCell else {return UICollectionViewCell()}
+        
+        return cell
+    }
+}
