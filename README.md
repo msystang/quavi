@@ -56,7 +56,7 @@ Coming Soon!
 ## Contributors
 - [Sunni Tang](https://github.com/msystang)
 - [Ayoola Abudu](https://github.com/aabudu16)
-- [Rad Valogno](https://github.com/RadBV)
+- [Rad Valongo](https://github.com/RadBV)
 - [Alexander George Legaspi](https://github.com/aglegaspi)
 
 
