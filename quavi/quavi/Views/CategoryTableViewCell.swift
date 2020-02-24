@@ -27,17 +27,24 @@ class CategoryTableViewCell: UITableViewCell {
     
     lazy var containerView:UIView = {
         let view = UIView()
+        view.backgroundColor = .blue
         return view
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style:style, reuseIdentifier: reuseIdentifier)
+        constraintContainerView()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+    
+ 
 
+    private func constraintContainerView() {
+        self.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor), containerView.topAnchor.constraint(equalTo: self.topAnchor), containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor), containerView.widthAnchor.constraint(equalToConstant:  self.frame.width * 0.25)]
+    )}
 }
