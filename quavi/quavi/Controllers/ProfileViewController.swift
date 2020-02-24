@@ -27,18 +27,21 @@ class ProfileViewController: UIViewController {
     lazy var fullname: UILabel = {
         var label = UILabel()
         label.text = "Bob Marley"
+        label.textAlignment = .center
         return label
     }()
     
     lazy var username: UILabel = {
         var label = UILabel()
         label.text = "tour_master"
+        label.textAlignment = .center
         return label
     }()
     
     lazy var email: UILabel = {
         var label = UILabel()
         label.text = "dontworrybehappy@gmail.com"
+        label.textAlignment = .center
         return label
     }()
     
@@ -62,16 +65,20 @@ class ProfileViewController: UIViewController {
     private func setUpSubviews() {
         self.view.addSubview(editProfileButton)
         self.view.addSubview(userImage)
+        self.view.addSubview(fullname)
+        self.view.addSubview(username)
     }
     
     private func setUpConstraints() {
         constrainEditButton()
         constrainUserImage()
+        constrainFullName()
+        constrainUsername()
     }
     
     private func miscSetUp(){
         self.view.backgroundColor = .white
-        self.userImage.layer.cornerRadius = 50
+        self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
     }
     
@@ -92,9 +99,29 @@ class ProfileViewController: UIViewController {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             userImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
-            userImage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
-            userImage.widthAnchor.constraint(equalToConstant: 100),
-            userImage.heightAnchor.constraint(equalToConstant: 100)
+            userImage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
+            userImage.widthAnchor.constraint(equalToConstant: 150),
+            userImage.heightAnchor.constraint(equalToConstant: 150)
+        ])
+    }
+    
+    func constrainFullName() {
+        fullname.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fullname.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+            fullname.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 20),
+            fullname.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            fullname.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func constrainUsername() {
+        username.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            username.topAnchor.constraint(equalTo: fullname.bottomAnchor, constant: 10),
+            username.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 20),
+            username.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 20),
+            username.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
