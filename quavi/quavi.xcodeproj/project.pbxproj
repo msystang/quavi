@@ -11,6 +11,10 @@
 		1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */; };
 		1D91609023F0DACD009B1F97 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608F23F0DACD009B1F97 /* Enums.swift */; };
 		1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91609123F0DB3F009B1F97 /* CategoryData.swift */; };
+		85021EE623FF2C9800F8AD7B /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EE523FF2C9800F8AD7B /* OnBoarding.swift */; };
+		85021EE823FF2F6300F8AD7B /* QuaviOnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EE723FF2F6300F8AD7B /* QuaviOnBoardingPage.swift */; };
+		85021EEA23FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EE923FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift */; };
+		85021EEC24004EC800F8AD7B /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021EEB24004EC700F8AD7B /* OnBoardingViewController.swift */; };
 		8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669523F215C0003AD65C /* MapViewController+Navigation.swift */; };
 		8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */; };
 		8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669B23F344C1003AD65C /* POIInfoViewController.swift */; };
@@ -68,6 +72,10 @@
 		1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D91608F23F0DACD009B1F97 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1D91609123F0DB3F009B1F97 /* CategoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		85021EE523FF2C9800F8AD7B /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
+		85021EE723FF2F6300F8AD7B /* QuaviOnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnBoardingPage.swift; sourceTree = "<group>"; };
+		85021EE923FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardOverlay.swift; sourceTree = "<group>"; };
+		85021EEB24004EC700F8AD7B /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		8502669523F215C0003AD65C /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation+Delegate.swift"; sourceTree = "<group>"; };
 		8502669B23F344C1003AD65C /* POIInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIInfoViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +266,7 @@
 				8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */,
 				8502669B23F344C1003AD65C /* POIInfoViewController.swift */,
 				8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */,
+				85021EEB24004EC700F8AD7B /* OnBoardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +306,9 @@
 				EC7D094723F5CF1C001D04CF /* MapView.swift */,
 				1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */,
 				1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */,
+				85021EE523FF2C9800F8AD7B /* OnBoarding.swift */,
+				85021EE723FF2F6300F8AD7B /* QuaviOnBoardingPage.swift */,
+				85021EE923FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift */,
 				EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */,
 				EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */,
 				EC7D094923F5DCB4001D04CF /* CollectionView.swift */,
@@ -569,6 +581,7 @@
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */,
 				8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */,
+				85021EEC24004EC800F8AD7B /* OnBoardingViewController.swift in Sources */,
 				EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */,
 				EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */,
 				EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */,
@@ -582,14 +595,17 @@
 				EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */,
 				EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */,
 				EAF7174A23E3884600DD8703 /* Button+ModesOfTransitStyle.swift in Sources */,
-				1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */,
-				EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */,
+				1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */
+				85021EEA23FF2FAB00F8AD7B /* QuaviOnboardOverlay.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
+				85021EE823FF2F6300F8AD7B /* QuaviOnBoardingPage.swift in Sources */,
+				EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
+				85021EE623FF2C9800F8AD7B /* OnBoarding.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
 			);
