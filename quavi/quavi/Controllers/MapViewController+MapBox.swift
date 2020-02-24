@@ -20,7 +20,7 @@ extension MapViewController: MGLMapViewDelegate {
         //TODO: User's current location must require mapView to load first, must deal with async
         
         // For Testing...
-        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7498204, longitude: -73.9899533)
+        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
         
         DispatchQueue.main.async {
             do {

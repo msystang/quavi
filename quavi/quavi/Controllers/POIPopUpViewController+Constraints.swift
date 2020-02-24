@@ -50,7 +50,7 @@ extension POIPopUpViewController{
             //continueTourButton.topAnchor.constraint(equalTo: pointNameLabel.bottomAnchor, constant: 30),
             continueTourButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             continueTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            continueTourButton.heightAnchor.constraint(equalToConstant: 100),
+            continueTourButton.heightAnchor.constraint(equalToConstant: 80),
             continueTourButton.widthAnchor.constraint(equalToConstant: 300)
         ])
     }
@@ -58,9 +58,9 @@ extension POIPopUpViewController{
     func cancelTourButtonConstraints() {
         cancelTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cancelTourButton.topAnchor.constraint(equalTo: continueTourButton.bottomAnchor, constant: 15),
+            cancelTourButton.topAnchor.constraint(equalTo: continueTourButton.bottomAnchor, constant: 20),
             cancelTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cancelTourButton.heightAnchor.constraint(equalToConstant: 75),
+            cancelTourButton.heightAnchor.constraint(equalToConstant: 50),
             cancelTourButton.widthAnchor.constraint(equalToConstant: 200)
         ])
     }

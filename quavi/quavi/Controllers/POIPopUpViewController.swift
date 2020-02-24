@@ -12,9 +12,9 @@ class POIPopUpViewController: UIViewController {
     
     lazy var reachedLabel: UILabel = {
         var label = UILabel()
-        label.text = "You've reached:"
+        label.text = "You have reached"
         label.font = UIFont.systemFont(ofSize: 20, weight: .light)
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     
@@ -32,7 +32,7 @@ class POIPopUpViewController: UIViewController {
         button.setTitle("Continue Tour", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         button.backgroundColor = .systemGreen
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 30
         return button
     }()
     
