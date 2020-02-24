@@ -9,8 +9,9 @@
 import UIKit
 
 protocol WaypointConfirmationViewControllerDelegate: NSObject {
-    func proceedToNextLegInTour(_ controller: POIInfoViewController)
+    func proceedToNextLegInTour(_ controller: POIPopUpViewController)
 }
+
 
 //onBoarding delegate
 protocol QuaviOnBoardingDelegate: AnyObject {
@@ -42,3 +43,4 @@ extension QuaviOnBoardingDataSource{
         return QuaviOnboardOverlay()
     }
 }
+
