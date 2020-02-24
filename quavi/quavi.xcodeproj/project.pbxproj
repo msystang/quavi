@@ -19,6 +19,7 @@
 		85021F09240424A100F8AD7B /* QuaviOnboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F08240424A100F8AD7B /* QuaviOnboardOverlay.swift */; };
 		85021F0B240443A400F8AD7B /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0A240443A400F8AD7B /* CategorySelectionViewController.swift */; };
 		85021F0D2404485700F8AD7B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0C2404485600F8AD7B /* CategoryTableViewCell.swift */; };
+		85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0E24045AFA00F8AD7B /* Identifier.swift */; };
 		8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669523F215C0003AD65C /* MapViewController+Navigation.swift */; };
 		8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */; };
 		8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669B23F344C1003AD65C /* POIInfoViewController.swift */; };
@@ -84,6 +85,7 @@
 		85021F08240424A100F8AD7B /* QuaviOnboardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardOverlay.swift; sourceTree = "<group>"; };
 		85021F0A240443A400F8AD7B /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		85021F0C2404485600F8AD7B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		85021F0E24045AFA00F8AD7B /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		8502669523F215C0003AD65C /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation+Delegate.swift"; sourceTree = "<group>"; };
 		8502669B23F344C1003AD65C /* POIInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIInfoViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				EAF7174C23E388D000DD8703 /* MapboxError.swift */,
+				85021F0E24045AFA00F8AD7B /* Identifier.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
+				85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
