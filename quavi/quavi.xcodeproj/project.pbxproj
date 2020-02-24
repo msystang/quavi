@@ -18,7 +18,6 @@
 		85021F072404247800F8AD7B /* QuaviOnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */; };
 		85021F09240424A100F8AD7B /* QuaviOnboardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F08240424A100F8AD7B /* QuaviOnboardOverlay.swift */; };
 		85021F0B240443A400F8AD7B /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0A240443A400F8AD7B /* CategorySelectionViewController.swift */; };
-		85021F0D2404485700F8AD7B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0C2404485600F8AD7B /* CategoryTableViewCell.swift */; };
 		85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0E24045AFA00F8AD7B /* Identifier.swift */; };
 		85021F112404765600F8AD7B /* CatergoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */; };
 		8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669523F215C0003AD65C /* MapViewController+Navigation.swift */; };
@@ -85,7 +84,6 @@
 		85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardingPage.swift; sourceTree = "<group>"; };
 		85021F08240424A100F8AD7B /* QuaviOnboardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardOverlay.swift; sourceTree = "<group>"; };
 		85021F0A240443A400F8AD7B /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
-		85021F0C2404485600F8AD7B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		85021F0E24045AFA00F8AD7B /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8502669523F215C0003AD65C /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
@@ -320,7 +318,6 @@
 			children = (
 				EC7D094723F5CF1C001D04CF /* MapView.swift */,
 				1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */,
-				85021F0C2404485600F8AD7B /* CategoryTableViewCell.swift */,
 				85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */,
 				1D91608B23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift */,
 				85021F08240424A100F8AD7B /* QuaviOnboardOverlay.swift */,
@@ -621,7 +618,6 @@
 				EAF7174A23E3884600DD8703 /* Button+ModesOfTransitStyle.swift in Sources */,
 				1D91608C23F0DA59009B1F97 /* CategoriesCollectionViewCell.swift in Sources */,
 				EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */,
-				85021F0D2404485700F8AD7B /* CategoryTableViewCell.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
