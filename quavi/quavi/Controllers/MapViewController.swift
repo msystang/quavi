@@ -102,6 +102,7 @@ class MapViewController: UIViewController {
         addSliderViewConstraints()
         loadGestures()
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
