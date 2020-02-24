@@ -9,8 +9,20 @@
 import UIKit
 
 class POIInfoViewController: UIViewController {
-
-    lazy var continueButton:UIButton = {
+    
+    lazy var reachedLabel: UILabel = {
+        var label = UILabel()
+        label.text = "You've reached:"
+        return label
+    }()
+    
+    lazy var pointNameLabel: UILabel = {
+        var label = UILabel()
+        label.text = "The Empire State Building"
+        return label
+    }()
+    
+    lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         button.setTitle("Next", for: .normal)
         button.setTitleColor(.purple, for: .normal)
@@ -31,7 +43,7 @@ class POIInfoViewController: UIViewController {
     }
     
     private func setBackgroundColor(){
-        view.backgroundColor = .white
+        view.backgroundColor = .systemPurple
     }
 
     @objc func continueButtonPressed(_ sender: Any) {
