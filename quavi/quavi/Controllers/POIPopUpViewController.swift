@@ -41,6 +41,7 @@ class POIPopUpViewController: UIViewController {
         button.setTitle("Cancel Tour", for: .normal)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(cancelTourButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -66,9 +67,14 @@ class POIPopUpViewController: UIViewController {
         view.layer.addSublayer(gradient)
     }
     
-    @objc func continueButtonPressed(_ sender: Any) {
-        delegate?.proceedToNextLegInTour(self)
+    
+    @objc func cancelTourButtonPressed() {
+        self.dismiss(animated: true)
     }
     
+    @objc func continueTourButtonPressed(_ sender: Any) {
+        #warning("set up the page controller")
+        delegate?.proceedToNextLegInTour(self)
+    }
     
 }
