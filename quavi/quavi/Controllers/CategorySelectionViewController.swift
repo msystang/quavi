@@ -34,13 +34,23 @@ class CategorySelectionViewController: UIViewController {
         view.addSubview(categoryTableView)
     }
     
+    private func setupNavBar(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.title = "Tour Categories"
+    }
+    
     private func configureCategoryTableView() {
         categoryTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([categoryTableView.topAnchor.constraint(equalTo: view.topAnchor), categoryTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor), categoryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor), categoryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
     }
 }
 
-extension CategorySelectionViewController: UITableViewDelegate {}
+extension CategorySelectionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+}
+
 extension CategorySelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
