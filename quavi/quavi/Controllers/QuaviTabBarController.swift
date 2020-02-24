@@ -1,0 +1,31 @@
+//
+//  QuaviTabBarController.swift
+//  quavi
+//
+//  Created by Radharani Ribas-Valongo on 2/23/20.
+//  Copyright © 2020 Sunni Tang. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class QuaviTabBarController: UITabBarController {
+    lazy var mapVC: UINavigationController = {
+        let navController = UINavigationController(rootViewController: MapViewController())
+        return navController
+    }()
+    
+    lazy var profileVC: UINavigationController = {
+        let navController = UINavigationController(rootViewController: ProfileViewController())
+        return navController
+    }()
+    
+    //MARK: - Lifecycle Functions
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mapVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
+        self.viewControllers = [mapVC, profileVC]
+    }
+}

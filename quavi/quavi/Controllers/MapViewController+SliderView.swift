@@ -74,6 +74,10 @@ extension MapViewController {
                     self?.poiTableView.alpha = 1.0
                     self?.categoriesCollectionView.alpha = 1.0
                     self?.addCornerRadiusToSliderView()
+                    self?.sliderViewState = .halfOpen
+                    self?.walkButton.isEnabled = true
+                    self?.bikeButton.isEnabled = true
+                    self?.carButton.isEnabled = true
                     }, completion: nil)
             default:
                 print("dunno know")
@@ -92,6 +96,9 @@ extension MapViewController {
                     case .fullOpen:
                         self?.setHalfOpenSliderViewConstraints()
                         self?.sliderViewState = .halfOpen
+                        self?.walkButton.isEnabled = true
+                        self?.bikeButton.isEnabled = true
+                        self?.carButton.isEnabled = true
                     case .halfOpen:
                         self?.setClosedSliderViewConstraints()
                         self?.sliderViewState = .closed
@@ -126,6 +133,9 @@ extension MapViewController {
                     case .halfOpen:
                         self?.setFullOpenSliderViewConstraints()
                         self?.sliderViewState = .fullOpen
+                        self?.walkButton.isEnabled = false
+                        self?.bikeButton.isEnabled = false
+                        self?.carButton.isEnabled = false
                     case .closed:
                         self?.setHalfOpenSliderViewConstraints()
                         self?.sliderViewState = .halfOpen
