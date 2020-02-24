@@ -39,20 +39,27 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
-        
+        return label
+    }()
     
-        
-        
-        
+    
+    lazy var numberOfTourLabel:UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Verdana-Bold", size: 20)
+        label.text = "# of tours"
+        label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     
     //MARK: Lifecycle
     override init (frame:CGRect){
-        super.init(frame:frame)
+        super.init(frame:UIScreen.main.bounds)
         constraintContainerView()
         constaintChevronIcon()
         constraintCategoryLabel()
+        constraintNumberOfTourLabel()
         constraintAmountOfTourLabel()
     }
     
@@ -82,6 +89,12 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
     private func constraintAmountOfTourLabel() {
         containerView.addSubview(amountOfTourLabel)
         amountOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([amountOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor), amountOfTourLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor), amountOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), amountOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
+        NSLayoutConstraint.activate([amountOfTourLabel.topAnchor.constraint(equalTo: numberOfTourLabel.bottomAnchor), amountOfTourLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor), amountOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), amountOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
+    }
+    
+    private func constraintNumberOfTourLabel() {
+        containerView.addSubview(numberOfTourLabel)
+        numberOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([numberOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor), numberOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3), numberOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -3), numberOfTourLabel.heightAnchor.constraint(equalToConstant: 40)])
     }
 }
