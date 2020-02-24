@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum Identifier {
+enum Identifier:String {
     case categoryCell
 }

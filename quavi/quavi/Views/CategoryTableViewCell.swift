@@ -9,7 +9,7 @@
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
-    
+    //MARK: -- Objects
     lazy var categoryLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Verdana-Bold", size: 18)
@@ -31,6 +31,7 @@ class CategoryTableViewCell: UITableViewCell {
         return view
     }()
     
+    //MARK: -- LifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style:style, reuseIdentifier: reuseIdentifier)
         constraintContainerView()
@@ -43,7 +44,7 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     
-    
+    //MARK: -- private func
     private func constraintContainerView() {
         self.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false

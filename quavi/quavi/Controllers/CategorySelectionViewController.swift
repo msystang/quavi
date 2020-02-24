@@ -9,12 +9,30 @@
 import UIKit
 
 class CategorySelectionViewController: UIViewController {
-
+    //MARK: -- Objects
+    lazy var categoryTableView:UITableView = {
+        let tableView = UITableView()
+        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: Identifier.categoryCell.rawValue)
+        return tableView
+    }()
+    
+    //MARK: -- LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addSubviews()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureCategoryTableView()
+    }
+    //MARK: -- private func
+    private func addSubviews(){
+        view.addSubview(categoryTableView)
+    }
+    
+    private func configureCategoryTableView() {
+        categoryTableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([categoryTableView.topAnchor.constraint(equalTo: view.topAnchor), categoryTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor), categoryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor), categoryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
+    }
 }
