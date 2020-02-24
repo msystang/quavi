@@ -49,7 +49,7 @@ class CategorySelectionViewController: UIViewController {
         NSLayoutConstraint.activate([categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor), categoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor), categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor), categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
     }
 }
-
+//MARK: -- Extension
 extension CategorySelectionViewController: UICollectionViewDelegate{}
 
 extension CategorySelectionViewController: UICollectionViewDataSource{
@@ -60,6 +60,10 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.categoryCell.rawValue, for: indexPath) as? CatergoryCollectionViewCell else {return UICollectionViewCell()}
         
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = #colorLiteral(red: 0.2843827307, green: 0.6391303539, blue: 0.8293711543, alpha: 1)
+        cell.layer.cornerRadius = 10
+        cell.clipsToBounds = true
         return cell
     }
 }
