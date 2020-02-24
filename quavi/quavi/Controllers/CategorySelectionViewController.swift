@@ -36,3 +36,18 @@ class CategorySelectionViewController: UIViewController {
         NSLayoutConstraint.activate([categoryTableView.topAnchor.constraint(equalTo: view.topAnchor), categoryTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor), categoryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor), categoryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
     }
 }
+
+extension CategorySelectionViewController: UITableViewDelegate {}
+extension CategorySelectionViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.categoryCell.rawValue) as? CategoryTableViewCell else {return UITableViewCell()}
+        
+        return cell
+    }
+    
+    
+}
