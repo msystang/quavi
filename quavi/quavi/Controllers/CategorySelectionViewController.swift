@@ -16,8 +16,10 @@ class CategorySelectionViewController: UIViewController {
     //MARK: -- Objects
     lazy var categoryCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
-        collectionView.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.categoryCell.rawValue)
+        collectionView.register(CatergoryCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.categoryCell.rawValue)
         collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
         return collectionView
     }()
     
@@ -67,7 +69,7 @@ extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout{
         
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
         layout.minimumInteritemSpacing = 5
-        let virticalCellCGSize = CGSize(width: (collectionView.frame.size.width - 20), height: collectionView.frame.size.height / 4)
+        let virticalCellCGSize = CGSize(width: (collectionView.frame.size.width - 20), height: collectionView.frame.size.height / 6)
         return virticalCellCGSize
     }
 }

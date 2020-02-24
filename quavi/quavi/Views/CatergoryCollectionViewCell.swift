@@ -34,7 +34,7 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
     
     //MARK: Lifecycle
     override init (frame:CGRect){
-        super.init(frame:UIScreen.main.bounds)
+        super.init(frame:frame)
         constraintContainerView()
         constaintChevronIcon()
         constraintCategoryLabel()
