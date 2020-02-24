@@ -13,6 +13,7 @@ class CategoryTableViewCell: UITableViewCell {
     lazy var categoryLabel:UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Verdana-Bold", size: 18)
+        label.text = "Category name"
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         return label
@@ -20,7 +21,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     lazy var chevronIcon:UIImageView = {
         let icon = UIImageView()
-        icon.image = UIImage(systemName: "chevron.right")
+        icon.image = UIImage(systemName: "chevron.compact.right")
         icon.tintColor = .black
         return icon
     }()
@@ -54,7 +55,7 @@ class CategoryTableViewCell: UITableViewCell {
     private func constaintChevronIcon() {
         self.addSubview(chevronIcon)
         chevronIcon.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([chevronIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10), chevronIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor), chevronIcon.widthAnchor.constraint(equalToConstant: 40), chevronIcon.heightAnchor.constraint(equalToConstant: 40)])
+        NSLayoutConstraint.activate([chevronIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10), chevronIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor), chevronIcon.widthAnchor.constraint(equalToConstant: 20), chevronIcon.heightAnchor.constraint(equalToConstant: 20)])
     }
     
     private func constraintCategoryLabel() {

@@ -22,6 +22,7 @@ class CategorySelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
+        setupNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
