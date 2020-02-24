@@ -32,12 +32,28 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    lazy var amountOfTourLabel:UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Verdana-Bold", size: 50)
+        label.text = "7"
+        label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        
+    
+        
+        
+        
+        return label
+    }()
+    
     //MARK: Lifecycle
     override init (frame:CGRect){
         super.init(frame:frame)
         constraintContainerView()
         constaintChevronIcon()
         constraintCategoryLabel()
+        constraintAmountOfTourLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -61,5 +77,11 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
         self.addSubview(categoryLabel)
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([categoryLabel.topAnchor.constraint(equalTo: self.topAnchor), categoryLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor), categoryLabel.leadingAnchor.constraint(equalTo: containerView.trailingAnchor), categoryLabel.trailingAnchor.constraint(equalTo: chevronIcon.leadingAnchor)])
+    }
+    
+    private func constraintAmountOfTourLabel() {
+        containerView.addSubview(amountOfTourLabel)
+        amountOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([amountOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor), amountOfTourLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor), amountOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), amountOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
     }
 }
