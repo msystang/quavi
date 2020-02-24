@@ -13,6 +13,8 @@ class CategorySelectionViewController: UIViewController {
     lazy var categoryTableView:UITableView = {
         let tableView = UITableView()
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: Identifier.categoryCell.rawValue)
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
     
