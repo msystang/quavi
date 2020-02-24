@@ -34,6 +34,7 @@ class CategoryTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style:style, reuseIdentifier: reuseIdentifier)
         constraintContainerView()
+        constaintChevronIcon()
     }
     
     required init?(coder: NSCoder) {
@@ -47,4 +48,11 @@ class CategoryTableViewCell: UITableViewCell {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor), containerView.topAnchor.constraint(equalTo: self.topAnchor), containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor), containerView.widthAnchor.constraint(equalToConstant:  self.frame.width * 0.25)]
     )}
+    
+    private func constaintChevronIcon() {
+        self.addSubview(chevronIcon)
+        chevronIcon.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([chevronIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10), chevronIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor), chevronIcon.widthAnchor.constraint(equalToConstant: 40), chevronIcon.heightAnchor.constraint(equalToConstant: 40)])
+    }
+    
 }
