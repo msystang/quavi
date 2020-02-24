@@ -11,51 +11,45 @@ import UIKit
 extension POIPopUpViewController{
     
     func addSubviews() {
-        view.addSubview(continueButton)
         view.addSubview(reachedLabel)
         view.addSubview(pointNameLabel)
-        view.addSubview(continueButton)
+        view.addSubview(continueTourButton)
         view.addSubview(cancelTourButton)
     }
     
     func addConstraints() {
-        continueButtonConstraints()
         reachedLabelContraints()
         pointNameLabelContraints()
         continueTourButtonConstraints()
         cancelTourButtonConstraints()
     }
     
-     func continueButtonConstraints(){
-        continueButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), continueButton.heightAnchor.constraint(equalToConstant: 100), continueButton.widthAnchor.constraint(equalToConstant: 100)])
-    }
-    
     func reachedLabelContraints() {
         reachedLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            reachedLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            reachedLabel.bottomAnchor.constraint(equalTo: pointNameLabel.topAnchor, constant: -10),
             reachedLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            reachedLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10),
-            reachedLabel.heightAnchor.constraint(equalToConstant: 50)
+            reachedLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            reachedLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
     func pointNameLabelContraints() {
-        reachedLabel.translatesAutoresizingMaskIntoConstraints = false
+        pointNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            reachedLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            reachedLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            reachedLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10),
-            reachedLabel.heightAnchor.constraint(equalToConstant: 50)
+            pointNameLabel.bottomAnchor.constraint(equalTo: continueTourButton.topAnchor, constant: -20),
+            pointNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            pointNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            pointNameLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
     func continueTourButtonConstraints() {
         continueTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            continueTourButton.topAnchor.constraint(equalTo: pointNameLabel.bottomAnchor, constant: 20),
+            //continueTourButton.topAnchor.constraint(equalTo: pointNameLabel.bottomAnchor, constant: 30),
             continueTourButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            continueTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             continueTourButton.heightAnchor.constraint(equalToConstant: 100),
             continueTourButton.widthAnchor.constraint(equalToConstant: 300)
         ])
@@ -65,7 +59,7 @@ extension POIPopUpViewController{
         cancelTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cancelTourButton.topAnchor.constraint(equalTo: continueTourButton.bottomAnchor, constant: 15),
-            cancelTourButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            cancelTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             cancelTourButton.heightAnchor.constraint(equalToConstant: 75),
             cancelTourButton.widthAnchor.constraint(equalToConstant: 200)
         ])

@@ -13,7 +13,7 @@ class POIPopUpViewController: UIViewController {
     lazy var reachedLabel: UILabel = {
         var label = UILabel()
         label.text = "You've reached:"
-        label.font = label.font.withSize(20)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .light)
         label.textAlignment = .left
         return label
     }()
@@ -21,15 +21,16 @@ class POIPopUpViewController: UIViewController {
     lazy var pointNameLabel: UILabel = {
         var label = UILabel()
         label.text = "The Empire State Building"
-        label.font = label.font.withSize(35)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.numberOfLines = 0
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     
     lazy var continueTourButton: UIButton = {
         var button = UIButton()
         button.setTitle("Continue Tour", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 20
         return button
@@ -42,34 +43,32 @@ class POIPopUpViewController: UIViewController {
         button.layer.cornerRadius = 20
         return button
     }()
+    
+    
+    weak var delegate: WaypointConfirmationViewControllerDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setBackgroundColor()
+        addSubviews()
+        addConstraints()
+    }
+    
+    private func setBackgroundColor(){
+        view.backgroundColor = .white
+        
+        let gradient = CAGradientLayer()
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.white.cgColor, UIColor.systemYellow.cgColor]
 
-    lazy var continueButton:UIButton = {
-           let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-           button.setTitle("Next", for: .normal)
-           button.setTitleColor(.purple, for: .normal)
-           button.layer.cornerRadius = button.frame.height / 2
-           button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
-           button.layer.borderWidth = 3
-           button.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
-           return button
-       }()
-       
-       weak var delegate: WaypointConfirmationViewControllerDelegate?
-       
-       override func viewDidLoad() {
-           super.viewDidLoad()
-            setBackgroundColor()
-            addSubviews()
-            addConstraints()
-       }
-       
-       private func setBackgroundColor(){
-           view.backgroundColor = .white
-       }
-
-       @objc func continueButtonPressed(_ sender: Any) {
-           delegate?.proceedToNextLegInTour(self)
-       }
-       
-
+        view.layer.addSublayer(gradient)
+    }
+    
+    @objc func continueButtonPressed(_ sender: Any) {
+        delegate?.proceedToNextLegInTour(self)
+    }
+    
+    
 }
