@@ -12,21 +12,21 @@ import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
 
-extension MapViewController:NavigationViewControllerDelegate{
+extension MapViewController: NavigationViewControllerDelegate{
     
     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint)-> Bool {
         // When the user arrives, present a view controller that prompts the user to continue to their next destination
         // This vc is where we could show information about a destination
         
-        let poiInfoViewController = POIInfoViewController()
-        poiInfoViewController.delegate = self
-        navigationViewController.present(poiInfoViewController, animated: true, completion: nil)
+        let popupViewController = POIPopUpViewController()
+        popupViewController.delegate = self
+        navigationViewController.present(popupViewController, animated: true, completion: nil)
         return false
     }
 }
 
-extension MapViewController:WaypointConfirmationViewControllerDelegate{
-    func proceedToNextLegInTour(_ controller: POIInfoViewController) {
+extension MapViewController: WaypointConfirmationViewControllerDelegate {
+    func proceedToNextLegInTour(_ controller: POIPopUpViewController) {
         
         controller.dismiss(animated: true, completion: {
             guard let navigationViewController = self.presentedViewController as? NavigationViewController else { return }

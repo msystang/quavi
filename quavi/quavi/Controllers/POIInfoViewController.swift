@@ -9,8 +9,8 @@
 import UIKit
 
 class POIInfoViewController: UIViewController {
-
-    lazy var continueButton:UIButton = {
+    
+    lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         button.setTitle("Next", for: .normal)
         button.setTitleColor(.purple, for: .normal)
@@ -21,7 +21,7 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
-    weak var delegate: WaypointConfirmationViewControllerDelegate?
+    //weak var delegate: WaypointConfirmationViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +31,11 @@ class POIInfoViewController: UIViewController {
     }
     
     private func setBackgroundColor(){
-        view.backgroundColor = .white
+        view.backgroundColor = .systemPurple
     }
 
     @objc func continueButtonPressed(_ sender: Any) {
-        delegate?.proceedToNextLegInTour(self)
+        //delegate?.proceedToNextLegInTour(self)
     }
     
     
