@@ -32,7 +32,7 @@ class CategorySelectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureCategoryCollectionView()
+
     }
     //MARK: -- private func
     private func addSubviews(){
@@ -42,11 +42,6 @@ class CategorySelectionViewController: UIViewController {
     private func setupNavBar(){
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "Tour Categories"
-    }
-    
-    private func configureCategoryCollectionView() {
-        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([categoryCollectionView.topAnchor.constraint(equalTo: view.topAnchor), categoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor), categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor), categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
     }
 }
 //MARK: -- Extension
