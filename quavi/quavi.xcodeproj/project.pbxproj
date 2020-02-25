@@ -21,6 +21,7 @@
 		85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F0E24045AFA00F8AD7B /* Identifier.swift */; };
 		85021F112404765600F8AD7B /* CatergoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */; };
 		85021F132405710100F8AD7B /* CategorySelectionViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F122405710100F8AD7B /* CategorySelectionViewController+Delegate.swift */; };
+		85021F15240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F14240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift */; };
 		8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669523F215C0003AD65C /* MapViewController+Navigation.swift */; };
 		8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */; };
 		8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669B23F344C1003AD65C /* POIInfoViewController.swift */; };
@@ -88,6 +89,7 @@
 		85021F0E24045AFA00F8AD7B /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		85021F122405710100F8AD7B /* CategorySelectionViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorySelectionViewController+Delegate.swift"; sourceTree = "<group>"; };
+		85021F14240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorySelectionViewController+DataSource.swift"; sourceTree = "<group>"; };
 		8502669523F215C0003AD65C /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation+Delegate.swift"; sourceTree = "<group>"; };
 		8502669B23F344C1003AD65C /* POIInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIInfoViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */,
 				85021F0A240443A400F8AD7B /* CategorySelectionViewController.swift */,
 				85021F122405710100F8AD7B /* CategorySelectionViewController+Delegate.swift */,
+				85021F14240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift */,
 				8502669523F215C0003AD65C /* MapViewController+Navigation.swift */,
 				8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */,
 				8502669B23F344C1003AD65C /* POIInfoViewController.swift */,
@@ -605,6 +608,7 @@
 				8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */,
 				8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */,
 				EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */,
+				85021F15240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift in Sources */,
 				EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */,
 				EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */,
 				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
