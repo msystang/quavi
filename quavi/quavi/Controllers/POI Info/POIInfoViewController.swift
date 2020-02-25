@@ -21,6 +21,17 @@ class POIInfoViewController: UIViewController {
         button.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
         return button
     }()
+    
+    lazy var easterEggButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        button.setTitle("Find the egg", for: .normal)
+        button.setTitleColor(.purple, for: .normal)
+        button.layer.cornerRadius = button.frame.height / 2
+        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
+        button.layer.borderWidth = 1
+        return button
+    }()
+    
     //MARK:-- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +42,7 @@ class POIInfoViewController: UIViewController {
         super.viewWillAppear(animated)
         setBackgroundColor()
         continueButtonConstraints()
+        easterEggButtonConstraints()
     }
     
     //MARK:-- Private func
