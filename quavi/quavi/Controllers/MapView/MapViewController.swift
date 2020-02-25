@@ -14,15 +14,6 @@ import MapboxDirections
 
 class MapViewController: UIViewController {
     
-    // MARK: -PROPERTIES
-    var sampleData = POI.pointsOfinterest
-    var selectedRoute: Route?
-    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
-        didSet{
-            getSelectedRoute(navigationType: modeOfTransit)
-        }
-    }
-    
     // MARK: - VIEWS
     lazy var mapView = MapView(frame: view.bounds)
     let sliderView = SliderView()
@@ -57,6 +48,16 @@ class MapViewController: UIViewController {
     }()
     
 
+    // MARK: -PROPERTIES
+    var sampleData = POI.pointsOfinterest
+    var selectedRoute: Route?
+    #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
+    var nextStopIndex = 0
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+        }
+    }
     
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData: [CategoryData] = [
