@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
         return view
     }()
     
+    //MARK: profileInfoView Objects
+    
     lazy var editProfileButton: UIButton = {
         var button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
@@ -52,7 +54,9 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
-    lazy var favoritedToursView: UIView = {
+    //MARK: favoritedView Objects
+    
+    lazy var favoritedView: UIView = {
         var view = UIView()
         view.backgroundColor = .green
         return view
@@ -60,8 +64,36 @@ class ProfileViewController: UIViewController {
     
     lazy var faveToursLabel: UILabel = {
         var label = UILabel()
-        label.text = "Favorited Tours: 0"
+        label.text = "Favorited Tours:"
         return label
+    }()
+    
+    lazy var tourNumber: UILabel = {
+        var label = UILabel()
+        label.text = "0"
+        return label
+    }()
+    
+    lazy var favePOILabel: UILabel = {
+        var label = UILabel()
+        label.text = "Favorited Locations:"
+        return label
+    }()
+    
+    lazy var POINumber: UILabel = {
+        var label = UILabel()
+        label.text = "0"
+        return label
+    }()
+    
+    //MARK: tableView & segmentedControl
+    
+    lazy var faveTypeSegmentControl: UISegmentedControl = {
+        var sc = UISegmentedControl()
+        sc.insertSegment(with: UIImage(systemName: "map"), at: 0, animated: true)
+        sc.insertSegment(with: UIImage(systemName: "mappin"), at: 1, animated: true)
+        sc.selectedSegmentIndex = 0
+        return sc
     }()
     
     lazy var favoritesTableView: UITableView = {
@@ -79,7 +111,7 @@ class ProfileViewController: UIViewController {
         miscSetUp()
     }
     
-    //MARK: - Function
+    //MARK: - Functions
     private func setUpSubviews() {
         self.view.addSubview(profileInfoView)
         self.profileInfoView.addSubview(editProfileButton)
@@ -87,8 +119,15 @@ class ProfileViewController: UIViewController {
         self.profileInfoView.addSubview(fullname)
         self.profileInfoView.addSubview(username)
         self.profileInfoView.addSubview(email)
-        self.view.addSubview(favoritedToursView)
-        self.favoritedToursView.addSubview(faveToursLabel)
+        
+        self.view.addSubview(favoritedView)
+        self.favoritedView.addSubview(faveToursLabel)
+        self.favoritedView.addSubview(tourNumber)
+        self.favoritedView.addSubview(favePOILabel)
+        self.favoritedView.addSubview(POINumber)
+        
+        self.view.addSubview(faveTypeSegmentControl)
+
         self.view.addSubview(favoritesTableView)
     }
     
@@ -99,8 +138,15 @@ class ProfileViewController: UIViewController {
         constrainFullName()
         constrainUsername()
         constrainEmail()
-        constrainfavoritedToursView()
+        
+        constrainfavoritedView()
         constrainFaveToursLabel()
+        constrainTourNumberLabel()
+        constrainFavePOILabel()
+        constrainPOINumberLabel()
+        
+        constrainFaveTypeSegmentControl()
+        
         constrainTableView()
     }
     
@@ -124,6 +170,8 @@ class ProfileViewController: UIViewController {
             profileInfoView.heightAnchor.constraint(equalToConstant: 270)
         ])
     }
+    
+    //MARK: profileInfoView Constraints
     
     
     func constrainEditButton() {
@@ -176,31 +224,75 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    func constrainfavoritedToursView() {
-        favoritedToursView.translatesAutoresizingMaskIntoConstraints = false
+    //MARK: favoritedView Constraints
+    
+    func constrainfavoritedView() {
+        favoritedView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            favoritedToursView.topAnchor.constraint(equalTo: profileInfoView.bottomAnchor),
-            favoritedToursView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            favoritedToursView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            favoritedToursView.heightAnchor.constraint(equalToConstant: 65)
+            favoritedView.topAnchor.constraint(equalTo: profileInfoView.bottomAnchor),
+            favoritedView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            favoritedView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            favoritedView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
     func constrainFaveToursLabel() {
         faveToursLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            faveToursLabel.leadingAnchor.constraint(equalTo: favoritedToursView.leadingAnchor, constant: 5),
-            faveToursLabel.topAnchor.constraint(equalTo: favoritedToursView.topAnchor, constant: 5),
-            faveToursLabel.widthAnchor.constraint(equalToConstant: 200),
-            faveToursLabel.heightAnchor.constraint(equalToConstant: 40)
+            faveToursLabel.leadingAnchor.constraint(equalTo: favoritedView.leadingAnchor, constant: 10),
+            faveToursLabel.topAnchor.constraint(equalTo: favoritedView.topAnchor, constant: 10),
+            faveToursLabel.widthAnchor.constraint(equalToConstant: 140),
+            faveToursLabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func constrainTourNumberLabel() {
+        tourNumber.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tourNumber.topAnchor.constraint(equalTo: favoritedView.topAnchor, constant: 10),
+            tourNumber.trailingAnchor.constraint(equalTo: favoritedView.trailingAnchor, constant: -10),
+            tourNumber.widthAnchor.constraint(equalToConstant: 20),
+            tourNumber.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func constrainFavePOILabel() {
+        favePOILabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            favePOILabel.bottomAnchor.constraint(equalTo: favoritedView.bottomAnchor, constant: -10),
+            favePOILabel.leadingAnchor.constraint(equalTo: favoritedView.leadingAnchor, constant: 10),
+            favePOILabel.widthAnchor.constraint(equalToConstant: 170),
+            favePOILabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func constrainPOINumberLabel() {
+        POINumber.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            POINumber.bottomAnchor.constraint(equalTo: favoritedView.bottomAnchor, constant: -10),
+            POINumber.trailingAnchor.constraint(equalTo: favoritedView.trailingAnchor, constant: -10),
+            POINumber.widthAnchor.constraint(equalToConstant: 20),
+            POINumber.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func constrainFaveTypeSegmentControl() {
+        faveTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            faveTypeSegmentControl.topAnchor.constraint(equalTo: favoritedView.bottomAnchor),
+            faveTypeSegmentControl.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            faveTypeSegmentControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            faveTypeSegmentControl.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
     func constrainTableView() {
         favoritesTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            favoritesTableView.topAnchor.constraint(equalTo: favoritedToursView.bottomAnchor),
+            favoritesTableView.topAnchor.constraint(equalTo: faveTypeSegmentControl.bottomAnchor),
             favoritesTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             favoritesTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             favoritesTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
