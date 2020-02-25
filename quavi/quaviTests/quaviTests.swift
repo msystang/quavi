@@ -16,7 +16,7 @@ import Nimble
 class quaviTests: QuickSpec {
 
     override func spec() {
-        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7000, longitude: -74.0000)
+//        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7000, longitude: -74.0000)
         let testPointA = POI(name: "Point A", isCellExpanded: false, lat: 40.7011, long: -74.0011, shortDesc: "Short Description A", longDesc: "Long Discription A", tableViewImage: UIImage(), popoverImage: UIImage())
         let testPointB = POI(name: "Point B", isCellExpanded: false, lat: 40.7022, long: -74.0022, shortDesc: "Short Description B", longDesc: "Long Discription B", tableViewImage: UIImage(), popoverImage: UIImage())
         
@@ -40,13 +40,13 @@ class quaviTests: QuickSpec {
             //Arrange: create test Tour
             let testTour = Tour(name: "Name", category: "Category", stops: [testPointA, testPointB])
             
-            context("when we apply generateNagivationRouteOptions") {
+            context("when we apply generateTourRouteOptions") {
                 it("should return a NavigationRouteOption with properties such as waypoints that are all the POI of the tour") {
-                    //Act: using generateNavigationRouteOptions func on test data
+                    //Act: using generateTourRouteOptions func on test data
                     do {
-                        let testOptions = try Tour.generateTourRouteOptions(from: testTour, initialLocation: testInitialLocation, navigationType: .walking)
+                        let testOptions = try Tour.generateTourRouteOptions(from: testTour, navigationType: .walking)
                         //Assert: assert that we get the expected number of waypoints from test data (we should get 3: testPoint A, testPointB, testInitialLocation)
-                        expect(testOptions.waypoints.count).to(equal(3))
+                        expect(testOptions.waypoints.count).to(equal(2))
                     } catch {
                         fail("Could not generate nagivation route options: \(error)")
                     }
@@ -77,11 +77,11 @@ class quaviTestsUsingXCTest: XCTest {
         let testPointB = POI(name: "Point B", isCellExpanded: false, lat: 40.7022, long: -74.0022, shortDesc: "Short Description B", longDesc: "Long Discription B", tableViewImage: UIImage(), popoverImage: UIImage())
         let testTour = Tour(name: "Name", category: "Category", stops: [testPointA, testPointB])
         
-        //Act: using generateNavigationRouteOptions func on test data
+        //Act: using generateTourRouteOptions func on test data
         do {
-            let testOptions = try Tour.generateNavigationRouteOptions(from: testTour, initialLocation: testInitialLocation, navigationType: .walking)
+            let testOptions = try Tour.generateTourRouteOptions(from: testTour, navigationType: .walking)
             //Assert: assert that we get the expected number of waypoints from test data (we should get 3: testPoint A, testPointB, testInitialLocation)
-            XCTAssert(testOptions.waypoints.count == 3, "Expected 3 waypoints but got \(testOptions.waypoints.count)")
+            XCTAssert(testOptions.waypoints.count == 2, "Expected 2 waypoints but got \(testOptions.waypoints.count)")
         } catch {
             XCTFail("Could not generate nagivation route options: \(error)")
         }
