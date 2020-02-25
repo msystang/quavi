@@ -52,10 +52,10 @@ extension MapViewController {
     }
     
     
-    //MARK: -OBJ-C FUNCTIONS
+    //MARK: GESTURE FUNCTIONS
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        print(gesture)
         
+    //MARK: -TAP GESTURE
         if let tapGesture = gesture as? UITapGestureRecognizer {
             
             switch tapGesture.numberOfTouches {
@@ -88,11 +88,11 @@ extension MapViewController {
             
         }
         
+        //MARK: -SWIPE GESTURES
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            
             switch swipeGesture.direction {
                 
-            case UISwipeGestureRecognizer.Direction.down:
+            case .down:
                 
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
                     guard let self = self else { return }
@@ -129,7 +129,7 @@ extension MapViewController {
                     
                     }, completion: nil)
                 
-            case UISwipeGestureRecognizer.Direction.up:
+            case .up:
                 UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
                     guard let self = self else { return }
                     

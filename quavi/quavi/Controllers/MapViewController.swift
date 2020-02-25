@@ -72,15 +72,14 @@ class MapViewController: UIViewController {
     var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
     
+    var mapViewTopConstraint: NSLayoutConstraint?
     var mapViewBottomConstraintHalf: NSLayoutConstraint?
     var mapViewBottomConstraintClosed: NSLayoutConstraint?
     
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
     
-    var currentSelectedCategory: Enums.categories = .History {
-        didSet { poiTableView.reloadData() }
-    }
+    var currentSelectedCategory: Enums.categories = .History { didSet { poiTableView.reloadData() } }
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {

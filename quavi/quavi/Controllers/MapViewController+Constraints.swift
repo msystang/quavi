@@ -37,7 +37,7 @@ extension MapViewController {
         NSLayoutConstraint.activate([
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            mapView.topAnchor.constraint(equalTo: view.topAnchor)
+            //mapView.topAnchor.constraint(equalTo: view.topAnchor, constant: -20)
         ])
         
         
