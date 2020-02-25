@@ -9,12 +9,23 @@ Being in a new city is intimidating when you don’t know much about it. You’r
 Quavi makes exploring a new city easier and catered to the individual’s experience. Our app would allow a user to be their own interactive tour guide at their own leisure with no cost to them. Users have the option to select and download preset tour routes based on the categories that interest them (i.e. History, Arts & Culture, Religion, Food, etc). This eliminates the need to meticulously plan out their sightseeing course from scouring through multiple resources.
 
 ## Technologies
-1. Swift 5
+1. Swift 5 / Xcode 11.3
 1. MapBox (including AR and Machine Learning capabilities)
 1. CoreLocation
+1. Quick/Nimble
 1. Google Firebase
 1. Kingfisher
 
+## Set Up
+- Clone the repo in your terminal:
+  - ```git clone https://github.com/msystang/quavi.git```
+- Install CocoaPods in your terminal (relevant pods are already in the project Podfile):
+  - ```pod install```
+- Set up your MapBox acccess token:
+  - On your **Desktop**, create a file named `mapbox_access_token.mapbox`. Ensure that the file extension is `.mapbox` and not a `.txt`.
+  - Add your MapBox access token in this file and save.
+  - Learn more about MapBox access tokens [here](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/#how-access-tokens-work).
+  
 ## Usage Example
 - The user is presented with the map loaded on the screen and on the bottom is the “Map” tab and “Profile” tab at the bottom of the screen:
   - The map will include a collection of route categories that the user can select from
@@ -38,7 +49,6 @@ Quavi makes exploring a new city easier and catered to the individual’s experi
 
 - The “Profile” tab will allow users to update/edit their profile info and view their saved tours and points of interested
 
-
 ## GIFs & Images
 Coming Soon!
 
@@ -46,5 +56,7 @@ Coming Soon!
 ## Contributors
 - [Sunni Tang](https://github.com/msystang)
 - [Ayoola Abudu](https://github.com/aabudu16)
-- [Rad Valogno](https://github.com/RadBV)
+- [Rad Valongo](https://github.com/RadBV)
 - [Alexander George Legaspi](https://github.com/aglegaspi)
+
+

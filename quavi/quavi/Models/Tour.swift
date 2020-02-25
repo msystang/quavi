@@ -25,19 +25,14 @@ struct Tour {
         guard let initialLocation = initialLocation else { throw MapboxError.noInitalUserLocation }
         
         // Get all waypoints for initialLocation and stops in tour
-        let stops = tour.stops.map { $0.waypoint }
+        var stops = tour.stops.map { $0.waypoint }
         let initialWaypoint = Waypoint(coordinate: initialLocation, coordinateAccuracy: -1, name: "Initial Location")
         
-        // Create array of waypoints
-        var waypoints = [Waypoint]()
-        waypoints.append(initialWaypoint)
-        for stop in stops {
-            waypoints.append(stop)
-        }
-        
+        //adds initial waypoint to stops array
+        stops.insert(initialWaypoint, at: 0)
         // Create RouteOptions from waypoints
         //TODO: Determine if we need to handle async for getting options from API
-        let options = NavigationRouteOptions(waypoints: waypoints, profileIdentifier: navigationType)
+        let options = NavigationRouteOptions(waypoints: stops, profileIdentifier: navigationType)
         
         return options
     }
