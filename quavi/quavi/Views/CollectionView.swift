@@ -22,7 +22,7 @@ class CollectionView: UICollectionView {
     }
     
     func configure() {
-        register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
+        register(TourCategoryCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
         backgroundColor = .clear
     }
 }

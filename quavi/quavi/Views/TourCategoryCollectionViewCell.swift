@@ -1,16 +1,14 @@
 //
-//  CategoriesCollectionViewCell.swift
-//  moveTheViewPlease
+//  TourCategoryCollectionViewCell.swift
+//  quavi
 //
-//  Created by Radharani Ribas-Valongo on 2/3/20.
-//  Copyright © 2020 aglegaspi. All rights reserved.
+//  Created by Alex 6.1 on 2/24/20.
+//  Copyright © 2020 Sunni Tang. All rights reserved.
 //
 
 import UIKit
 
-//TODO: Rename to CategoryCollectionViewCell
-
-class CategoriesCollectionViewCell: UICollectionViewCell {
+class TourCategoryCollectionViewCell: UICollectionViewCell {
     //MARK: -- Object Properties
     lazy var categoryLabel: UILabel = {
         let label = UILabel()
@@ -46,7 +44,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func setUpCells(cell: CategoriesCollectionViewCell, data: CategoryData) {
+    func setUpCells(cell: TourCategoryCollectionViewCell, data: CategoryData) {
         self.categoryLabel.text = data.name
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = cell.frame.height/2
