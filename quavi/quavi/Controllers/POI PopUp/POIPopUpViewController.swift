@@ -45,13 +45,14 @@ class POIPopUpViewController: UIViewController {
         return button
     }()
     
-    
-    weak var delegate: WaypointConfirmationViewControllerDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
         addSubviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addConstraints()
     }
     
