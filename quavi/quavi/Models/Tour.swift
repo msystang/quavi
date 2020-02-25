@@ -22,7 +22,7 @@ struct Tour {
     // MARK: - Static Functions
     static func generateTourRouteOptions(from tour: Tour, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
         
-        // Get all waypoints for initialLocation and stops in tour
+        // Get all waypoints for tops in tour
         let stops = tour.stops.map { $0.waypoint }
     
         // Create RouteOptions from waypoints
@@ -33,19 +33,21 @@ struct Tour {
     }
     
     
-    static func generateRouteOptionsForCurrentLeg(from tour: Tour, initialLocation: CLLocationCoordinate2D?, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
+    static func generateRouteOptionsForCurrentLeg(from selectedRoute: Route?, userLocation: CLLocationCoordinate2D?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
         
-        guard let initialLocation = initialLocation else { throw MapboxError.noInitalUserLocation }
+        guard let selectedRoute = selectedRoute else {
+            throw MapboxError.noSelectedRoute
+        }
         
-        // Get all waypoints for initialLocation and stops in tour
-        var stops = tour.stops.map { $0.waypoint }
-        let initialWaypoint = Waypoint(coordinate: initialLocation, coordinateAccuracy: -1, name: "Initial Location")
-        
-        //adds initial waypoint to stops array
-        stops.insert(initialWaypoint, at: 0)
-        // Create RouteOptions from waypoints
+        guard let userLocation = userLocation else {
+            throw MapboxError.noInitalUserLocation
+        }
+
+        let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
+        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
+
         //TODO: Determine if we need to handle async for getting options from API
-        let options = NavigationRouteOptions(waypoints: stops, profileIdentifier: navigationType)
+        let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
         
         return options
     }
