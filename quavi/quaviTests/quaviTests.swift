@@ -60,25 +60,12 @@ class quaviTests: QuickSpec {
             }
             
             context("when we apply generateTourRouteOptions") {
-                it("should return a NavigationRouteOption with properties such as waypoints that are all the POI of the tour from which we can generate a MapboxDirections type Route") {
+                it("should return a NavigationRouteOption with properties such as waypoints that are all the POI of the tour") {
                     //Act: using generateTourRouteOptions func on test data
                     do {
                         testOptions = try Tour.generateTourRouteOptions(from: testTour, navigationType: .walking)
                         //Assert: assert that we get the expected number of waypoints from test data (we should get 3: testPoint A, testPointB, testInitialLocation)
                         expect(testOptions!.waypoints.count).to(equal(2))
-                        
-                        
-                        generateRoute(from: testOptions!) { (result) in
-                            switch result {
-                            case .failure(let error):
-                                fail("Could not generate route: \(error)")
-                            case .success(let route):
-                                testRoute = route
-                                expect(route.routeOptions.waypoints.count).to(equal(2))
-                            }
-                        }
-                        
-                        
                     } catch {
                         fail("Could not generate nagivation route options: \(error)")
                     }
