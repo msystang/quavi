@@ -24,7 +24,7 @@ extension MapViewController: MGLMapViewDelegate {
         
         DispatchQueue.main.async {
             do {
-                let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: navigationType)
+                let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: navigationType)
                 
                 //Generate route from options
                 //TODO: Make async

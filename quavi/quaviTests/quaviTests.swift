@@ -44,7 +44,7 @@ class quaviTests: QuickSpec {
                 it("should return a NavigationRouteOption with properties such as waypoints that are all the POI of the tour") {
                     //Act: using generateNavigationRouteOptions func on test data
                     do {
-                        let testOptions = try Tour.generateNavigationRouteOptions(from: testTour, initialLocation: testInitialLocation, navigationType: .walking)
+                        let testOptions = try Tour.generateTourRouteOptions(from: testTour, initialLocation: testInitialLocation, navigationType: .walking)
                         //Assert: assert that we get the expected number of waypoints from test data (we should get 3: testPoint A, testPointB, testInitialLocation)
                         expect(testOptions.waypoints.count).to(equal(3))
                     } catch {

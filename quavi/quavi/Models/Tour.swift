@@ -20,7 +20,7 @@ struct Tour {
     static let dummyData: Tour = Tour(name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
     
     // MARK: - Static Functions
-    static func generateNavigationRouteOptions(from tour: Tour, initialLocation: CLLocationCoordinate2D?, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
+    static func generateTourRouteOptions(from tour: Tour, initialLocation: CLLocationCoordinate2D?, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
         
         guard let initialLocation = initialLocation else { throw MapboxError.noInitalUserLocation }
         
