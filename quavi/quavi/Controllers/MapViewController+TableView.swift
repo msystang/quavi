@@ -20,7 +20,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if currentSelectedCategory == Enums.categories.History.rawValue {
+        if currentSelectedCategory == .History {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
             
             //TO-DO: SEPERATE INTO IT'S OWN FILE

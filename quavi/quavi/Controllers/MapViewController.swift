@@ -78,7 +78,7 @@ class MapViewController: UIViewController {
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
     
-    var currentSelectedCategory: String = Enums.categories.History.rawValue {
+    var currentSelectedCategory: Enums.categories = .History {
         didSet { poiTableView.reloadData() }
     }
     
