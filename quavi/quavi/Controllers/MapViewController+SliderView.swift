@@ -11,17 +11,11 @@ import UIKit
 extension MapViewController {
     
     func handleCollectionViewCellPressed(item: Int) {
-        if item == 0 {
-            currentSelectedCategory = .History
-        } else if item == 1 {
-            currentSelectedCategory = .Art
-        } else if item == 2 {
-            currentSelectedCategory = .Science
-        } else if item == 3 {
-            currentSelectedCategory = .Religion
-        } else if item == 4 {
-            currentSelectedCategory = .Yeet
-        }
+        if item == 0 { currentSelectedCategory = .History }
+        else if item == 1 { currentSelectedCategory = .Art }
+        else if item == 2 { currentSelectedCategory = .Science }
+        else if item == 3 { currentSelectedCategory = .Religion }
+        else if item == 4 { currentSelectedCategory = .Yeet }
     }
     
     func loadGestures() {
@@ -118,9 +112,6 @@ extension MapViewController {
                         
                     case .closed:
                         return
-                        
-                    default:
-                        return
                     }
                     
                     if self.sliderViewState == .closed {
@@ -143,20 +134,21 @@ extension MapViewController {
                     guard let self = self else { return }
                     
                     switch self.sliderViewState {
+                        
                     case .fullOpen:
                         return
+                        
                     case .halfOpen:
                         self.setFullOpenSliderViewConstraints()
                         self.sliderViewState = .fullOpen
                         self.walkButton.isEnabled = false
                         self.bikeButton.isEnabled = false
                         self.carButton.isEnabled = false
+                        
                     case .closed:
                         self.setHalfOpenSliderViewConstraints()
                         self.sliderViewState = .halfOpen
                         self.addCornerRadiusToSliderView()
-                    default:
-                        return
                     }
                     
                     if self.sliderViewState == .closed {
