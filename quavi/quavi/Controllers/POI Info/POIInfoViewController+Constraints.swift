@@ -12,6 +12,8 @@ extension POIInfoViewController{
     func addSubviews() {
         view.addSubview(continueButton)
         view.addSubview(easterEggButton)
+        view.addSubview(containerView)
+        view.addSubview(pageControl)
     }
     
      func continueButtonConstraints() {
@@ -23,5 +25,14 @@ extension POIInfoViewController{
         easterEggButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([easterEggButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5), easterEggButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5), easterEggButton.widthAnchor.constraint(equalToConstant: view.frame.width / 2), easterEggButton.heightAnchor.constraint(equalToConstant: 50)])
     }
-
+    
+    func containerViewConstraints() {
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: easterEggButton.bottomAnchor, constant: 15), containerView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30), containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10), containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10) ])
+    }
+    
+    func pageControlConstraints() {
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([pageControl.topAnchor.constraint(equalTo: containerView.bottomAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20), pageControl.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -5) ])
+    }
 }

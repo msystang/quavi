@@ -32,6 +32,22 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
+    lazy var containerView:UIScrollView = {
+        let view = UIScrollView(frame: .zero)
+        view.isPagingEnabled = true
+        view.backgroundColor = .blue
+        return view
+    }()
+    
+    lazy var pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.hidesForSinglePage = true
+        pc.numberOfPages = 3
+        pc.pageIndicatorTintColor = .blue
+        pc.currentPageIndicatorTintColor = .red
+        return pc
+    }()
+    
     //MARK:-- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +59,15 @@ class POIInfoViewController: UIViewController {
         setBackgroundColor()
         continueButtonConstraints()
         easterEggButtonConstraints()
+        containerViewConstraints()
+        pageControlConstraints()
     }
     
     //MARK:-- Private func
     private func setBackgroundColor(){
         view.backgroundColor = .white
     }
-
+    
     @objc func continueButtonPressed(_ sender: Any) {
         
     }
