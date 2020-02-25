@@ -33,6 +33,7 @@ class POIPopUpViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 30
+        button.addTarget(self, action: #selector(continueTourButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -64,7 +65,7 @@ class POIPopUpViewController: UIViewController {
         gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
         gradient.frame = view.bounds
         gradient.colors = [UIColor.white.cgColor, UIColor.systemYellow.cgColor]
-
+        
         view.layer.addSublayer(gradient)
     }
     
@@ -73,9 +74,10 @@ class POIPopUpViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    @objc func continueTourButtonPressed(_ sender: Any) {
-        #warning("set up the page controller")
-        delegate?.proceedToNextLegInTour(self)
+    @objc func continueTourButtonPressed(_ sender:UIButton) {
+        let poiInfoVC = POIInfoViewController()
+        poiInfoVC.modalPresentationStyle = .fullScreen
+        present(poiInfoVC, animated: true, completion: nil)
     }
     
 }
