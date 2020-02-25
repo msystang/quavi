@@ -32,24 +32,4 @@ struct Tour {
         return options
     }
     
-    
-    static func generateRouteOptionsForCurrentLeg(from selectedRoute: Route?, userLocation: CLLocationCoordinate2D?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
-        
-        guard let selectedRoute = selectedRoute else {
-            throw MapboxError.noSelectedRoute
-        }
-        
-        guard let userLocation = userLocation else {
-            throw MapboxError.noInitalUserLocation
-        }
-
-        let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
-        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
-
-        //TODO: Determine if we need to handle async for getting options from API
-        let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
-        
-        return options
-    }
-    
 }

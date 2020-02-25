@@ -15,6 +15,27 @@ import MapboxDirections
 extension MapViewController: MGLMapViewDelegate {
     
     // MARK: - Internal Methods
+    
+    func generateRouteOptionsForCurrentLeg(from selectedRoute: Route?, userLocation: CLLocationCoordinate2D?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
+        
+        guard let selectedRoute = selectedRoute else {
+            throw MapboxError.noSelectedRoute
+        }
+        
+        guard let userLocation = userLocation else {
+            throw MapboxError.noInitalUserLocation
+        }
+
+        let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
+        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
+
+        //TODO: Determine if we need to handle async for getting options from API
+        let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
+        
+        return options
+    }
+    
+    
     //TODO: Refactor with initalLocation from user!
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
         //TODO: User's current location must require mapView to load first, must deal with async
@@ -91,6 +112,7 @@ extension MapViewController: MGLMapViewDelegate {
     
     
     // MARK: - Private Functions
+    
     private func generateRoute(from options: NavigationRouteOptions, completion: @escaping ((Result<Route, MapboxError>) -> ())) {
         
         _ = Directions.shared.calculate(options, completionHandler: { [weak self] (waypoints, routes, error) in
