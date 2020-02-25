@@ -10,6 +10,7 @@ import UIKit
 
 class POIInfoViewController: UIViewController {
     
+    //MARK:-- Objects
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         button.setTitle("Next", for: .normal)
@@ -20,22 +21,25 @@ class POIInfoViewController: UIViewController {
         button.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
         return button
     }()
-    
-    //weak var delegate: WaypointConfirmationViewControllerDelegate?
-    
+    //MARK:-- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-         setBackgroundColor()
-         addSubviews()
-         continueButtonConstraints()
+        addSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setBackgroundColor()
+        continueButtonConstraints()
+    }
+    
+    //MARK:-- Private func
     private func setBackgroundColor(){
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = .white
     }
 
     @objc func continueButtonPressed(_ sender: Any) {
-        //delegate?.proceedToNextLegInTour(self)
+        
     }
     
     
