@@ -23,7 +23,7 @@ extension POIInfoViewController{
     
     func easterEggButtonConstraints() {
         easterEggButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([easterEggButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5), easterEggButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5), easterEggButton.widthAnchor.constraint(equalToConstant: view.frame.width / 2), easterEggButton.heightAnchor.constraint(equalToConstant: 50)])
+        NSLayoutConstraint.activate([easterEggButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), easterEggButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15), easterEggButton.widthAnchor.constraint(equalToConstant: 25), easterEggButton.heightAnchor.constraint(equalToConstant: 35)])
     }
     
     func containerViewConstraints() {
