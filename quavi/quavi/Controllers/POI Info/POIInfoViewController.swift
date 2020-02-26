@@ -33,19 +33,40 @@ class POIInfoViewController: UIViewController {
     }()
     
     lazy var containerView:UIScrollView = {
-        let view = UIScrollView(frame: .zero)
+        let view = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.95, height: self.view.frame.height * 0.70))
         view.isPagingEnabled = true
-        view.backgroundColor = .blue
+        view.isScrollEnabled = true
+        view.backgroundColor = .clear
+        view.bounces = false
+        view.showsHorizontalScrollIndicator = false
+        view.delegate = self
         return view
     }()
     
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.hidesForSinglePage = true
-        pc.numberOfPages = 3
         pc.pageIndicatorTintColor = .blue
         pc.currentPageIndicatorTintColor = .red
         return pc
+    }()
+    
+    lazy var view1:UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        return view
+    }()
+    
+    lazy var view2:UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
+    lazy var view3:UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
     }()
     
     //MARK:-- LifeCycle
