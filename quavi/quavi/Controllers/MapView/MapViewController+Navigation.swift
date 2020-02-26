@@ -15,11 +15,11 @@ extension MapViewController {
 
     @objc func startNavigationButtonPressed() {
         // TODO: Handle error (enum or alert?)
-        guard let selectedRoute = selectedRoute else { return }
+        guard let currentLegRoute = currentLegRoute else { return }
 
-        let navigationService = MapboxNavigationService(route: selectedRoute, simulating: .always )
+        let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
         let navigationOptions = NavigationOptions(navigationService: navigationService)
-        let navigationVC = NavigationViewController(for: selectedRoute, options: navigationOptions)
+        let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
         navigationVC.delegate = self
         navigationVC.modalPresentationStyle = .fullScreen
 

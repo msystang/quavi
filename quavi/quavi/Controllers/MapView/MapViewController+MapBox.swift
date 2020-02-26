@@ -15,16 +15,43 @@ import MapboxDirections
 extension MapViewController: MGLMapViewDelegate {
     
     // MARK: - Internal Methods
-    //TODO: Refactor with initalLocation from user!
+    //TODO: Apply this logic to get from current location to first waypoint (when press GO)
+    func generateRouteForCurrentLeg(from selectedRoute: Route?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) {
+        
+        //TODO: For Testing... Refactor with initalLocation from user!
+        let userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+        
+        guard let selectedRoute = selectedRoute else {
+            return
+        }
+
+        let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
+        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
+
+        //TODO: Determine if we need to handle async for getting options from API
+        let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
+        
+        DispatchQueue.main.async {
+            self.generateRoute(from: options) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let route):
+                    self.currentLegRoute = route
+                    self.nextStopIndex += 1
+                }
+            }
+        }
+
+    }
+    
+
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
         //TODO: User's current location must require mapView to load first, must deal with async
         
-        // For Testing...
-        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
-        
         DispatchQueue.main.async {
             do {
-                let options = try Tour.generateNavigationRouteOptions(from: Tour.dummyData, initialLocation: testInitialLocation, navigationType: navigationType)
+                let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, navigationType: navigationType)
                 
                 //Generate route from options
                 //TODO: Make async
@@ -36,6 +63,7 @@ extension MapViewController: MGLMapViewDelegate {
                         self.selectedRoute = route
                         self.addMapAnnotations(from: route)
                         self.generatePolylineSource(from: route)
+                        self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
                     }
                 }
             } catch let error {
@@ -91,6 +119,7 @@ extension MapViewController: MGLMapViewDelegate {
     
     
     // MARK: - Private Functions
+    
     private func generateRoute(from options: NavigationRouteOptions, completion: @escaping ((Result<Route, MapboxError>) -> ())) {
         
         _ = Directions.shared.calculate(options, completionHandler: { [weak self] (waypoints, routes, error) in

@@ -11,4 +11,5 @@ import Foundation
 enum MapboxError: Error {
     case noInitalUserLocation
     case generatingRouteError
+    case noSelectedRoute
 }

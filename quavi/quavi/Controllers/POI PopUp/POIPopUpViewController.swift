@@ -70,6 +70,7 @@ class POIPopUpViewController: UIViewController {
     
     @objc func cancelTourButtonPressed() {
         self.dismiss(animated: true)
+        #warning("pop back to mapviewVC")
     }
     
     @objc func continueTourButtonPressed(_ sender: Any) {
