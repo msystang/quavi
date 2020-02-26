@@ -32,19 +32,19 @@ class EditProfileViewController: UIViewController {
     
     lazy var nameLabel: UILabel = {
         var label = UILabel()
-        
+        label.text = "Full Name"
         return label
     }()
     
     lazy var usernameLabel: UILabel = {
         var label = UILabel()
-        
+        label.text = "Username"
         return label
     }()
     
     lazy var emailLabel: UILabel = {
         var label = UILabel()
-        
+        label.text = "E-mail Address"
         return label
     }()
     
@@ -52,24 +52,26 @@ class EditProfileViewController: UIViewController {
     
     lazy var nameTextField: UITextField = {
         var textField = UITextField()
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
         textField.placeholder = "Name"
+        textField.backgroundColor = .darkGray
         return textField
     }()
     
     lazy var usernameTextField: UITextField = {
         var textField = UITextField()
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
         textField.placeholder = "Username"
         return textField
     }()
     
     lazy var emailTextField: UITextField = {
         var textField = UITextField()
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
         textField.placeholder = "Email"
         return textField
     }()
+    
     
     
     //MARK: - Life Cycle functions
@@ -79,12 +81,12 @@ class EditProfileViewController: UIViewController {
         setUpConstraints()
         miscSetUp()
         changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        print(changeImageButton.imageEdgeInsets)
-        // Do any additional setup after loading the view.
+        
+        print(nameTextField.layer.sublayers?.count)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        setUpStyling()
     }
     
     //MARK: - Functions
@@ -95,6 +97,9 @@ class EditProfileViewController: UIViewController {
         self.view.addSubview(nameTextField)
         self.view.addSubview(usernameTextField)
         self.view.addSubview(emailTextField)
+        self.view.addSubview(nameLabel)
+        self.view.addSubview(usernameLabel)
+        self.view.addSubview(emailLabel)
     }
     
     func setUpConstraints() {
@@ -103,7 +108,16 @@ class EditProfileViewController: UIViewController {
         constrainTextFields(textField: nameTextField, textFieldAbove: nil)
         constrainTextFields(textField: usernameTextField, textFieldAbove: nameTextField)
         constrainTextFields(textField: emailTextField, textFieldAbove: usernameTextField)
+        constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
+        constrainTextFieldLabels(label: usernameLabel, textFieldBelow: usernameTextField)
+        constrainTextFieldLabels(label: emailLabel, textFieldBelow: emailTextField)
         
+    }
+    
+    func setUpStyling() {
+        styleTextViews(textfield: nameTextField)
+        styleTextViews(textfield: usernameTextField)
+        styleTextViews(textfield: emailTextField)
     }
     
     private func miscSetUp(){
@@ -118,16 +132,12 @@ class EditProfileViewController: UIViewController {
     
     
     //MARK: - Constraints
-
-    func constrain() {
-        
-    }
     
     func constrainUserImageView() {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            userImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40),
+            userImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
             userImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             userImage.heightAnchor.constraint(equalToConstant: 150),
             userImage.widthAnchor.constraint(equalToConstant: 150)
@@ -140,8 +150,19 @@ class EditProfileViewController: UIViewController {
         NSLayoutConstraint.activate([
             changeImageButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: -50),
             changeImageButton.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -50),
-            changeImageButton.heightAnchor.constraint(equalToConstant: 50),
-            changeImageButton.widthAnchor.constraint(equalToConstant: 50)
+            changeImageButton.heightAnchor.constraint(equalToConstant: 40),
+            changeImageButton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func constrainTextFieldLabels(label: UILabel, textFieldBelow: UITextField) {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: textFieldBelow.leadingAnchor),
+            label.bottomAnchor.constraint(equalTo: textFieldBelow.topAnchor, constant: 5),
+            label.heightAnchor.constraint(equalToConstant: 30),
+            label.widthAnchor.constraint(equalToConstant: 300)
         ])
     }
     
@@ -149,17 +170,31 @@ class EditProfileViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
-            textField.heightAnchor.constraint(equalToConstant: 30),
-            textField.widthAnchor.constraint(equalToConstant: 200)
+            textField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+            textField.heightAnchor.constraint(equalToConstant: 40),
+            textField.widthAnchor.constraint(equalToConstant: 300)
         ])
         
         if textFieldAbove == nil {
-            textField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 50).isActive = true
+            textField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70).isActive = true
         } else {
-            textField.topAnchor.constraint(equalTo: textFieldAbove!.bottomAnchor, constant: 30).isActive = true
+            textField.topAnchor.constraint(equalTo: textFieldAbove!.bottomAnchor, constant: 50).isActive = true
         }
     }
     
+    //MARK: - Styling functions
+    func styleTextViews(textfield: UITextField) {
+        
+        let bottomLine = CALayer()
+        
+        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - -4, width: textfield.frame.width, height: 2)
+        
+        bottomLine.backgroundColor = UIColor.init(red: 69/255, green: 69/255, blue: 69/255, alpha: 1).cgColor
+        
+        textfield.layer.addSublayer(bottomLine)
+        
+        textfield.borderStyle = .none
+        textfield.backgroundColor = .white
+    }
     
 }
