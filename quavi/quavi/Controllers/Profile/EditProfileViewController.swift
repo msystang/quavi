@@ -47,6 +47,7 @@ class EditProfileViewController: UIViewController {
         var button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         return button
     }()
     
@@ -79,10 +80,10 @@ class EditProfileViewController: UIViewController {
     //MARK: Textfields
     
     lazy var nameTextField: UITextField = {
-        var textField = UITextField()
+        var textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         textField.borderStyle = .none
         textField.placeholder = "Name"
-        textField.backgroundColor = .darkGray
+        textField.backgroundColor = .white
         return textField
     }()
     
@@ -90,6 +91,7 @@ class EditProfileViewController: UIViewController {
         var textField = UITextField()
         textField.borderStyle = .none
         textField.placeholder = "Username"
+        textField.backgroundColor = .white
         return textField
     }()
     
@@ -97,6 +99,7 @@ class EditProfileViewController: UIViewController {
         var textField = UITextField()
         textField.borderStyle = .none
         textField.placeholder = "Email"
+        textField.backgroundColor = .white
         return textField
     }()
     
@@ -109,15 +112,20 @@ class EditProfileViewController: UIViewController {
         setUpConstraints()
         miscSetUp()
 //        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        
-        print(nameTextField.layer.sublayers?.count)
+
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        setUpStyling()
+    override func viewDidLayoutSubviews() {
+        nameTextField.styleTextView()
+        usernameTextField.styleTextView()
+        emailTextField.styleTextView()
     }
     
     //MARK: - Functions
+    
+    @objc func dismissVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func setUpSubviews() {
         self.view.addSubview(topBarView)
@@ -225,14 +233,14 @@ class EditProfileViewController: UIViewController {
             topBarView.topAnchor.constraint(equalTo: self.view.topAnchor),
             topBarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             topBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            topBarView.heightAnchor.constraint(equalToConstant: 100)
+            topBarView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
     func constrainBackButton(){
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 60),
+            backButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 40),
             backButton.leadingAnchor.constraint(equalTo: topBarView.leadingAnchor, constant: 20),
             backButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
             backButton.widthAnchor.constraint(equalToConstant: 30)
@@ -266,4 +274,20 @@ class EditProfileViewController: UIViewController {
         textfield.backgroundColor = .white
     }
     
+}
+
+extension UITextField {
+    func styleTextView() {
+        
+        let bottomLine = CALayer()
+        
+        bottomLine.frame = CGRect(x: 0, y: self.frame.height - -4, width: self.frame.width, height: 2)
+        
+        bottomLine.backgroundColor = UIColor.init(red: 69/255, green: 69/255, blue: 69/255, alpha: 1).cgColor
+        
+        self.layer.addSublayer(bottomLine)
+        
+        self.borderStyle = .none
+        self.backgroundColor = .white
+    }
 }

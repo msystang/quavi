@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
         var button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(editProfileButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -112,6 +113,13 @@ class ProfileViewController: UIViewController {
     }
     
     //MARK: - Functions
+    
+    @objc func editProfileButtonPressed(){
+        let editVC = EditProfileViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        self.present(editVC, animated: true, completion: nil)
+    }
+    
     private func setUpSubviews() {
         self.view.addSubview(profileInfoView)
         self.profileInfoView.addSubview(editProfileButton)
