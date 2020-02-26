@@ -12,6 +12,7 @@ class POIInfoViewController: UIViewController {
     
     //MARK:-- Properties
      var viewArray:[UIView]!
+     let shapeLayer = CAShapeLayer()
     
     //MARK:-- Objects
     lazy var continueButton: UIButton = {
@@ -84,6 +85,7 @@ class POIInfoViewController: UIViewController {
         pageControlConstraints()
         assignViewsToArray()
         populateContainerView()
+        createPulse()
     }
     
     //MARK:--@objc func
@@ -112,6 +114,17 @@ class POIInfoViewController: UIViewController {
             }
         }
     }
+    
+   private func createPulse(){
+           let position = easterEggButton.frame.size.width / 2
+           let circularPath = UIBezierPath(arcCenter: .zero, radius: 16, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+           shapeLayer.path = circularPath.cgPath
+           shapeLayer.strokeColor = #colorLiteral(red: 0.7416164279, green: 0.5822635889, blue: 0.9156076312, alpha: 1)
+           shapeLayer.lineWidth = 30.0
+           shapeLayer.lineCap = .round
+           shapeLayer.position = CGPoint(x: position, y: position)
+           easterEggButton.layer.addSublayer(shapeLayer)
+       }
 }
 
 extension POIInfoViewController: UIScrollViewDelegate{
