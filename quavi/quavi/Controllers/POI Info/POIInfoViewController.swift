@@ -89,7 +89,7 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK:--@objc func
-    @objc func continueButtonPressed(_ sender: Any) {
+    @objc func continueButtonPressed(_ sender: UIButton) {
            
        }
     
@@ -115,7 +115,7 @@ class POIInfoViewController: UIViewController {
         }
     }
     
-   private func createPulse(){
+    func createPulse(){
            let position = easterEggButton.frame.size.width / 2
            let circularPath = UIBezierPath(arcCenter: .zero, radius: 16, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
            shapeLayer.path = circularPath.cgPath
@@ -124,6 +124,25 @@ class POIInfoViewController: UIViewController {
            shapeLayer.lineCap = .round
            shapeLayer.position = CGPoint(x: position, y: position)
            easterEggButton.layer.addSublayer(shapeLayer)
+           animatePulse(layer: shapeLayer)
+       }
+       
+    func animatePulse(layer:CAShapeLayer){
+           let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+           scaleAnimation.duration = 2.0
+           scaleAnimation.fromValue = 0
+           scaleAnimation.toValue = 1
+           scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+           scaleAnimation.repeatCount = .greatestFiniteMagnitude
+           layer.add(scaleAnimation, forKey: "scale")
+           
+           let opacityAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
+           opacityAnimation.duration = 2.0
+           opacityAnimation.fromValue = 1
+        opacityAnimation.toValue = 0
+           opacityAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+           opacityAnimation.repeatCount = .greatestFiniteMagnitude
+           layer.add(opacityAnimation, forKey: "opacity")
        }
 }
 
