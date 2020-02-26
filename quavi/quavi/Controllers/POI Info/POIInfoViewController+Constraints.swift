@@ -28,11 +28,11 @@ extension POIInfoViewController{
     
     func containerViewConstraints() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: easterEggButton.bottomAnchor, constant: 15), containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor), containerView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.70), containerView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95) ])
+        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: easterEggButton.bottomAnchor, constant: 30), containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor), containerView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.65), containerView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95) ])
     }
     
     func pageControlConstraints() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([pageControl.topAnchor.constraint(equalTo: containerView.bottomAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
+        NSLayoutConstraint.activate([pageControl.bottomAnchor.constraint(equalTo: containerView.topAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
     }
 }

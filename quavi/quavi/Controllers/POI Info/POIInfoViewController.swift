@@ -35,7 +35,7 @@ class POIInfoViewController: UIViewController {
     }()
     
     lazy var containerView:UIScrollView = {
-        let view = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.95, height: self.view.frame.height * 0.70))
+        let view = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.95, height: self.view.frame.height * 0.65))
         view.isPagingEnabled = true
         view.isScrollEnabled = true
         view.backgroundColor = .clear
