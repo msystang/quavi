@@ -45,6 +45,17 @@ class POIInfoViewController: UIViewController {
         return view
     }()
     
+    lazy var likeButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+        button.tintColor = .black
+        button.layer.cornerRadius = button.frame.height / 2
+        button.layer.borderColor = UIColor.white.cgColor
+        button.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        button.layer.borderWidth = 3
+        return button
+    }()
+    
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.hidesForSinglePage = true
@@ -86,6 +97,7 @@ class POIInfoViewController: UIViewController {
         pageControlConstraints()
         assignViewsToArray()
         populateContainerView()
+        likeButtonConstraints()
         createPulse()
     }
     

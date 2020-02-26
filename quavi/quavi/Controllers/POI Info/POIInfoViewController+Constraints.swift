@@ -14,6 +14,7 @@ extension POIInfoViewController{
         view.addSubview(easterEggButton)
         view.addSubview(containerView)
         view.addSubview(pageControl)
+        view.addSubview(likeButton)
     }
     
     func continueButtonConstraints() {
@@ -34,5 +35,10 @@ extension POIInfoViewController{
     func pageControlConstraints() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([pageControl.bottomAnchor.constraint(equalTo: containerView.topAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
+    }
+    
+    func likeButtonConstraints() {
+        likeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([likeButton.heightAnchor.constraint(equalToConstant: 50), likeButton.widthAnchor.constraint(equalToConstant: 50), likeButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: likeButton.frame.height / 2 ), likeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)])
     }
 }
