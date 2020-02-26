@@ -35,9 +35,10 @@ extension MapViewController {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -500),
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            //mapView.topAnchor.constraint(equalTo: view.topAnchor)
+            mapView.heightAnchor.constraint(equalToConstant: view.bounds.height)
         ])
         
         
@@ -59,18 +60,27 @@ extension MapViewController {
     //MARK: -bike button constraints
     func setBikeButtonConstraints(){
         bikeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([bikeButton.topAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.topAnchor, constant: 35), bikeButton.centerXAnchor.constraint(equalTo: mapView.centerXAnchor), bikeButton.heightAnchor.constraint(equalToConstant: 50), bikeButton.widthAnchor.constraint(equalToConstant: 50)])
+        NSLayoutConstraint.activate([bikeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+                                     bikeButton.centerXAnchor.constraint(equalTo: mapView.centerXAnchor),
+                                     bikeButton.heightAnchor.constraint(equalToConstant: 50),
+                                     bikeButton.widthAnchor.constraint(equalToConstant: 50)])
     }
     
     //MARK: -car button constraints
     func setCarButtonConstraints(){
         carButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([carButton.topAnchor.constraint(equalTo: bikeButton.topAnchor), carButton.trailingAnchor.constraint(equalTo: bikeButton.leadingAnchor, constant: -40), carButton.heightAnchor.constraint(equalTo: bikeButton.heightAnchor), carButton.widthAnchor.constraint(equalTo: bikeButton.widthAnchor)])
+        NSLayoutConstraint.activate([carButton.topAnchor.constraint(equalTo: bikeButton.topAnchor),
+                                     carButton.trailingAnchor.constraint(equalTo: bikeButton.leadingAnchor, constant: -40),
+                                     carButton.heightAnchor.constraint(equalTo: bikeButton.heightAnchor),
+                                     carButton.widthAnchor.constraint(equalTo: bikeButton.widthAnchor)])
     }
     
     //MARK: -walk button constraints
     func setWalkButtonConstraints(){
         walkButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([walkButton.topAnchor.constraint(equalTo: bikeButton.topAnchor), walkButton.leadingAnchor.constraint(equalTo: bikeButton.trailingAnchor, constant: 40), walkButton.heightAnchor.constraint(equalTo: bikeButton.heightAnchor), walkButton.widthAnchor.constraint(equalTo: bikeButton.widthAnchor)])
+        NSLayoutConstraint.activate([walkButton.topAnchor.constraint(equalTo: bikeButton.topAnchor),
+                                     walkButton.leadingAnchor.constraint(equalTo: bikeButton.trailingAnchor, constant: 40),
+                                     walkButton.heightAnchor.constraint(equalTo: bikeButton.heightAnchor),
+                                     walkButton.widthAnchor.constraint(equalTo: bikeButton.widthAnchor)])
     }
 }
