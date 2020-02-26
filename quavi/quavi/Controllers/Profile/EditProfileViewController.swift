@@ -14,16 +14,17 @@ class EditProfileViewController: UIViewController {
     lazy var userImage: UIImageView = {
         var imageView = UIImageView()
         imageView.backgroundColor = .white
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.fill")
         imageView.tintColor = .systemYellow
-        imageView.layer.borderWidth = 5
-        
+//        imageView.contentMode = .scaleAspectFill
+        imageView.layer.borderWidth = 3
         return imageView
     }()
     
     lazy var changeImageButton: UIButton = {
         var button = UIButton()
         button.backgroundColor = .blue
+        button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
         return button
     }()
     
@@ -77,8 +78,13 @@ class EditProfileViewController: UIViewController {
         setUpSubviews()
         setUpConstraints()
         miscSetUp()
-
+        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        print(changeImageButton.imageEdgeInsets)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
     //MARK: - Functions
@@ -105,8 +111,10 @@ class EditProfileViewController: UIViewController {
         self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
         
-        changeImageButton.layer.cornerRadius = 50/2
-    }
+//        changeImageButton.layer.cornerRadius = 50/2
+//        changeImageButton.contentMode = .scaleAspectFit
+//        changeImageButton.layer.masksToBounds = true
+        }
     
     
     //MARK: - Constraints
