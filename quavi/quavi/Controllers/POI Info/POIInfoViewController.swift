@@ -85,16 +85,41 @@ class POIInfoViewController: UIViewController {
         easterEggButtonConstraints()
         containerViewConstraints()
         pageControlConstraints()
+        assignViewsToArray()
+        populateContainerView()
     }
+    
+    //MARK:--@objc func
+    @objc func continueButtonPressed(_ sender: Any) {
+           
+       }
     
     //MARK:-- Private func
     private func setBackgroundColor(){
         view.backgroundColor = .white
     }
     
-    @objc func continueButtonPressed(_ sender: Any) {
-        
+    private func assignViewsToArray() {
+        viewArray = [view1, view2, view3]
     }
     
-    
+   private func populateContainerView() {
+        if let viewArray = viewArray{
+            pageControl.numberOfPages = viewArray.count
+            for (index, view) in viewArray.enumerated(){
+                let xPosition:CGFloat = self.containerView.frame.width * CGFloat(index)
+                view.frame = CGRect(x: xPosition, y: 0, width: containerView.frame.width, height: containerView.frame.height)
+                
+                containerView.contentSize.width = containerView.frame.width * CGFloat(index + 1)
+                containerView.addSubview(view)
+            }
+        }
+    }
+}
+
+extension POIInfoViewController: UIScrollViewDelegate{
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width
+                   pageControl.currentPage = Int(page)
+    }
 }
