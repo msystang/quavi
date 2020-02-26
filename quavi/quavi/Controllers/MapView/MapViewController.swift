@@ -74,6 +74,7 @@ class MapViewController: UIViewController {
     var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
     
+    var mapViewTopConstraint: NSLayoutConstraint?
     var mapViewBottomConstraintHalf: NSLayoutConstraint?
     var mapViewBottomConstraintClosed: NSLayoutConstraint?
     

@@ -24,25 +24,19 @@ extension MapViewController {
     }
     
     func createSliderViewConstraints() {
-        halfScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant:  -sliderViewHeight + 450)
-        halfScreenSliderViewConstraints?.isActive = true
-
-        closedSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)
-        closedSliderViewConstraints?.isActive = false
-
-        fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70)
-        fullScreenSliderViewConstraints?.isActive = false
-        
-        mapViewBottomConstraintHalf = mapView.bottomAnchor.constraint(equalTo: sliderView.topAnchor,constant: 75)
-        mapViewBottomConstraintHalf?.isActive = true
+        mapViewBottomConstraintHalf = mapView.bottomAnchor.constraint(equalTo: sliderView.topAnchor,constant: 275)
+        halfScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -450)
+        NSLayoutConstraint.activate([mapViewBottomConstraintHalf!,halfScreenSliderViewConstraints!])
         
         mapViewBottomConstraintClosed = mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        mapViewBottomConstraintClosed?.isActive = false
+        closedSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120)
+        fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70)
+        NSLayoutConstraint.deactivate([mapViewBottomConstraintClosed!,closedSliderViewConstraints!, fullScreenSliderViewConstraints! ])
     }
     
     func setFullOpenSliderViewConstraints() {
         fullScreenSliderViewConstraints?.isActive = true
-        halfScreenSliderViewConstraints?.isActive = false
+        halfScreenSliderViewConstraints?.isActive = true
         closedSliderViewConstraints?.isActive = false
     }
     
@@ -66,7 +60,10 @@ extension MapViewController {
     func constrainSliderView() {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor), sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor), sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)])
+        NSLayoutConstraint.activate([sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                     sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                     sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)
+        ])
         createSliderViewConstraints()
     }
     
@@ -110,7 +107,7 @@ extension MapViewController {
             sectionHeaderArrows.heightAnchor.constraint(equalToConstant: 25),
             sectionHeaderArrows.widthAnchor.constraint(equalToConstant: 20)
             
-        
+            
         ])
     }
     
