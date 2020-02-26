@@ -53,6 +53,7 @@ class MapViewController: UIViewController {
     var selectedRoute: Route?
     #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
     var nextStopIndex = 0
+    var currentLegRoute: Route?
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)

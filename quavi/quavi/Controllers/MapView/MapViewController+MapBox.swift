@@ -15,15 +15,14 @@ import MapboxDirections
 extension MapViewController: MGLMapViewDelegate {
     
     // MARK: - Internal Methods
-    
-    func generateRouteOptionsForCurrentLeg(from selectedRoute: Route?, userLocation: CLLocationCoordinate2D?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
+    //TODO: Apply this logic to get from current location to first waypoint (when press GO)
+    func generateRouteForCurrentLeg(from selectedRoute: Route?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) {
+        
+        //TODO: For Testing... Refactor with initalLocation from user!
+        let userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
         
         guard let selectedRoute = selectedRoute else {
-            throw MapboxError.noSelectedRoute
-        }
-        
-        guard let userLocation = userLocation else {
-            throw MapboxError.noInitalUserLocation
+            return
         }
 
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
@@ -32,16 +31,23 @@ extension MapViewController: MGLMapViewDelegate {
         //TODO: Determine if we need to handle async for getting options from API
         let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
         
-        return options
+        DispatchQueue.main.async {
+            self.generateRoute(from: options) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let route):
+                    self.currentLegRoute = route
+                    self.nextStopIndex += 1
+                }
+            }
+        }
+
     }
     
-    
-    //TODO: Refactor with initalLocation from user!
+
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
         //TODO: User's current location must require mapView to load first, must deal with async
-        
-        // For Testing...
-        let testInitialLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
         
         DispatchQueue.main.async {
             do {
@@ -57,6 +63,7 @@ extension MapViewController: MGLMapViewDelegate {
                         self.selectedRoute = route
                         self.addMapAnnotations(from: route)
                         self.generatePolylineSource(from: route)
+                        self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
                     }
                 }
             } catch let error {
