@@ -12,6 +12,7 @@
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
 		1D91609023F0DACD009B1F97 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608F23F0DACD009B1F97 /* Enums.swift */; };
 		1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91609123F0DB3F009B1F97 /* CategoryData.swift */; };
+		1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */; };
 		85021F032404240700F8AD7B /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F022404240700F8AD7B /* OnBoardingViewController.swift */; };
 		85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F042404243A00F8AD7B /* OnBoardingView.swift */; };
 		85021F072404247800F8AD7B /* QuaviOnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */; };
@@ -82,6 +83,7 @@
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
 		1D91608F23F0DACD009B1F97 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1D91609123F0DB3F009B1F97 /* CategoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		85021F022404240700F8AD7B /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		85021F042404243A00F8AD7B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardingPage.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				1D8B2F3324037754002F19F7 /* ProfileViewController.swift */,
+				1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
+				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */,
