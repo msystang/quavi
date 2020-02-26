@@ -184,14 +184,14 @@
 			isa = PBXGroup;
 			children = (
 				EAF7173723E3823C00DD8703 /* MapViewController.swift */,
-				EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */,
-				EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */,
-				EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */,
-				EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */,
-				EC7D095123F60491001D04CF /* MapViewController+TableView.swift */,
 				EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */,
 				8502669523F215C0003AD65C /* MapViewController+Navigation.swift */,
 				8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */,
+				EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */,
+				EC7D095123F60491001D04CF /* MapViewController+TableView.swift */,
+				EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */,
+				EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */,
+				EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
