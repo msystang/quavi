@@ -22,9 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
 //        window?.rootViewController = QuaviTabBarController()
-        window?.rootViewController = UINavigationController(rootViewController: CategorySelectionViewController()) 
-        window?.makeKeyAndVisible()
-    }
+        window?.rootViewController = UINavigationController(rootViewController: CategorySelectionViewController())
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
