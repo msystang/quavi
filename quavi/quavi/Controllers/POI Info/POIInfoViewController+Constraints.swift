@@ -28,11 +28,10 @@ extension POIInfoViewController{
     
     func containerViewConstraints() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: easterEggButton.bottomAnchor, constant: 15), containerView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30), containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10), containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10) ])
+        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: easterEggButton.bottomAnchor, constant: 15), containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor), containerView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.70), containerView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95) ])
     }
-    
     func pageControlConstraints() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([pageControl.topAnchor.constraint(equalTo: containerView.bottomAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20), pageControl.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -5) ])
+        NSLayoutConstraint.activate([pageControl.topAnchor.constraint(equalTo: containerView.bottomAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
     }
 }
