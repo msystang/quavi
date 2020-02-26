@@ -154,6 +154,7 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = .white
         self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
+        
     }
     
     private func setUpFontSizes() {

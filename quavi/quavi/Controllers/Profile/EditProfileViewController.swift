@@ -17,14 +17,36 @@ class EditProfileViewController: UIViewController {
         imageView.image = UIImage(systemName: "person.fill")
         imageView.tintColor = .systemYellow
 //        imageView.contentMode = .scaleAspectFill
-        imageView.layer.borderWidth = 3
+        imageView.layer.borderWidth = 2
         return imageView
     }()
     
     lazy var changeImageButton: UIButton = {
         var button = UIButton()
-        button.backgroundColor = .blue
+        button.backgroundColor = .white
         button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
+        button.tintColor = .black
+        button.contentMode = .bottom
+        return button
+    }()
+    
+    lazy var topBarView: UIView = {
+        var view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
+    lazy var logoutButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Logout", for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        return button
+    }()
+    
+    lazy var backButton: UIButton = {
+        var button = UIButton()
+        button.setBackgroundImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
+        button.tintColor = .black
         return button
     }()
     
@@ -33,18 +55,24 @@ class EditProfileViewController: UIViewController {
     lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.text = "Full Name"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        label.textColor = .darkGray
         return label
     }()
     
     lazy var usernameLabel: UILabel = {
         var label = UILabel()
         label.text = "Username"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        label.textColor = .darkGray
         return label
     }()
     
     lazy var emailLabel: UILabel = {
         var label = UILabel()
         label.text = "E-mail Address"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        label.textColor = .darkGray
         return label
     }()
     
@@ -80,7 +108,7 @@ class EditProfileViewController: UIViewController {
         setUpSubviews()
         setUpConstraints()
         miscSetUp()
-        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+//        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         
         print(nameTextField.layer.sublayers?.count)
     }
@@ -92,6 +120,10 @@ class EditProfileViewController: UIViewController {
     //MARK: - Functions
     
     func setUpSubviews() {
+        self.view.addSubview(topBarView)
+        self.topBarView.addSubview(backButton)
+        self.view.addSubview(logoutButton)
+        
         self.view.addSubview(userImage)
         self.view.addSubview(changeImageButton)
         self.view.addSubview(nameTextField)
@@ -100,9 +132,14 @@ class EditProfileViewController: UIViewController {
         self.view.addSubview(nameLabel)
         self.view.addSubview(usernameLabel)
         self.view.addSubview(emailLabel)
+        self.view.addSubview(logoutButton)
     }
     
     func setUpConstraints() {
+        constrainTopBarView()
+        constrainBackButton()
+        constrainLogoutButton()
+        
         constrainUserImageView()
         constrainChangeImageButton()
         constrainTextFields(textField: nameTextField, textFieldAbove: nil)
@@ -125,9 +162,8 @@ class EditProfileViewController: UIViewController {
         self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
         
-//        changeImageButton.layer.cornerRadius = 50/2
-//        changeImageButton.contentMode = .scaleAspectFit
-//        changeImageButton.layer.masksToBounds = true
+        changeImageButton.layer.cornerRadius = 30/2
+        changeImageButton.layer.masksToBounds = true
         }
     
     
@@ -180,6 +216,39 @@ class EditProfileViewController: UIViewController {
         } else {
             textField.topAnchor.constraint(equalTo: textFieldAbove!.bottomAnchor, constant: 50).isActive = true
         }
+    }
+    
+    func constrainTopBarView() {
+        topBarView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            topBarView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            topBarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            topBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            topBarView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
+    func constrainBackButton(){
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 60),
+            backButton.leadingAnchor.constraint(equalTo: topBarView.leadingAnchor, constant: 20),
+            backButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
+            backButton.widthAnchor.constraint(equalToConstant: 30)
+
+        ])
+    }
+    
+    func constrainLogoutButton() {
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            logoutButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 50),
+            logoutButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            logoutButton.heightAnchor.constraint(equalToConstant: 30),
+            logoutButton.widthAnchor.constraint(equalToConstant: 60)
+        ])
     }
     
     //MARK: - Styling functions
