@@ -16,7 +16,7 @@ extension POIInfoViewController{
         view.addSubview(pageControl)
     }
     
-     func continueButtonConstraints() {
+    func continueButtonConstraints() {
         continueButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), continueButton.heightAnchor.constraint(equalToConstant: 100), continueButton.widthAnchor.constraint(equalToConstant: 100)])
     }
