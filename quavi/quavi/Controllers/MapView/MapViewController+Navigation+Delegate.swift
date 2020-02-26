@@ -19,7 +19,7 @@ extension MapViewController: NavigationViewControllerDelegate{
         // This vc is where we could show information about a destination
         
         let popupViewController = POIPopUpViewController()
-        popupViewController.delegate = self
+        //popupViewController.delegate = self
         navigationViewController.present(popupViewController, animated: true, completion: nil)
         return false
     }

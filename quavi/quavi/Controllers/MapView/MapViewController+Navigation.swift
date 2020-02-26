@@ -22,7 +22,9 @@ extension MapViewController {
         let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
         navigationVC.delegate = self
         navigationVC.modalPresentationStyle = .fullScreen
-
+        
+        // Use this property to indicate when to change continue button to finish tour in POIInfoVC
+        nextStopIndex += 1
         present(navigationVC, animated: true)
     }
 

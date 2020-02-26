@@ -38,7 +38,6 @@ extension MapViewController: MGLMapViewDelegate {
                     print(error)
                 case .success(let route):
                     self.currentLegRoute = route
-                    self.nextStopIndex += 1
                 }
             }
         }
