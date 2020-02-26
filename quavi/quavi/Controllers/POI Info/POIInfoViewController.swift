@@ -30,6 +30,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.setImage(UIImage(named: "quaviduckegg"), for: .normal)
         button.setTitleColor(.purple, for: .normal)
+        button.addTarget(self, action: #selector(handlePresentingMLView), for: .touchUpInside)
         return button
     }()
     
@@ -90,9 +91,12 @@ class POIInfoViewController: UIViewController {
     
     //MARK:--@objc func
     @objc func continueButtonPressed(_ sender: UIButton) {
-           
+        #warning("push to mapVC")
        }
     
+    @objc func handlePresentingMLView(_sender: UIButton){
+        self.showAlert(title: "Comming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
+    }
     //MARK:-- Private func
     private func setBackgroundColor(){
         view.backgroundColor = .white
