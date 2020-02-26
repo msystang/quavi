@@ -27,7 +27,7 @@ class POIInfoViewController: UIViewController {
     }()
     
     lazy var easterEggButton:UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 50))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.setImage(UIImage(named: "quaviduckegg"), for: .normal)
         button.setTitleColor(.purple, for: .normal)
         return button

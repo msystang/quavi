@@ -23,13 +23,14 @@ extension POIInfoViewController{
     
     func easterEggButtonConstraints() {
         easterEggButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([easterEggButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), easterEggButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15), easterEggButton.widthAnchor.constraint(equalToConstant: 25), easterEggButton.heightAnchor.constraint(equalToConstant: 35)])
+        NSLayoutConstraint.activate([easterEggButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), easterEggButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15), easterEggButton.widthAnchor.constraint(equalToConstant: 35), easterEggButton.heightAnchor.constraint(equalToConstant: 35)])
     }
     
     func containerViewConstraints() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: easterEggButton.bottomAnchor, constant: 15), containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor), containerView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.70), containerView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95) ])
     }
+    
     func pageControlConstraints() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([pageControl.topAnchor.constraint(equalTo: containerView.bottomAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
