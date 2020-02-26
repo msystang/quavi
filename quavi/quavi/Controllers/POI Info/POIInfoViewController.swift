@@ -107,7 +107,7 @@ class POIInfoViewController: UIViewController {
        }
     
     @objc func handlePresentingMLView(_sender: UIButton){
-        self.showAlert(title: "Comming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
+        self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
     }
     //MARK:-- Private func
     private func setBackgroundColor(){
