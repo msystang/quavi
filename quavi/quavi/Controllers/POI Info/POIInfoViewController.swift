@@ -12,23 +12,38 @@ class POIInfoViewController: UIViewController {
     
     #warning("delete this and have a value in the global scope that hold the count of the Tour Array Count")
     let waypointCount = 3
+    
+    
+    
+    
     //MARK:-- Properties
      var viewArray:[UIView]!
      let shapeLayer = CAShapeLayer()
+    
      var currentLegIndex: Int? {
          didSet {
+            guard let currentLegIndex = currentLegIndex else {return}
+            
+            switch currentLegIndex{
+            case 0..<currentLegIndex:
+                continueButton.setTitle("Next", for: .normal)
+                continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+            case currentLegIndex:
+               continueButton.setTitle("Finish", for: .normal)
+               continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+            default :
+                return
+            }
             
          }
      }
     //MARK:-- Objects
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        button.setTitle("Next", for: .normal)
         button.setTitleColor(.purple, for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
         button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
         button.layer.borderWidth = 3
-        button.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
         return button
     }()
     
