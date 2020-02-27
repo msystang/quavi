@@ -22,6 +22,11 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
         cell.clipsToBounds = true
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let mapVC = MapViewController()
+        present(mapVC, animated: true)
+    }
 }
 
 extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout{
