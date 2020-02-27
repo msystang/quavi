@@ -44,7 +44,7 @@ extension ProfileViewController {
     func constrainFullName() {
         fullname.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            fullname.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 100),
+            fullname.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 120),
             fullname.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 20),
             fullname.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: -20),
             fullname.heightAnchor.constraint(equalToConstant: 40)
@@ -64,7 +64,7 @@ extension ProfileViewController {
     func constrainEmail() {
         email.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            email.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 5),
+            email.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 10),
             email.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: 20),
             email.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -20),
             username.heightAnchor.constraint(equalToConstant: 40)

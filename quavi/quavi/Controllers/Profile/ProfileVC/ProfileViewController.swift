@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     
     lazy var profileInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = .brown
+        view.backgroundColor = UIColor.init(red: 254/255, green: 233/255, blue: 154/255, alpha: 1)
         return view
     }()
     
@@ -30,7 +30,10 @@ class ProfileViewController: UIViewController {
     
     lazy var userImage: UIImageView = {
         var imageView = UIImageView()
-        imageView.backgroundColor = .darkGray
+        imageView.backgroundColor = .white
+        imageView.image = UIImage(systemName: "ant")
+        imageView.layer.borderWidth = 2
+        imageView.tintColor = .brown
         return imageView
     }()
     lazy var fullname: UILabel = {
@@ -49,7 +52,7 @@ class ProfileViewController: UIViewController {
     
     lazy var email: UILabel = {
         var label = UILabel()
-        label.text = "dontworrybehappy@gmail.com"
+        label.text = "dntWrryBHappy@gmail.com"
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -59,7 +62,7 @@ class ProfileViewController: UIViewController {
     
     lazy var favoritedView: UIView = {
         var view = UIView()
-        view.backgroundColor = .green
+        view.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
         return view
     }()
     
@@ -71,7 +74,7 @@ class ProfileViewController: UIViewController {
     
     lazy var tourNumber: UILabel = {
         var label = UILabel()
-        label.text = "0"
+        label.text = "4"
         return label
     }()
     
@@ -83,7 +86,7 @@ class ProfileViewController: UIViewController {
     
     lazy var POINumber: UILabel = {
         var label = UILabel()
-        label.text = "0"
+        label.text = "3"
         return label
     }()
     
@@ -94,14 +97,21 @@ class ProfileViewController: UIViewController {
         sc.insertSegment(with: UIImage(systemName: "map"), at: 0, animated: true)
         sc.insertSegment(with: UIImage(systemName: "mappin"), at: 1, animated: true)
         sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(switchTableView), for: .valueChanged)
+        sc.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
         return sc
-    }()
+        }()
     
     lazy var favoritesTableView: UITableView = {
         let tv = UITableView()
-        
+        tv.register(FaveToursCell.self, forCellReuseIdentifier: "faveCell")
         return tv
-    }()
+        }()
+    
+    //MARK: - Regular Properties
+    
+    let toursTest = ["Historical LBGTQ Tour", "NYC Beer Tour", "NYC Speakeasies","Places of Worship"]
+    let poiTest = ["Empire State Building", "National Museum of Mathematics", "Rubin Museum of art"]
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -110,6 +120,7 @@ class ProfileViewController: UIViewController {
         setUpSubviews()
         setUpConstraints()
         miscSetUp()
+        setUpDelegates()
     }
     
     //MARK: - Objc Functions
@@ -120,7 +131,16 @@ class ProfileViewController: UIViewController {
         self.present(editVC, animated: true, completion: nil)
     }
     
+    @objc func switchTableView() {
+        favoritesTableView.reloadData()
+    }
+    
     //MARK: Regular Functions
+    
+    private func setUpDelegates() {
+        favoritesTableView.delegate = self
+        favoritesTableView.dataSource = self
+    }
     
     private func setUpSubviews() {
         self.view.addSubview(profileInfoView)

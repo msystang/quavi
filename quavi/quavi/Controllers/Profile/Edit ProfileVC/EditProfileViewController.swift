@@ -63,7 +63,6 @@ class EditProfileViewController: UIViewController {
             imageView.backgroundColor = .white
             imageView.image = UIImage(systemName: "person.fill")
             imageView.tintColor = .systemYellow
-    //        imageView.contentMode = .scaleAspectFill
             imageView.layer.borderWidth = 2
             return imageView
         }()
