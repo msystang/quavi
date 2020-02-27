@@ -25,6 +25,11 @@ extension MapViewController {
         
         // Use this property to indicate when to change continue button to finish tour in POIInfoVC
         nextStopIndex += 1
+        print("Index for next stop: \(nextStopIndex)")
+        
+        //TODO: For testing - remove after we use actual user location!
+        userLocation = currentLegRoute.coordinates?.last ?? CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+        
         present(navigationVC, animated: true)
     }
 
