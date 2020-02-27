@@ -20,7 +20,9 @@ extension MapViewController: NavigationViewControllerDelegate{
         
         let popupViewController = POIPopUpViewController()
         //popupViewController.delegate = self
-        navigationViewController.present(popupViewController, animated: true, completion: nil)
+        
+        navigationViewController.navigationService.stop()
+        navigationViewController.present(popupViewController, animated: true)
         return false
     }
 }
