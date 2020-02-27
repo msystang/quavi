@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class QuaviTabBarController: UITabBarController {
-    lazy var mapVC: UINavigationController = {
-        let navController = UINavigationController(rootViewController: MapViewController())
+    lazy var toursVC: UINavigationController = {
+        let navController = UINavigationController(rootViewController: CategorySelectionViewController())
         return navController
     }()
     
@@ -24,8 +24,8 @@ class QuaviTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
+        toursVC.tabBarItem = UITabBarItem(title: "Tours", image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
-        self.viewControllers = [mapVC, profileVC]
+        self.viewControllers = [toursVC, profileVC]
     }
 }
