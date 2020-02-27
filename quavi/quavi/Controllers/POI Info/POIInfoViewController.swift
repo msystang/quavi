@@ -10,10 +10,16 @@ import UIKit
 
 class POIInfoViewController: UIViewController {
     
+    #warning("delete this and have a value in the global scope that hold the count of the Tour Array Count")
+    let waypointCount = 3
     //MARK:-- Properties
      var viewArray:[UIView]!
      let shapeLayer = CAShapeLayer()
-    
+     var currentLegIndex: Int? {
+         didSet {
+            
+         }
+     }
     //MARK:-- Objects
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
