@@ -11,7 +11,7 @@ import UIKit
 
 class QuaviTabBarController: UITabBarController {
     lazy var mapVC: UINavigationController = {
-        let navController = UINavigationController(rootViewController: MapViewController())
+        let navController = UINavigationController(rootViewController: CategorySelectionViewController())
         return navController
     }()
     
