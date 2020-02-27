@@ -29,19 +29,19 @@ extension EditProfileViewController: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         
         if textField == nameTextField {
-            
-            handleTextFieldFirstResponder(toChangeConstraintsOf: nameTextField, disable: usernameTextField, disable: emailTextField, disable: usernameLabel, disable: emailLabel)
             currentTextfield = nameTextField
+            handleTextFieldFirstResponder(toChangeConstraintsOf: nameTextField, disable: usernameTextField, disable: emailTextField, disable: usernameLabel, disable: emailLabel)
+            
             
         } else if textField == usernameTextField {
-            
-            handleTextFieldFirstResponder(toChangeConstraintsOf: usernameTextField, disable: nameTextField, disable: emailTextField, disable: nameLabel, disable: emailLabel)
             currentTextfield = usernameTextField
+            handleTextFieldFirstResponder(toChangeConstraintsOf: usernameTextField, disable: nameTextField, disable: emailTextField, disable: nameLabel, disable: emailLabel)
+            
             
         }  else if textField == emailTextField {
-            
-            handleTextFieldFirstResponder(toChangeConstraintsOf: emailTextField, disable: nameTextField, disable: usernameTextField, disable: nameLabel, disable: usernameLabel)
             currentTextfield = emailTextField
+            handleTextFieldFirstResponder(toChangeConstraintsOf: emailTextField, disable: nameTextField, disable: usernameTextField, disable: nameLabel, disable: usernameLabel)
+            
         }
     }
     
@@ -50,20 +50,23 @@ extension EditProfileViewController: UITextFieldDelegate {
     
     func handleTextFieldFirstResponder(toChangeConstraintsOf selectedTextfield: UITextField, disable textfield1: UITextField, disable textfield2: UITextField, disable label1: UILabel, disable label2: UILabel) {
         
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+        UIView.animate(withDuration: 0.3) {
+            self.userImage.alpha = 0
+            self.changeImageButton.alpha = 0
+        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0.3, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
             
-            textfield1.isHidden = true
-            textfield2.isHidden = true
-            label1.isHidden = true
-            label2.isHidden = true
-            self?.userImage.isHidden = true
-            self?.changeImageButton.isHidden = true
-            self?.backButton.isHidden = true
-            self?.logoutButton.isHidden = true
-            self?.confirmEditButton.isHidden = false
-            self?.cancelEditButton.isHidden = false
+            textfield1.alpha = 0
+            textfield2.alpha = 0
+            label1.alpha = 0
+            label2.alpha = 0
+            self?.backButton.alpha = 0
+            self?.logoutButton.alpha = 0
+            self?.confirmEditButton.alpha = 1
+            self?.cancelEditButton.alpha = 1
             
-            selectedTextfield.topAnchor.constraint(equalTo: self!.view.topAnchor, constant: 110).isActive = true
+            self?.editTextFieldLayout.isActive = true
             self?.view.layoutIfNeeded()
         })
     }

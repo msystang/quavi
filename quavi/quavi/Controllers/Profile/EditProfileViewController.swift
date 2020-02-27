@@ -122,7 +122,8 @@ class EditProfileViewController: UIViewController {
     
     //MARK: - Regular Properties
     
-    var currentTextfield: UITextField?
+    var currentTextfield: UITextField!
+    lazy var editTextFieldLayout = setEditTextFieldConstraint(textField: currentTextfield)
 
     
     //MARK: - Life Cycle functions
@@ -132,8 +133,6 @@ class EditProfileViewController: UIViewController {
         setUpSubviews()
         setUpConstraints()
         miscSetUp()
-//        changeImageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -149,7 +148,6 @@ class EditProfileViewController: UIViewController {
     
     @objc func handleConfirmButtonPressed(){
         handleEditDismissal()
-        //do additional setup for changing user info on firebase
     }
     
     @objc func handleCancelButtonPressed(){
@@ -213,33 +211,69 @@ class EditProfileViewController: UIViewController {
         changeImageButton.layer.cornerRadius = 30/2
         changeImageButton.layer.masksToBounds = true
         
-        confirmEditButton.isHidden = true
-        cancelEditButton.isHidden = true
+        confirmEditButton.alpha = 0
+        cancelEditButton.alpha = 0
     }
     
     //MARK: - edit buttons' functions
     
     func handleEditDismissal(){
-        UIView.animate(withDuration: 1.0, animations: {
-            self.nameTextField.isHidden = false
-            self.usernameTextField.isHidden = false
-            self.emailTextField.isHidden = false
-            self.nameLabel.isHidden = false
-            self.emailLabel.isHidden = false
-            self.usernameLabel.isHidden = false
-            self.userImage.isHidden = false
-            self.changeImageButton.isHidden = false
-            self.backButton.isHidden = false
-            self.logoutButton.isHidden = false
-            self.confirmEditButton.isHidden = true
-            self.cancelEditButton.isHidden = true
+        
+        UIView.animate(withDuration: 0.70, animations: {
+
+            self.backButton.alpha = 1
+            self.logoutButton.alpha = 1
+            self.confirmEditButton.alpha = 0
+            self.cancelEditButton.alpha = 0
             
-//            self.setUpConstraints()
-//            self.nameTextField.topAnchor.constraint(equalTo: self.userImage.bottomAnchor, constant: 70).isActive = true
+            self.emailLabel.alpha = 1
+            self.emailTextField.alpha = 1
+            
+            self.usernameLabel.alpha = 1
+            self.usernameTextField.alpha = 1
+            
+            self.nameLabel.alpha = 1
+            self.nameTextField.alpha = 1
+
+            if self.currentTextfield == self.nameTextField {
+                
+                self.editTextFieldLayout.isActive = false
+                self.currentTextfield.resignFirstResponder()
+                
+            } else if self.currentTextfield == self.emailTextField {
+                
+                self.editTextFieldLayout.isActive = false
+                self.currentTextfield.resignFirstResponder()
+                
+            } else if self.currentTextfield == self.usernameTextField {
+                
+                self.editTextFieldLayout.isActive = false
+                self.currentTextfield.resignFirstResponder()
+            }
+            
             
             
             self.view.layoutIfNeeded()
         })
+        
+        UIView.animate(withDuration: 0.5, delay: 0.70, animations: {
+            self.userImage.alpha = 1
+            self.changeImageButton.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func setEditTextFieldConstraint(textField: UITextField) -> NSLayoutConstraint {
+        var layout = NSLayoutConstraint()
+        
+        if textField == nameTextField {
+            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 110)
+        } else if textField == usernameTextField {
+            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60)
+        } else if textField == emailTextField {
+            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10)
+        }
+        return layout
     }
     
     
@@ -257,5 +291,4 @@ class EditProfileViewController: UIViewController {
         textfield.borderStyle = .none
         textfield.backgroundColor = .white
     }
-    
 }
