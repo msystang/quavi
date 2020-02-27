@@ -25,7 +25,7 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let mapVC = MapViewController()
-        present(mapVC, animated: true)
+        navigationController?.pushViewController(mapVC, animated: true)
     }
 }
 
