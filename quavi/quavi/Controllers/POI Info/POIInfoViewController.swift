@@ -104,7 +104,9 @@ class POIInfoViewController: UIViewController {
     //MARK:--@objc func
     @objc func continueButtonPressed(_ sender: UIButton) {
         #warning("push to mapVC")
-       }
+//        self.dismiss(animated: true)
+        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     
     @objc func handlePresentingMLView(_sender: UIButton){
         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")

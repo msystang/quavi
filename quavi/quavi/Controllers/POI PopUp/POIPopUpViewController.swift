@@ -71,8 +71,8 @@ class POIPopUpViewController: UIViewController {
     
     
     @objc func cancelTourButtonPressed() {
-        self.dismiss(animated: true)
-        #warning("pop back to mapviewVC")
+       // Pop PopUp and Navigation ViewControllers
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func continueTourButtonPressed(_ sender:UIButton) {
