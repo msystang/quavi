@@ -16,6 +16,8 @@
 		1DCF1BDD240839D00052059A /* ProfileVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */; };
 		1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */; };
 		1DCF1BE124083C0B0052059A /* EditProfileVC+Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */; };
+		1DCF1BE42408645C0052059A /* FaveToursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BE32408645B0052059A /* FaveToursCell.swift */; };
+		1DCF1BE6240865840052059A /* ProfileVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BE5240865840052059A /* ProfileVC+TableView.swift */; };
 		85021F032404240700F8AD7B /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F022404240700F8AD7B /* OnBoardingViewController.swift */; };
 		85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F042404243A00F8AD7B /* OnBoardingView.swift */; };
 		85021F072404247800F8AD7B /* QuaviOnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */; };
@@ -91,6 +93,8 @@
 		1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Constraints.swift"; sourceTree = "<group>"; };
 		1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+Constraints.swift"; sourceTree = "<group>"; };
 		1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+Textfield.swift"; sourceTree = "<group>"; };
+		1DCF1BE32408645B0052059A /* FaveToursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveToursCell.swift; sourceTree = "<group>"; };
+		1DCF1BE5240865840052059A /* ProfileVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+TableView.swift"; sourceTree = "<group>"; };
 		85021F022404240700F8AD7B /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		85021F042404243A00F8AD7B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardingPage.swift; sourceTree = "<group>"; };
@@ -181,6 +185,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		1DCF1BE2240863BE0052059A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF1BE32408645B0052059A /* FaveToursCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		1DCF1BE8240865B60052059A /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				1D8B2F3324037754002F19F7 /* ProfileViewController.swift */,
+				1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */,
+				1DCF1BE5240865840052059A /* ProfileVC+TableView.swift */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
+		1DCF1BE9240865C70052059A /* Edit ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */,
+				1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */,
+				1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */,
+			);
+			path = "Edit ProfileVC";
+			sourceTree = "<group>";
+		};
 		97354F9799978F4BB10274F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,11 +278,8 @@
 		EA17DC672405B2ED00715DD4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1D8B2F3324037754002F19F7 /* ProfileViewController.swift */,
-				1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */,
-				1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */,
-				1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */,
-				1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */,
+				1DCF1BE8240865B60052059A /* ProfileVC */,
+				1DCF1BE9240865C70052059A /* Edit ProfileVC */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -455,6 +484,7 @@
 		EAF7174023E386BE00DD8703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1DCF1BE2240863BE0052059A /* Profile */,
 				EA17DC6A2405B40A00715DD4 /* Category Selection */,
 				EA17DC692405B3D600715DD4 /* MapView */,
 				EA17DC682405B35F00715DD4 /* Onboarding */,
@@ -742,6 +772,7 @@
 				EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */,
 				EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */,
 				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
+				1DCF1BE42408645C0052059A /* FaveToursCell.swift in Sources */,
 				1D91609023F0DACD009B1F97 /* Enums.swift in Sources */,
 				85021F0B240443A400F8AD7B /* CategorySelectionViewController.swift in Sources */,
 				EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */,
@@ -767,6 +798,7 @@
 				1DCF1BE124083C0B0052059A /* EditProfileVC+Textfield.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
 				85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */,
+				1DCF1BE6240865840052059A /* ProfileVC+TableView.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
