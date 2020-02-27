@@ -18,9 +18,6 @@ extension MapViewController: MGLMapViewDelegate {
     //TODO: Apply this logic to get from current location to first waypoint (when press GO)
     func generateRouteForCurrentLeg(from selectedRoute: Route?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) {
         
-        //TODO: For Testing... Refactor with initalLocation from user!
-        let userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
-        
         guard let selectedRoute = selectedRoute else {
             return
         }
