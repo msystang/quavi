@@ -123,8 +123,7 @@ class EditProfileViewController: UIViewController {
     //MARK: - Regular Properties
     
     var currentTextfield: UITextField?
-    
-    
+
     
     //MARK: - Life Cycle functions
     override func viewDidLoad() {
@@ -157,7 +156,7 @@ class EditProfileViewController: UIViewController {
         handleEditDismissal()
     }
     
-    //MARK: - Functions
+    //MARK: - Setup Functions
     func setUpDelegates() {
         usernameTextField.delegate = self
         nameTextField.delegate = self
@@ -182,7 +181,7 @@ class EditProfileViewController: UIViewController {
         self.view.addSubview(logoutButton)
     }
     
-    func setUpConstraints() {
+    private func setUpConstraints() {
         constrainTopBarView()
         constrainBackButton()
         constrainConfirmButton()
@@ -200,7 +199,7 @@ class EditProfileViewController: UIViewController {
         
     }
     
-    func setUpStyling() {
+    private func setUpStyling() {
         styleTextViews(textfield: nameTextField)
         styleTextViews(textfield: usernameTextField)
         styleTextViews(textfield: emailTextField)
@@ -217,6 +216,8 @@ class EditProfileViewController: UIViewController {
         confirmEditButton.isHidden = true
         cancelEditButton.isHidden = true
     }
+    
+    //MARK: - edit buttons' functions
     
     func handleEditDismissal(){
         UIView.animate(withDuration: 1.0, animations: {
@@ -242,112 +243,6 @@ class EditProfileViewController: UIViewController {
     }
     
     
-    //MARK: - Constraints
-    
-    func constrainUserImageView() {
-        userImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            userImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
-            userImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            userImage.heightAnchor.constraint(equalToConstant: 150),
-            userImage.widthAnchor.constraint(equalToConstant: 150)
-        ])
-    }
-    
-    func constrainChangeImageButton() {
-        changeImageButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            changeImageButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: -50),
-            changeImageButton.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -50),
-            changeImageButton.heightAnchor.constraint(equalToConstant: 40),
-            changeImageButton.widthAnchor.constraint(equalToConstant: 40)
-        ])
-    }
-    
-    func constrainTextFieldLabels(label: UILabel, textFieldBelow: UITextField) {
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: textFieldBelow.leadingAnchor),
-            label.bottomAnchor.constraint(equalTo: textFieldBelow.topAnchor, constant: 5),
-            label.heightAnchor.constraint(equalToConstant: 30),
-            label.widthAnchor.constraint(equalToConstant: 300)
-        ])
-    }
-    
-    func constrainTextFields(textField: UITextField, textFieldAbove: UITextField?) {
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
-            textField.heightAnchor.constraint(equalToConstant: 40),
-            textField.widthAnchor.constraint(equalToConstant: 300)
-        ])
-        
-        if textFieldAbove == nil {
-            textField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70).isActive = true
-        } else {
-            textField.topAnchor.constraint(equalTo: textFieldAbove!.bottomAnchor, constant: 50).isActive = true
-        }
-    }
-    
-    func constrainTopBarView() {
-        topBarView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            topBarView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            topBarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            topBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            topBarView.heightAnchor.constraint(equalToConstant: 80)
-        ])
-    }
-    
-    func constrainBackButton(){
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 40),
-            backButton.leadingAnchor.constraint(equalTo: topBarView.leadingAnchor, constant: 20),
-            backButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
-            backButton.widthAnchor.constraint(equalToConstant: 30)
-
-        ])
-    }
-    
-    func constrainLogoutButton() {
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            logoutButton.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 50),
-            logoutButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            logoutButton.heightAnchor.constraint(equalToConstant: 30),
-            logoutButton.widthAnchor.constraint(equalToConstant: 60)
-        ])
-    }
-    
-    func constrainConfirmButton() {
-        confirmEditButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            confirmEditButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 40),
-            confirmEditButton.trailingAnchor.constraint(equalTo: topBarView.trailingAnchor, constant: -10),
-            confirmEditButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
-            confirmEditButton.widthAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
-    func constrainCancelEditButton() {
-        cancelEditButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            cancelEditButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 40),
-            cancelEditButton.leadingAnchor.constraint(equalTo: topBarView.leadingAnchor, constant: 20),
-            cancelEditButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
-            cancelEditButton.widthAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
     //MARK: - Styling functions
     func styleTextViews(textfield: UITextField) {
         
@@ -363,61 +258,4 @@ class EditProfileViewController: UIViewController {
         textfield.backgroundColor = .white
     }
     
-}
-
-extension EditProfileViewController: UITextFieldDelegate {
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        if textField == nameTextField {
-            
-            handleTextFieldFirstResponder(toChangeConstraintsOf: nameTextField, disable: usernameTextField, disable: emailTextField, disable: usernameLabel, disable: emailLabel)
-            currentTextfield = nameTextField
-            
-        } else if textField == usernameTextField {
-            
-            handleTextFieldFirstResponder(toChangeConstraintsOf: usernameTextField, disable: nameTextField, disable: emailTextField, disable: nameLabel, disable: emailLabel)
-            currentTextfield = usernameTextField
-            
-        }  else if textField == emailTextField {
-            
-            handleTextFieldFirstResponder(toChangeConstraintsOf: emailTextField, disable: nameTextField, disable: usernameTextField, disable: nameLabel, disable: usernameLabel)
-            currentTextfield = emailTextField
-        }
-    }
-    
-    func handleTextFieldFirstResponder(toChangeConstraintsOf selectedTextfield: UITextField, disable textfield1: UITextField, disable textfield2: UITextField, disable label1: UILabel, disable label2: UILabel) {
-        
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
-            
-            textfield1.isHidden = true
-            textfield2.isHidden = true
-            label1.isHidden = true
-            label2.isHidden = true
-            self?.userImage.isHidden = true
-            self?.changeImageButton.isHidden = true
-            self?.backButton.isHidden = true
-            self?.logoutButton.isHidden = true
-            self?.confirmEditButton.isHidden = false
-            self?.cancelEditButton.isHidden = false
-            
-            selectedTextfield.topAnchor.constraint(equalTo: self!.view.topAnchor, constant: 110).isActive = true
-            self?.view.layoutIfNeeded()
-        })
-    }
-}
-
-extension UITextField {
-    func styleTextView() {
-        
-        let bottomLine = CALayer()
-        
-        bottomLine.frame = CGRect(x: 0, y: self.frame.height - -4, width: self.frame.width, height: 2)
-        
-        bottomLine.backgroundColor = UIColor.init(red: 69/255, green: 69/255, blue: 69/255, alpha: 1).cgColor
-        
-        self.layer.addSublayer(bottomLine)
-        
-        self.borderStyle = .none
-        self.backgroundColor = .white
-    }
 }
