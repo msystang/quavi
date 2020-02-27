@@ -11,25 +11,6 @@ import UIKit
 class EditProfileViewController: UIViewController {
     
     //MARK: - Lazy Properties
-    lazy var userImage: UIImageView = {
-        var imageView = UIImageView()
-        imageView.backgroundColor = .white
-        imageView.image = UIImage(systemName: "person.fill")
-        imageView.tintColor = .systemYellow
-//        imageView.contentMode = .scaleAspectFill
-        imageView.layer.borderWidth = 2
-        return imageView
-    }()
-    
-    lazy var changeImageButton: UIButton = {
-        var button = UIButton()
-        button.backgroundColor = .white
-        button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
-        button.tintColor = .black
-        button.contentMode = .bottom
-        return button
-    }()
-    
     lazy var topBarView: UIView = {
         var view = UIView()
         view.backgroundColor = .lightGray
@@ -50,6 +31,42 @@ class EditProfileViewController: UIViewController {
         button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         return button
     }()
+    
+    lazy var confirmEditButton: UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(handleConfirmButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var cancelEditButton: UIButton = {
+        var button = UIButton()
+        let x = "X"
+        button.setTitle("X", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(handleCancelButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var changeImageButton: UIButton = {
+        var button = UIButton()
+        button.backgroundColor = .white
+        button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
+        button.tintColor = .black
+        button.contentMode = .bottom
+        return button
+    }()
+    
+    lazy var userImage: UIImageView = {
+            var imageView = UIImageView()
+            imageView.backgroundColor = .white
+            imageView.image = UIImage(systemName: "person.fill")
+            imageView.tintColor = .systemYellow
+    //        imageView.contentMode = .scaleAspectFill
+            imageView.layer.borderWidth = 2
+            return imageView
+        }()
     
     //MARK: labels
     
@@ -103,11 +120,16 @@ class EditProfileViewController: UIViewController {
         return textField
     }()
     
+    //MARK: - Regular Properties
+    
+    var currentTextfield: UITextField?
+    
     
     
     //MARK: - Life Cycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpDelegates()
         setUpSubviews()
         setUpConstraints()
         miscSetUp()
@@ -121,15 +143,32 @@ class EditProfileViewController: UIViewController {
         emailTextField.styleTextView()
     }
     
-    //MARK: - Functions
-    
+    //MARK: - Objc functions
     @objc func dismissVC() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func handleConfirmButtonPressed(){
+        handleEditDismissal()
+        //do additional setup for changing user info on firebase
+    }
+    
+    @objc func handleCancelButtonPressed(){
+        handleEditDismissal()
+    }
+    
+    //MARK: - Functions
+    func setUpDelegates() {
+        usernameTextField.delegate = self
+        nameTextField.delegate = self
+        emailTextField.delegate = self
     }
     
     func setUpSubviews() {
         self.view.addSubview(topBarView)
         self.topBarView.addSubview(backButton)
+        self.topBarView.addSubview(confirmEditButton)
+        self.topBarView.addSubview(cancelEditButton)
         self.view.addSubview(logoutButton)
         
         self.view.addSubview(userImage)
@@ -146,6 +185,8 @@ class EditProfileViewController: UIViewController {
     func setUpConstraints() {
         constrainTopBarView()
         constrainBackButton()
+        constrainConfirmButton()
+        constrainCancelEditButton()
         constrainLogoutButton()
         
         constrainUserImageView()
@@ -172,7 +213,33 @@ class EditProfileViewController: UIViewController {
         
         changeImageButton.layer.cornerRadius = 30/2
         changeImageButton.layer.masksToBounds = true
-        }
+        
+        confirmEditButton.isHidden = true
+        cancelEditButton.isHidden = true
+    }
+    
+    func handleEditDismissal(){
+        UIView.animate(withDuration: 1.0, animations: {
+            self.nameTextField.isHidden = false
+            self.usernameTextField.isHidden = false
+            self.emailTextField.isHidden = false
+            self.nameLabel.isHidden = false
+            self.emailLabel.isHidden = false
+            self.usernameLabel.isHidden = false
+            self.userImage.isHidden = false
+            self.changeImageButton.isHidden = false
+            self.backButton.isHidden = false
+            self.logoutButton.isHidden = false
+            self.confirmEditButton.isHidden = true
+            self.cancelEditButton.isHidden = true
+            
+//            self.setUpConstraints()
+//            self.nameTextField.topAnchor.constraint(equalTo: self.userImage.bottomAnchor, constant: 70).isActive = true
+            
+            
+            self.view.layoutIfNeeded()
+        })
+    }
     
     
     //MARK: - Constraints
@@ -259,6 +326,28 @@ class EditProfileViewController: UIViewController {
         ])
     }
     
+    func constrainConfirmButton() {
+        confirmEditButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            confirmEditButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 40),
+            confirmEditButton.trailingAnchor.constraint(equalTo: topBarView.trailingAnchor, constant: -10),
+            confirmEditButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
+            confirmEditButton.widthAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    func constrainCancelEditButton() {
+        cancelEditButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cancelEditButton.topAnchor.constraint(equalTo: topBarView.topAnchor, constant: 40),
+            cancelEditButton.leadingAnchor.constraint(equalTo: topBarView.leadingAnchor, constant: 20),
+            cancelEditButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
+            cancelEditButton.widthAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
     //MARK: - Styling functions
     func styleTextViews(textfield: UITextField) {
         
@@ -274,6 +363,47 @@ class EditProfileViewController: UIViewController {
         textfield.backgroundColor = .white
     }
     
+}
+
+extension EditProfileViewController: UITextFieldDelegate {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField == nameTextField {
+            
+            handleTextFieldFirstResponder(toChangeConstraintsOf: nameTextField, disable: usernameTextField, disable: emailTextField, disable: usernameLabel, disable: emailLabel)
+            currentTextfield = nameTextField
+            
+        } else if textField == usernameTextField {
+            
+            handleTextFieldFirstResponder(toChangeConstraintsOf: usernameTextField, disable: nameTextField, disable: emailTextField, disable: nameLabel, disable: emailLabel)
+            currentTextfield = usernameTextField
+            
+        }  else if textField == emailTextField {
+            
+            handleTextFieldFirstResponder(toChangeConstraintsOf: emailTextField, disable: nameTextField, disable: usernameTextField, disable: nameLabel, disable: usernameLabel)
+            currentTextfield = emailTextField
+        }
+    }
+    
+    func handleTextFieldFirstResponder(toChangeConstraintsOf selectedTextfield: UITextField, disable textfield1: UITextField, disable textfield2: UITextField, disable label1: UILabel, disable label2: UILabel) {
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+            
+            textfield1.isHidden = true
+            textfield2.isHidden = true
+            label1.isHidden = true
+            label2.isHidden = true
+            self?.userImage.isHidden = true
+            self?.changeImageButton.isHidden = true
+            self?.backButton.isHidden = true
+            self?.logoutButton.isHidden = true
+            self?.confirmEditButton.isHidden = false
+            self?.cancelEditButton.isHidden = false
+            
+            selectedTextfield.topAnchor.constraint(equalTo: self!.view.topAnchor, constant: 110).isActive = true
+            self?.view.layoutIfNeeded()
+        })
+    }
 }
 
 extension UITextField {
