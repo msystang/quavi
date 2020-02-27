@@ -24,7 +24,7 @@ class QuaviTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
+        mapVC.tabBarItem = UITabBarItem(title: "Tours", image: UIImage(systemName: "mappin.and.ellipse"), tag: 0)
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 1)
         self.viewControllers = [mapVC, profileVC]
     }
