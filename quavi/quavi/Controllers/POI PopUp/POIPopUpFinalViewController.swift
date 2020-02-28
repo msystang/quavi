@@ -82,7 +82,7 @@ class POIPopUpFinalViewController: UIViewController {
         view.addSubview(closeTourButton)
         closeTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeTourButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            closeTourButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120),
             closeTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             closeTourButton.heightAnchor.constraint(equalToConstant: 50),
             closeTourButton.widthAnchor.constraint(equalToConstant: 200)
@@ -91,8 +91,7 @@ class POIPopUpFinalViewController: UIViewController {
     }
     
     @objc func cancelTourButtonPressed() {
-       // Pop PopUp and Navigation ViewControllers
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
 }
