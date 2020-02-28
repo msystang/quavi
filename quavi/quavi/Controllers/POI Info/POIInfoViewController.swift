@@ -19,9 +19,9 @@ class POIInfoViewController: UIViewController {
             guard let isAtLastLeg = isAtLastLeg else {return}
             
             switch isAtLastLeg{
-            case true:
-                presentTapbarVC()
             case false:
+                presentTabbarVC()
+            case true:
                 presentConfettiVC()
             }
         }

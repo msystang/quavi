@@ -75,12 +75,14 @@ class POIPopUpViewController: UIViewController {
     
     
     @objc func cancelTourButtonPressed() {
+        #warning("Set lastStopIndex to Zero in the mapVC")
        // Pop PopUp and Navigation ViewControllers
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func continueTourButtonPressed(_ sender:UIButton) {
         let poiInfoVC = POIInfoViewController()
+        poiInfoVC.isAtLastLeg = isAtLastLeg
         poiInfoVC.modalPresentationStyle = .fullScreen
         present(poiInfoVC, animated: true, completion: nil)
     }
