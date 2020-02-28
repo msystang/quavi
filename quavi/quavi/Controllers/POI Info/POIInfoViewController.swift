@@ -17,24 +17,22 @@ class POIInfoViewController: UIViewController {
     
     
     //MARK:-- Properties
-     var viewArray:[UIView]!
-     let shapeLayer = CAShapeLayer()
+    var viewArray:[UIView]!
+    let shapeLayer = CAShapeLayer()
     
-     var isAtLastLeg: Bool? = false{
-         didSet {
+    var isAtLastLeg: Bool? = false{
+        didSet {
             guard let isAtLastLeg = isAtLastLeg else {return}
             
             switch isAtLastLeg{
             case true:
-                continueButton.setTitle("Next", for: .normal)
-                continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+                presentTapbarVC()
             case false:
-               continueButton.setTitle("Finish", for: .normal)
-               continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+                presentConfettiVC()
             }
-            
-         }
-     }
+        }
+    }
+    
     //MARK:-- Objects
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -123,7 +121,7 @@ class POIInfoViewController: UIViewController {
     //MARK:--@objc func
     @objc func continueButtonPressed(_ sender: UIButton) {
         #warning("push to mapVC")
-//        self.dismiss(animated: true)
+        //        self.dismiss(animated: true)
         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
@@ -131,6 +129,15 @@ class POIInfoViewController: UIViewController {
         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
     }
     //MARK:-- Private func
+    private func presentTapbarVC(){
+        continueButton.setTitle("Next", for: .normal)
+        continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    private func presentConfettiVC(){
+        continueButton.setTitle("Finish", for: .normal)
+        continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+    }
     private func setBackgroundColor(){
         view.backgroundColor = .white
     }
@@ -139,7 +146,7 @@ class POIInfoViewController: UIViewController {
         viewArray = [view1, view2, view3]
     }
     
-   private func populateContainerView() {
+    private func populateContainerView() {
         if let viewArray = viewArray{
             pageControl.numberOfPages = viewArray.count
             for (index, view) in viewArray.enumerated(){
@@ -156,6 +163,6 @@ class POIInfoViewController: UIViewController {
 extension POIInfoViewController: UIScrollViewDelegate{
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
-                   pageControl.currentPage = Int(page)
+        pageControl.currentPage = Int(page)
     }
 }
