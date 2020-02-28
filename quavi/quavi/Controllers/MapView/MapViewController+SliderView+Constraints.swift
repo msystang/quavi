@@ -12,7 +12,7 @@ extension MapViewController {
     func addSliderViewSubViews() {
         view.addSubview(sliderView)
         sliderView.addSubview(chevronArrows)
-        sliderView.addSubview(categoriesCollectionView)
+        view.addSubview(categoriesCollectionView)
         sliderView.addSubview(poiTableView)
     }
     
@@ -25,12 +25,12 @@ extension MapViewController {
     
     func createSliderViewConstraints() {
         mapViewBottomConstraintHalf = mapView.bottomAnchor.constraint(equalTo: sliderView.topAnchor,constant: 275)
-        halfScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -450)
+        halfScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -390)
         NSLayoutConstraint.activate([mapViewBottomConstraintHalf!,halfScreenSliderViewConstraints!])
         
         mapViewBottomConstraintClosed = mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        closedSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120)
-        fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70)
+        closedSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
+        fullScreenSliderViewConstraints = sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 95)
         NSLayoutConstraint.deactivate([mapViewBottomConstraintClosed!,closedSliderViewConstraints!, fullScreenSliderViewConstraints! ])
     }
     
@@ -70,7 +70,7 @@ extension MapViewController {
     
     func constrainPOITableView() {
         NSLayoutConstraint.activate([
-            poiTableView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 10),
+            poiTableView.topAnchor.constraint(equalTo: chevronArrows.bottomAnchor, constant: 10),
             poiTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor)
@@ -82,7 +82,7 @@ extension MapViewController {
         NSLayoutConstraint.activate([
             chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 10),
             chevronArrows.centerXAnchor.constraint(equalTo: sliderView.centerXAnchor),
-            chevronArrows.bottomAnchor.constraint(equalTo: categoriesCollectionView.topAnchor, constant: -10),
+            chevronArrows.bottomAnchor.constraint(equalTo: poiTableView.topAnchor, constant: -10),
             chevronArrows.widthAnchor.constraint(equalToConstant: 40),
             chevronArrows.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -91,10 +91,9 @@ extension MapViewController {
     func constrainCategoriesCollectionView() {
         categoriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            categoriesCollectionView.topAnchor.constraint(equalTo: chevronArrows.bottomAnchor, constant: 10),
             categoriesCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             categoriesCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            categoriesCollectionView.bottomAnchor.constraint(equalTo: poiTableView.topAnchor, constant: -10),
+            categoriesCollectionView.bottomAnchor.constraint(equalTo: sliderView.topAnchor, constant: -15),
             categoriesCollectionView.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
