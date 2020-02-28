@@ -11,12 +11,22 @@ import UIKit
 
 class POIPopUpFinalViewController: UIViewController {
     
+    lazy var closeTourButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Close Tour", for: .normal)
+        button.backgroundColor = .systemRed
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(cancelTourButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGradient()
         configureBirthdayCakeImage()
         configureConfetti()
         configureHappyBirthdayLabel()
+        configureCloseTourButton()
     }
     
     private func configureGradient() {
@@ -66,6 +76,23 @@ class POIPopUpFinalViewController: UIViewController {
             label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
+    }
+    
+    private func configureCloseTourButton() {
+        view.addSubview(closeTourButton)
+        closeTourButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            closeTourButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            closeTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            closeTourButton.heightAnchor.constraint(equalToConstant: 50),
+            closeTourButton.widthAnchor.constraint(equalToConstant: 200)
+        ])
+        
+    }
+    
+    @objc func cancelTourButtonPressed() {
+       // Pop PopUp and Navigation ViewControllers
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
 }
