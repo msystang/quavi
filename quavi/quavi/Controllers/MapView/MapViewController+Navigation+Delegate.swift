@@ -19,6 +19,12 @@ extension MapViewController: NavigationViewControllerDelegate{
         // This vc is where we could show information about a destination
         
         let popupViewController = POIPopUpViewController()
+        
+         #warning("send logic through a delegate")
+        let waypointCount = selectedRoute?.routeOptions.waypoints.count
+        if nextStopIndex == waypointCount{
+        popupViewController.isAtLastLeg = true
+        }
         //popupViewController.delegate = self
         
         navigationViewController.navigationService.stop()
