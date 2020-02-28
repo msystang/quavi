@@ -10,12 +10,6 @@ import UIKit
 
 class POIInfoViewController: UIViewController {
     
-    #warning("delete this and have a value in the global scope that hold the count of the Tour Array Count")
-    let waypointCount = 3
-    
-    
-    
-    
     //MARK:-- Properties
     var viewArray:[UIView]!
     let shapeLayer = CAShapeLayer()
@@ -126,22 +120,23 @@ class POIInfoViewController: UIViewController {
     }
     
     @objc func handleFinishButtonPressed(_ sender: UIButton) {
-        
+        self.showAlert(title: nil, message: "Present Confetti")
     }
     
     @objc func handlePresentingMLView(_ sender: UIButton){
         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
     }
     //MARK:-- Private func
-    private func presentTapbarVC(){
+    private func presentTabbarVC(){
         continueButton.setTitle("Next", for: .normal)
         continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
     }
     
     private func presentConfettiVC(){
         continueButton.setTitle("Finish", for: .normal)
+        continueButton.layoutIfNeeded()
         continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
-        isAtLastLeg = false
+//        isAtLastLeg = false
     }
     private func setBackgroundColor(){
         view.backgroundColor = .white
