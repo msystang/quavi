@@ -91,7 +91,7 @@ class POIPopUpFinalViewController: UIViewController {
     }
     
     @objc func cancelTourButtonPressed() {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
 }

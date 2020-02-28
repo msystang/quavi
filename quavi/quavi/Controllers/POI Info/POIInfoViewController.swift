@@ -120,7 +120,9 @@ class POIInfoViewController: UIViewController {
     }
     
     @objc func handleFinishButtonPressed(_ sender: UIButton) {
-        self.showAlert(title: nil, message: "Present Confetti")
+        let popupFinalVC = POIPopUpFinalViewController()
+        popupFinalVC.modalPresentationStyle = .fullScreen
+        self.present(popupFinalVC, animated: true)
     }
     
     @objc func handlePresentingMLView(_ sender: UIButton){
