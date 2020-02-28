@@ -34,9 +34,9 @@ class OnBoardingViewController: UIViewController {
     }
     
     @objc func handleContinue(sender: UIButton) {
-      let mainVC = MapViewController()
-      mainVC.modalPresentationStyle = .fullScreen
-      present(mainVC, animated: true, completion: nil)
+        let tabBar = QuaviTabBarController()
+        tabBar.modalPresentationStyle = .fullScreen
+        present(tabBar, animated: true)
     }
     
     //MARK: -- private func

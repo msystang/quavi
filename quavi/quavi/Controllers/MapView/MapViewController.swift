@@ -85,6 +85,9 @@ class MapViewController: UIViewController {
         didSet { poiTableView.reloadData() }
     }
     
+    //TODO: For Testing... Refactor with initalLocation from user!
+    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+    
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +100,7 @@ class MapViewController: UIViewController {
         
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
-        getSelectedRoute(navigationType: modeOfTransit)
+
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
@@ -111,6 +114,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addConstraints()
+        getSelectedRoute(navigationType: modeOfTransit)
     }
     
     //MARK: -PRIVATE FUNCTIONS
