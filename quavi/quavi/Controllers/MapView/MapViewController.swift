@@ -106,6 +106,7 @@ class MapViewController: UIViewController {
         loadGestures()
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        categoriesCollectionView.showsHorizontalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
