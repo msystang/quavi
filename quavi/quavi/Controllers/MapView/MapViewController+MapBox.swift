@@ -35,6 +35,7 @@ extension MapViewController: MGLMapViewDelegate {
                     print(error)
                 case .success(let route):
                     self.currentLegRoute = route
+                    self.generatePolylineSource(from: route)
                 }
             }
         }
@@ -58,7 +59,6 @@ extension MapViewController: MGLMapViewDelegate {
                     case .success(let route):
                         self.selectedRoute = route
                         self.addMapAnnotations(from: route)
-                        self.generatePolylineSource(from: route)
                         self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
                     }
                 }

@@ -52,8 +52,15 @@ class MapViewController: UIViewController {
     var sampleData = POI.pointsOfinterest
     var selectedRoute: Route?
     #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
-    var nextStopIndex = 0
     var currentLegRoute: Route?
+    var nextStopIndex = 0 {
+        didSet {
+            guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
+            if nextStopIndex > waypointCount {
+                nextStopIndex = 0
+            }
+        }
+    }
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
@@ -61,13 +68,7 @@ class MapViewController: UIViewController {
     }
     
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
-    let sampleCategoryData: [CategoryData] = [
-        CategoryData(name: Enums.categories.History.rawValue),
-        CategoryData(name: Enums.categories.Art.rawValue),
-        CategoryData(name: Enums.categories.Science.rawValue),
-        CategoryData(name: Enums.categories.Religion.rawValue),
-        CategoryData(name: Enums.categories.Yeet.rawValue)
-    ]
+    let sampleCategoryData = ["Quavi History","LGBTQ History","Secret History","4th Dimension History"]
     
     //TODO: Rename constraints to be more specific and indicate state of slider
     var halfScreenSliderViewConstraints: NSLayoutConstraint?
