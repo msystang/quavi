@@ -47,7 +47,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.setImage(UIImage(named: "quaviduckegg"), for: .normal)
         button.setTitleColor(.purple, for: .normal)
-        button.addTarget(self, action: #selector(handlePresentingMLView), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePresentingMLView(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -125,7 +125,11 @@ class POIInfoViewController: UIViewController {
         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @objc func handlePresentingMLView(_sender: UIButton){
+    @objc func handleFinishButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    @objc func handlePresentingMLView(_ sender: UIButton){
         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
     }
     //MARK:-- Private func
@@ -136,7 +140,8 @@ class POIInfoViewController: UIViewController {
     
     private func presentConfettiVC(){
         continueButton.setTitle("Finish", for: .normal)
-        continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
+        isAtLastLeg = false
     }
     private func setBackgroundColor(){
         view.backgroundColor = .white
