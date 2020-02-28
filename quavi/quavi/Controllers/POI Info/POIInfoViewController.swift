@@ -20,19 +20,17 @@ class POIInfoViewController: UIViewController {
      var viewArray:[UIView]!
      let shapeLayer = CAShapeLayer()
     
-     var currentLegIndex: Int? {
+     var isAtLastLeg: Bool? = false{
          didSet {
-            guard let currentLegIndex = currentLegIndex else {return}
+            guard let isAtLastLeg = isAtLastLeg else {return}
             
-            switch currentLegIndex{
-            case 0..<currentLegIndex:
+            switch isAtLastLeg{
+            case true:
                 continueButton.setTitle("Next", for: .normal)
                 continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
-            case currentLegIndex:
+            case false:
                continueButton.setTitle("Finish", for: .normal)
                continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
-            default :
-                return
             }
             
          }
