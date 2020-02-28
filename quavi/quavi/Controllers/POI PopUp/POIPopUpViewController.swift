@@ -46,6 +46,10 @@ class POIPopUpViewController: UIViewController {
         return button
     }()
     
+    //MARK:-- Properties
+     #warning("send logic through a delegate")
+    var isAtLastLeg:Bool? = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundColor()
