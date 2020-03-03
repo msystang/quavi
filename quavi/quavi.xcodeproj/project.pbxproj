@@ -73,6 +73,7 @@
 		ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */; };
 		ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDA2409A28700A22454 /* GradientView.swift */; };
 		ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */; };
+		ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpFinalViewController.swift; sourceTree = "<group>"; };
 		ECE46CDA2409A28700A22454 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraints+Extentsions.swift"; sourceTree = "<group>"; };
+		ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpAboutView.swift; sourceTree = "<group>"; };
 		F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.debug.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -552,10 +554,19 @@
 		ECE46CD52409A12300A22454 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
+				ECE46CDE240D73C500A22454 /* Slider Views */,
 				ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */,
 				ECE46CDA2409A28700A22454 /* GradientView.swift */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
+		ECE46CDE240D73C500A22454 /* Slider Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */,
+			);
+			path = "Slider Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -815,6 +826,7 @@
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
+				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,
 				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
