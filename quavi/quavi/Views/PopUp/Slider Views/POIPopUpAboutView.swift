@@ -14,16 +14,22 @@ class POIPopUpAboutView: UIView {
 
     lazy var poiName: UILabel = {
         var label = UILabel()
+        label.textColor = .black
+        label.text = "Sorry, No Title Provided!"
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     lazy var imageView: UIImageView = {
         var imageView = UIImageView()
+        imageView.layer.cornerRadius = 20
+        imageView.image = UIImage(named: "empireState2")
         return imageView
     }()
     
     lazy var descriptionTextView: UITextView = {
         var textView = UITextView()
+        textView.isEditable = false
         return textView
     }()
     
