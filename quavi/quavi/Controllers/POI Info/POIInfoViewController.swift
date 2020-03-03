@@ -80,7 +80,7 @@ class POIInfoViewController: UIViewController {
     //MARK: SLIDER VIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
-        view.backgroundColor = .systemGray4
+        //view.backgroundColor = .systemGray4
         return view
     }()
     

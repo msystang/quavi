@@ -41,6 +41,7 @@ class POIPopUpAboutView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        configureGradient()
         configurePOIName()
         configureImageView()
         configureDescriptionTextView()
@@ -48,6 +49,15 @@ class POIPopUpAboutView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureGradient() {
+        let gradient = GradientView()
+        gradient.startColor = UIColor(red: 0.827, green: 0.148, blue: 0.416, alpha: 0.80)
+        gradient.endColor = .systemBlue
+        gradient.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(gradient)
+        NSLayoutConstraint.pin(view: gradient, to: self)
     }
     
     private func configurePOIName() {
