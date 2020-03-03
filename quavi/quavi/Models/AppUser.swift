@@ -16,7 +16,9 @@ struct AppUser {
     let userName: String?
     let dateCreated: Date?
     let photoURL: String?
+
 // TODO: Determine AppUser model logic
+//    let isOnboarded: Bool
 //    let savedTours: [Tour]?
 //    let savedPOI: [POI]?
 //    let createdTours: [Tour]?
@@ -33,7 +35,7 @@ struct AppUser {
         guard let userName = dict["userName"] as? String,
             let email = dict["email"] as? String,
             let photoURL = dict["photoURL"] as? String,
-            /ODO - extend Date to convert from Timestamp?
+            //TODO - extend Date to convert from Timestamp?
             let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
 
         self.userName = userName
