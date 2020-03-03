@@ -11,8 +11,10 @@ import UIKit
 class CategorySelectionViewController: UIViewController {
     
     //MARK: -- Properties
-    var layout = UICollectionViewFlowLayout.init()
+    let tourNameArray = ["History", "Art", "Science", "Religion", "Bars", "Yeet", "Zoo", "Parks", "Best Dollar Pizza"]
+    let numberOfTours = [4,6,7,3,2,8,6,3,20]
     
+    var layout = UICollectionViewFlowLayout.init()
     //MARK: -- Objects
     lazy var categoryCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)

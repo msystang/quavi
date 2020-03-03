@@ -34,6 +34,8 @@
 		8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */; };
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
+		EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0E4C1C240D64C300C86775 /* AppUser.swift */; };
+		EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
@@ -119,6 +121,8 @@
 		B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.release.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.release.xcconfig"; sourceTree = "<group>"; };
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 				EAF7173423E381B500DD8703 /* POI.swift */,
 				1D91609123F0DB3F009B1F97 /* CategoryData.swift */,
 				1D91608F23F0DACD009B1F97 /* Enums.swift */,
+				EA0E4C1C240D64C300C86775 /* AppUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -483,6 +488,7 @@
 		EAF7173A23E3856900DD8703 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
 				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 			);
 			path = Firebase;
@@ -663,6 +669,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
+				EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +825,7 @@
 				85021F0B240443A400F8AD7B /* CategorySelectionViewController.swift in Sources */,
 				EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */,
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
+				EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */,
 				ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
