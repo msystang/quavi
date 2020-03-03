@@ -11,7 +11,7 @@ import UIKit
 class POIInfoViewController: UIViewController {
     
     //MARK:-- Properties
-    var viewArray:[UIView]!
+    var viewArray: [UIView]!
     let shapeLayer = CAShapeLayer()
     
     var isAtLastLeg: Bool? = false{
@@ -37,7 +37,7 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
-    lazy var easterEggButton:UIButton = {
+    lazy var easterEggButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.setImage(UIImage(named: "quaviduckegg"), for: .normal)
         button.setTitleColor(.purple, for: .normal)
@@ -45,7 +45,7 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
-    lazy var containerView:UIScrollView = {
+    lazy var containerView: UIScrollView = {
         let view = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.95, height: self.view.frame.height * 0.65))
         view.isPagingEnabled = true
         view.isScrollEnabled = true
@@ -56,7 +56,7 @@ class POIInfoViewController: UIViewController {
         return view
     }()
     
-    lazy var likeButton:UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setImage(UIImage(systemName: "suit.heart"), for: .normal)
         button.tintColor = .black
@@ -75,13 +75,13 @@ class POIInfoViewController: UIViewController {
         return pc
     }()
     
-    lazy var view1:UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
+    lazy var view1: UIView = {
+        let view = POIPopUpAboutView()
+        view.backgroundColor = .systemBackground
         return view
     }()
     
-    lazy var view2:UIView = {
+    lazy var view2: UIView = {
         let view = UIView()
         view.backgroundColor = .yellow
         return view
