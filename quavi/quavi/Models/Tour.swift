@@ -36,4 +36,43 @@ struct Tour {
         return options
     }
     
+    // MARK: - Initializers
+    init(creatorID: String, name: String, category: String, stops: [POI]) {
+        self.id = "tour-\(UUID().description)"
+        self.creatorID = creatorID
+        self.name = name
+        self.category = category
+        self.stops = stops
+        self.dateCreated = Date()
+    }
+    
+    init?(from dict: [String: Any], id: String) {
+        guard let creatorID = dict["creatorID"] as? String,
+            let name = dict["name"] as? String,
+            let category = dict["category"] as? String,
+            // Temp property
+            let stops = dict["stops"] as? [POI],
+                //TODO: Handle nested objects from Firebase
+//            let stops = (dict["stops"] as? [[String:Any]])?.compactMap(POI(from: $0)),
+        let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
+        
+        self.id = id
+        self.creatorID = creatorID
+        self.name = name
+        self.category = category
+        self.stops = stops
+        self.dateCreated = dateCreated
+    }
+    
+    var fieldsDict: [String: Any] {
+        return [
+            "creatorID": self.creatorID,
+            "name": self.name,
+            "category": self.category,
+            "stops": self.stops ,
+            "dateCreated": self.dateCreated ?? ""
+        ]
+    }
+    
+    
 }
