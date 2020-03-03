@@ -47,6 +47,8 @@ class POIInfoViewController: UIViewController {
     
     lazy var containerView: UIScrollView = {
         let view = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.95, height: self.view.frame.height * 0.65))
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
         view.isPagingEnabled = true
         view.isScrollEnabled = true
         view.backgroundColor = .clear
@@ -75,9 +77,10 @@ class POIInfoViewController: UIViewController {
         return pc
     }()
     
+    //MARK: SLIDER VIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray4
         return view
     }()
     

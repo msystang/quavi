@@ -32,6 +32,7 @@ class POIPopUpAboutView: UIView {
     
     lazy var descriptionTextView: UITextView = {
         var textView = UITextView()
+        textView.backgroundColor = .clear
         textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textView.text = "Quavi's intentions are to change how people explore the areas within and surrounding them. In a world full of information we yearn to have options for various categories while being able to share this information with others. Quavi solves this need by providing curated self guided tours for the everyday person and the ability to make and share tours. It's easy to use and fun interface will make you a stan automatically. Stay tuned for Quavi to take over the world of tourism by storm!"
