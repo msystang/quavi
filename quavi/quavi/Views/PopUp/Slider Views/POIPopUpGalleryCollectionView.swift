@@ -20,6 +20,21 @@ class POIPopUpGalleryCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension POIPopUpGalleryCollectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: bounds.width / 1.25, height: bounds.height / 1.25)
+    }
     
     
 }
