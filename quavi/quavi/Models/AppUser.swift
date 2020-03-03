@@ -19,9 +19,9 @@ struct AppUser {
 //    let isOnboarded: Bool
 //    let savedTours: [Tour]?
 //    let savedPOI: [POI]?
-//    // TODO: Change to user generated tour model
 //    let createdTours: [Tour]?
     
+    // MARK: - Initializers
     // Initializing a user in Firebase/Auth (creating a new user)
     init(from user: User) {
         self.userName = user.displayName
