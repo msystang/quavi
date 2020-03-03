@@ -446,6 +446,7 @@
 				EAF7173423E381B500DD8703 /* POI.swift */,
 				1D91609123F0DB3F009B1F97 /* CategoryData.swift */,
 				1D91608F23F0DACD009B1F97 /* Enums.swift */,
+				EA0E4C1C240D64C300C86775 /* AppUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -805,6 +806,7 @@
 				85021F0B240443A400F8AD7B /* CategorySelectionViewController.swift in Sources */,
 				EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */,
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
+				EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */,
 				ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
