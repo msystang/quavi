@@ -11,16 +11,17 @@ import UIKit
 import MapboxDirections
 
 struct POI {
+    let id: String
     let name: String
-    var isCellExpanded: Bool
+// TODO: Refactor isCellExpanded logic to VC (not model)
+//    var isCellExpanded: Bool
     let lat: Double
     let long: Double
     let shortDesc: String
     let longDesc: String
-    //TODO: Change type of images to be compatible with Firebase/KingFisher i.e. URL
-    let tableViewImage: UIImage
-    let popoverImage: UIImage
-
+    let tableViewImage: String
+    let popoverImage: String
+    
     
     // MARK: - Computed Variables
     var waypoint: Waypoint {
