@@ -47,14 +47,13 @@ struct Tour {
         self.dateCreated = Date()
     }
     
-    init?(from dict: [String: Any], id: String) {
-        guard let creatorID = dict["creatorID"] as? String,
+    // Failing init for when we retreive Tour data from Firestore
+    init?(from dict: [String: Any]) {
+        guard let id = dict["id"] as? String,
+            let creatorID = dict["creatorID"] as? String,
             let name = dict["name"] as? String,
             let category = dict["category"] as? String,
-            // Temp property
-            let stops = dict["stops"] as? [POI],
-                //TODO: Handle nested objects from Firebase
-//            let stops = (dict["stops"] as? [[String:Any]])?.compactMap(POI(from: $0)),
+            let stops = (dict["stops"] as? [[String:Any]])?.compactMap({ POI(from: $0) }),
         let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
         
         self.id = id
@@ -65,12 +64,47 @@ struct Tour {
         self.dateCreated = dateCreated
     }
     
+    // Failing init for when we retreive Tour data from Firestore from a specific creator
+    init?(from dict: [String: Any], creatorID: String) {
+        guard let id = dict["id"] as? String,
+            let name = dict["name"] as? String,
+            let category = dict["category"] as? String,
+            let stops = (dict["stops"] as? [[String:Any]])?.compactMap({ POI(from: $0) }),
+        let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
+        
+        self.id = id
+        self.creatorID = creatorID
+        self.name = name
+        self.category = category
+        self.stops = stops
+        self.dateCreated = dateCreated
+    }
+    
+    // Failing init for when we retreive a specific Tour from Firestore
+    init?(from dict: [String: Any], id: String) {
+        guard let creatorID = dict["creatorID"] as? String,
+            let name = dict["name"] as? String,
+            let category = dict["category"] as? String,
+            let stops = (dict["stops"] as? [[String:Any]])?.compactMap({ POI(from: $0) }),
+        let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
+        
+        self.id = id
+        self.creatorID = creatorID
+        self.name = name
+        self.category = category
+        self.stops = stops
+        self.dateCreated = dateCreated
+    }
+    
+    // Dictionary used for uploading data into Firestore
     var fieldsDict: [String: Any] {
         return [
+            "id": self.id,
             "creatorID": self.creatorID,
             "name": self.name,
             "category": self.category,
-            "stops": self.stops ,
+            // TODO: Handle saving as nested dictionary object
+            "stops": self.stops,
             "dateCreated": self.dateCreated ?? ""
         ]
     }
