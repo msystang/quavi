@@ -37,8 +37,9 @@ struct Tour {
     }
     
     // MARK: - Initializers
+    // Initializing a Tour in Firestore (creating a new Tour)
     init(creatorID: String, name: String, category: String, stops: [POI]) {
-        self.id = "tour-\(UUID().description)"
+        self.id = "t-\(UUID().description)"
         self.creatorID = creatorID
         self.name = name
         self.category = category
