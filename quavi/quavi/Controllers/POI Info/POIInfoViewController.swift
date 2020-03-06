@@ -93,6 +93,8 @@ class POIInfoViewController: UIViewController {
         return view
     }()
     
+    lazy var view4 = MapView(frame: view.bounds)
+    
     //MARK:-- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +147,7 @@ class POIInfoViewController: UIViewController {
     }
     
     private func assignViewsToArray() {
-        viewArray = [view1, view2, view3]
+        viewArray = [view1, view2, view3, view4]
     }
     
     private func populateContainerView() {
