@@ -15,16 +15,16 @@ import MapboxDirections
 extension MapViewController: MGLMapViewDelegate {
     
     // MARK: - Internal Methods
-    //TODO: Apply this logic to get from current location to first waypoint (when press GO)
     func generateRouteForCurrentLeg(from selectedRoute: Route?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) {
         
         guard let selectedRoute = selectedRoute else {
             return
         }
-
+        
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
         let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
 
+        guard nextStopIndex < selectedRoute.routeOptions.waypoints.count - 1 else { return }
         //TODO: Determine if we need to handle async for getting options from API
         let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
         
