@@ -499,11 +499,11 @@
 		EAF7174023E386BE00DD8703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ECE46CD52409A12300A22454 /* PopUp */,
+				EA17DC682405B35F00715DD4 /* Onboarding */,
 				1DCF1BE2240863BE0052059A /* Profile */,
 				EA17DC6A2405B40A00715DD4 /* Category Selection */,
 				EA17DC692405B3D600715DD4 /* MapView */,
-				EA17DC682405B35F00715DD4 /* Onboarding */,
+				ECE46CD52409A12300A22454 /* PopUp */,
 			);
 			path = Views;
 			sourceTree = "<group>";
