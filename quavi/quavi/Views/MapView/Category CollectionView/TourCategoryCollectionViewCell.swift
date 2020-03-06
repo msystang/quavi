@@ -44,8 +44,8 @@ class TourCategoryCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func setUpCells(cell: TourCategoryCollectionViewCell, data: CategoryData) {
-        self.categoryLabel.text = data.name
+    func setUpCells(cell: TourCategoryCollectionViewCell, data: String) {
+        self.categoryLabel.text = data
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = cell.frame.height/2
     }

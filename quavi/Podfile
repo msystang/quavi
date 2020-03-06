@@ -8,6 +8,8 @@ target 'quavi' do
   # Pods for quavi
 	pod 'MapboxNavigation', '~> 0.38.2'
 	pod 'Firebase/Auth'
+	pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'
 
   target 'quaviTests' do
     inherit! :search_paths

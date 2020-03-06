@@ -12,6 +12,12 @@
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
 		1D91609023F0DACD009B1F97 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608F23F0DACD009B1F97 /* Enums.swift */; };
 		1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91609123F0DB3F009B1F97 /* CategoryData.swift */; };
+		1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */; };
+		1DCF1BDD240839D00052059A /* ProfileVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */; };
+		1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */; };
+		1DCF1BE124083C0B0052059A /* EditProfileVC+Textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */; };
+		1DCF1BE42408645C0052059A /* FaveToursCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BE32408645B0052059A /* FaveToursCell.swift */; };
+		1DCF1BE6240865840052059A /* ProfileVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BE5240865840052059A /* ProfileVC+TableView.swift */; };
 		85021F032404240700F8AD7B /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F022404240700F8AD7B /* OnBoardingViewController.swift */; };
 		85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F042404243A00F8AD7B /* OnBoardingView.swift */; };
 		85021F072404247800F8AD7B /* QuaviOnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */; };
@@ -28,6 +34,8 @@
 		8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */; };
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
+		EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0E4C1C240D64C300C86775 /* AppUser.swift */; };
+		EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
@@ -63,6 +71,10 @@
 		EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */; };
 		EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D095123F60491001D04CF /* MapViewController+TableView.swift */; };
 		ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */; };
+		ECE46CD72409A1A700A22454 /* ConfettiParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */; };
+		ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */; };
+		ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDA2409A28700A22454 /* GradientView.swift */; };
+		ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +95,12 @@
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
 		1D91608F23F0DACD009B1F97 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1D91609123F0DB3F009B1F97 /* CategoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Constraints.swift"; sourceTree = "<group>"; };
+		1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+Constraints.swift"; sourceTree = "<group>"; };
+		1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+Textfield.swift"; sourceTree = "<group>"; };
+		1DCF1BE32408645B0052059A /* FaveToursCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveToursCell.swift; sourceTree = "<group>"; };
+		1DCF1BE5240865840052059A /* ProfileVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+TableView.swift"; sourceTree = "<group>"; };
 		85021F022404240700F8AD7B /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		85021F042404243A00F8AD7B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		85021F062404247800F8AD7B /* QuaviOnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviOnboardingPage.swift; sourceTree = "<group>"; };
@@ -100,6 +118,8 @@
 		B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.release.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.release.xcconfig"; sourceTree = "<group>"; };
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +159,10 @@
 		EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		EC7D095123F60491001D04CF /* MapViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+TableView.swift"; sourceTree = "<group>"; };
 		ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticleView.swift; sourceTree = "<group>"; };
+		ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpFinalViewController.swift; sourceTree = "<group>"; };
+		ECE46CDA2409A28700A22454 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraints+Extentsions.swift"; sourceTree = "<group>"; };
 		F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.debug.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +195,34 @@
 				E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		1DCF1BE2240863BE0052059A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF1BE32408645B0052059A /* FaveToursCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		1DCF1BE8240865B60052059A /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				1D8B2F3324037754002F19F7 /* ProfileViewController.swift */,
+				1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */,
+				1DCF1BE5240865840052059A /* ProfileVC+TableView.swift */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
+		1DCF1BE9240865C70052059A /* Edit ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */,
+				1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */,
+				1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */,
+			);
+			path = "Edit ProfileVC";
 			sourceTree = "<group>";
 		};
 		97354F9799978F4BB10274F1 /* Frameworks */ = {
@@ -213,6 +265,7 @@
 			children = (
 				EC41E8482404347600B53054 /* POIPopUpViewController.swift */,
 				EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */,
+				ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */,
 			);
 			path = "POI PopUp";
 			sourceTree = "<group>";
@@ -238,7 +291,8 @@
 		EA17DC672405B2ED00715DD4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1D8B2F3324037754002F19F7 /* ProfileViewController.swift */,
+				1DCF1BE8240865B60052059A /* ProfileVC */,
+				1DCF1BE9240865C70052059A /* Edit ProfileVC */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -392,6 +446,7 @@
 				EAF7173423E381B500DD8703 /* POI.swift */,
 				1D91609123F0DB3F009B1F97 /* CategoryData.swift */,
 				1D91608F23F0DACD009B1F97 /* Enums.swift */,
+				EA0E4C1C240D64C300C86775 /* AppUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,6 +482,7 @@
 		EAF7173A23E3856900DD8703 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
 				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 			);
 			path = Firebase;
@@ -443,6 +499,8 @@
 		EAF7174023E386BE00DD8703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ECE46CD52409A12300A22454 /* PopUp */,
+				1DCF1BE2240863BE0052059A /* Profile */,
 				EA17DC6A2405B40A00715DD4 /* Category Selection */,
 				EA17DC692405B3D600715DD4 /* MapView */,
 				EA17DC682405B35F00715DD4 /* Onboarding */,
@@ -483,6 +541,7 @@
 				EAF7174923E3884600DD8703 /* Button+ModesOfTransitStyle.swift */,
 				EA97DA8B23FF2C1B00CB6B32 /* String+Validation.swift */,
 				EA97DA8D23FF2C4C00CB6B32 /* ViewController+Alert.swift */,
+				ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +553,15 @@
 				85021F0E24045AFA00F8AD7B /* Identifier.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		ECE46CD52409A12300A22454 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */,
+				ECE46CDA2409A28700A22454 /* GradientView.swift */,
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,6 +652,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
+				EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,10 +772,12 @@
 			files = (
 				EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */,
 				8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */,
+				ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */,
 				85021F072404247800F8AD7B /* QuaviOnboardingPage.swift in Sources */,
 				EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */,
 				8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */,
 				1D8B2F3224037645002F19F7 /* QuaviTabBarController.swift in Sources */,
+				1DCF1BDD240839D00052059A /* ProfileVC+Constraints.swift in Sources */,
 				EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */,
 				85021F112404765600F8AD7B /* CatergoryCollectionViewCell.swift in Sources */,
 				85021F09240424A100F8AD7B /* QuaviOnboardOverlay.swift in Sources */,
@@ -715,9 +786,11 @@
 				EA97DA9123FF3B4000CB6B32 /* ForgotPasswordViewController.swift in Sources */,
 				85021F2A2406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift in Sources */,
 				EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */,
+				1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
 				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
 				EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */,
+				ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */,
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */,
 				85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */,
@@ -728,10 +801,13 @@
 				EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */,
 				EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */,
 				EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */,
+				1DCF1BE42408645C0052059A /* FaveToursCell.swift in Sources */,
 				1D91609023F0DACD009B1F97 /* Enums.swift in Sources */,
 				85021F0B240443A400F8AD7B /* CategorySelectionViewController.swift in Sources */,
 				EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */,
 				EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */,
+				EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */,
+				ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
 				85021F032404240700F8AD7B /* OnBoardingViewController.swift in Sources */,
@@ -740,17 +816,21 @@
 				EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */,
 				EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */,
 				EAF7174A23E3884600DD8703 /* Button+ModesOfTransitStyle.swift in Sources */,
+				ECE46CD72409A1A700A22454 /* ConfettiParticleView.swift in Sources */,
 				EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
+				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */,
+				1DCF1BE124083C0B0052059A /* EditProfileVC+Textfield.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
 				85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */,
+				1DCF1BE6240865840052059A /* ProfileVC+TableView.swift in Sources */,
 				EAF7173323E381A900DD8703 /* Tour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

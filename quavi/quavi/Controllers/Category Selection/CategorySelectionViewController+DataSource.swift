@@ -10,17 +10,24 @@ import UIKit
 
 extension CategorySelectionViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return tourNameArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.categoryCell.rawValue, for: indexPath) as? CatergoryCollectionViewCell else {return UICollectionViewCell()}
         
+        cell.categoryLabel.text = tourNameArray[indexPath.row]
+        cell.amountOfTourLabel.text = String(numberOfTours[indexPath.row])
         cell.layer.borderWidth = 1
         cell.layer.borderColor = #colorLiteral(red: 0.2843827307, green: 0.6391303539, blue: 0.8293711543, alpha: 1)
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let mapVC = MapViewController()
+        navigationController?.pushViewController(mapVC, animated: true)
     }
 }
 
