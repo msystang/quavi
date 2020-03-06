@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Mapbox
+import MapboxCoreNavigation
+import MapboxNavigation
+import MapboxDirections
 
 class POIInfoViewController: UIViewController {
     
@@ -95,6 +99,28 @@ class POIInfoViewController: UIViewController {
     
     lazy var view4 = MapView(frame: view.bounds)
     
+    
+    var selectedRoute: Route?
+    #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
+    var currentLegRoute: Route?
+    var nextStopIndex = 0 {
+        didSet {
+            guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
+            if nextStopIndex > waypointCount {
+                nextStopIndex = 0
+            }
+        }
+    }
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+        }
+    }
+    
+    //TODO: For Testing... Refactor with initalLocation from user!
+    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+    
+    
     //MARK:-- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +138,7 @@ class POIInfoViewController: UIViewController {
         populateContainerView()
         likeButtonConstraints()
         createPulse()
+        getSelectedRoute(navigationType: modeOfTransit)
     }
     
     //MARK:--@objc func
