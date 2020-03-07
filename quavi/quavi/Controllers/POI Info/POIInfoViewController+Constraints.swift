@@ -41,4 +41,9 @@ extension POIInfoViewController{
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([likeButton.heightAnchor.constraint(equalToConstant: 50), likeButton.widthAnchor.constraint(equalToConstant: 50), likeButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: likeButton.frame.height / 2 ), likeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)])
     }
+    
+    func presentModesOfTransportConstraints() {
+        presentModesOfTransport.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([presentModesOfTransport.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), presentModesOfTransport.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), presentModesOfTransport.heightAnchor.constraint(equalToConstant: 40), presentModesOfTransport.widthAnchor.constraint(equalToConstant: 40)])
+    }
 }

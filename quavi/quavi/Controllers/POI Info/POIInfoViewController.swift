@@ -77,6 +77,17 @@ class POIInfoViewController: UIViewController {
         return pc
     }()
     
+    lazy var presentModesOfTransport:UIButton = {
+       let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        button.layer.cornerRadius = button.frame.height / 2
+        button.setImage(UIImage(systemName: "location"), for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.tintColor = .black
+        button.showsTouchWhenHighlighted = true
+        return button
+    }()
+    
     //MARK: SLIDER VIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
@@ -112,6 +123,7 @@ class POIInfoViewController: UIViewController {
         assignViewsToArray()
         populateContainerView()
         likeButtonConstraints()
+        presentModesOfTransportConstraints()
         createPulse()
     }
     
