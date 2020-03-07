@@ -102,6 +102,13 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
+    lazy var walkButton:UIButton = {
+        let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
+        button.alpha = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        return button
+    }()
+    
     //MARK: SLIDER VIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
@@ -140,6 +147,7 @@ class POIInfoViewController: UIViewController {
         presentModesOfTransportConstraints()
         bikeButtonConstraints()
         carButtonConstraints()
+        walkButtonConstraints()
         createPulse()
     }
     

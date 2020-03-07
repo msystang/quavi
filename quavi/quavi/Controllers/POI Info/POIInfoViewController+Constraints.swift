@@ -18,6 +18,7 @@ extension POIInfoViewController{
         view.addSubview(presentModesOfTransport)
         view.addSubview(bikeButton)
         view.addSubview(carButton)
+        view.addSubview(walkButton)
     }
     
     func continueButtonConstraints() {
@@ -58,5 +59,10 @@ extension POIInfoViewController{
     func carButtonConstraints() {
         carButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([carButton.bottomAnchor.constraint(equalTo: bikeButton.topAnchor, constant:  -20), carButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), carButton.heightAnchor.constraint(equalToConstant: 50), carButton.widthAnchor.constraint(equalToConstant: 50)])
+    }
+    
+    func walkButtonConstraints() {
+        walkButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([walkButton.bottomAnchor.constraint(equalTo: carButton.topAnchor, constant:  -20), walkButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), walkButton.heightAnchor.constraint(equalToConstant: 50), walkButton.widthAnchor.constraint(equalToConstant: 50)])
     }
 }
