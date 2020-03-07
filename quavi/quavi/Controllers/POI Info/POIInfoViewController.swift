@@ -161,42 +161,7 @@ class POIInfoViewController: UIViewController {
         view.bringSubviewToFront(presentModesOfTransport)
     }
     
-    //MARK:--@objc func
-    @objc func handlemode(_ sender:UIButton){
-
-    }
-    
-    @objc func continueButtonPressed(_ sender: UIButton) {
-        #warning("push to mapVC")
-        //        self.dismiss(animated: true)
-        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func handleFinishButtonPressed(_ sender: UIButton) {
-        let popupFinalVC = POIPopUpFinalViewController()
-        popupFinalVC.modalPresentationStyle = .fullScreen
-        self.present(popupFinalVC, animated: true)
-    }
-    
-    @objc func handlePresentingMLView(_ sender: UIButton){
-        self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
-    }
     //MARK:-- Private func
-    private func activateNewTopConstraints() {
-        NSLayoutConstraint.deactivate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
-        NSLayoutConstraint.activate([newCarButtonTopConstraint!, newWalkButtonTopConstraint!, newBikeButtonTopConstraint!])
-    }
-    
-    private func activateTopConstraints() {
-        NSLayoutConstraint.deactivate([newCarButtonTopConstraint!, newWalkButtonTopConstraint!, newBikeButtonTopConstraint!])
-        NSLayoutConstraint.activate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
-    }
-    
-    private func switchButtonAlpha() {
-        carButton.alpha = carButton.alpha == 1 ? 0: 1
-        walkButton.alpha = walkButton.alpha == 1 ? 0: 1
-        bikeButton.alpha = bikeButton.alpha == 1 ? 0: 1
-    }
     
     private func presentTabbarVC(){
         continueButton.setTitle("Next", for: .normal)
@@ -213,10 +178,6 @@ class POIInfoViewController: UIViewController {
         view.backgroundColor = .white
     }
     
-    //toggles the image of the buttons when clicked
-    private func toggleButton(button:UIButton, onImage:UIImage, offImage:UIImage) {
-       button.currentImage == offImage ? button.setImage(onImage, for: .normal) : button.setImage(offImage, for: .normal)
-    }
     private func assignViewsToArray() {
         viewArray = [view1, view2, view3]
     }
