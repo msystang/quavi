@@ -76,6 +76,9 @@
 		ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */; };
 		ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDA2409A28700A22454 /* GradientView.swift */; };
 		ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */; };
+		ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */; };
+		ECE46D08240EF65100A22454 /* POIPopUpGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46D07240EF65100A22454 /* POIPopUpGallery.swift */; };
+		ECE46D0A240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46D09240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +168,9 @@
 		ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpFinalViewController.swift; sourceTree = "<group>"; };
 		ECE46CDA2409A28700A22454 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		ECE46CDC2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraints+Extentsions.swift"; sourceTree = "<group>"; };
+		ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpAboutView.swift; sourceTree = "<group>"; };
+		ECE46D07240EF65100A22454 /* POIPopUpGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpGallery.swift; sourceTree = "<group>"; };
+		ECE46D09240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpGalleryCollectionView.swift; sourceTree = "<group>"; };
 		F76C2C7C82B90911A6C2BBD7 /* Pods-quaviTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.debug.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -561,10 +567,21 @@
 		ECE46CD52409A12300A22454 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
+				ECE46CDE240D73C500A22454 /* Slider Views */,
 				ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */,
 				ECE46CDA2409A28700A22454 /* GradientView.swift */,
 			);
 			path = PopUp;
+			sourceTree = "<group>";
+		};
+		ECE46CDE240D73C500A22454 /* Slider Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */,
+				ECE46D07240EF65100A22454 /* POIPopUpGallery.swift */,
+				ECE46D09240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift */,
+			);
+			path = "Slider Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -795,8 +812,10 @@
 				EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */,
 				ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */,
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
+				ECE46D08240EF65100A22454 /* POIPopUpGallery.swift in Sources */,
 				EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */,
 				85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */,
+				ECE46D0A240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift in Sources */,
 				8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */,
 				8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */,
 				EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */,
@@ -827,6 +846,7 @@
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
+				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,
 				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
