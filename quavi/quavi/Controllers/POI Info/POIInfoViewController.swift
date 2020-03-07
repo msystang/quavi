@@ -90,6 +90,7 @@ class POIInfoViewController: UIViewController {
         button.setImage(UIImage(systemName: "location.fill"), for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = .white
         button.tintColor = .black
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(handlemode), for: .touchUpInside)
@@ -181,6 +182,16 @@ class POIInfoViewController: UIViewController {
         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
     }
     //MARK:-- Private func
+    private func activateNewTopConstraints() {
+        NSLayoutConstraint.deactivate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
+        NSLayoutConstraint.activate([newCarButtonTopConstraint!, newWalkButtonTopConstraint!, newBikeButtonTopConstraint!])
+    }
+    
+    private func activateTopConstraints() {
+        NSLayoutConstraint.deactivate([newCarButtonTopConstraint!, newWalkButtonTopConstraint!, newBikeButtonTopConstraint!])
+        NSLayoutConstraint.activate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
+    }
+    
     private func presentTabbarVC(){
         continueButton.setTitle("Next", for: .normal)
         continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
