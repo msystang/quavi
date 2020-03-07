@@ -192,6 +192,12 @@ class POIInfoViewController: UIViewController {
         NSLayoutConstraint.activate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
     }
     
+    private func switchButtonAlpha() {
+        carButton.alpha = carButton.alpha == 1 ? 0: 1
+        walkButton.alpha = walkButton.alpha == 1 ? 0: 1
+        bikeButton.alpha = bikeButton.alpha == 1 ? 0: 1
+    }
+    
     private func presentTabbarVC(){
         continueButton.setTitle("Next", for: .normal)
         continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
