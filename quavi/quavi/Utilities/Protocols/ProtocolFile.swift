@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WaypointConfirmationViewControllerDelegate: NSObject {
-    func proceedToNextLegInTour(_ controller: POIPopUpViewController)
+    func proceedToNextLegInTour(_ controller: POIInfoViewController)
 }
 
 
