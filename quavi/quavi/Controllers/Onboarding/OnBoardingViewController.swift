@@ -75,6 +75,9 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
     func quaviOnboardPageForIndex(_ quaviOnBoarding: OnBoardingView, index: Int) -> QuaviOnBoardingPage? {
         let page = QuaviOnBoardingPage()
         
+        //hides the labels when its on the last page
+        page.pageTitle.isHidden = index == 3 ? true : false
+        page.pageSubTitle.isHidden = index == 3 ? true : false
         //TODO: Set information to each onboarding page here
         return page
     }
@@ -99,5 +102,7 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
         
         overlay.skipButton.isHidden = quaviOnBoarding.currentPage == 3 ? true : false
         overlay.skipButton.isEnabled = quaviOnBoarding.currentPage == 3 ? false : true
+        
+        
     }
 }
