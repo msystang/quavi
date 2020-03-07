@@ -101,7 +101,7 @@ class POIInfoViewController: UIViewController {
         button.backgroundColor = .white
         button.tintColor = .black
         button.showsTouchWhenHighlighted = true
-        button.addTarget(self, action: #selector(handlemode), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePresentingButton), for: .touchUpInside)
         return button
     }()
     
