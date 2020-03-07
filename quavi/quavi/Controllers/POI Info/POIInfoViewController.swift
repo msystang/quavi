@@ -21,6 +21,14 @@ class POIInfoViewController: UIViewController {
     var newCarButtonTopConstraint: NSLayoutConstraint?
     var newWalkButtonTopConstraint: NSLayoutConstraint?
     
+    var showMapView:Bool = false {
+        didSet{
+            if showMapView == true {
+              containerView.setContentOffset(CGPoint(x: 2 * containerView.frame.width, y: 0), animated: true)
+            }
+        }
+    }
+    
     var isAtLastLeg: Bool? = false{
         didSet {
             guard let isAtLastLeg = isAtLastLeg else {return}
