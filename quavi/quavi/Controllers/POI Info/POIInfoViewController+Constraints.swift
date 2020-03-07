@@ -10,11 +10,11 @@ import UIKit
 extension POIInfoViewController{
     
     func addSubviews() {
-        view.addSubview(continueButton)
         view.addSubview(easterEggButton)
-        view.addSubview(containerView)
         view.addSubview(pageControl)
+        view.addSubview(containerView)
         view.addSubview(likeButton)
+        view.addSubview(continueButton)
     }
     
     func continueButtonConstraints() {
