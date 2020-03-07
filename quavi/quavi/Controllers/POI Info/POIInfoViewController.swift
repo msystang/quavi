@@ -13,7 +13,7 @@ class POIInfoViewController: UIViewController {
     //MARK:-- Properties
     var viewArray: [UIView]!
     let shapeLayer = CAShapeLayer()
-    
+    var showButtons:Enums.presentModeOfTransport = .hide
     var isAtLastLeg: Bool? = false{
         didSet {
             guard let isAtLastLeg = isAtLastLeg else {return}
