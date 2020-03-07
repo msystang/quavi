@@ -14,6 +14,13 @@ class POIInfoViewController: UIViewController {
     var viewArray: [UIView]!
     let shapeLayer = CAShapeLayer()
     var showButtons:Enums.presentModeOfTransport = .hide
+    var bikeButtonTopConstraint: NSLayoutConstraint?
+    var carButtonTopConstraint: NSLayoutConstraint?
+    var walkButtonTopConstraint: NSLayoutConstraint?
+    var newBikeButtonTopConstraint: NSLayoutConstraint?
+    var newCarButtonTopConstraint: NSLayoutConstraint?
+    var newWalkButtonTopConstraint: NSLayoutConstraint?
+    
     var isAtLastLeg: Bool? = false{
         didSet {
             guard let isAtLastLeg = isAtLastLeg else {return}
