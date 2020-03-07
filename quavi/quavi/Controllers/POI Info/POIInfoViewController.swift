@@ -183,6 +183,9 @@ class POIInfoViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    private func toggleButton(button:UIButton, onImage:UIImage, offImage:UIImage) {
+       button.currentImage == offImage ? button.setImage(onImage, for: .normal) : button.setImage(offImage, for: .normal)
+    }
     private func assignViewsToArray() {
         viewArray = [view1, view2, view3]
     }
