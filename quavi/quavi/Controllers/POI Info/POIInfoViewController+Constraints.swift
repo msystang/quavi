@@ -15,11 +15,12 @@ extension POIInfoViewController{
         view.addSubview(containerView)
         view.addSubview(pageControl)
         view.addSubview(likeButton)
+        view.addSubview(presentModesOfTransport)
     }
     
     func continueButtonConstraints() {
         continueButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), continueButton.heightAnchor.constraint(equalToConstant: 100), continueButton.widthAnchor.constraint(equalToConstant: 100)])
+        NSLayoutConstraint.activate([continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20), continueButton.trailingAnchor.constraint(equalTo: presentModesOfTransport.leadingAnchor, constant: -20), continueButton.heightAnchor.constraint(equalToConstant: 40), continueButton.widthAnchor.constraint(equalToConstant: 100)])
     }
     
     func easterEggButtonConstraints() {
