@@ -14,35 +14,32 @@ class POIInfoViewController: UIViewController {
     var viewArray: [UIView]!
     let shapeLayer = CAShapeLayer()
     
-    var isAtLastLeg: Bool? = false{
+    var isAtLastLeg: Bool? = false {
         didSet {
             guard let isAtLastLeg = isAtLastLeg else {return}
             
-            switch isAtLastLeg{
-            case false:
-                presentTabbarVC()
-            case true:
-                presentConfettiVC()
+            switch isAtLastLeg {
+            case false: presentTabbarVC()
+            case true: presentConfettiVC()
             }
         }
     }
     
-    //MARK:-- Objects
-    lazy var continueButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        button.setTitleColor(.purple, for: .normal)
-        button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
-        button.layer.borderWidth = 3
-        return button
-    }()
-    
+    //MARK:-- VIEWS
     lazy var easterEggButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.setImage(UIImage(named: "quaviduckegg"), for: .normal)
         button.setTitleColor(.purple, for: .normal)
         button.addTarget(self, action: #selector(handlePresentingMLView(_:)), for: .touchUpInside)
         return button
+    }()
+    
+    lazy var pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.hidesForSinglePage = true
+        pc.pageIndicatorTintColor = .blue
+        pc.currentPageIndicatorTintColor = .red
+        return pc
     }()
     
     lazy var containerView: UIScrollView = {
@@ -68,16 +65,18 @@ class POIInfoViewController: UIViewController {
         button.layer.borderWidth = 3
         return button
     }()
-    
-    lazy var pageControl: UIPageControl = {
-        let pc = UIPageControl()
-        pc.hidesForSinglePage = true
-        pc.pageIndicatorTintColor = .blue
-        pc.currentPageIndicatorTintColor = .red
-        return pc
+
+    lazy var continueButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        button.setTitleColor(.purple, for: .normal)
+        button.layer.cornerRadius = button.frame.height / 2
+        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
+        button.layer.borderWidth = 3
+        return button
     }()
     
-    //MARK: SLIDER VIEWS
+    
+    //MARK: SLIDERVIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
         //view.backgroundColor = .systemGray4
@@ -90,11 +89,12 @@ class POIInfoViewController: UIViewController {
         return view
     }()
     
-    lazy var view3:UIView = {
+    lazy var view3: UIView = {
         let view = UIView()
         view.backgroundColor = .red
         return view
     }()
+    
     
     //MARK:-- LifeCycle
     override func viewDidLoad() {
@@ -105,17 +105,66 @@ class POIInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setBackgroundColor()
-        continueButtonConstraints()
+        
         easterEggButtonConstraints()
-        containerViewConstraints()
+        createPulse()
+        
         pageControlConstraints()
+        containerViewConstraints()
         assignViewsToArray()
         populateContainerView()
         likeButtonConstraints()
-        createPulse()
+        
+        continueButtonConstraints()
     }
     
+    
+    //MARK:-- Private Functions
+    private func setBackgroundColor() {
+        view.backgroundColor = .white
+    }
+    
+    private func presentTabbarVC() {
+        continueButton.setTitle("Next", for: .normal)
+        continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    
+    private func assignViewsToArray() {
+        viewArray = [view1, view2, view3]
+    }
+    
+    private func populateContainerView() {
+        if let viewArray = viewArray {
+            pageControl.numberOfPages = viewArray.count
+            
+            for (index, view) in viewArray.enumerated(){
+                let xPosition: CGFloat = self.containerView.frame.width * CGFloat(index)
+                view.frame = CGRect(x: xPosition,
+                                    y: 0,
+                                    width: containerView.frame.width,
+                                    height: containerView.frame.height)
+                
+                containerView.contentSize.width = containerView.frame.width * CGFloat(index + 1)
+                containerView.addSubview(view)
+            }
+            
+        }
+        
+    }
+    
+    private func presentConfettiVC() {
+            continueButton.setTitle("Finish", for: .normal)
+            continueButton.layoutIfNeeded()
+            continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
+    //        isAtLastLeg = false
+        }
+    
     //MARK:--@objc func
+    @objc func handlePresentingMLView(_ sender: UIButton){
+        self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
+    }
+    
     @objc func continueButtonPressed(_ sender: UIButton) {
         #warning("push to mapVC")
         //        self.dismiss(animated: true)
@@ -128,44 +177,10 @@ class POIInfoViewController: UIViewController {
         self.present(popupFinalVC, animated: true)
     }
     
-    @objc func handlePresentingMLView(_ sender: UIButton){
-        self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
-    }
-    //MARK:-- Private func
-    private func presentTabbarVC(){
-        continueButton.setTitle("Next", for: .normal)
-        continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
-    }
-    
-    private func presentConfettiVC(){
-        continueButton.setTitle("Finish", for: .normal)
-        continueButton.layoutIfNeeded()
-        continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
-//        isAtLastLeg = false
-    }
-    private func setBackgroundColor(){
-        view.backgroundColor = .white
-    }
-    
-    private func assignViewsToArray() {
-        viewArray = [view1, view2, view3]
-    }
-    
-    private func populateContainerView() {
-        if let viewArray = viewArray{
-            pageControl.numberOfPages = viewArray.count
-            for (index, view) in viewArray.enumerated(){
-                let xPosition:CGFloat = self.containerView.frame.width * CGFloat(index)
-                view.frame = CGRect(x: xPosition, y: 0, width: containerView.frame.width, height: containerView.frame.height)
-                
-                containerView.contentSize.width = containerView.frame.width * CGFloat(index + 1)
-                containerView.addSubview(view)
-            }
-        }
-    }
 }
 
-extension POIInfoViewController: UIScrollViewDelegate{
+//MARK: --Extension
+extension POIInfoViewController: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(page)
