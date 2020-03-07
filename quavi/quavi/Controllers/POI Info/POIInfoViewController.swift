@@ -80,31 +80,32 @@ class POIInfoViewController: UIViewController {
     lazy var presentModesOfTransport:UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.layer.cornerRadius = button.frame.height / 2
-        button.setImage(UIImage(systemName: "location"), for: .normal)
+        button.setImage(UIImage(systemName: "location.fill"), for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.tintColor = .black
         button.showsTouchWhenHighlighted = true
+        button.addTarget(self, action: #selector(handlemode), for: .touchUpInside)
         return button
     }()
     
     lazy var bikeButton:UIButton = {
         let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
-        button.alpha = 1
+        button.alpha = 0
         button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
     lazy var carButton:UIButton = {
         let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
-        button.alpha = 1
+        button.alpha = 0
         button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
     lazy var walkButton:UIButton = {
         let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
-        button.alpha = 1
+        button.alpha = 0
         button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
@@ -149,9 +150,14 @@ class POIInfoViewController: UIViewController {
         carButtonConstraints()
         walkButtonConstraints()
         createPulse()
+        view.bringSubviewToFront(presentModesOfTransport)
     }
     
     //MARK:--@objc func
+    @objc func handlemode(_ sender:UIButton){
+
+    }
+    
     @objc func continueButtonPressed(_ sender: UIButton) {
         #warning("push to mapVC")
         //        self.dismiss(animated: true)
@@ -183,6 +189,7 @@ class POIInfoViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    //toggles the image of the buttons when clicked
     private func toggleButton(button:UIButton, onImage:UIImage, offImage:UIImage) {
        button.currentImage == offImage ? button.setImage(onImage, for: .normal) : button.setImage(offImage, for: .normal)
     }

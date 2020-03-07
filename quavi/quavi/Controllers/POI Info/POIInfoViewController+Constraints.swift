@@ -53,16 +53,16 @@ extension POIInfoViewController{
     
     func bikeButtonConstraints() {
         bikeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([bikeButton.bottomAnchor.constraint(equalTo: presentModesOfTransport.topAnchor, constant:  -20), bikeButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), bikeButton.heightAnchor.constraint(equalToConstant: 50), bikeButton.widthAnchor.constraint(equalToConstant: 50)])
+        NSLayoutConstraint.activate([bikeButton.topAnchor.constraint(equalTo: presentModesOfTransport.topAnchor, constant:  0), bikeButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), bikeButton.heightAnchor.constraint(equalToConstant: 50), bikeButton.widthAnchor.constraint(equalToConstant: 50)])
     }
     
     func carButtonConstraints() {
         carButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([carButton.bottomAnchor.constraint(equalTo: bikeButton.topAnchor, constant:  -20), carButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), carButton.heightAnchor.constraint(equalToConstant: 50), carButton.widthAnchor.constraint(equalToConstant: 50)])
+        NSLayoutConstraint.activate([carButton.topAnchor.constraint(equalTo: bikeButton.topAnchor, constant:  0), carButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), carButton.heightAnchor.constraint(equalToConstant: 50), carButton.widthAnchor.constraint(equalToConstant: 50)])
     }
     
     func walkButtonConstraints() {
         walkButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([walkButton.bottomAnchor.constraint(equalTo: carButton.topAnchor, constant:  -20), walkButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), walkButton.heightAnchor.constraint(equalToConstant: 50), walkButton.widthAnchor.constraint(equalToConstant: 50)])
+        NSLayoutConstraint.activate([walkButton.topAnchor.constraint(equalTo: carButton.topAnchor, constant:  0), walkButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), walkButton.heightAnchor.constraint(equalToConstant: 50), walkButton.widthAnchor.constraint(equalToConstant: 50)])
     }
 }
