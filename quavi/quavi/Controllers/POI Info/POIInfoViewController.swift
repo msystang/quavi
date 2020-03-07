@@ -78,13 +78,27 @@ class POIInfoViewController: UIViewController {
     }()
     
     lazy var presentModesOfTransport:UIButton = {
-       let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.layer.cornerRadius = button.frame.height / 2
         button.setImage(UIImage(systemName: "location"), for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
         button.tintColor = .black
         button.showsTouchWhenHighlighted = true
+        return button
+    }()
+    
+    lazy var bikeButton:UIButton = {
+        let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
+        button.alpha = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        return button
+    }()
+    
+    lazy var carButton:UIButton = {
+        let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
+        button.alpha = 1
+        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
@@ -124,6 +138,8 @@ class POIInfoViewController: UIViewController {
         populateContainerView()
         likeButtonConstraints()
         presentModesOfTransportConstraints()
+        bikeButtonConstraints()
+        carButtonConstraints()
         createPulse()
     }
     
@@ -153,7 +169,7 @@ class POIInfoViewController: UIViewController {
         continueButton.setTitle("Finish", for: .normal)
         continueButton.layoutIfNeeded()
         continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
-//        isAtLastLeg = false
+        //        isAtLastLeg = false
     }
     private func setBackgroundColor(){
         view.backgroundColor = .white
