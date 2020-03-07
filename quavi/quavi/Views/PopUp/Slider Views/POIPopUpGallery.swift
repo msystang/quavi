@@ -24,7 +24,7 @@ class POIPopUpGallery: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-
+configurePOIName()
     }
     
     required init?(coder: NSCoder) {
