@@ -14,7 +14,8 @@ extension POIInfoViewController{
         view.addSubview(pageControl)
         view.addSubview(containerView)
         view.addSubview(likeButton)
-        view.addSubview(continueButton)
+        view.addSubview(continueTourButton)
+        view.addSubview(cancelTourButton)
     }
     
     func easterEggButtonConstraints() {
@@ -54,12 +55,33 @@ extension POIInfoViewController{
             likeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)])
     }
     
-    func continueButtonConstraints() {
-        continueButton.translatesAutoresizingMaskIntoConstraints = false
+    func continueTourButtonConstraints() {
+        continueTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20),
-            continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            continueButton.heightAnchor.constraint(equalToConstant: 100),
-            continueButton.widthAnchor.constraint(equalToConstant: 100)])
+            continueTourButton.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: 10),
+            //continueTourButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            continueTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            continueTourButton.heightAnchor.constraint(equalToConstant: 60),
+            continueTourButton.widthAnchor.constraint(equalToConstant: 200)
+        ])
     }
+    
+    func cancelTourButtonConstraints() {
+        cancelTourButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelTourButton.topAnchor.constraint(equalTo: continueTourButton.bottomAnchor, constant: 40),
+            cancelTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            cancelTourButton.heightAnchor.constraint(equalToConstant: 30),
+            cancelTourButton.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
+//    func continueButtonConstraints() {
+//        continueButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant:  -20),
+//            continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+//            continueButton.heightAnchor.constraint(equalToConstant: 100),
+//            continueButton.widthAnchor.constraint(equalToConstant: 100)])
+//    }
 }

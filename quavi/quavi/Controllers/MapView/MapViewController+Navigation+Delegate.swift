@@ -20,10 +20,10 @@ extension MapViewController: NavigationViewControllerDelegate{
         
         let popupViewController = POIInfoViewController()
         
-         #warning("send logic through a delegate")
+        #warning("send logic through a delegate")
         let waypointCount = selectedRoute?.routeOptions.waypoints.count
         if nextStopIndex == waypointCount{
-        popupViewController.isAtLastLeg = true
+            popupViewController.isAtLastLeg = true
         }
         //popupViewController.delegate = self
         

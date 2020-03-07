@@ -17,10 +17,10 @@ class POIInfoViewController: UIViewController {
     var isAtLastLeg: Bool? = false {
         didSet {
             guard let isAtLastLeg = isAtLastLeg else {return}
-            
+
             switch isAtLastLeg {
-            case false: presentTabbarVC()
-            case true: presentConfettiVC()
+                case false: continueTourToNextLeg()
+                case true: userHasCompletedTour()
             }
         }
     }
@@ -65,13 +65,24 @@ class POIInfoViewController: UIViewController {
         button.layer.borderWidth = 3
         return button
     }()
-
-    lazy var continueButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        button.setTitleColor(.purple, for: .normal)
-        button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
-        button.layer.borderWidth = 3
+    
+    lazy var continueTourButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Continue Tour", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 30
+        button.addTarget(self, action: #selector(continueTourButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var cancelTourButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Cancel Tour", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        button.backgroundColor = .systemGray
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(cancelTourButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -115,7 +126,8 @@ class POIInfoViewController: UIViewController {
         populateContainerView()
         likeButtonConstraints()
         
-        continueButtonConstraints()
+        continueTourButtonConstraints()
+        cancelTourButtonConstraints()
     }
     
     
@@ -123,12 +135,6 @@ class POIInfoViewController: UIViewController {
     private func setBackgroundColor() {
         view.backgroundColor = .white
     }
-    
-    private func presentTabbarVC() {
-        continueButton.setTitle("Next", for: .normal)
-        continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
-    }
-    
     
     private func assignViewsToArray() {
         viewArray = [view1, view2, view3]
@@ -153,25 +159,41 @@ class POIInfoViewController: UIViewController {
         
     }
     
-    private func presentConfettiVC() {
-            continueButton.setTitle("Finish", for: .normal)
-            continueButton.layoutIfNeeded()
-            continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
-    //        isAtLastLeg = false
-        }
+    private func continueTourToNextLeg() {
+        //continueButton.setTitle("Next", for: .normal)
+        continueTourButton.addTarget(self, action: #selector(continueTourButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    private func userHasCompletedTour() {
+        continueTourButton.setTitle("Finish", for: .normal)
+        continueTourButton.layoutIfNeeded()
+        continueTourButton.addTarget(self, action: #selector(loadCongratsVC(_:)), for: .touchUpInside)
+        //        isAtLastLeg = false
+    }
+    
     
     //MARK:--@objc func
     @objc func handlePresentingMLView(_ sender: UIButton){
         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
     }
     
-    @objc func continueButtonPressed(_ sender: UIButton) {
-        #warning("push to mapVC")
-        //        self.dismiss(animated: true)
-        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    @objc func continueTourButtonPressed(_ sender: UIButton) {
+        print("continue pressed")
+//        let nextVC = POIInfoViewController()
+//        nextVC.isAtLastLeg = isAtLastLeg
+//        nextVC.modalPresentationStyle = .fullScreen
+//        present(nextVC, animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
     
-    @objc func handleFinishButtonPressed(_ sender: UIButton) {
+    @objc func cancelTourButtonPressed() {
+        #warning("Set lastStopIndex to Zero in the mapVC")
+        print("cancel pressed")
+        // Pop PopUp and Navigation ViewControllers
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+    }
+    
+    @objc func loadCongratsVC(_ sender: UIButton) {
         let popupFinalVC = POIPopUpFinalViewController()
         popupFinalVC.modalPresentationStyle = .fullScreen
         self.present(popupFinalVC, animated: true)
