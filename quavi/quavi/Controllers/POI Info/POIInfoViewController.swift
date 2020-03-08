@@ -207,6 +207,7 @@ class POIInfoViewController: UIViewController {
     }
     
     private func presentConfettiVC(){
+        continueButton.removeTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
         continueButton.setTitle("Finish", for: .normal)
         continueButton.layoutIfNeeded()
         continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
