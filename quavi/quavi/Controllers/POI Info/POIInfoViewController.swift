@@ -28,8 +28,10 @@ class POIInfoViewController: UIViewController {
     var showMapView:Bool = false {
         didSet{
             if showMapView == true {
-                containerView.setContentOffset(CGPoint(x: 3 * containerView.frame.width, y: 0), animated: true)
-                pageControl.currentPage = 3
+                let lastPage = CGFloat(viewArray.count - 1)
+                containerView.setContentOffset(CGPoint(x: lastPage * containerView.frame.width, y: 0), animated: true)
+                pageControl.currentPage = Int(lastPage)
+                
             }
         }
     }
