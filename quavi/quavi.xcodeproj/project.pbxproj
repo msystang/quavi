@@ -37,6 +37,7 @@
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
 		EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0E4C1C240D64C300C86775 /* AppUser.swift */; };
 		EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */; };
+		EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
@@ -125,6 +126,7 @@
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				8502669B23F344C1003AD65C /* POIInfoViewController.swift */,
 				852C38212414045800EDD0DD /* POIInfoViewController+objc.swift */,
+				EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */,
 				85021F292406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift */,
 				8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */,
 			);
@@ -508,11 +511,11 @@
 		EAF7174023E386BE00DD8703 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ECE46CD52409A12300A22454 /* PopUp */,
+				EA17DC682405B35F00715DD4 /* Onboarding */,
 				1DCF1BE2240863BE0052059A /* Profile */,
 				EA17DC6A2405B40A00715DD4 /* Category Selection */,
 				EA17DC692405B3D600715DD4 /* MapView */,
-				EA17DC682405B35F00715DD4 /* Onboarding */,
+				ECE46CD52409A12300A22454 /* PopUp */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				ECE46CD72409A1A700A22454 /* ConfettiParticleView.swift in Sources */,
 				EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */,
 				EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */,
+				EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,

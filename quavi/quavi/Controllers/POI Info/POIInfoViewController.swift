@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Mapbox
+import MapboxCoreNavigation
+import MapboxNavigation
+import MapboxDirections
 
 class POIInfoViewController: UIViewController {
     
@@ -24,7 +28,8 @@ class POIInfoViewController: UIViewController {
     var showMapView:Bool = false {
         didSet{
             if showMapView == true {
-              containerView.setContentOffset(CGPoint(x: 2 * containerView.frame.width, y: 0), animated: true)
+                containerView.setContentOffset(CGPoint(x: 3 * containerView.frame.width, y: 0), animated: true)
+                pageControl.currentPage = 3
             }
         }
     }
@@ -35,7 +40,7 @@ class POIInfoViewController: UIViewController {
             
             switch isAtLastLeg{
             case false:
-                presentTabbarVC()
+                goToNextLeg()
             case true:
                 presentConfettiVC()
             }
@@ -109,6 +114,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
         button.alpha = 0
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -116,6 +122,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
         button.alpha = 0
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -123,6 +130,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
         button.alpha = 0
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -144,6 +152,30 @@ class POIInfoViewController: UIViewController {
         view.backgroundColor = .red
         return view
     }()
+    
+    lazy var view4 = MapView(frame: view.bounds)
+    
+    
+    var selectedRoute: Route?
+    #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
+    var currentLegRoute: Route?
+    var nextStopIndex = 0 {
+        didSet {
+            guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
+            if nextStopIndex > waypointCount {
+                nextStopIndex = 0
+            }
+        }
+    }
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+        }
+    }
+    
+    //TODO: For Testing... Refactor with initalLocation from user!
+    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+    
     
     //MARK:-- LifeCycle
     override func viewDidLoad() {
@@ -167,11 +199,12 @@ class POIInfoViewController: UIViewController {
         walkButtonConstraints()
         createPulse()
         view.bringSubviewToFront(presentModesOfTransport)
+        getSelectedRoute(navigationType: modeOfTransit)
     }
     
     //MARK:-- Private func
     
-    private func presentTabbarVC(){
+    private func goToNextLeg(){
         continueButton.setTitle("Next", for: .normal)
         continueButton.addTarget(self, action: #selector(continueButtonPressed(_:)), for: .touchUpInside)
     }
@@ -187,7 +220,7 @@ class POIInfoViewController: UIViewController {
     }
     
     private func assignViewsToArray() {
-        viewArray = [view1, view2, view3]
+        viewArray = [view1, view2, view3, view4]
     }
     
     private func populateContainerView() {
@@ -202,6 +235,19 @@ class POIInfoViewController: UIViewController {
             }
         }
     }
+    
+    @objc func handleSelectingModeOfTransportation(sender:UIButton) {
+          switch sender.tag{
+          case 0:
+              modeOfTransit = .automobile
+          case 1:
+              modeOfTransit = .cycling
+          case 2:
+              modeOfTransit = .walking
+          default :
+              return
+          }
+      }
 }
 
 extension POIInfoViewController: UIScrollViewDelegate{

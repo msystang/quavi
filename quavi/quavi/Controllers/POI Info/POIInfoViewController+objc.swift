@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MapboxNavigation
+import MapboxDirections
+import MapboxCoreNavigation
 
 extension POIInfoViewController {
     //MARK:--@objc func
@@ -27,9 +30,25 @@ extension POIInfoViewController {
      }
      
      @objc func continueButtonPressed(_ sender: UIButton) {
-         #warning("push to mapVC")
          //        self.dismiss(animated: true)
-         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+//         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+//        
+//        guard let currentLegRoute = currentLegRoute else { return }
+//
+//        let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
+//        let navigationOptions = NavigationOptions(navigationService: navigationService)
+//        let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
+//       // navigationVC.delegate = self as! NavigationViewControllerDelegate
+//        navigationVC.modalPresentationStyle = .fullScreen
+//        
+//        // Use this property to indicate when to change continue button to finish tour in POIInfoVC
+//        nextStopIndex += 1
+//        print("Index for next stop: \(nextStopIndex)")
+//        
+//        //TODO: For testing - remove after we use actual user location!
+//        userLocation = currentLegRoute.coordinates?.last ?? CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+//        
+//        present(navigationVC, animated: true)
      }
      
      @objc func handleFinishButtonPressed(_ sender: UIButton) {

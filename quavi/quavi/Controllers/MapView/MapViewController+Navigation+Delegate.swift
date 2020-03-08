@@ -18,15 +18,17 @@ extension MapViewController: NavigationViewControllerDelegate{
         // When the user arrives, present a view controller that prompts the user to continue to their next destination
         // This vc is where we could show information about a destination
         
-        let popupViewController = POIPopUpViewController()
+        let popupViewController = POIInfoViewController()
         
          #warning("send logic through a delegate")
         let waypointCount = selectedRoute?.routeOptions.waypoints.count
         if nextStopIndex == waypointCount{
         popupViewController.isAtLastLeg = true
+        }else{
+        popupViewController.isAtLastLeg = false
         }
         //popupViewController.delegate = self
-        
+        popupViewController.modalPresentationStyle = .fullScreen
         navigationViewController.navigationService.stop()
         navigationViewController.present(popupViewController, animated: true)
         return false
@@ -34,7 +36,7 @@ extension MapViewController: NavigationViewControllerDelegate{
 }
 
 extension MapViewController: WaypointConfirmationViewControllerDelegate {
-    func proceedToNextLegInTour(_ controller: POIPopUpViewController) {
+    func proceedToNextLegInTour(_ controller: POIInfoViewController) {
         
         controller.dismiss(animated: true, completion: {
             guard let navigationViewController = self.presentedViewController as? NavigationViewController else { return }
