@@ -14,7 +14,7 @@ import MapboxCoreNavigation
 extension POIInfoViewController {
     //MARK:--@objc func
      @objc func handlePresentingButton(_ sender:UIButton){
-         toggleButton(button: sender, onImage: UIImage(systemName: "location.fill")!, offImage: UIImage(systemName: "location")!)
+         toggleButton(button: sender, onImage: UIImage(systemName: "location.fill")!, offImage: UIImage(systemName: "xmark")!)
          
          switch showButtons{
          case .hide:
