@@ -236,18 +236,7 @@ class POIInfoViewController: UIViewController {
         }
     }
     
-    @objc func handleSelectingModeOfTransportation(sender:UIButton) {
-          switch sender.tag{
-          case 0:
-              modeOfTransit = .automobile
-          case 1:
-              modeOfTransit = .cycling
-          case 2:
-              modeOfTransit = .walking
-          default :
-              return
-          }
-      }
+
 }
 
 extension POIInfoViewController: UIScrollViewDelegate{
