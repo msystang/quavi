@@ -28,6 +28,10 @@ class POIInfoViewController: UIViewController {
     var currentLegRoute: Route?
     
     //MARK: -- Computed properties
+    var currentPage:Int {
+        return Int(calculateCurrentPosition())
+    }
+    
     var nextStopIndex = 0 {
         didSet{
             print(nextStopIndex)
@@ -257,6 +261,13 @@ class POIInfoViewController: UIViewController {
            containerView.setContentOffset(CGPoint(x: index * containerView.frame.width, y: 0), animated: animated)
        }
     
+    // func to calculate current position of scrollview
+    private func calculateCurrentPosition()-> CGFloat {
+        let width = containerView.frame.width
+        let contentOffSet = containerView.contentOffset.x
+        return contentOffSet / width
+    }
+    
     private func populateContainerView() {
         if let viewArray = viewArray{
             pageControl.numberOfPages = viewArray.count
@@ -270,11 +281,12 @@ class POIInfoViewController: UIViewController {
         }
     }
     
+    //MARK: -- Objc func
     @objc func handlePageControllerTapped(_ sender: UIPageControl) {
            let pageIndex = sender.currentPage
            // calls the goToPage func to animate and present the appropriate view by internally incrementing and decrimenting index
            goToPage(index: pageIndex, animated: true)
-           
+        
        }
     
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
