@@ -50,6 +50,8 @@ class POIInfoViewController: UIViewController {
     }()
     
     lazy var containerView: UIScrollView = {
+        print("\n Frame Width: \(self.view.frame.width)")
+        print("\n Scroll View Width: \(self.view.frame.width * 0.95) \n")
         let view = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.95, height: self.view.frame.height * 0.65))
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
@@ -90,6 +92,7 @@ class POIInfoViewController: UIViewController {
     
     lazy var view2: UIView = {
         let view = POIPopUpGallery()
+        view.poiGalleryCollectionView.alwaysBounceHorizontal = true
         return view
     }()
     

@@ -12,7 +12,7 @@ class POIPopUpGalleryCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: layout)
         configure()
     }
@@ -23,7 +23,6 @@ class POIPopUpGalleryCollectionView: UICollectionView {
     
     func configure() {
         register(POIPopUpGalleryCollectionViewCell.self, forCellWithReuseIdentifier: POIPopUpGalleryCollectionViewCell.reuseID)
-        backgroundColor = .clear
     }
     
 }
