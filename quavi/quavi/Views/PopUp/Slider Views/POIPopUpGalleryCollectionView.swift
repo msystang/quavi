@@ -10,24 +10,20 @@ import UIKit
 
 class POIPopUpGalleryCollectionView: UICollectionView {
     
-    var image = UIImage()
-    let layout = UICollectionViewFlowLayout()
-
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    override init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(image: UIImage) {
-        self.init(frame: .zero)
-        self.image = image
-    }
-    
-    private func configure() {
-        
+    func configure() {
+        register(POIPopUpGalleryCollectionViewCell.self, forCellWithReuseIdentifier: POIPopUpGalleryCollectionViewCell.reuseID)
+        backgroundColor = .clear
     }
     
 }
