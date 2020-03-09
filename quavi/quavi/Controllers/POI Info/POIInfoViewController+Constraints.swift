@@ -19,6 +19,7 @@ extension POIInfoViewController{
         view.addSubview(bikeButton)
         view.addSubview(carButton)
         view.addSubview(walkButton)
+        view.addSubview(cancelTourButton)
         pageControl.addSubview(rightChevron)
         pageControl.addSubview(leftChevron)
     }
@@ -51,6 +52,11 @@ extension POIInfoViewController{
     func presentModesOfTransportConstraints() {
         presentModesOfTransport.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([presentModesOfTransport.bottomAnchor.constraint(equalTo: continueButton.bottomAnchor), presentModesOfTransport.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), presentModesOfTransport.heightAnchor.constraint(equalToConstant: 40), presentModesOfTransport.widthAnchor.constraint(equalToConstant: 40)])
+    }
+    
+    func cancelTourButtonConstraints() {
+        cancelTourButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([cancelTourButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20), cancelTourButton.bottomAnchor.constraint(equalTo: continueButton.bottomAnchor),cancelTourButton.heightAnchor.constraint(equalToConstant: 40), cancelTourButton.widthAnchor.constraint(equalToConstant: 40)])
     }
     
     func bikeButtonConstraints() {

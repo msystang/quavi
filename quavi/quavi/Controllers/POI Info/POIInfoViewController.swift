@@ -138,6 +138,19 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
+    lazy var cancelTourButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        button.layer.cornerRadius = button.frame.height / 2
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.red.cgColor
+        button.backgroundColor = .white
+        button.tintColor = .red
+        button.showsTouchWhenHighlighted = true
+        button.addTarget(self, action: #selector(handleCancelButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var bikeButton:UIButton = {
         let button = UIButton(image: UIImage(named: "bike")!, borderWidth: 2, tag: 1)
         button.alpha = 0
@@ -218,6 +231,7 @@ class POIInfoViewController: UIViewController {
         populateContainerView()
         likeButtonConstraints()
         presentModesOfTransportConstraints()
+        cancelTourButtonConstraints()
         bikeButtonConstraints()
         carButtonConstraints()
         walkButtonConstraints()
@@ -289,6 +303,14 @@ class POIInfoViewController: UIViewController {
            goToPage(index: pageIndex, animated: true)
         
        }
+    
+    @objc func handleCancelButtonPressed(sender:UIButton) {
+        self.cancelAlert(title: "Caution", message: "Arew you sure you want to cancel the tour", actionOneTitle: "Yes") { (action) in
+            
+            let viewController =  self.presentingViewController?.presentingViewController
+            viewController?.dismiss(animated: true, completion: nil)
+        }
+    }
     
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
           switch sender.tag{
