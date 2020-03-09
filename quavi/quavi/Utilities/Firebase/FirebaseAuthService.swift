@@ -28,14 +28,17 @@ class FirebaseAuthService {
         }
     }
     
-    func updateUserFields(userName: String? = nil,photoURL: URL? = nil, completion: @escaping (Result<(),Error>) -> ()){
+    func updateUserFields(userName: String? = nil, photoURL: URL? = nil, completion: @escaping (Result<(),Error>) -> ()){
         let changeRequest = auth.currentUser?.createProfileChangeRequest()
+        
         if let userName = userName {
             changeRequest?.displayName = userName
         }
+        
         if let photoURL = photoURL {
             changeRequest?.photoURL = photoURL
         }
+        
         changeRequest?.commitChanges(completion: { (error) in
             if let error = error {
                 completion(.failure(error))
@@ -47,7 +50,7 @@ class FirebaseAuthService {
     
     func loginUser(email: String, password: String, completion: @escaping (Result<(), Error>) -> ()) {
         auth.signIn(withEmail: email, password: password) { (result, error) in
-            if let user = result?.user {
+            if (result?.user) != nil {
                 completion(.success(()))
             } else if let error = error {
                 completion(.failure(error))
