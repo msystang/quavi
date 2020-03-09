@@ -34,9 +34,9 @@ class POIPopUpGalleryCollectionViewCell: UICollectionViewCell {
         poiGalleryImageView.translatesAutoresizingMaskIntoConstraints = false
         let padding: CGFloat = 8
         NSLayoutConstraint.activate([
-            poiGalleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            poiGalleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            poiGalleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            poiGalleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            poiGalleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            poiGalleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             poiGalleryImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }

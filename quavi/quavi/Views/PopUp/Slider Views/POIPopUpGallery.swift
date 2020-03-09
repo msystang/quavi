@@ -57,9 +57,7 @@ extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        //layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        //layout.minimumInteritemSpacing = 4
+    
         return CGSize(width:(frame.size.width - 10), height: (frame.size.height)/2)
     }
     
