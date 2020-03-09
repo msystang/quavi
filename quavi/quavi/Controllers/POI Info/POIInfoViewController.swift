@@ -24,6 +24,22 @@ class POIInfoViewController: UIViewController {
     var newBikeButtonTopConstraint: NSLayoutConstraint?
     var newCarButtonTopConstraint: NSLayoutConstraint?
     var newWalkButtonTopConstraint: NSLayoutConstraint?
+    var selectedRoute: Route?
+    var currentLegRoute: Route?
+    
+    //MARK: -- Computed properties
+    var nextStopIndex = 0 {
+        didSet{
+            print(nextStopIndex)
+        }
+    }
+    
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+        }
+    }
+    
     var waypointCount:Int! {
         didSet{
             presentModesOfTransportCurrentState()
@@ -161,19 +177,6 @@ class POIInfoViewController: UIViewController {
     }()
     
     lazy var view4 = MapView(frame: view.bounds)
-    
-    var selectedRoute: Route?
-    var currentLegRoute: Route?
-    var nextStopIndex = 0 {
-        didSet{
-            print(nextStopIndex)
-        }
-    }
-    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
-        didSet{
-            getSelectedRoute(navigationType: modeOfTransit)
-        }
-    }
     
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
