@@ -251,6 +251,11 @@ class POIInfoViewController: UIViewController {
         viewArray = [view1, view2, view3, view4]
     }
     
+    func goToPage(index: Int, animated:Bool) {
+           let index = CGFloat(index)
+           containerView.setContentOffset(CGPoint(x: index * containerView.frame.width, y: 0), animated: animated)
+       }
+    
     private func populateContainerView() {
         if let viewArray = viewArray{
             pageControl.numberOfPages = viewArray.count
