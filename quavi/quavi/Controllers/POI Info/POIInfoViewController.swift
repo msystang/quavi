@@ -305,7 +305,7 @@ class POIInfoViewController: UIViewController {
        }
     
     @objc func handleCancelButtonPressed(sender:UIButton) {
-        self.cancelAlert(title: "Caution", message: "Arew you sure you want to cancel the tour", actionOneTitle: "Yes") { (action) in
+        self.cancelAlert(title: "Caution", message: "Are you sure you want to cancel the tour", actionOneTitle: "Yes") { (action) in
             
             let viewController =  self.presentingViewController?.presentingViewController
             viewController?.dismiss(animated: true, completion: nil)
