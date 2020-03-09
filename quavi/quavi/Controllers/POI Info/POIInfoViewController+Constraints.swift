@@ -40,7 +40,7 @@ extension POIInfoViewController{
     
     func pageControlConstraints() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([pageControl.bottomAnchor.constraint(equalTo: containerView.topAnchor), pageControl.widthAnchor.constraint(equalTo: containerView.widthAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
+        NSLayoutConstraint.activate([pageControl.bottomAnchor.constraint(equalTo: containerView.topAnchor), pageControl.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), pageControl.trailingAnchor.constraint(equalTo: containerView.trailingAnchor), pageControl.heightAnchor.constraint(equalToConstant: 20)])
     }
     
     func likeButtonConstraints() {
