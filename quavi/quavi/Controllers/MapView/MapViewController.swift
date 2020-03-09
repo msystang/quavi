@@ -128,19 +128,7 @@ class MapViewController: UIViewController {
     //MARK: -PRIVATE FUNCTIONS
     
 
-    //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
     //MARK: -OBJ-C FUNCTIONS
-    @objc func buttonPressed(sender: UIButton) {
-        print(sender.tag)
-        if sampleData[sender.tag].isCellExpanded {
-            sampleData[sender.tag].isCellExpanded = false
-        } else {
-            sampleData[sender.tag].isCellExpanded = true
-        }
-        let incides: IndexSet = [sender.tag]
-        poiTableView.reloadSections(incides, with: .fade)
-    }
-    
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
         switch sender.tag{
         case 0:
