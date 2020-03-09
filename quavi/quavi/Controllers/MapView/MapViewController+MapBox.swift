@@ -20,7 +20,7 @@ extension MapViewController: MGLMapViewDelegate {
         guard let selectedRoute = selectedRoute else {
             return
         }
-
+        
         guard nextStopIndex < selectedRoute.routeOptions.waypoints.count - 1 else { return }
         
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")

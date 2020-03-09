@@ -14,13 +14,16 @@ import MapboxDirections
 
 class MapViewController: UIViewController {
     
-    // MARK: - VIEWS
-    lazy var mapView = MapView(frame: view.bounds)
+    // MARK: - UI Properties
     let sliderView = SliderView()
-    lazy var poiTableView = QuaviTableView()
-    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
     var startNavigationButton = NavigationUIButton()
     
+    // MARK: - Lazy UI Variables
+    lazy var mapView = MapView(frame: view.bounds)
+    lazy var poiTableView = QuaviTableView()
+    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
+    
+    // MARK: - Computed Lazy UI Variables
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
         image.image = UIImage(systemName: "minus")
@@ -48,11 +51,21 @@ class MapViewController: UIViewController {
     }()
     
 
-    // MARK: -PROPERTIES
+    // MARK: - Internal Properties
+    
+    // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = POI.pointsOfinterest
+    // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
+    let sampleCategoryData = ["Quavi History","LGBTQ History","Secret History","4th Dimension History"]
+    var currentSelectedCategory: String = Enums.categories.History.rawValue {
+        didSet { poiTableView.reloadData() }
+    }
+    //TODO: For Testing... Refactor with initalLocation from user!
+    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+    
     var selectedRoute: Route?
-    #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
     var currentLegRoute: Route?
+
     var nextStopIndex = 0 {
         didSet {
             guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
@@ -61,16 +74,13 @@ class MapViewController: UIViewController {
             }
         }
     }
-    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+    
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
         }
     }
     
-    // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
-    let sampleCategoryData = ["Quavi History","LGBTQ History","Secret History","4th Dimension History"]
-    
-    //TODO: Rename constraints to be more specific and indicate state of slider
     var halfScreenSliderViewConstraints: NSLayoutConstraint?
     var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
@@ -81,13 +91,7 @@ class MapViewController: UIViewController {
     
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
-    
-    var currentSelectedCategory: String = Enums.categories.History.rawValue {
-        didSet { poiTableView.reloadData() }
-    }
-    
-    //TODO: For Testing... Refactor with initalLocation from user!
-    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -107,7 +111,9 @@ class MapViewController: UIViewController {
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
+        
         loadGestures()
+        
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         categoriesCollectionView.showsHorizontalScrollIndicator = false
