@@ -11,7 +11,6 @@ import UIKit
 class POIPopUpGallery: UIView {
     
     let padding: CGFloat = 20
-    
     lazy var poiGalleryCollectionView = POIPopUpGalleryCollectionView()
     
     lazy var poiName: UILabel = {
@@ -26,21 +25,21 @@ class POIPopUpGallery: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-
+        poiGalleryCollectionViewContraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configurePOIName() {
-        addSubview(poiName)
-        poiName.translatesAutoresizingMaskIntoConstraints = false
+    private func poiGalleryCollectionViewContraints() {
+        addSubview(poiGalleryCollectionView)
+        poiGalleryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            poiName.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            poiName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            poiName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            poiName.heightAnchor.constraint(equalToConstant: 50)
+            poiGalleryCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            poiGalleryCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            poiGalleryCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            poiGalleryCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
         ])
     }
     

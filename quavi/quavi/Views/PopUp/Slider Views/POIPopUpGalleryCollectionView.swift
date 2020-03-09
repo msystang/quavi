@@ -12,7 +12,6 @@ class POIPopUpGalleryCollectionView: UICollectionView {
     
     override init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
         configure()
     }
