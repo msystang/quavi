@@ -162,17 +162,18 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
-   open var prevLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Prev"
-        label.textAlignment = .right
-        return label
+   lazy var leftChevron: UIImageView = {
+        let image = UIImageView()
+    image.image = UIImage(systemName: "chevron.left")
+    image.tintColor = .black
+        return image
     }()
     
-    open var nextLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Next"
-        return label
+    lazy var rightChevron: UIImageView = {
+        let image = UIImageView()
+    image.image = UIImage(systemName: "chevron.right")
+    image.tintColor = .black
+        return image
     }()
     
     //MARK: SLIDER VIEWS
