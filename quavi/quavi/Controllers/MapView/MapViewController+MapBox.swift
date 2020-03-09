@@ -17,15 +17,12 @@ extension MapViewController: MGLMapViewDelegate {
     // MARK: - Internal Methods
     func generateRouteForCurrentLeg(from selectedRoute: Route?, nextStopIndex: Int, navigationType: MBDirectionsProfileIdentifier) {
         
-        guard let selectedRoute = selectedRoute else {
-            return
-        }
+        guard let selectedRoute = selectedRoute else { return }
+        guard nextStopIndex < selectedRoute.routeOptions.waypoints.count - 1 else { return }
         
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
         let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
-
-        guard nextStopIndex < selectedRoute.routeOptions.waypoints.count - 1 else { return }
-        //TODO: Determine if we need to handle async for getting options from API
+        
         let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
         
         DispatchQueue.main.async {
@@ -35,23 +32,19 @@ extension MapViewController: MGLMapViewDelegate {
                     print(error)
                 case .success(let route):
                     self.currentLegRoute = route
-                    self.generatePolylineSource(from: route)
+                    self.generatePolylineSource(from: route, for: "current-route-source")
                 }
             }
         }
-
     }
     
-
+    
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
-        //TODO: User's current location must require mapView to load first, must deal with async
-        
         DispatchQueue.main.async {
             do {
+                // TODO: refactor using tours from Firebase as opposed to dummyData
                 let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, navigationType: navigationType)
                 
-                //Generate route from options
-                //TODO: Make async
                 self.generateRoute(from: options) { (result) in
                     switch result {
                     case .failure(let error):
@@ -59,6 +52,8 @@ extension MapViewController: MGLMapViewDelegate {
                     case .success(let route):
                         self.selectedRoute = route
                         self.addMapAnnotations(from: route)
+                        //TODO: Add polyline for whole route too
+                        self.generatePolylineSource(from: route, for: "full-route-source")
                         self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
                     }
                 }
@@ -70,7 +65,6 @@ extension MapViewController: MGLMapViewDelegate {
     
     func addMapAnnotations(from selectedRoute: Route) {
         //Creating points as an array of MGLPointAnnotations then adding as annotations in mapView
-        //TODO: Remove annotation for first annotation
         let waypoints = selectedRoute.routeOptions.waypoints
         var routePoints = [MGLPointAnnotation]()
         
@@ -85,7 +79,7 @@ extension MapViewController: MGLMapViewDelegate {
         mapView.addAnnotations(routePoints)
     }
     
-    func generatePolylineSource(from selectedRoute: Route) {
+    func generatePolylineSource(from selectedRoute: Route, for identifier: String) {
         //Draws line for the route based on waypoints and turns
         guard selectedRoute.coordinateCount > 0 else { return }
         
@@ -96,12 +90,12 @@ extension MapViewController: MGLMapViewDelegate {
         //If there's already a polyline, we reset the polyline to the new route. If not, it creates a new polyline
         //TODO: make enum for these keys
         
-        if let source = mapView.style?.source(withIdentifier: "route-source") as? MGLShapeSource {
+        if let source = mapView.style?.source(withIdentifier: identifier) as? MGLShapeSource {
             source.shape = polyline
             generatePolylineStyle(source: source)
         } else {
             //TODO: Look into what options are?
-            let source = MGLShapeSource(identifier: "route-source", features: [polyline], options: nil)
+            let source = MGLShapeSource(identifier: identifier, features: [polyline], options: nil)
             mapView.style?.addSource(source)
             generatePolylineStyle(source: source)
         }
