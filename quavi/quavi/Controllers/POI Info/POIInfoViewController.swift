@@ -24,6 +24,11 @@ class POIInfoViewController: UIViewController {
     var newBikeButtonTopConstraint: NSLayoutConstraint?
     var newCarButtonTopConstraint: NSLayoutConstraint?
     var newWalkButtonTopConstraint: NSLayoutConstraint?
+    var waypointCount:Int! {
+        didSet{
+            presentModesOfTransportCurrentState()
+        }
+    }
     
     var showMapView:Bool = false {
         didSet{
@@ -200,6 +205,10 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK:-- Private func
+   private func presentModesOfTransportCurrentState() {
+        presentModesOfTransport.isEnabled = nextStopIndex == waypointCount - 1 ? false : true
+        presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount - 1 ? UIColor.lightGray.cgColor : UIColor.black.cgColor
+    }
     
     private func bringPresentModesOfTransportToFront() {
         view.bringSubviewToFront(presentModesOfTransport)
@@ -215,7 +224,6 @@ class POIInfoViewController: UIViewController {
         continueButton.setTitle("Finish", for: .normal)
         continueButton.layoutIfNeeded()
         continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
-        //        isAtLastLeg = false
     }
     private func setBackgroundColor(){
         view.backgroundColor = .white
