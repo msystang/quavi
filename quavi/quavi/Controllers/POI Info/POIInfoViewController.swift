@@ -195,11 +195,15 @@ class POIInfoViewController: UIViewController {
         carButtonConstraints()
         walkButtonConstraints()
         createPulse()
-        view.bringSubviewToFront(presentModesOfTransport)
+        bringPresentModesOfTransportToFront()
         getSelectedRoute(navigationType: modeOfTransit)
     }
     
     //MARK:-- Private func
+    
+    private func bringPresentModesOfTransportToFront() {
+        view.bringSubviewToFront(presentModesOfTransport)
+    }
     
     private func goToNextLeg(){
         continueButton.setTitle("Next", for: .normal)
