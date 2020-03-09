@@ -117,6 +117,7 @@ class POIInfoViewController: UIViewController {
         pc.hidesForSinglePage = true
         pc.pageIndicatorTintColor = .blue
         pc.currentPageIndicatorTintColor = .red
+        pc.addTarget(self, action: #selector(handlePageControllerTapped(_:)), for: .allTouchEvents)
         return pc
     }()
     
@@ -268,6 +269,13 @@ class POIInfoViewController: UIViewController {
             }
         }
     }
+    
+    @objc func handlePageControllerTapped(_ sender: UIPageControl) {
+           let pageIndex = sender.currentPage
+           // calls the goToPage func to animate and present the appropriate view by internally incrementing and decrimenting index
+           goToPage(index: pageIndex, animated: true)
+           
+       }
     
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
           switch sender.tag{
