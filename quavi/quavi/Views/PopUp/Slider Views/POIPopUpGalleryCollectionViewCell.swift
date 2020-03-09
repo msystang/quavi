@@ -20,10 +20,7 @@ class POIPopUpGalleryCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-    }
-    
-    override func prepareForReuse() {
-        poiGalleryImageView.image = UIImage(named: "moMath2")
+        backgroundColor = .black
     }
     
     required init?(coder: NSCoder) {

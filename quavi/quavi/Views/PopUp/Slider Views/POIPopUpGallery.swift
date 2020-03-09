@@ -13,18 +13,10 @@ class POIPopUpGallery: UIView {
     let padding: CGFloat = 20
     lazy var poiGalleryCollectionView = POIPopUpGalleryCollectionView()
     
-    lazy var poiName: UILabel = {
-        var label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.text = "Sorry, No Title Provided!"
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        poiGalleryCollectionView.delegate = self
+        poiGalleryCollectionView.dataSource = self
         poiGalleryCollectionViewContraints()
     }
     
@@ -43,6 +35,22 @@ class POIPopUpGallery: UIView {
         ])
     }
     
+}
 
-
+extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = poiGalleryCollectionView.dequeueReusableCell(withReuseIdentifier: POIPopUpGalleryCollectionViewCell.reuseID, for: indexPath) as! POIPopUpGalleryCollectionViewCell
+        cell.poiGalleryImageView.image = UIImage(named: "moMath2")
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 175)
+    }
+    
+    
 }
