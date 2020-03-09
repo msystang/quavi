@@ -74,15 +74,15 @@ extension POIInfoViewController{
         NSLayoutConstraint.activate([walkButtonTopConstraint!, walkButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), walkButton.heightAnchor.constraint(equalToConstant: 50), walkButton.widthAnchor.constraint(equalToConstant: 50)])
     }
     
-     func nextLabelConstraint() {
-         pageControl.addSubview(nextLabel)
-         nextLabel.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([nextLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor), nextLabel.topAnchor.constraint(equalTo: pageControl.topAnchor), nextLabel.heightAnchor.constraint(equalTo: pageControl.heightAnchor), nextLabel.widthAnchor.constraint(equalToConstant: 50)])
+     func rightChevronConstraint() {
+         pageControl.addSubview(rightChevron)
+         rightChevron.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([rightChevron.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10), rightChevron.topAnchor.constraint(equalTo: pageControl.topAnchor), rightChevron.heightAnchor.constraint(equalTo: pageControl.heightAnchor), rightChevron.widthAnchor.constraint(equalTo: rightChevron.heightAnchor)])
      }
     
-     func prevLabelConstraint() {
-          pageControl.addSubview(prevLabel)
-          prevLabel.translatesAutoresizingMaskIntoConstraints = false
-          NSLayoutConstraint.activate([prevLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), prevLabel.topAnchor.constraint(equalTo: pageControl.topAnchor), prevLabel.heightAnchor.constraint(equalTo: pageControl.heightAnchor), prevLabel.widthAnchor.constraint(equalToConstant: 50)])
+     func leftChevronConstraint() {
+          pageControl.addSubview(leftChevron)
+          leftChevron.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([leftChevron.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10), leftChevron.topAnchor.constraint(equalTo: pageControl.topAnchor), leftChevron.heightAnchor.constraint(equalTo: pageControl.heightAnchor), leftChevron.widthAnchor.constraint(equalTo: leftChevron.heightAnchor)])
       }
 }
