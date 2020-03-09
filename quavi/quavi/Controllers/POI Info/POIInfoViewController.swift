@@ -305,8 +305,14 @@ class POIInfoViewController: UIViewController {
 }
 
 extension POIInfoViewController: UIScrollViewDelegate{
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(page)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    
+        rightChevron.isHidden =  currentPage == viewArray.count - 1 ? true : false
+        leftChevron.isHidden = currentPage == 0 ? true : false
     }
 }
