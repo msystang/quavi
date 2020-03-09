@@ -157,6 +157,19 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
+   open var prevLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Prev"
+        label.textAlignment = .right
+        return label
+    }()
+    
+    open var nextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Next"
+        return label
+    }()
+    
     //MARK: SLIDER VIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
@@ -202,6 +215,8 @@ class POIInfoViewController: UIViewController {
         bikeButtonConstraints()
         carButtonConstraints()
         walkButtonConstraints()
+        nextLabelConstraint()
+        prevLabelConstraint()
         createPulse()
         bringPresentModesOfTransportToFront()
         getSelectedRoute(navigationType: modeOfTransit)

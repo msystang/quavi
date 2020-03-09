@@ -19,6 +19,8 @@ extension POIInfoViewController{
         view.addSubview(bikeButton)
         view.addSubview(carButton)
         view.addSubview(walkButton)
+        pageControl.addSubview(nextLabel)
+        pageControl.addSubview(prevLabel)
     }
     
     func continueButtonConstraints() {
@@ -71,4 +73,16 @@ extension POIInfoViewController{
         newWalkButtonTopConstraint = walkButton.topAnchor.constraint(equalTo: carButton.topAnchor, constant:  -70)
         NSLayoutConstraint.activate([walkButtonTopConstraint!, walkButton.centerXAnchor.constraint(equalTo: presentModesOfTransport.centerXAnchor), walkButton.heightAnchor.constraint(equalToConstant: 50), walkButton.widthAnchor.constraint(equalToConstant: 50)])
     }
+    
+     func nextLabelConstraint() {
+         pageControl.addSubview(nextLabel)
+         nextLabel.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([nextLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor), nextLabel.topAnchor.constraint(equalTo: pageControl.topAnchor), nextLabel.heightAnchor.constraint(equalTo: pageControl.heightAnchor), nextLabel.widthAnchor.constraint(equalToConstant: 50)])
+     }
+    
+     func prevLabelConstraint() {
+          pageControl.addSubview(prevLabel)
+          prevLabel.translatesAutoresizingMaskIntoConstraints = false
+          NSLayoutConstraint.activate([prevLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), prevLabel.topAnchor.constraint(equalTo: pageControl.topAnchor), prevLabel.heightAnchor.constraint(equalTo: pageControl.heightAnchor), prevLabel.widthAnchor.constraint(equalToConstant: 50)])
+      }
 }
