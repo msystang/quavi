@@ -90,7 +90,6 @@ class POIInfoViewController: UIViewController {
     
     lazy var view2: UIView = {
         let view = POIPopUpGallery()
-        //view.backgroundColor = .yellow
         return view
     }()
     

@@ -11,6 +11,7 @@ import UIKit
 class POIPopUpGallery: UIView {
     
     let padding: CGFloat = 20
+    let layout = UICollectionViewFlowLayout()
     lazy var poiGalleryCollectionView = POIPopUpGalleryCollectionView()
     
     override init(frame: CGRect) {
@@ -29,17 +30,23 @@ class POIPopUpGallery: UIView {
         poiGalleryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             poiGalleryCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            poiGalleryCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            poiGalleryCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            poiGalleryCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
+            //poiGalleryCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            //poiGalleryCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            poiGalleryCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            poiGalleryCollectionView.widthAnchor.constraint(equalToConstant: 300)
         ])
     }
     
 }
 
 extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,7 +56,11 @@ extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 175)
+        
+        self.layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
+        self.layout.minimumInteritemSpacing = 5
+        let virticalCellCGSize = CGSize(width: (collectionView.frame.size.width - 20), height: collectionView.frame.size.height / 6)
+        return virticalCellCGSize
     }
     
     
