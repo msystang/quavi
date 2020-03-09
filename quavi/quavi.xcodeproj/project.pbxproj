@@ -63,6 +63,7 @@
 		EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */; };
 		EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E8482404347600B53054 /* POIPopUpViewController.swift */; };
 		EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */; };
+		EC763AB52416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */; };
 		EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */; };
 		EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */; };
 		EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094523F5CDA7001D04CF /* SliderView.swift */; };
@@ -155,6 +156,7 @@
 		EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView.swift"; sourceTree = "<group>"; };
 		EC41E8482404347600B53054 /* POIPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpViewController.swift; sourceTree = "<group>"; };
 		EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIPopUpViewController+Constraints.swift"; sourceTree = "<group>"; };
+		EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviTableView.swift; sourceTree = "<group>"; };
 		EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView+Constraints.swift"; sourceTree = "<group>"; };
 		EC7D094523F5CDA7001D04CF /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				ECE46CDF240D73F700A22454 /* POIPopUpAboutView.swift */,
 				ECE46D07240EF65100A22454 /* POIPopUpGallery.swift */,
 				ECE46D09240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift */,
+				EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */,
 			);
 			path = "Slider Views";
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */,
 				ECE46CDD2409A34900A22454 /* NSLayoutConstraints+Extentsions.swift in Sources */,
 				EAF7173523E381B500DD8703 /* POI.swift in Sources */,
+				EC763AB52416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift in Sources */,
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
 				85021F032404240700F8AD7B /* OnBoardingViewController.swift in Sources */,
 				85021F132405710100F8AD7B /* CategorySelectionViewController+Delegate.swift in Sources */,

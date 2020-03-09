@@ -10,6 +10,7 @@ import UIKit
 
 class POIPopUpGalleryCollectionView: UICollectionView {
     
+    var image = UIImage()
     let layout = UICollectionViewFlowLayout()
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -20,21 +21,13 @@ class POIPopUpGalleryCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension POIPopUpGalleryCollectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    convenience init(image: UIImage) {
+        self.init(frame: .zero)
+        self.image = image
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    private func configure() {
+        
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: bounds.width / 1.25, height: bounds.height / 1.25)
-    }
-    
     
 }

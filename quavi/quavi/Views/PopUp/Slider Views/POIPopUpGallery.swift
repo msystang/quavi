@@ -11,7 +11,9 @@ import UIKit
 class POIPopUpGallery: UIView {
     
     let padding: CGFloat = 20
-
+    
+    lazy var poiGalleryCollectionView = POIPopUpGalleryCollectionView()
+    
     lazy var poiName: UILabel = {
         var label = UILabel()
         label.textColor = .black
