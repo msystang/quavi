@@ -10,31 +10,19 @@ import UIKit
 
 class POIPopUpGalleryCollectionView: UICollectionView {
     
-    let layout = UICollectionViewFlowLayout()
-
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    override init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: layout)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension POIPopUpGalleryCollectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    func configure() {
+        register(POIPopUpGalleryCollectionViewCell.self, forCellWithReuseIdentifier: POIPopUpGalleryCollectionViewCell.reuseID)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: bounds.width / 1.25, height: bounds.height / 1.25)
-    }
-    
     
 }
