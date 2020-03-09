@@ -96,11 +96,11 @@ class POIInfoViewController: UIViewController {
         return view
     }()
     
-    lazy var view3:UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
+//    lazy var view3:UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .red
+//        return view
+//    }()
     
     lazy var view4 = MapView(frame: view.bounds)
     
@@ -179,7 +179,7 @@ class POIInfoViewController: UIViewController {
     }
     
     private func assignViewsToArray() {
-        viewArray = [view1, view2, view3, view4]
+        viewArray = [view1, view2, view4]
     }
     
     private func populateContainerView() {
