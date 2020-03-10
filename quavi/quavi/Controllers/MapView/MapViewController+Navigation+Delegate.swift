@@ -33,6 +33,7 @@ extension MapViewController: NavigationViewControllerDelegate{
     }
     
     func navigationViewControllerDidDismiss(_ navigationViewController: NavigationViewController, byCanceling canceled: Bool) {
+         print(nextStopIndex)
         navigationViewController.dismiss(animated: true, completion: nil)
     }
 }

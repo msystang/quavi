@@ -246,8 +246,8 @@ class POIInfoViewController: UIViewController {
     
     //MARK:-- Private func
    private func presentModesOfTransportCurrentState() {
-        presentModesOfTransport.isEnabled = nextStopIndex == waypointCount - 1 ? false : true
-        presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount - 1 ? UIColor.lightGray.cgColor : UIColor.black.cgColor
+        presentModesOfTransport.isEnabled = nextStopIndex == waypointCount ? false : true
+        presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount ? UIColor.lightGray.cgColor : UIColor.black.cgColor
     }
     
     private func bringPresentModesOfTransportToFront() {

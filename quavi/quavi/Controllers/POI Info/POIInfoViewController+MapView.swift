@@ -21,7 +21,7 @@ extension POIInfoViewController: MGLMapViewDelegate {
             return
         }
         waypointCount = selectedRoute.routeOptions.waypoints.count
-        guard nextStopIndex < waypointCount - 1 else { return }
+        guard nextStopIndex < waypointCount else { return }
         
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
         
