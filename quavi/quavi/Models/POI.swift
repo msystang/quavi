@@ -20,7 +20,7 @@ struct POI {
     let shortDesc: String
     let longDesc: String
     let tableViewImage: String
-    let popoverImage: String
+    let poiImage: [String]
     
     
     // MARK: - Computed Variables
@@ -71,7 +71,7 @@ struct POI {
     
 
     // Initializing a POI in Firestore (creating a new POI)
-    init(name: String, lat: Double, long: Double, shortDesc: String, longDesc: String, tableViewImage: String, popoverImage: String) {
+    init(name: String, lat: Double, long: Double, shortDesc: String, longDesc: String, tableViewImage: String, poiImage: [String]) {
         self.id = "poi-\(UUID().description)"
         self.name = name
         self.lat = lat
@@ -79,7 +79,7 @@ struct POI {
         self.shortDesc = shortDesc
         self.longDesc = longDesc
         self.tableViewImage = tableViewImage
-        self.popoverImage = popoverImage
+        self.poiImage = poiImage
     }
     
     // Failing init for when we retreive POI data from Firestore
@@ -91,7 +91,7 @@ struct POI {
         let shortDesc = dict["shortDesc"] as? String,
         let longDesc = dict["longDesc"] as? String,
         let tableViewImage = dict["tableViewImage"] as? String,
-        let popoverImage = dict["popoverImage"] as? String
+        let poiImage = dict["poiImage"] as? [String]
         else { return nil }
         
         self.id = id
@@ -101,7 +101,7 @@ struct POI {
         self.shortDesc = shortDesc
         self.longDesc = longDesc
         self.tableViewImage = tableViewImage
-        self.popoverImage = popoverImage
+        self.poiImage = poiImage
     }
     
     // Failing init for when we retreive a specific POI from Firestore
@@ -112,7 +112,7 @@ struct POI {
         let shortDesc = dict["shortDesc"] as? String,
         let longDesc = dict["longDesc"] as? String,
         let tableViewImage = dict["tableViewImage"] as? String,
-        let popoverImage = dict["popoverImage"] as? String
+        let poiImage = dict["poiImage"] as? [String]
         else { return nil }
         
         self.id = id
@@ -122,7 +122,7 @@ struct POI {
         self.shortDesc = shortDesc
         self.longDesc = longDesc
         self.tableViewImage = tableViewImage
-        self.popoverImage = popoverImage
+        self.poiImage = poiImage
     }
     
     // Dictionary used for uploading data into Firestore
@@ -135,7 +135,7 @@ struct POI {
             "shortDesc": self.shortDesc,
             "longDesc": self.longDesc,
             "tableViewImage": self.tableViewImage,
-            "popoverImage": self.popoverImage
+            "poiImage": self.poiImage
         ]
     }
     
