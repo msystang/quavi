@@ -48,11 +48,8 @@ class StopsTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             stopImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             stopImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            stopImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            stopImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            //stopImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            stopImage.heightAnchor.constraint(equalToConstant: 300),
-            
+            stopImage.widthAnchor.constraint(equalToConstant: 100),
+            stopImage.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
@@ -60,8 +57,8 @@ class StopsTableViewCell: UITableViewCell {
         self.addSubview(stopLabel)
         stopLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stopLabel.topAnchor.constraint(equalTo: stopImage.bottomAnchor, constant: 10),
-            stopLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            stopLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            stopLabel.leadingAnchor.constraint(equalTo: stopImage.trailingAnchor, constant: 10),
             stopLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             stopLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
