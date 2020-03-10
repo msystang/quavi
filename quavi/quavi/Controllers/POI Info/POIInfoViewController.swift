@@ -38,9 +38,10 @@ class POIInfoViewController: UIViewController {
         }
     }
     
-    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+    var modeOfTransit:MBDirectionsProfileIdentifier = .automobile{
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
+            switchTransitBackgroundButton()
         }
     }
     
@@ -245,6 +246,13 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK:-- Private func
+    
+    private func switchTransitBackgroundButton() {
+        carButton.backgroundColor = modeOfTransit == .automobile ? .blue : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? .blue : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? .blue : .white
+    }
+    
    private func presentModesOfTransportCurrentState() {
         presentModesOfTransport.isEnabled = nextStopIndex == waypointCount ? false : true
         presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount ? UIColor.lightGray.cgColor : UIColor.black.cgColor
@@ -317,7 +325,7 @@ class POIInfoViewController: UIViewController {
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
           switch sender.tag{
           case 0:
-              modeOfTransit = .automobile
+            modeOfTransit = .automobile
           case 1:
               modeOfTransit = .cycling
           case 2:
