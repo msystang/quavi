@@ -66,15 +66,7 @@ class MapViewController: UIViewController {
     var selectedRoute: Route?
     var currentLegRoute: Route?
 
-    var nextStopIndex = 0 {
-        didSet {
-            guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
-            if nextStopIndex > waypointCount {
-                nextStopIndex = 0
-            }
-        }
-    }
-    
+    var nextStopIndex = 0     
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
