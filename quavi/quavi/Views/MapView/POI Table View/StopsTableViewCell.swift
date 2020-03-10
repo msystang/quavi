@@ -14,7 +14,8 @@ class StopsTableViewCell: UITableViewCell {
     //MARK: -- Views
     lazy var stopImage: UIImageView = {
         var view = UIImageView()
-        
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
         return view
     }()
     
