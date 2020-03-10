@@ -18,7 +18,7 @@ extension UIButton{
         self.contentMode = .center
         self.layer.masksToBounds = true
         self.backgroundColor = .white
-        self.setBackgroundImage(image, for: .normal)
+        self.setImage(image, for: .normal)
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = UIColor.white.cgColor
         self.alpha = 0.5

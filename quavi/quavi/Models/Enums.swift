@@ -20,5 +20,9 @@ struct Enums {
     enum sliderViewStates {
         case closed, halfOpen, fullOpen
     }
+    
+    enum presentModeOfTransport {
+        case show, hide
+    }
 }
 
