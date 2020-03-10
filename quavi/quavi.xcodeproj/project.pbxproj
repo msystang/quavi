@@ -37,7 +37,6 @@
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
 		EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0E4C1C240D64C300C86775 /* AppUser.swift */; };
-		EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */; };
 		EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
@@ -49,6 +48,7 @@
 		EAB711122416DCA600DAA60E /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */; };
 		EAB711142416E74D00DAA60E /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711132416E74D00DAA60E /* FireStoreService.swift */; };
 		EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */; };
+		EAB7111824183B0600DAA60E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAB7111724183B0600DAA60E /* GoogleService-Info.plist */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -130,7 +130,6 @@
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
-		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EAB711132416E74D00DAA60E /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		EAB7111724183B0600DAA60E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -447,6 +447,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
+				EAB7111724183B0600DAA60E /* GoogleService-Info.plist */,
 			);
 			path = quavi;
 			sourceTree = "<group>";
@@ -503,7 +504,6 @@
 		EAF7173A23E3856900DD8703 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
 				EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */,
 				EAB711132416E74D00DAA60E /* FireStoreService.swift */,
 				EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */,
@@ -687,7 +687,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */,
+				EAB7111824183B0600DAA60E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
