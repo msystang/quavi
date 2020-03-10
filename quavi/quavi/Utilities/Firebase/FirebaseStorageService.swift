@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseStorage
 
-class FirebaseStorageService {F
+class FirebaseStorageService {
     enum ImageType {
         case profileImage
         case quaviTourPOIImage
