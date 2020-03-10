@@ -13,7 +13,6 @@ import MapboxNavigation
 import MapboxDirections
 
 extension MapViewController: NavigationViewControllerDelegate{
-    
     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint)-> Bool {
         // When the user arrives, present a view controller that prompts the user to continue to their next destination
         // This vc is where we could show information about a destination
@@ -32,6 +31,15 @@ extension MapViewController: NavigationViewControllerDelegate{
         navigationViewController.navigationService.stop()
         navigationViewController.present(popupViewController, animated: true)
         return false
+    }
+    
+    func navigationViewControllerDidDismiss(_ navigationViewController: NavigationViewController, byCanceling canceled: Bool) {
+        
+        //TODO: remove this userLocation (Used for testing only)
+        userLocation = currentLegRoute?.coordinates?.first ?? CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+        navigationViewController.dismiss(animated: true) {[weak self] in
+            self?.nextStopIndex -= 1
+        }
     }
 }
 
