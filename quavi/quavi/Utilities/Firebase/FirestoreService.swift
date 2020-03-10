@@ -111,7 +111,7 @@ class FirestoreService {
     
     func getTours(for userID: String, completion: @escaping (Result<[Tour], Error>) -> ()) {
         db.collection(FireStoreCollections.tour.rawValue).whereField("creatorID", isEqualTo: userID).getDocuments { (snapshot, error) in
-
+            
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -128,7 +128,7 @@ class FirestoreService {
     //MARK: POI
     func createPOI(poi: POI, completion: @escaping (Result<(),Error>) -> ()) {
         var fields = poi.fieldsDict
-
+        
         db.collection(FireStoreCollections.POI.rawValue).addDocument(data: fields) { (error) in
             if let error = error {
                 completion(.failure(error))
@@ -137,7 +137,7 @@ class FirestoreService {
             }
         }
     }
-
+    
     func getPOIs(for userID: String, completion: @escaping (Result<[POI], Error>) -> ()) {
         db.collection(FireStoreCollections.POI.rawValue).whereField("userID", isEqualTo: userID).getDocuments { (snapshot, error) in
             if let error = error {

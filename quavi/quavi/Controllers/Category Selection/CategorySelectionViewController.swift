@@ -22,12 +22,22 @@ class CategorySelectionViewController: UIViewController {
     }()
     
     //MARK: -- Internal Properties
-    let categories = Category.allCases
+//    let categories = Category.allCases
     var allTours = [Tour]() {
         didSet {
-            //Refresh collectionView
+            categories = allTours.compactMap { (tour) -> String? in
+                tour.category
+            }
         }
     }
+    
+    var categories = [String]() {
+        didSet {
+            // Better approach than reloading?
+            categoryCollectionView.reloadData()
+        }
+    }
+    
     //TODO: Load all tours and get number of tours for each category
     let tourCountForCategory = [4,6,7,3,2,8,6,3,20]
     
