@@ -155,5 +155,26 @@ class FirestoreService {
         }
     }
     
+    func getPOI(from documentReferences: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
+//        
+//        let fb = db.collection(FireStoreCollections.POI.rawValue).whereField("id", isEqualTo: documentReference.documentID)
+//        fb.getDocument
+//        
+//        db.collection(FireStoreCollections.POI.rawValue).whereField("id", isEqualTo: documentReference.documentID).getDocuments { (snapshot, error) in
+//            
+//            if let error = error {
+//                completion(.failure(error))
+//            } else {
+//                let poi = snapshot?.documents.compactMap({ (snapshot) -> POI? in
+//                    let poiID = snapshot.documentID
+//                    let poi = POI(from: snapshot.data(), id: poiID)
+//                    return poi
+//                })
+//                completion(.success(pois ?? []))
+//            }
+//        }
+//        
+    }
+    
     private init () {}
 }
