@@ -60,9 +60,10 @@ extension MapViewController {
     func constrainSliderView() {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                                     sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                                     sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)
+        NSLayoutConstraint.activate([
+            sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)
         ])
         createSliderViewConstraints()
     }
@@ -80,9 +81,8 @@ extension MapViewController {
     func constrainChevronImage() {
         chevronArrows.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 10),
+            chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 5),
             chevronArrows.centerXAnchor.constraint(equalTo: sliderView.centerXAnchor),
-            chevronArrows.bottomAnchor.constraint(equalTo: poiTableView.topAnchor, constant: -10),
             chevronArrows.widthAnchor.constraint(equalToConstant: 40),
             chevronArrows.heightAnchor.constraint(equalToConstant: 30)
         ])
