@@ -52,9 +52,25 @@ class CategorySelectionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        loadAllTours()
+        print(allTours.count)
     }
-    //MARK: -- private func
+    //MARK: -- Private Methods
+    private func loadAllTours() {
+        DispatchQueue.main.async {
+            FirestoreService.manager.getAllTours { (result) in
+                switch result {
+                case .failure(let error):
+                    //TODO: Handle error
+                    print(error)
+                case .success(let allTours):
+                    self.allTours = allTours
+                }
+            }
+        }
+    }
+    
+    
     private func addSubviews(){
         view.addSubview(categoryCollectionView)
     }
