@@ -22,7 +22,7 @@ class StopsTableViewCell: UITableViewCell {
     lazy var stopLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Avenir-Light", size: 14)
+        label.font = UIFont(name: "Avenir-Light", size: 16)
         label.textColor = .black
         label.text = "Testing"
         label.numberOfLines = 0
