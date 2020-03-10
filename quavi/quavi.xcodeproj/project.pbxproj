@@ -46,6 +46,7 @@
 		EA97DA9123FF3B4000CB6B32 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */; };
 		EAB711122416DCA600DAA60E /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */; };
 		EAB711142416E74D00DAA60E /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711132416E74D00DAA60E /* FireStoreService.swift */; };
+		EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -135,6 +136,7 @@
 		EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EAB711132416E74D00DAA60E /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
+		EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
 				EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */,
 				EAB711132416E74D00DAA60E /* FireStoreService.swift */,
+				EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -851,6 +854,7 @@
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
 				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,
+				EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */,
 				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
