@@ -52,7 +52,6 @@ class MapViewController: UIViewController {
     
 
     // MARK: - Internal Properties
-    
     // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = POI.pointsOfinterest
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
