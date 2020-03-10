@@ -27,6 +27,7 @@ extension POIInfoViewController: NavigationViewControllerDelegate{
     }
     
         func navigationViewControllerDidDismiss(_ navigationViewController: NavigationViewController, byCanceling canceled: Bool) {
+            userLocation = currentLegRoute?.coordinates?.first ?? CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
             navigationViewController.dismiss(animated: true) {[weak self] in
                 self?.nextStopIndex -= 1
                 self?.isTourAtLastLeg()
