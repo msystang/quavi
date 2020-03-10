@@ -12,7 +12,8 @@ import  UIKit
 extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if sampleData[section].isCellExpanded == false { return 0 } else { return 1 }
+//        if sampleData[section].isCellExpanded == false { return 0 } else { return 1 }
+        return 1
     }
     
     
@@ -35,7 +36,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             let sectionImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
             sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
             sectionImage.layer.masksToBounds = true
-            sectionImage.image = sampleData[section].popoverImage
+//            sectionImage.image = sampleData[section].popoverImage
             
             
             let sectionHeaderArrows = UIImageView(image: UIImage(systemName: "chevron.compact.down"))
@@ -66,7 +67,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.alpha = 1
         })
         cell.backgroundColor = .clear
-        cell.stopImage.image = stop.tableViewImage
+//        cell.stopImage.image = stop.tableViewImage
         cell.stopLabel.text = sampleData[indexPath.section].shortDesc
         return cell
     }
