@@ -18,6 +18,7 @@ struct Tour {
     let name: String
     let category: String
     let stops: [POI]
+//    let stops: [DocumentReference]
     let dateCreated: Date?
     
     // MARK: - Static Properties
@@ -26,7 +27,12 @@ struct Tour {
     // MARK: - Static Functions
     static func generateTourRouteOptions(from tour: Tour, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
         
-        // Get all waypoints for tops in tour
+        // TODO: Array of document references comes back as an array of Any, figure out how to use the pointer to get the document ID of the POI to cast as dictionary into POI. DocumentReference.documentID
+        // Make network call to get POI in firebase then turn into POI
+        // Make private func to get POI from Document References
+        
+        // Get all waypoints for stops in tour
+        
         let stops = tour.stops.map { $0.waypoint }
         
         // Create RouteOptions from waypoints
@@ -38,7 +44,8 @@ struct Tour {
     
     // MARK: - Initializers
     // Initializing a Tour in Firestore (creating a new Tour)
-    init(creatorID: String, name: String, category: String, stops: [POI]) {
+//    init(creatorID: String, name: String, category: String, stops: [DocumentReference]) {
+        init(creatorID: String, name: String, category: String, stops: [POI]) {
         self.id = "t-\(UUID().description)"
         self.creatorID = creatorID
         self.name = name
@@ -53,8 +60,10 @@ struct Tour {
             let creatorID = dict["creatorID"] as? String,
             let name = dict["name"] as? String,
             let category = dict["category"] as? String,
-            let stops = (dict["stops"] as? [[String:Any]])?.compactMap({ POI(from: $0) }),
-        let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
+//            let stops = dict["stops"] as? [DocumentReference],
+            let stops = dict["stops"] as? [POI],
+            let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue()
+        else { return nil }
         
         self.id = id
         self.creatorID = creatorID
@@ -69,8 +78,10 @@ struct Tour {
         guard let id = dict["id"] as? String,
             let name = dict["name"] as? String,
             let category = dict["category"] as? String,
-            let stops = (dict["stops"] as? [[String:Any]])?.compactMap({ POI(from: $0) }),
-        let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
+//            let stops = dict["stops"] as? [DocumentReference],
+            let stops = dict["stops"] as? [POI],
+            let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue()
+        else { return nil }
         
         self.id = id
         self.creatorID = creatorID
@@ -85,8 +96,10 @@ struct Tour {
         guard let creatorID = dict["creatorID"] as? String,
             let name = dict["name"] as? String,
             let category = dict["category"] as? String,
-            let stops = (dict["stops"] as? [[String:Any]])?.compactMap({ POI(from: $0) }),
-        let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
+//            let stops = dict["stops"] as? [DocumentReference],
+            let stops = dict["stops"] as? [POI],
+            let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue()
+        else { return nil }
         
         self.id = id
         self.creatorID = creatorID

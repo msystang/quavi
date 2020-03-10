@@ -91,7 +91,9 @@ class FirestoreService {
     }
     
     func getAllTours(completion: @escaping (Result<[Tour], Error>) -> ()) {
-        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in
+        
+        db.collection(FireStoreCollections.tour.rawValue).getDocuments { (snapshot, error) in
+            
             if let error = error {
                 completion(.failure(error))
             } else {
