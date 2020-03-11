@@ -20,6 +20,7 @@ extension POIInfoViewController: NavigationViewControllerDelegate{
     
     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint) -> Bool {
         isTourAtLastLeg()
+        nextStopIndex += 1
         navigationViewController.navigationService.stop()
         navigationViewController.navigationService.endNavigation(feedback: nil)
         navigationViewController.dismiss(animated: true, completion: nil)
@@ -27,10 +28,8 @@ extension POIInfoViewController: NavigationViewControllerDelegate{
     }
     
         func navigationViewControllerDidDismiss(_ navigationViewController: NavigationViewController, byCanceling canceled: Bool) {
-            userLocation = currentLegRoute?.coordinates?.first ?? CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
-            navigationViewController.dismiss(animated: true) {[weak self] in
-                self?.nextStopIndex -= 1
-                self?.isTourAtLastLeg()
+            print(nextStopIndex)
+            navigationViewController.dismiss(animated: true) {[weak self] in                //self?.isTourAtLastLeg()
             }
         }
 }

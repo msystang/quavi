@@ -18,8 +18,7 @@ extension MapViewController: NavigationViewControllerDelegate{
         // This vc is where we could show information about a destination
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         let popupViewController = POIInfoViewController()
-        
-         #warning("send logic through a delegate")
+        popupViewController.nextStopIndex += 1
         let waypointCount = selectedRoute?.routeOptions.waypoints.count
         if nextStopIndex == waypointCount{
         popupViewController.isAtLastLeg = true
@@ -34,23 +33,8 @@ extension MapViewController: NavigationViewControllerDelegate{
     }
     
     func navigationViewControllerDidDismiss(_ navigationViewController: NavigationViewController, byCanceling canceled: Bool) {
-        
-        //TODO: remove this userLocation (Used for testing only)
-        userLocation = currentLegRoute?.coordinates?.first ?? CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
-        navigationViewController.dismiss(animated: true) {[weak self] in
-            self?.nextStopIndex -= 1
-        }
+         print(nextStopIndex)
+        navigationViewController.dismiss(animated: true, completion: nil)
     }
 }
 
-extension MapViewController: WaypointConfirmationViewControllerDelegate {
-    func proceedToNextLegInTour(_ controller: POIInfoViewController) {
-
-        controller.dismiss(animated: true, completion: {
-            guard let navigationViewController = self.presentedViewController as? NavigationViewController else { return }
-
-            guard navigationViewController.navigationService.routeProgress.route.legs.count > navigationViewController.navigationService.routeProgress.legIndex + 1 else { return }
-            navigationViewController.navigationService.routeProgress.legIndex += 1
-        })
-    }
-}
