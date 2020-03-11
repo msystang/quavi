@@ -20,9 +20,10 @@ class FaveToursCell: UITableViewCell {
     
     lazy var tourName: UILabel = {
         var label = UILabel()
-
+        label.numberOfLines = 0
         return label
     }()
+    
     //MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,8 +39,8 @@ class FaveToursCell: UITableViewCell {
     //MARK: - Functions
     
     func setUpSubviews(){
-        self.contentView.addSubview(tourImage)
-        self.contentView.addSubview(tourName)
+        contentView.addSubview(tourImage)
+        contentView.addSubview(tourName)
     }
     
     func setUpConstraints() {
@@ -47,26 +48,24 @@ class FaveToursCell: UITableViewCell {
         constrainTourLabel()
     }
     
-    
     //MARK: - Constraints
     
     func constrainTourImage() {
         tourImage.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            tourImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            tourImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            tourImage.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            tourImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             tourImage.heightAnchor.constraint(equalToConstant: 70),
             tourImage.widthAnchor.constraint(equalToConstant: 70)
         ])
     }
+
     
     func constrainTourLabel() {
         tourName.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            tourName.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            tourName.leadingAnchor.constraint(equalTo: self.tourImage.trailingAnchor, constant: 10),
+            tourName.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            tourName.leadingAnchor.constraint(equalTo: tourImage.trailingAnchor, constant: 10),
             tourName.heightAnchor.constraint(equalToConstant: 20),
             tourName.widthAnchor.constraint(equalToConstant: 300)
         ])

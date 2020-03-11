@@ -14,7 +14,7 @@ struct Enums {
     }
     
     enum cellIdentifiers: String {
-        case categoryCell, StopCell
+        case categoryCell, StopCell, favePOICell, faveTourCell
     }
     
     enum sliderViewStates {

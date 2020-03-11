@@ -9,6 +9,57 @@ import UIKit
 
 extension ProfileViewController {
     
+    func setUpSubviews() {
+        self.view.addSubview(profileInfoView)
+        self.profileInfoView.addSubview(editProfileButton)
+        self.profileInfoView.addSubview(userImage)
+        self.profileInfoView.addSubview(fullname)
+        self.profileInfoView.addSubview(username)
+        self.profileInfoView.addSubview(email)
+        
+        self.view.addSubview(favoritedView)
+        self.favoritedView.addSubview(faveToursLabel)
+        self.favoritedView.addSubview(tourNumber)
+        self.favoritedView.addSubview(favePOILabel)
+        self.favoritedView.addSubview(POINumber)
+        
+        self.view.addSubview(faveTypeSegmentControl)
+        
+        self.view.addSubview(faveTourTableView)
+        
+        
+        
+//        self.view.addSubview(tourPOITVView)
+//        self.tourPOITVView.addSubview(faveTourPOITableView)
+        
+//        self.view.addSubview(favoritePOITableView)
+//
+    }
+    
+    func setUpConstraints() {
+        constrainProfileInfoView()
+        constrainEditButton()
+        constrainUserImage()
+        constrainFullName()
+        constrainUsername()
+        constrainEmail()
+        
+        constrainfavoritedView()
+        constrainFaveToursLabel()
+        constrainTourNumberLabel()
+        constrainFavePOILabel()
+        constrainPOINumberLabel()
+        
+        constrainFaveTypeSegmentControl()
+        
+        constrainTourTableView()
+//
+//        constrainTourPOITVView()
+//        constrainTourPOITableView()
+        
+//        constrainPOITableView()
+    }
+    
     //MARK: profileInfoView Constraints
     func constrainProfileInfoView(){
         profileInfoView.translatesAutoresizingMaskIntoConstraints = false
@@ -126,7 +177,7 @@ extension ProfileViewController {
         ])
     }
     
-    //MARK: tableView & segmented control Constraints
+    //MARK: segmented control Constraint
     
     func constrainFaveTypeSegmentControl() {
         faveTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
@@ -138,13 +189,60 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainTableView() {
-        favoritesTableView.translatesAutoresizingMaskIntoConstraints = false
+    func constrainTourTableView() {
+        faveTourTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            favoritesTableView.topAnchor.constraint(equalTo: faveTypeSegmentControl.bottomAnchor),
-            favoritesTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            favoritesTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            favoritesTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            faveTourTableView.topAnchor.constraint(equalTo: faveTypeSegmentControl.bottomAnchor),
+            faveTourTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            faveTourTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            faveTourTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+    }
+    
+    func constrainTourPOITVView() {
+        tourPOITVView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tourPOITVView.topAnchor.constraint(equalTo: faveTypeSegmentControl.bottomAnchor),
+            tourPOITVView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            tourPOITVView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            tourPOITVView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+    }
+    
+    func constrainTourPOITableView() {
+        faveTourPOITableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            faveTourPOITableView.topAnchor.constraint(equalTo: tourPOITVView.bottomAnchor),
+            faveTourPOITableView.leadingAnchor.constraint(equalTo: tourPOITVView.leadingAnchor),
+            faveTourPOITableView.trailingAnchor.constraint(equalTo: tourPOITVView.trailingAnchor),
+            faveTourPOITableView.bottomAnchor.constraint(equalTo: tourPOITVView.bottomAnchor)
+        ])
+    }
+    
+//    func constrainPOITableView() {
+//        favoritePOITableView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            favoritePOITableView.topAnchor.constraint(equalTo: faveTypeSegmentControl.bottomAnchor),
+//            favoritePOITableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            favoritePOITableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+//            favoritePOITableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+//        ])
+//    }
+    
+    func constrainTVSectionArrow(button: UIButton, sectionHeaderArrows:UIImageView) {
+        sectionHeaderArrows.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            sectionHeaderArrows.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10),
+            sectionHeaderArrows.topAnchor.constraint(equalTo: button.topAnchor, constant: button.frame.height/2),
+            sectionHeaderArrows.heightAnchor.constraint(equalToConstant: 25),
+            sectionHeaderArrows.widthAnchor.constraint(equalToConstant: 20)
+            
+            
+        ])
+    }
+    
+    func constrainTVSectionImage(button: UIButton, sectionHeaderImage:UIImageView){
+        sectionHeaderImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([sectionHeaderImage.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 5), sectionHeaderImage.centerYAnchor.constraint(equalTo: button.centerYAnchor), sectionHeaderImage.heightAnchor.constraint(equalToConstant: 60), sectionHeaderImage.widthAnchor.constraint(equalToConstant: 60)])
     }
 }

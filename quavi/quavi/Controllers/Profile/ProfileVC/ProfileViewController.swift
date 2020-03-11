@@ -10,8 +10,16 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    //MARK: - Lazy Properties
     
+    
+    //MARK: - Regular Properties
+    
+    let toursTest = ["Historical LBGTQ Tour", "NYC Beer Tour", "NYC Speakeasies","Places of Worship"]
+    let poiTest = ["Empire State Building", "National Museum of Mathematics", "Rubin Museum of art"]
+    var sampleData = POI.pointsOfinterest
+    
+    
+    //MARK: - Lazy Properties
     lazy var profileInfoView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.init(red: 254/255, green: 233/255, blue: 154/255, alpha: 1)
@@ -90,37 +98,61 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
-    //MARK: tableView & segmentedControl
+    //MARK: - Tour views + tableviewss
+    lazy var faveTourTableView: UITableView = {
+        let tv = UITableView()
+        tv.register(FavePOICell.self, forCellReuseIdentifier: Enums.cellIdentifiers.favePOICell.rawValue)
+        tv.register(FaveToursCell.self, forCellReuseIdentifier: Enums.cellIdentifiers.faveTourCell.rawValue)
+        return tv
+    }()
+    
+    lazy var tourPOITVView: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
+    
+    lazy var faveTourPOITableView: UITableView = {
+        let tv = UITableView()
+        
+        return tv
+    }()
+    
+    //MARK: POI tableView & segmentedControl
     
     lazy var faveTypeSegmentControl: UISegmentedControl = {
         var sc = UISegmentedControl()
         sc.insertSegment(with: UIImage(systemName: "map"), at: 0, animated: true)
         sc.insertSegment(with: UIImage(systemName: "mappin"), at: 1, animated: true)
         sc.selectedSegmentIndex = 0
-        sc.addTarget(self, action: #selector(switchTableView), for: .valueChanged)
+        sc.addTarget(self, action: #selector(switchTableView(_:)), for: .valueChanged)
         sc.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
         return sc
         }()
     
-    lazy var favoritesTableView: UITableView = {
-        let tv = UITableView()
-        tv.register(FaveToursCell.self, forCellReuseIdentifier: "faveCell")
-        return tv
-        }()
+//    lazy var favoritePOITableView: UITableView = {
+//        let tv = UITableView()
+////        tv.register(FavePOICell.self, forCellReuseIdentifier: Enums.cellIdentifiers.favePOICell.rawValue)
+//        return tv
+//        }()
     
-    //MARK: - Regular Properties
     
-    let toursTest = ["Historical LBGTQ Tour", "NYC Beer Tour", "NYC Speakeasies","Places of Worship"]
-    let poiTest = ["Empire State Building", "National Museum of Mathematics", "Rubin Museum of art"]
+    
+    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        setUpSubviews()
-        setUpConstraints()
-        miscSetUp()
         setUpDelegates()
+        setUpSubviews()
+        
+        miscSetUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpConstraints()
     }
     
     //MARK: - Objc Functions
@@ -131,59 +163,27 @@ class ProfileViewController: UIViewController {
         self.present(editVC, animated: true, completion: nil)
     }
     
-    @objc func switchTableView() {
-        favoritesTableView.reloadData()
+    @objc func switchTableView(_ sender: UISegmentedControl) {
+        faveTourTableView.reloadData()
+            
     }
     
     //MARK: Regular Functions
     
     private func setUpDelegates() {
-        favoritesTableView.delegate = self
-        favoritesTableView.dataSource = self
+//        favoritePOITableView.delegate = self
+//        favoritePOITableView.dataSource = self
+        faveTourTableView.delegate = self
+        faveTourTableView.dataSource = self
+        
     }
     
-    private func setUpSubviews() {
-        self.view.addSubview(profileInfoView)
-        self.profileInfoView.addSubview(editProfileButton)
-        self.profileInfoView.addSubview(userImage)
-        self.profileInfoView.addSubview(fullname)
-        self.profileInfoView.addSubview(username)
-        self.profileInfoView.addSubview(email)
-        
-        self.view.addSubview(favoritedView)
-        self.favoritedView.addSubview(faveToursLabel)
-        self.favoritedView.addSubview(tourNumber)
-        self.favoritedView.addSubview(favePOILabel)
-        self.favoritedView.addSubview(POINumber)
-        
-        self.view.addSubview(faveTypeSegmentControl)
-
-        self.view.addSubview(favoritesTableView)
-    }
-    
-    private func setUpConstraints() {
-        constrainProfileInfoView()
-        constrainEditButton()
-        constrainUserImage()
-        constrainFullName()
-        constrainUsername()
-        constrainEmail()
-        
-        constrainfavoritedView()
-        constrainFaveToursLabel()
-        constrainTourNumberLabel()
-        constrainFavePOILabel()
-        constrainPOINumberLabel()
-        
-        constrainFaveTypeSegmentControl()
-        
-        constrainTableView()
-    }
     
     private func miscSetUp(){
         self.view.backgroundColor = .white
         self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
-        
+        self.faveTourTableView.alpha = 1
+//        self.favoritePOITableView.alpha = 0
     }
 }
