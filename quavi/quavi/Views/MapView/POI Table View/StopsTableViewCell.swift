@@ -26,7 +26,7 @@ class StopsTableViewCell: UITableViewCell {
         label.textColor = .black
         label.text = "Testing"
         label.numberOfLines = 0
-        label.backgroundColor = .white
+        label.backgroundColor = .clear
         return label
     }()
     
