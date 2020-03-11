@@ -60,9 +60,10 @@ extension MapViewController {
     func constrainSliderView() {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                                     sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                                     sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)
+        NSLayoutConstraint.activate([
+            sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            sliderView.heightAnchor.constraint(equalToConstant: sliderViewHeight)
         ])
         createSliderViewConstraints()
     }
@@ -71,7 +72,7 @@ extension MapViewController {
     func constrainPOITableView() {
         NSLayoutConstraint.activate([
             poiTableView.topAnchor.constraint(equalTo: chevronArrows.bottomAnchor, constant: 10),
-            poiTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            poiTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor)
         ])
@@ -80,9 +81,8 @@ extension MapViewController {
     func constrainChevronImage() {
         chevronArrows.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 10),
+            chevronArrows.topAnchor.constraint(equalTo: sliderView.topAnchor, constant: 5),
             chevronArrows.centerXAnchor.constraint(equalTo: sliderView.centerXAnchor),
-            chevronArrows.bottomAnchor.constraint(equalTo: poiTableView.topAnchor, constant: -10),
             chevronArrows.widthAnchor.constraint(equalToConstant: 40),
             chevronArrows.heightAnchor.constraint(equalToConstant: 30)
         ])
