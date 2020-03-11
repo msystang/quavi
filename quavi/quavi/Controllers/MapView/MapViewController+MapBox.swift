@@ -53,7 +53,7 @@ extension MapViewController: MGLMapViewDelegate {
                         self.selectedRoute = route
                         self.addMapAnnotations(from: route)
                         //TODO: Add polyline for whole route too
-                        self.generatePolylineSource(from: route, for: "full-route-source")
+//                        self.generatePolylineSource(from: route, for: "full-route-source")
                         self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
                     }
                 }

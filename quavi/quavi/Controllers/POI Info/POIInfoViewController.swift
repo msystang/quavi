@@ -38,9 +38,10 @@ class POIInfoViewController: UIViewController {
         }
     }
     
-    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
+    var modeOfTransit:MBDirectionsProfileIdentifier = .automobile{
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
+            switchTransitBackgroundButton()
         }
     }
     
@@ -245,9 +246,16 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK:-- Private func
+    
+    private func switchTransitBackgroundButton() {
+        carButton.backgroundColor = modeOfTransit == .automobile ? .blue : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? .blue : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? .blue : .white
+    }
+    
    private func presentModesOfTransportCurrentState() {
-        presentModesOfTransport.isEnabled = nextStopIndex == waypointCount - 1 ? false : true
-        presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount - 1 ? UIColor.lightGray.cgColor : UIColor.black.cgColor
+        presentModesOfTransport.isEnabled = nextStopIndex == waypointCount ? false : true
+        presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount ? UIColor.lightGray.cgColor : UIColor.black.cgColor
     }
     
     private func bringPresentModesOfTransportToFront() {
@@ -308,7 +316,7 @@ class POIInfoViewController: UIViewController {
     
     @objc func handleCancelButtonPressed(sender:UIButton) {
         self.cancelAlert(title: "Caution", message: "Are you sure you want to cancel the tour", actionOneTitle: "Yes") { (action) in
-            
+            self.nextStopIndex = 0
             let viewController =  self.presentingViewController?.presentingViewController
             viewController?.dismiss(animated: true, completion: nil)
         }
@@ -317,7 +325,7 @@ class POIInfoViewController: UIViewController {
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
           switch sender.tag{
           case 0:
-              modeOfTransit = .automobile
+            modeOfTransit = .automobile
           case 1:
               modeOfTransit = .cycling
           case 2:
