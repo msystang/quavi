@@ -117,12 +117,29 @@ class MapViewController: UIViewController {
     }
     
     //MARK: -PRIVATE FUNCTIONS
-    private func switchTransitBackgroundButton() {
-           carButton.backgroundColor = modeOfTransit == .automobile ? .blue : .white
-           walkButton.backgroundColor = modeOfTransit == .walking ? .blue : .white
-           bikeButton.backgroundColor = modeOfTransit == .cycling ? .blue : .white
-       }
+    private func switchTransitButtonState() {
+        changeTransitButtonBackgroundColor()
+        changeTransitButtonAlpha()
+        changeTransitButtonTintColor()
+    }
     
+   private func changeTransitButtonAlpha() {
+        carButton.alpha = modeOfTransit == .automobile ? 1 : 0.5
+        walkButton.alpha = modeOfTransit == .walking ? 1 : 0.5
+        bikeButton.alpha = modeOfTransit == .cycling ? 1 : 0.5
+    }
+    
+    private func changeTransitButtonTintColor() {
+        walkButton.tintColor = modeOfTransit == .walking ? .white : .black
+        carButton.tintColor = modeOfTransit == .automobile ? .white : .black
+        bikeButton.tintColor = modeOfTransit == .cycling ? .white : .black
+    }
+    
+    private func changeTransitButtonBackgroundColor() {
+        carButton.backgroundColor = modeOfTransit == .automobile ? .systemPurple : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
+    }
     //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
         switch sender.tag{
