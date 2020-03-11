@@ -71,7 +71,7 @@ class MapViewController: UIViewController {
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
-            switchTransitBackgroundButton()
+            switchTransitButtonState()
         }
     }
     
@@ -93,20 +93,17 @@ class MapViewController: UIViewController {
         view.backgroundColor = .yellow
         addSubviews()
         mapView.delegate = self
-        
         poiTableView.dataSource = self
         poiTableView.delegate = self
-        
         categoriesCollectionView.dataSource = self
         categoriesCollectionView.delegate = self
-        
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
-        
         loadGestures()
+        switchTransitButtonState()
         
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
