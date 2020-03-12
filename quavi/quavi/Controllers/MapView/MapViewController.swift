@@ -101,10 +101,8 @@ class MapViewController: UIViewController {
         addSliderViewConstraints()
         loadGestures()
         switchTransitButtonState()
-        
-        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        categoriesCollectionView.showsHorizontalScrollIndicator = false
+        addTargetToNavigationButton()
+        hideNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,13 +112,32 @@ class MapViewController: UIViewController {
     }
     
     //MARK: -PRIVATE FUNCTIONS
+    private func setDelegates() {
+        mapView.delegate = self
+        poiTableView.delegate = self
+        categoriesCollectionView.delegate = self
+    }
+    
+    private func setDataSources() {
+        poiTableView.dataSource = self
+        categoriesCollectionView.dataSource = self
+    }
+    
+    private func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func addTargetToNavigationButton() {
+        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+    }
+    
     private func switchTransitButtonState() {
         changeTransitButtonBackgroundColor()
         changeTransitButtonAlpha()
         changeTransitButtonTintColor()
     }
     
-   private func changeTransitButtonAlpha() {
+    private func changeTransitButtonAlpha() {
         carButton.alpha = modeOfTransit == .automobile ? 1 : 0.5
         walkButton.alpha = modeOfTransit == .walking ? 1 : 0.5
         bikeButton.alpha = modeOfTransit == .cycling ? 1 : 0.5
