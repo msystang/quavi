@@ -100,7 +100,6 @@ class MapViewController: UIViewController {
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
-        switchTransitButtonState()
         addTargetToNavigationButton()
         hideNavigationBar()
     }
@@ -109,6 +108,7 @@ class MapViewController: UIViewController {
         super.viewWillAppear(animated)
         addConstraints()
         getSelectedRoute(navigationType: modeOfTransit)
+        switchTransitButtonState()
     }
     
     //MARK: -PRIVATE FUNCTIONS
@@ -131,22 +131,15 @@ class MapViewController: UIViewController {
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
     }
     
-    private func switchTransitButtonState() {
+    func switchTransitButtonState() {
         changeTransitButtonBackgroundColor()
         changeTransitButtonAlpha()
-        changeTransitButtonTintColor()
     }
     
     private func changeTransitButtonAlpha() {
         carButton.alpha = modeOfTransit == .automobile ? 1 : 0.5
         walkButton.alpha = modeOfTransit == .walking ? 1 : 0.5
         bikeButton.alpha = modeOfTransit == .cycling ? 1 : 0.5
-    }
-    
-    private func changeTransitButtonTintColor() {
-        walkButton.tintColor = modeOfTransit == .walking ? .white : .black
-        carButton.tintColor = modeOfTransit == .automobile ? .white : .black
-        bikeButton.tintColor = modeOfTransit == .cycling ? .white : .black
     }
     
     private func changeTransitButtonBackgroundColor() {
