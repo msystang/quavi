@@ -92,11 +92,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
-        mapView.delegate = self
-        poiTableView.dataSource = self
-        poiTableView.delegate = self
-        categoriesCollectionView.dataSource = self
-        categoriesCollectionView.delegate = self
+        setDelegates()
+        setDataSources()
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
