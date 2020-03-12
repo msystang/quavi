@@ -29,7 +29,6 @@ extension POIInfoViewController: NavigationViewControllerDelegate{
     
         func navigationViewControllerDidDismiss(_ navigationViewController: NavigationViewController, byCanceling canceled: Bool) {
             print(nextStopIndex)
-            navigationViewController.dismiss(animated: true) {[weak self] in                //self?.isTourAtLastLeg()
-            }
+            navigationViewController.dismiss(animated: true, completion: nil)
         }
 }
