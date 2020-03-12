@@ -24,5 +24,6 @@ class CollectionView: UICollectionView {
     func configure() {
         register(TourCategoryCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
         backgroundColor = .clear
+        showsHorizontalScrollIndicator = false
     }
 }
