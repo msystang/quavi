@@ -24,5 +24,6 @@ class CollectionView: UICollectionView {
     func configure() {
         register(TourCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.tourCell.rawValue)
         backgroundColor = .clear
+        showsHorizontalScrollIndicator = false
     }
 }

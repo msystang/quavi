@@ -40,6 +40,7 @@ extension MapViewController: MGLMapViewDelegate {
     
     
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
+
 //        DispatchQueue.main.async {
 //            do {
 //                // TODO: refactor using tours from Firebase as opposed to dummyData
@@ -61,6 +62,7 @@ extension MapViewController: MGLMapViewDelegate {
 //                print("error in getSelectedRoute: \(error)")
 //            }
 //        }
+
     }
     
     func addMapAnnotations(from selectedRoute: Route) {

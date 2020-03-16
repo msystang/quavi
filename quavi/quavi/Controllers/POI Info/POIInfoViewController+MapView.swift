@@ -21,11 +21,11 @@ extension POIInfoViewController: MGLMapViewDelegate {
             return
         }
         waypointCount = selectedRoute.routeOptions.waypoints.count
-        guard nextStopIndex < waypointCount - 1 else { return }
+        guard nextStopIndex < waypointCount else { return }
         
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
         
-        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex+1]
+        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
 
         //TODO: Determine if we need to handle async for getting options from API
         let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)

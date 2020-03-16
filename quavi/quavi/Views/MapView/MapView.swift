@@ -26,7 +26,7 @@ class MapView: NavigationMapView {
     func configure() {
         styleURL = MGLStyle.darkStyleURL
         setUserTrackingMode(.followWithCourse, animated: true, completionHandler: nil)
-        tintColor = .yellow
+        tintColor = .black
         showsUserLocation = true
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }

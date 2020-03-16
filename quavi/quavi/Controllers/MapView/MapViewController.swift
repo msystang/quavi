@@ -29,6 +29,8 @@ class MapViewController: UIViewController {
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
     
+    var selectedSections = Set<Int>()
+    
     // MARK: - Lazy UI Variables
     lazy var mapView = MapView(frame: view.bounds)
     lazy var poiTableView = QuaviTableView()
@@ -51,17 +53,18 @@ class MapViewController: UIViewController {
     
     lazy var carButton:UIButton = {
         let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
-         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.backgroundColor = .blue
         return button
     }()
     
     lazy var walkButton:UIButton = {
         let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
-         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
-
+    
     // MARK: - Internal Properties
     // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = POI.pointsOfinterest
@@ -91,41 +94,32 @@ class MapViewController: UIViewController {
             }
         }
     }
-    
+     
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
+            switchTransitButtonState()
         }
     }
-    
-
-
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
-        mapView.delegate = self
-        
-        poiTableView.dataSource = self
-        poiTableView.delegate = self
-        
-        toursCollectionView.dataSource = self
-        toursCollectionView.delegate = self
+
+        setDelegates()
+        setDataSources()
 
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
-        
         loadGestures()
-        
-        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        toursCollectionView.showsHorizontalScrollIndicator = false
-        
+
+        addTargetToNavigationButton()
+        hideNavigationBar()
         
         print("toursForCategory: \(toursForCategory)")
     }
@@ -134,11 +128,45 @@ class MapViewController: UIViewController {
         super.viewWillAppear(animated)
         addConstraints()
         getSelectedRoute(navigationType: modeOfTransit)
+        switchTransitButtonState()
     }
     
     //MARK: -PRIVATE FUNCTIONS
+    private func setDelegates() {
+        mapView.delegate = self
+        poiTableView.delegate = self
+        toursCollectionView.delegate = self
+    }
     
-
+    private func setDataSources() {
+        poiTableView.dataSource = self
+        toursCollectionView.dataSource = self
+    }
+    
+    private func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func addTargetToNavigationButton() {
+        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+    }
+    
+    func switchTransitButtonState() {
+        changeTransitButtonBackgroundColor()
+        changeTransitButtonAlpha()
+    }
+    
+    private func changeTransitButtonAlpha() {
+        carButton.alpha = modeOfTransit == .automobile ? 1 : 0.5
+        walkButton.alpha = modeOfTransit == .walking ? 1 : 0.5
+        bikeButton.alpha = modeOfTransit == .cycling ? 1 : 0.5
+    }
+    
+    private func changeTransitButtonBackgroundColor() {
+        carButton.backgroundColor = modeOfTransit == .automobile ? .systemPurple : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
+    }
     //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
         switch sender.tag{
