@@ -85,7 +85,7 @@ class MapViewController: UIViewController {
     
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
-    
+    var expandSections = Set<Int>()
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
