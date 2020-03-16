@@ -18,10 +18,21 @@ class MapViewController: UIViewController {
     let sliderView = SliderView()
     var startNavigationButton = NavigationUIButton()
     
+    var halfScreenSliderViewConstraints: NSLayoutConstraint?
+    var closedSliderViewConstraints: NSLayoutConstraint?
+    var fullScreenSliderViewConstraints: NSLayoutConstraint?
+    
+    var mapViewTopConstraint: NSLayoutConstraint?
+    var mapViewBottomConstraintHalf: NSLayoutConstraint?
+    var mapViewBottomConstraintClosed: NSLayoutConstraint?
+    
+    var sliderViewState: Enums.sliderViewStates = .halfOpen
+    let sliderViewHeight: CGFloat = 900
+    
     // MARK: - Lazy UI Variables
     lazy var mapView = MapView(frame: view.bounds)
     lazy var poiTableView = QuaviTableView()
-    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
+    lazy var toursCollectionView = CollectionView(frame: view.bounds)
     
     // MARK: - Computed Lazy UI Variables
     lazy var chevronArrows: UIImageView = {
@@ -52,11 +63,10 @@ class MapViewController: UIViewController {
     
 
     // MARK: - Internal Properties
-    
     // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = POI.pointsOfinterest
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
-    let sampleCategoryData = ["Quavi History","LGBTQ History","Secret History","4th Dimension History"]
+
     var currentSelectedCategory: String = Enums.categories.History.rawValue {
         didSet { poiTableView.reloadData() }
     }
@@ -66,6 +76,13 @@ class MapViewController: UIViewController {
     var selectedRoute: Route?
     var currentLegRoute: Route?
 
+    var toursForCategory = [Tour]() {
+        didSet {
+            //Rename This to toursCollectionView
+            toursCollectionView.reloadData()
+        }
+    }
+    
     var nextStopIndex = 0 {
         didSet {
             guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
@@ -81,16 +98,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    var halfScreenSliderViewConstraints: NSLayoutConstraint?
-    var closedSliderViewConstraints: NSLayoutConstraint?
-    var fullScreenSliderViewConstraints: NSLayoutConstraint?
-    
-    var mapViewTopConstraint: NSLayoutConstraint?
-    var mapViewBottomConstraintHalf: NSLayoutConstraint?
-    var mapViewBottomConstraintClosed: NSLayoutConstraint?
-    
-    var sliderViewState: Enums.sliderViewStates = .halfOpen
-    let sliderViewHeight: CGFloat = 900
+
 
     
     // MARK: - Lifecycle Functions
@@ -103,8 +111,8 @@ class MapViewController: UIViewController {
         poiTableView.dataSource = self
         poiTableView.delegate = self
         
-        categoriesCollectionView.dataSource = self
-        categoriesCollectionView.delegate = self
+        toursCollectionView.dataSource = self
+        toursCollectionView.delegate = self
 
         setBikeButtonConstraints()
         setCarButtonConstraints()
@@ -116,7 +124,10 @@ class MapViewController: UIViewController {
         
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        categoriesCollectionView.showsHorizontalScrollIndicator = false
+        toursCollectionView.showsHorizontalScrollIndicator = false
+        
+        
+        print("toursForCategory: \(toursForCategory)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -11,7 +11,7 @@
 		1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3324037754002F19F7 /* ProfileViewController.swift */; };
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
 		1D91609023F0DACD009B1F97 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608F23F0DACD009B1F97 /* Enums.swift */; };
-		1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91609123F0DB3F009B1F97 /* CategoryData.swift */; };
+		1D91609223F0DB3F009B1F97 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91609123F0DB3F009B1F97 /* Category.swift */; };
 		1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */; };
 		1DCF1BDD240839D00052059A /* ProfileVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */; };
 		1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */; };
@@ -37,7 +37,6 @@
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
 		EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0E4C1C240D64C300C86775 /* AppUser.swift */; };
-		EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */; };
 		EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
@@ -46,6 +45,10 @@
 		EA97DA8C23FF2C1B00CB6B32 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8B23FF2C1B00CB6B32 /* String+Validation.swift */; };
 		EA97DA8E23FF2C4C00CB6B32 /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8D23FF2C4C00CB6B32 /* ViewController+Alert.swift */; };
 		EA97DA9123FF3B4000CB6B32 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */; };
+		EAB711122416DCA600DAA60E /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */; };
+		EAB711142416E74D00DAA60E /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711132416E74D00DAA60E /* FireStoreService.swift */; };
+		EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */; };
+		EAB7111824183B0600DAA60E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAB7111724183B0600DAA60E /* GoogleService-Info.plist */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -54,7 +57,6 @@
 		EAF7173323E381A900DD8703 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173223E381A900DD8703 /* Tour.swift */; };
 		EAF7173523E381B500DD8703 /* POI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173423E381B500DD8703 /* POI.swift */; };
 		EAF7173823E3823C00DD8703 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173723E3823C00DD8703 /* MapViewController.swift */; };
-		EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173B23E3857500DD8703 /* FirestoreService.swift */; };
 		EAF7173F23E385EB00DD8703 /* UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7173E23E385EB00DD8703 /* UIDesign.swift */; };
 		EAF7174423E3879200DD8703 /* NetworkingFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174323E3879200DD8703 /* NetworkingFile.swift */; };
 		EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174623E387D300DD8703 /* ProtocolFile.swift */; };
@@ -74,7 +76,7 @@
 		EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */; };
 		EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */; };
 		EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D095123F60491001D04CF /* MapViewController+TableView.swift */; };
-		ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */; };
+		ECA85AE424047E15005C33F7 /* TourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA85AE324047E15005C33F7 /* TourCollectionViewCell.swift */; };
 		ECE46CD72409A1A700A22454 /* ConfettiParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */; };
 		ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */; };
 		ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDA2409A28700A22454 /* GradientView.swift */; };
@@ -101,7 +103,7 @@
 		1D8B2F3324037754002F19F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
 		1D91608F23F0DACD009B1F97 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		1D91609123F0DB3F009B1F97 /* CategoryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		1D91609123F0DB3F009B1F97 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1DCF1BDC240839D00052059A /* ProfileVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC+Constraints.swift"; sourceTree = "<group>"; };
 		1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+Constraints.swift"; sourceTree = "<group>"; };
@@ -128,7 +130,6 @@
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
-		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -137,6 +138,10 @@
 		EA97DA8B23FF2C1B00CB6B32 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		EA97DA8D23FF2C4C00CB6B32 /* ViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alert.swift"; sourceTree = "<group>"; };
 		EA97DA9023FF3B4000CB6B32 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		EAB711132416E74D00DAA60E /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
+		EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		EAB7111724183B0600DAA60E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,7 +154,6 @@
 		EAF7173223E381A900DD8703 /* Tour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		EAF7173423E381B500DD8703 /* POI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI.swift; sourceTree = "<group>"; };
 		EAF7173723E3823C00DD8703 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		EAF7173B23E3857500DD8703 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		EAF7173E23E385EB00DD8703 /* UIDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDesign.swift; sourceTree = "<group>"; };
 		EAF7174323E3879200DD8703 /* NetworkingFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingFile.swift; sourceTree = "<group>"; };
 		EAF7174623E387D300DD8703 /* ProtocolFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFile.swift; sourceTree = "<group>"; };
@@ -169,7 +173,7 @@
 		EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUIButton.swift; sourceTree = "<group>"; };
 		EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		EC7D095123F60491001D04CF /* MapViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+TableView.swift"; sourceTree = "<group>"; };
-		ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECA85AE324047E15005C33F7 /* TourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticleView.swift; sourceTree = "<group>"; };
 		ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpFinalViewController.swift; sourceTree = "<group>"; };
 		ECE46CDA2409A28700A22454 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -328,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				EC7D094723F5CF1C001D04CF /* MapView.swift */,
-				EA17DC6C2405B43000715DD4 /* Category CollectionView */,
+				EA17DC6C2405B43000715DD4 /* TourCollectionView */,
 				EA17DC6D2405B45000715DD4 /* SliderView */,
 				EA17DC6B2405B42100715DD4 /* POI Table View */,
 				EA17DC6E2405B46F00715DD4 /* Navigation */,
@@ -353,13 +357,13 @@
 			path = "POI Table View";
 			sourceTree = "<group>";
 		};
-		EA17DC6C2405B43000715DD4 /* Category CollectionView */ = {
+		EA17DC6C2405B43000715DD4 /* TourCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */,
+				ECA85AE324047E15005C33F7 /* TourCollectionViewCell.swift */,
 				EC7D094923F5DCB4001D04CF /* CollectionView.swift */,
 			);
-			path = "Category CollectionView";
+			path = TourCollectionView;
 			sourceTree = "<group>";
 		};
 		EA17DC6D2405B45000715DD4 /* SliderView */ = {
@@ -443,6 +447,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
+				EAB7111724183B0600DAA60E /* GoogleService-Info.plist */,
 			);
 			path = quavi;
 			sourceTree = "<group>";
@@ -461,7 +466,7 @@
 			children = (
 				EAF7173223E381A900DD8703 /* Tour.swift */,
 				EAF7173423E381B500DD8703 /* POI.swift */,
-				1D91609123F0DB3F009B1F97 /* CategoryData.swift */,
+				1D91609123F0DB3F009B1F97 /* Category.swift */,
 				1D91608F23F0DACD009B1F97 /* Enums.swift */,
 				EA0E4C1C240D64C300C86775 /* AppUser.swift */,
 			);
@@ -499,8 +504,9 @@
 		EAF7173A23E3856900DD8703 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
-				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
+				EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */,
+				EAB711132416E74D00DAA60E /* FireStoreService.swift */,
+				EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -681,7 +687,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EA0E4C1F240D6FB000C86775 /* GoogleService-Info.plist in Resources */,
+				EAB7111824183B0600DAA60E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +809,7 @@
 				8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */,
 				ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */,
 				85021F072404247800F8AD7B /* QuaviOnboardingPage.swift in Sources */,
+				EAB711122416DCA600DAA60E /* FirebaseAuthService.swift in Sources */,
 				EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */,
 				8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */,
 				1D8B2F3224037645002F19F7 /* QuaviTabBarController.swift in Sources */,
@@ -817,10 +824,9 @@
 				EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */,
 				1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
-				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
+				1D91609223F0DB3F009B1F97 /* Category.swift in Sources */,
 				EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */,
 				ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */,
-				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				ECE46D08240EF65100A22454 /* POIPopUpGallery.swift in Sources */,
 				EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */,
 				85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */,
@@ -846,6 +852,7 @@
 				EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */,
 				85021F032404240700F8AD7B /* OnBoardingViewController.swift in Sources */,
 				85021F132405710100F8AD7B /* CategorySelectionViewController+Delegate.swift in Sources */,
+				EAB711142416E74D00DAA60E /* FireStoreService.swift in Sources */,
 				1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */,
 				EC7D094823F5CF1C001D04CF /* MapView.swift in Sources */,
 				EC7D094A23F5DCB4001D04CF /* CollectionView.swift in Sources */,
@@ -857,8 +864,9 @@
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
-				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
+				ECA85AE424047E15005C33F7 /* TourCollectionViewCell.swift in Sources */,
 				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,
+				EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */,
 				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
