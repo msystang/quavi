@@ -28,7 +28,14 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
         let mapVC = MapViewController()
+        
+        let toursForCaregory = allTours.filter { (tour) -> Bool in
+            tour.category == category
+        }
+        
+        mapVC.toursForCategory = toursForCaregory
         navigationController?.pushViewController(mapVC, animated: true)
     }
 }

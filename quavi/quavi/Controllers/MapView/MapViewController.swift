@@ -65,6 +65,13 @@ class MapViewController: UIViewController {
     var selectedRoute: Route?
     var currentLegRoute: Route?
 
+    var toursForCategory = [Tour]() {
+        didSet {
+            //Rename This to toursCollectionView
+            categoriesCollectionView.reloadData()
+        }
+    }
+    
     var nextStopIndex = 0 {
         didSet {
             guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
@@ -116,6 +123,9 @@ class MapViewController: UIViewController {
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         categoriesCollectionView.showsHorizontalScrollIndicator = false
+        
+        
+        print("toursForCategory: \(toursForCategory)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

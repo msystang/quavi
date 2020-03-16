@@ -25,9 +25,9 @@ class CategorySelectionViewController: UIViewController {
 //    let categories = Category.allCases
     var allTours = [Tour]() {
         didSet {
-            categories = allTours.compactMap { (tour) -> String? in
+            categories = Array(Set(allTours.compactMap { (tour) -> String? in
                 tour.category
-            }
+            }))
         }
     }
     
@@ -53,7 +53,7 @@ class CategorySelectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadAllTours()
-        print(allTours.count)
+        
     }
     //MARK: -- Private Methods
     private func loadAllTours() {
@@ -65,6 +65,7 @@ class CategorySelectionViewController: UIViewController {
                     print(error)
                 case .success(let allTours):
                     self.allTours = allTours
+                    print("Number of tours loaded: \(allTours.count)")
                 }
             }
         }
