@@ -76,7 +76,7 @@
 		EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */; };
 		EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */; };
 		EC7D095223F60491001D04CF /* MapViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D095123F60491001D04CF /* MapViewController+TableView.swift */; };
-		ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */; };
+		ECA85AE424047E15005C33F7 /* TourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA85AE324047E15005C33F7 /* TourCollectionViewCell.swift */; };
 		ECE46CD72409A1A700A22454 /* ConfettiParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */; };
 		ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */; };
 		ECE46CDB2409A28700A22454 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE46CDA2409A28700A22454 /* GradientView.swift */; };
@@ -173,7 +173,7 @@
 		EC7D094D23F5DFC5001D04CF /* NavigationUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUIButton.swift; sourceTree = "<group>"; };
 		EC7D094F23F5E3C7001D04CF /* MapViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		EC7D095123F60491001D04CF /* MapViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+TableView.swift"; sourceTree = "<group>"; };
-		ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECA85AE324047E15005C33F7 /* TourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECE46CD62409A1A700A22454 /* ConfettiParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticleView.swift; sourceTree = "<group>"; };
 		ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpFinalViewController.swift; sourceTree = "<group>"; };
 		ECE46CDA2409A28700A22454 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				EC7D094723F5CF1C001D04CF /* MapView.swift */,
-				EA17DC6C2405B43000715DD4 /* Category CollectionView */,
+				EA17DC6C2405B43000715DD4 /* TourCollectionView */,
 				EA17DC6D2405B45000715DD4 /* SliderView */,
 				EA17DC6B2405B42100715DD4 /* POI Table View */,
 				EA17DC6E2405B46F00715DD4 /* Navigation */,
@@ -357,13 +357,13 @@
 			path = "POI Table View";
 			sourceTree = "<group>";
 		};
-		EA17DC6C2405B43000715DD4 /* Category CollectionView */ = {
+		EA17DC6C2405B43000715DD4 /* TourCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				ECA85AE324047E15005C33F7 /* TourCategoryCollectionViewCell.swift */,
+				ECA85AE324047E15005C33F7 /* TourCollectionViewCell.swift */,
 				EC7D094923F5DCB4001D04CF /* CollectionView.swift */,
 			);
-			path = "Category CollectionView";
+			path = TourCollectionView;
 			sourceTree = "<group>";
 		};
 		EA17DC6D2405B45000715DD4 /* SliderView */ = {
@@ -864,7 +864,7 @@
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
-				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
+				ECA85AE424047E15005C33F7 /* TourCollectionViewCell.swift in Sources */,
 				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,
 				EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */,
 				1DCF1BDB2405CDA70052059A /* EditProfileViewController.swift in Sources */,

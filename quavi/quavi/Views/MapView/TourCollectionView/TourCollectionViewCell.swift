@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TourCategoryCollectionViewCell: UICollectionViewCell {
+class TourCollectionViewCell: UICollectionViewCell {
     //MARK: -- Object Properties
     lazy var categoryLabel: UILabel = {
         let label = UILabel()
@@ -44,7 +44,7 @@ class TourCategoryCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func setUpCells(cell: TourCategoryCollectionViewCell, data: String) {
+    func setUpCells(cell: TourCollectionViewCell, data: String) {
         self.categoryLabel.text = data
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = cell.frame.height/2

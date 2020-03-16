@@ -18,10 +18,21 @@ class MapViewController: UIViewController {
     let sliderView = SliderView()
     var startNavigationButton = NavigationUIButton()
     
+    var halfScreenSliderViewConstraints: NSLayoutConstraint?
+    var closedSliderViewConstraints: NSLayoutConstraint?
+    var fullScreenSliderViewConstraints: NSLayoutConstraint?
+    
+    var mapViewTopConstraint: NSLayoutConstraint?
+    var mapViewBottomConstraintHalf: NSLayoutConstraint?
+    var mapViewBottomConstraintClosed: NSLayoutConstraint?
+    
+    var sliderViewState: Enums.sliderViewStates = .halfOpen
+    let sliderViewHeight: CGFloat = 900
+    
     // MARK: - Lazy UI Variables
     lazy var mapView = MapView(frame: view.bounds)
     lazy var poiTableView = QuaviTableView()
-    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
+    lazy var toursCollectionView = CollectionView(frame: view.bounds)
     
     // MARK: - Computed Lazy UI Variables
     lazy var chevronArrows: UIImageView = {
@@ -68,7 +79,7 @@ class MapViewController: UIViewController {
     var toursForCategory = [Tour]() {
         didSet {
             //Rename This to toursCollectionView
-            categoriesCollectionView.reloadData()
+            toursCollectionView.reloadData()
         }
     }
     
@@ -87,16 +98,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    var halfScreenSliderViewConstraints: NSLayoutConstraint?
-    var closedSliderViewConstraints: NSLayoutConstraint?
-    var fullScreenSliderViewConstraints: NSLayoutConstraint?
-    
-    var mapViewTopConstraint: NSLayoutConstraint?
-    var mapViewBottomConstraintHalf: NSLayoutConstraint?
-    var mapViewBottomConstraintClosed: NSLayoutConstraint?
-    
-    var sliderViewState: Enums.sliderViewStates = .halfOpen
-    let sliderViewHeight: CGFloat = 900
+
 
     
     // MARK: - Lifecycle Functions
@@ -109,8 +111,8 @@ class MapViewController: UIViewController {
         poiTableView.dataSource = self
         poiTableView.delegate = self
         
-        categoriesCollectionView.dataSource = self
-        categoriesCollectionView.delegate = self
+        toursCollectionView.dataSource = self
+        toursCollectionView.delegate = self
 
         setBikeButtonConstraints()
         setCarButtonConstraints()
@@ -122,7 +124,7 @@ class MapViewController: UIViewController {
         
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        categoriesCollectionView.showsHorizontalScrollIndicator = false
+        toursCollectionView.showsHorizontalScrollIndicator = false
         
         
         print("toursForCategory: \(toursForCategory)")

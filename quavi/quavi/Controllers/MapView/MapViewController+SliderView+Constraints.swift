@@ -12,7 +12,7 @@ extension MapViewController {
     func addSliderViewSubViews() {
         view.addSubview(sliderView)
         sliderView.addSubview(chevronArrows)
-        view.addSubview(categoriesCollectionView)
+        view.addSubview(toursCollectionView)
         sliderView.addSubview(poiTableView)
     }
     
@@ -89,12 +89,12 @@ extension MapViewController {
     }
     
     func constrainCategoriesCollectionView() {
-        categoriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        toursCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            categoriesCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            categoriesCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            categoriesCollectionView.bottomAnchor.constraint(equalTo: sliderView.topAnchor, constant: -15),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 40)
+            toursCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
+            toursCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
+            toursCollectionView.bottomAnchor.constraint(equalTo: sliderView.topAnchor, constant: -15),
+            toursCollectionView.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
