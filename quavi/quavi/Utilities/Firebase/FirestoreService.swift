@@ -155,26 +155,27 @@ class FirestoreService {
         }
     }
     
-    func getPOI(from documentReferences: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
-//        
-//        let fb = db.collection(FireStoreCollections.POI.rawValue).whereField("id", isEqualTo: documentReference.documentID)
-//        fb.getDocument
-//        
-//        db.collection(FireStoreCollections.POI.rawValue).whereField("id", isEqualTo: documentReference.documentID).getDocuments { (snapshot, error) in
-//            
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                let poi = snapshot?.documents.compactMap({ (snapshot) -> POI? in
-//                    let poiID = snapshot.documentID
-//                    let poi = POI(from: snapshot.data(), id: poiID)
-//                    return poi
-//                })
-//                completion(.success(pois ?? []))
-//            }
-//        }
-//        
+    // nested objects in Firebase comes back as an Array of document references, figure out how to use the pointer to get the document ID of the POI to cast as dictionary into POI. DocumentReference.documentID
+    // Make network call to get POI in firebase then turn into POI
+    // Make private func to get POI from Document References
+    func getPOI(from documentReference: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
+        let id = documentReference.documentID
+        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (document, error) in
+            
+            if let document = document, document.exists {
+                if let poiDict = document.data() {
+                    if let poi = POI(from: poiDict, id: id) {
+                        completion(.success(poi))
+                    } else if let error = error {
+                        completion(.failure(error))
+                    }
+                } else if let error = error {
+                    completion(.failure(error))
+                }
+            } else if let error = error {
+                completion(.failure(error))
+            }
+        }
     }
-    
-    private init () {}
+        private init () {}
 }
