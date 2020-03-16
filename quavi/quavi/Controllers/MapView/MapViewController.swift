@@ -119,13 +119,13 @@ class MapViewController: UIViewController {
         loadGestures()
 
         addTargetToNavigationButton()
-        hideNavigationBar()
         
         print("toursForCategory: \(toursForCategory)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideNavigationBar()
         addConstraints()
         getSelectedRoute(navigationType: modeOfTransit)
         switchTransitButtonState()
