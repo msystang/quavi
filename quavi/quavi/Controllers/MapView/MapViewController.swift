@@ -14,13 +14,16 @@ import MapboxDirections
 
 class MapViewController: UIViewController {
     
-    // MARK: - VIEWS
-    lazy var mapView = MapView(frame: view.bounds)
+    // MARK: - UI Properties
     let sliderView = SliderView()
-    lazy var poiTableView = QuaviTableView()
-    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
     var startNavigationButton = NavigationUIButton()
     
+    // MARK: - Lazy UI Variables
+    lazy var mapView = MapView(frame: view.bounds)
+    lazy var poiTableView = QuaviTableView()
+    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
+    
+    // MARK: - Computed Lazy UI Variables
     lazy var chevronArrows: UIImageView = {
         var image = UIImageView()
         image.image = UIImage(systemName: "minus")
@@ -37,40 +40,41 @@ class MapViewController: UIViewController {
     
     lazy var carButton:UIButton = {
         let button = UIButton(image: UIImage(named: "car")!, borderWidth: 2, tag: 0)
-         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.backgroundColor = .blue
         return button
     }()
     
     lazy var walkButton:UIButton = {
         let button = UIButton(image: UIImage(named: "walk")!, borderWidth: 2, tag: 2)
-         button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleSelectingModeOfTransportation(sender:)), for: .touchUpInside)
         return button
     }()
     
-
-    // MARK: -PROPERTIES
-    var sampleData = POI.pointsOfinterest
-    var selectedRoute: Route?
-    #warning("Add this logic to the POI PopUp VC to increase (do not apply to when you are at last stop)")
-    var currentLegRoute: Route?
-    var nextStopIndex = 0 {
-        didSet {
-            guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
-            if nextStopIndex > waypointCount {
-                nextStopIndex = 0
-            }
-        }
-    }
-    var modeOfTransit = MBDirectionsProfileIdentifier.automobile{
-        didSet{
-            getSelectedRoute(navigationType: modeOfTransit)
-        }
-    }
     
+    // MARK: - Internal Properties
+    
+    // TODO: Refactor sampleData to tours when pulling from firebase
+    var sampleData = POI.pointsOfinterest
     // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
     let sampleCategoryData = ["Quavi History","LGBTQ History","Secret History","4th Dimension History"]
+    var currentSelectedCategory: String = Enums.categories.History.rawValue {
+        didSet { poiTableView.reloadData() }
+    }
+    //TODO: For Testing... Refactor with initalLocation from user!
+    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
     
-    //TODO: Rename constraints to be more specific and indicate state of slider
+    var selectedRoute: Route?
+    var currentLegRoute: Route?
+    
+    var nextStopIndex = 0     
+    var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+            switchTransitButtonState()
+        }
+    }
+    
     var halfScreenSliderViewConstraints: NSLayoutConstraint?
     var closedSliderViewConstraints: NSLayoutConstraint?
     var fullScreenSliderViewConstraints: NSLayoutConstraint?
@@ -82,59 +86,68 @@ class MapViewController: UIViewController {
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
     
-    var currentSelectedCategory: String = Enums.categories.History.rawValue {
-        didSet { poiTableView.reloadData() }
-    }
-    
-    //TODO: For Testing... Refactor with initalLocation from user!
-    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
-        mapView.delegate = self
-        
-        poiTableView.dataSource = self
-        poiTableView.delegate = self
-        
-        categoriesCollectionView.dataSource = self
-        categoriesCollectionView.delegate = self
-
+        setDelegates()
+        setDataSources()
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
-        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        categoriesCollectionView.showsHorizontalScrollIndicator = false
+        addTargetToNavigationButton()
+        hideNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addConstraints()
         getSelectedRoute(navigationType: modeOfTransit)
+        switchTransitButtonState()
     }
     
     //MARK: -PRIVATE FUNCTIONS
-    
-
-    //TODO: Indicate what button by actual name of button. i.e. if name of button is tvCellSectionButton, name it tvCellSectionButtonPressed()
-    //MARK: -OBJ-C FUNCTIONS
-    @objc func buttonPressed(sender: UIButton) {
-        print(sender.tag)
-        if sampleData[sender.tag].isCellExpanded {
-            sampleData[sender.tag].isCellExpanded = false
-        } else {
-            sampleData[sender.tag].isCellExpanded = true
-        }
-        let incides: IndexSet = [sender.tag]
-        poiTableView.reloadSections(incides, with: .fade)
+    private func setDelegates() {
+        mapView.delegate = self
+        poiTableView.delegate = self
+        categoriesCollectionView.delegate = self
     }
     
+    private func setDataSources() {
+        poiTableView.dataSource = self
+        categoriesCollectionView.dataSource = self
+    }
+    
+    private func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func addTargetToNavigationButton() {
+        self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
+    }
+    
+    func switchTransitButtonState() {
+        changeTransitButtonBackgroundColor()
+        changeTransitButtonAlpha()
+    }
+    
+    private func changeTransitButtonAlpha() {
+        carButton.alpha = modeOfTransit == .automobile ? 1 : 0.5
+        walkButton.alpha = modeOfTransit == .walking ? 1 : 0.5
+        bikeButton.alpha = modeOfTransit == .cycling ? 1 : 0.5
+    }
+    
+    private func changeTransitButtonBackgroundColor() {
+        carButton.backgroundColor = modeOfTransit == .automobile ? .systemPurple : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
+    }
+    //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
         switch sender.tag{
         case 0:

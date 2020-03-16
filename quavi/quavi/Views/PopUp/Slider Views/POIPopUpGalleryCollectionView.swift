@@ -1,18 +1,18 @@
 //
-//  CollectionView.swift
+//  POIPopUpGalleryCollectionView.swift
 //  quavi
 //
-//  Created by Alex 6.1 on 2/13/20.
+//  Created by Alex 6.1 on 3/3/20.
 //  Copyright © 2020 Sunni Tang. All rights reserved.
 //
 
 import UIKit
 
-class CollectionView: UICollectionView {
-
+class POIPopUpGalleryCollectionView: UICollectionView {
+    
     override init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: layout)
         configure()
     }
@@ -22,8 +22,7 @@ class CollectionView: UICollectionView {
     }
     
     func configure() {
-        register(TourCategoryCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
-        backgroundColor = .clear
-        showsHorizontalScrollIndicator = false
+        register(POIPopUpGalleryCollectionViewCell.self, forCellWithReuseIdentifier: POIPopUpGalleryCollectionViewCell.reuseID)
     }
+    
 }
