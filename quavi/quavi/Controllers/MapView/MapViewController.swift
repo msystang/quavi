@@ -151,7 +151,7 @@ class MapViewController: UIViewController {
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
     }
     
-    func switchTransitButtonState() {
+    private func switchTransitButtonState() {
         changeTransitButtonBackgroundColor()
         changeTransitButtonAlpha()
     }
@@ -167,6 +167,7 @@ class MapViewController: UIViewController {
         walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
         bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
     }
+    
     //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
         switch sender.tag{
