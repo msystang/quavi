@@ -68,26 +68,28 @@ class MapViewController: UIViewController {
     // MARK: - Internal Properties
     // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = POI.pointsOfinterest
-
+    
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
     
     var selectedRoute: Route?
     var currentLegRoute: Route?
-
+    
     var toursForCategory = [Tour]() {
         didSet {
-            //Rename This to toursCollectionView
             toursCollectionView.reloadData()
         }
     }
     
-    var selectedTour: Tour? {
+    var selectedTour: Tour?
+    
+    var poiForTour = [POI]() {
         didSet {
-            poiTableView.reloadData()
+            self.poiTableView.reloadData()
             print("poiTV reloaded. Selected tour: \(selectedTour?.name)")
         }
     }
+    
     
     var nextStopIndex = 0 {
         didSet {
@@ -97,7 +99,7 @@ class MapViewController: UIViewController {
             }
         }
     }
-     
+    
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
