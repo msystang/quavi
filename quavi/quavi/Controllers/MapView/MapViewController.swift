@@ -110,20 +110,18 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
-
+        
         setDelegates()
         setDataSources()
-
+        
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
-
-        addTargetToNavigationButton()
         
-        print("toursForCategory: \(toursForCategory)")
+        addTargetToNavigationButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,6 +130,23 @@ class MapViewController: UIViewController {
         addConstraints()
         getSelectedRoute(navigationType: modeOfTransit)
         switchTransitButtonState()
+    }
+    
+    //MARK: - Internal Methods
+    func loadPOI(for tour: Tour) {
+        //TODO: Refactor for all POI, just testing with .first
+        //TODO: Add to model as static property instead?? 
+        DispatchQueue.main.async {
+            FirestoreService.manager.getPOI(from: tour.stops.first!) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let poi):
+                    self.poiForTour = [poi]
+                    print(poi)
+                }
+            }
+        }
     }
     
     //MARK: -PRIVATE FUNCTIONS
