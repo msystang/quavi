@@ -31,8 +31,8 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        handleCollectionViewCellPressed(item: indexPath.item)
-        
+        let selectedTour = toursForCategory[indexPath.row]
+        self.selectedTour = selectedTour
     }
     
 }
