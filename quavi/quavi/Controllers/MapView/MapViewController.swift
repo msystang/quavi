@@ -68,11 +68,7 @@ class MapViewController: UIViewController {
     // MARK: - Internal Properties
     // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = POI.pointsOfinterest
-    // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
 
-    var currentSelectedCategory: String = Enums.categories.History.rawValue {
-        didSet { poiTableView.reloadData() }
-    }
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
     
@@ -83,6 +79,13 @@ class MapViewController: UIViewController {
         didSet {
             //Rename This to toursCollectionView
             toursCollectionView.reloadData()
+        }
+    }
+    
+    var selectedTour: Tour? {
+        didSet {
+            poiTableView.reloadData()
+            print("poiTV reloaded. Selected tour: \(selectedTour?.name)")
         }
     }
     
