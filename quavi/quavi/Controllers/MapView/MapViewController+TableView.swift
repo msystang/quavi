@@ -12,50 +12,53 @@ import  UIKit
 extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         if selectedSections.contains(section) {
             return 1
         }else {
             return 0
         }
-
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sampleData.count
+        guard let selectedTour = selectedTour else { return 0 }
+        // refactor later with actual POI array instead of DocumentReference array?
+        return selectedTour.stops.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
-            
-            //TO-DO: SEPERATE INTO IT'S OWN FILE
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
-            button.setTitle(sampleData[section].name, for: .normal)
-            button.backgroundColor = .systemPurple
-            button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
-            button.setTitleColor(.black, for: .normal)
-            button.tag = section
-            view.addSubview(button)
-            
-            let sectionImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-            sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
-            sectionImage.layer.masksToBounds = true
-
-            //TODO: Update image from FB data, not sampleData
-//            sectionImage.image = sampleData[section].popoverImage
-//            button.addSubview(sectionImage)
-
-            
-            let sectionHeaderArrows = UIImageView(image: UIImage(systemName: "chevron.compact.down"))
-            sectionHeaderArrows.tintColor = .black
-            button.addSubview(sectionHeaderArrows)
-            
-            constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
-            constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage)
-            
-            view.backgroundColor = .clear
-            return view
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+        
+        //TO-DO: SEPERATE INTO IT'S OWN FILE
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+        //TODO - Set title using actual Data from FB not sampleData
+//        button.setTitle(sampleData[section].name, for: .normal)
+        button.backgroundColor = .systemPurple
+        button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
+        button.setTitleColor(.black, for: .normal)
+        button.tag = section
+        view.addSubview(button)
+        
+        let sectionImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
+        sectionImage.layer.masksToBounds = true
+        
+        //TODO: Update image from FB data, not sampleData
+        //            sectionImage.image = sampleData[section].popoverImage
+        //            button.addSubview(sectionImage)
+        
+        
+        let sectionHeaderArrows = UIImageView(image: UIImage(systemName: "chevron.compact.down"))
+        sectionHeaderArrows.tintColor = .black
+        button.addSubview(sectionHeaderArrows)
+        
+        constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
+        constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage)
+        
+        view.backgroundColor = .clear
+        return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -74,7 +77,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.alpha = 1
         })
         cell.backgroundColor = .clear
-//        cell.stopImage.image = stop.tableViewImage
+        //        cell.stopImage.image = stop.tableViewImage
         cell.stopLabel.text = sampleData[indexPath.section].shortDesc
         return cell
     }
