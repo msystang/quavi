@@ -27,7 +27,6 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if currentSelectedCategory == Enums.categories.History.rawValue {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
             
             //TO-DO: SEPERATE INTO IT'S OWN FILE
@@ -57,9 +56,6 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             
             view.backgroundColor = .clear
             return view
-        }
-        
-        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
