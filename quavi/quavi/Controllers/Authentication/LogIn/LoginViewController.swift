@@ -123,6 +123,7 @@ class LoginViewController: UIViewController {
             
         case .failure(let error):
             showAlert(title: "Error", message: "Could not log in: \(error.localizedDescription)")
+            loginButton.isEnabled = true
         }
     }
     
