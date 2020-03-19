@@ -94,7 +94,7 @@ extension MapViewController {
             categoriesCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             categoriesCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
             categoriesCollectionView.bottomAnchor.constraint(equalTo: sliderView.topAnchor, constant: -15),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 40)
+            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
