@@ -136,7 +136,6 @@ class MapViewController: UIViewController {
     
     //MARK: - Internal Methods
     func loadPOI(for tour: Tour) {
-        //TODO: Refactor for all POI, just testing with .first
         //TODO: Add to model as static property instead??
         DispatchQueue.main.async {
             print(tour.stops.count)

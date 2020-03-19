@@ -31,8 +31,6 @@ struct POI {
     }
     
     // MARK: - Static Variables
-    // TODO: remove after fully transferred over getting data from Firestore
-    static let pointsOfinterest:[POI] = []
 //    static let pointsOfinterest:[POI] = [
 //        POI(
 //            name: "Empire State Building",
