@@ -21,9 +21,10 @@ extension MapViewController: MGLMapViewDelegate {
         guard nextStopIndex < selectedRoute.routeOptions.waypoints.count - 1 else { return }
         
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
-        let nextWaypoint = selectedRoute.routeOptions.waypoints[nextStopIndex]
+        var allWaypoint = selectedRoute.routeOptions.waypoints
+        allWaypoint.insert(initialWaypoint, at: 0)
         
-        let options = NavigationRouteOptions(waypoints: [initialWaypoint, nextWaypoint], profileIdentifier: navigationType)
+        let options = NavigationRouteOptions(waypoints:  allWaypoint, profileIdentifier: navigationType)
         
         DispatchQueue.main.async {
             self.generateRoute(from: options) { (result) in
