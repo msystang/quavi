@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -21,7 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = OnBoardingViewController()
+        
+        if Auth.auth().currentUser != nil {
+            window?.rootViewController = LoginViewController()
+        } else {
+            window?.rootViewController = OnBoardingViewController()
+        }
+       
         window?.makeKeyAndVisible()
         
     }
