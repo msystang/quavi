@@ -19,6 +19,19 @@ class StopsTableViewCell: UITableViewCell {
         return view
     }()
     
+    lazy var favoritedPOIImage: UIImageView = {
+        var view = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        view.tintColor = .white
+        view.backgroundColor = .systemPurple
+        view.image = UIImage(named: "duck_icon_hallow")
+        view.layer.cornerRadius = view.frame.height / 2
+        view.layer.masksToBounds = true
+        view.layer.borderColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
+        view.layer.borderWidth = 2
+        view.layoutMargins = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+        return view
+    }()
+    
     lazy var stopLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -34,7 +47,9 @@ class StopsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         constrainStopImage()
+        constrainFavoritePOIImage()
         constrainStopLabel()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +66,17 @@ class StopsTableViewCell: UITableViewCell {
             stopImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             stopImage.widthAnchor.constraint(equalToConstant: 100),
             stopImage.heightAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
+    private func constrainFavoritePOIImage() {
+        self.addSubview(favoritedPOIImage)
+        favoritedPOIImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            favoritedPOIImage.bottomAnchor.constraint(equalTo: stopImage.bottomAnchor, constant: 12.5),
+            favoritedPOIImage.centerXAnchor.constraint(equalTo: stopImage.centerXAnchor),
+            favoritedPOIImage.widthAnchor.constraint(equalToConstant: 35),
+            favoritedPOIImage.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
     
