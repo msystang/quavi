@@ -85,7 +85,7 @@ class MapViewController: UIViewController {
     
     var poiForTour = [POI]() {
         didSet {
-            self.poiTableView.reloadData()
+//            self.poiTableView.reloadData()
             print("poiTV reloaded. Selected tour: \(selectedTour?.name)")
         }
     }
@@ -137,15 +137,18 @@ class MapViewController: UIViewController {
     //MARK: - Internal Methods
     func loadPOI(for tour: Tour) {
         //TODO: Refactor for all POI, just testing with .first
-        //TODO: Add to model as static property instead?? 
+        //TODO: Add to model as static property instead??
         DispatchQueue.main.async {
-            FirestoreService.manager.getPOI(from: tour.stops.first!) { (result) in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let poi):
-                    self.poiForTour = [poi]
-                    print(poi)
+            print(tour.stops.count)
+            tour.stops.forEach() {
+                FirestoreService.manager.getPOI(from: $0) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let poi):
+                        self.poiForTour.append(poi)
+                        print(poi)
+                    }
                 }
             }
         }
