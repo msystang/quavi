@@ -86,6 +86,7 @@ class MapViewController: UIViewController {
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
     var selectedSections = Set<Int>()
+    var selectedSectionArray = [Bool]()
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -102,6 +103,11 @@ class MapViewController: UIViewController {
         loadGestures()
         addTargetToNavigationButton()
         hideNavigationBar()
+        
+        for _ in sampleData{
+            selectedSectionArray.append(false)
+        }
+       // selectedSectionArray[0] = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
