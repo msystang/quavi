@@ -22,7 +22,7 @@ class CollectionView: UICollectionView {
     }
     
     func configure() {
-        register(TourCategoryCollectionViewCell.self, forCellWithReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue)
+        register(TourCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.tourCell.rawValue)
         backgroundColor = .clear
         showsHorizontalScrollIndicator = false
     }
