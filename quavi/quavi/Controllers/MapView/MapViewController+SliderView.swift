@@ -170,9 +170,9 @@ extension MapViewController {
 
         selectedSectionArray[section] = true
 
-            for (i,v) in selectedSectionArray.enumerated() where i != section{
-                if v == true{
-                  selectedSectionArray[i] = false
+            for (index,bool) in selectedSectionArray.enumerated() where index != section{
+                if bool == true{
+                  selectedSectionArray[index] = false
                 }
             }
         
