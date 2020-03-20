@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
@@ -88,9 +89,48 @@ class SignUpViewController: UIViewController {
         }
         
         //TODO: handle creating new user using FirebaseAuth
+        createUser(email: email, password: password)
+
         print("Try sign up success")
     }
 
     //MARK: - Private Methods
+    private func createUser(email: String, password: String) {
+        FirebaseAuthService.manager.createNewUser(email: email, password: password) { [weak self] (result) in
+            DispatchQueue.main.async { [weak self] in
+                switch result {
+                case .failure(let error):
+                    self?.showAlert(title: "Error", message: "Couldn't Create User: \(error.localizedDescription)")
+                case .success(let user):
+                    self?.saveUsers(with: user)
+                }
+            }
+        }
+    }
     
+    func saveUsers(with user: User) {
+        FirestoreService.manager.createAppUser(user: AppUser(from: user)) { [weak self] newResult in
+            switch newResult {
+            case .failure(let error):
+                self?.showAlert(title: "Error", message: "Couldn't Create New App User: \(error.localizedDescription)")
+            case .success:
+                if let window = self?.uiWindow() {
+                    UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                        window.rootViewController = QuaviTabBarController()
+                    }, completion: nil)
+                }
+            }
+        }
+    }
+    
+    private func uiWindow() -> UIWindow {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
+            else {
+                showAlert(title: "Error", message: "Could not switch view controllers")
+                return UIWindow()
+        }
+        return window
+    }
+
 }
