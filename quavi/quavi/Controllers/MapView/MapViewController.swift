@@ -85,7 +85,6 @@ class MapViewController: UIViewController {
     
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
-    var selectedSections = Set<Int>()
     var selectedSectionArray = [Bool]()
     
     // MARK: - Lifecycle Functions

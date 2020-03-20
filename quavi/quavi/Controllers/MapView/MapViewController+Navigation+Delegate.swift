@@ -25,7 +25,7 @@ extension MapViewController: NavigationViewControllerDelegate{
         }else{
         popupViewController.isAtLastLeg = false
         }
-        //popupViewController.delegate = self
+        
         popupViewController.modalPresentationStyle = .fullScreen
         navigationViewController.navigationService.stop()
         navigationViewController.present(popupViewController, animated: true)

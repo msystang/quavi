@@ -175,8 +175,7 @@ extension MapViewController {
                   selectedSectionArray[i] = false
                 }
             }
-
-
+        
 //        let incides: IndexSet = [section]
 //        poiTableView.reloadSections(incides, with: .fade)
    poiTableView.reloadData()
