@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D26F47F2424208600A2CC76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D26F47E2424208600A2CC76 /* GoogleService-Info.plist */; };
 		1D8B2F3224037645002F19F7 /* QuaviTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3124037645002F19F7 /* QuaviTabBarController.swift */; };
 		1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3324037754002F19F7 /* ProfileViewController.swift */; };
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
@@ -48,7 +49,6 @@
 		EAB711122416DCA600DAA60E /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */; };
 		EAB711142416E74D00DAA60E /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711132416E74D00DAA60E /* FireStoreService.swift */; };
 		EAB711162417DA6000DAA60E /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */; };
-		EAB7111824183B0600DAA60E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAB7111724183B0600DAA60E /* GoogleService-Info.plist */; };
 		EAF7171023E3804200DD8703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7170F23E3804200DD8703 /* AppDelegate.swift */; };
 		EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7171123E3804200DD8703 /* SceneDelegate.swift */; };
 		EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF7171823E3804500DD8703 /* Assets.xcassets */; };
@@ -99,6 +99,7 @@
 /* Begin PBXFileReference section */
 		1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quaviTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.debug.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.debug.xcconfig"; sourceTree = "<group>"; };
+		1D26F47E2424208600A2CC76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1D8B2F3124037645002F19F7 /* QuaviTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaviTabBarController.swift; sourceTree = "<group>"; };
 		1D8B2F3324037754002F19F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		EAB711112416DCA600DAA60E /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EAB711132416E74D00DAA60E /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		EAB711152417DA6000DAA60E /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
-		EAB7111724183B0600DAA60E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting Files/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAF7170C23E3804200DD8703 /* quavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF7170F23E3804200DD8703 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF7171123E3804200DD8703 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -447,7 +447,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
-				EAB7111724183B0600DAA60E /* GoogleService-Info.plist */,
+				1D26F47E2424208600A2CC76 /* GoogleService-Info.plist */,
 			);
 			path = quavi;
 			sourceTree = "<group>";
@@ -687,7 +687,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EAB7111824183B0600DAA60E /* GoogleService-Info.plist in Resources */,
+				1D26F47F2424208600A2CC76 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
