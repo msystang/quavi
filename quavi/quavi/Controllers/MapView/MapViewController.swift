@@ -67,7 +67,7 @@ class MapViewController: UIViewController {
     
     // MARK: - Internal Properties
     // TODO: Refactor sampleData to tours when pulling from firebase
-    var sampleData = POI.pointsOfinterest
+    var sampleData = [POI]()
     
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
@@ -86,7 +86,7 @@ class MapViewController: UIViewController {
     var poiForTour = [POI]() {
         didSet {
 //            self.poiTableView.reloadData()
-            print("poiTV reloaded. Selected tour: \(selectedTour?.name)")
+            print("Reload poiTBV. poiForTour.count = \(poiForTour.count)")
         }
     }
     
@@ -135,22 +135,27 @@ class MapViewController: UIViewController {
     }
     
     //MARK: - Internal Methods
-    func loadPOI(for tour: Tour) {
-        //TODO: Add to model as static property instead??
+    func loadPOI(for tour: Tour, completion: @escaping (Result<[POI],Error>)-> ()) {
+        print("Selected tour: \(selectedTour?.name)")
+        
+        var poiFromDocumentReferences = [POI]()
+        
+        // TODO: Handle async
         DispatchQueue.main.async {
-            print(tour.stops.count)
+            print("Stops in tour: \(tour.stops.count)")
             tour.stops.forEach() {
                 FirestoreService.manager.getPOI(from: $0) { (result) in
                     switch result {
                     case .failure(let error):
-                        print(error)
+                        completion(.failure(error))
                     case .success(let poi):
-                        self.poiForTour.append(poi)
-                        print(poi)
+                        poiFromDocumentReferences.append(poi)
+                        print("POI: \(poi.name)")
                     }
                 }
             }
         }
+        completion(.success(poiFromDocumentReferences))
     }
     
     //MARK: -PRIVATE FUNCTIONS
