@@ -180,7 +180,7 @@ class FirestoreService {
     }
     
     //MARK: Favorites
-    func createFavorite(favorite: POI, completion: @escaping (Result<(), Error>) -> ()) {
+    func createFavorite(favorite: AppUser, completion: @escaping (Result<(), Error>) -> ()) {
         var fields = favorite.fieldsDict
         fields["dateCreated"] = Date()
         db.collection(FireStoreCollections.favorite.rawValue).addDocument(data: fields) { (error) in
@@ -192,7 +192,7 @@ class FirestoreService {
         }
     }
     
-    func getFavorites(forUserID: String, completion: @escaping (Result<[POI], Error>) -> ()) {
+    func getFavorites(forUserID: String, completion: @escaping (Result<[AppUser], Error>) -> ()) {
          db.collection(FireStoreCollections.favorite.rawValue).whereField("creatorID", isEqualTo: forUserID).getDocuments { (snapshot, error) in
              if let error = error {
                  completion(.failure(error))
