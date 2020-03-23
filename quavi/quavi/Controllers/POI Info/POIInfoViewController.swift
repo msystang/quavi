@@ -228,7 +228,7 @@ class POIInfoViewController: UIViewController {
         super.viewWillAppear(animated)
         setBackgroundColor()
         continueButtonConstraints()
-        easterEggButtonConstraints()
+        quaviLogoButtonConstraints()
         containerViewConstraints()
         pageControlConstraints()
         assignViewsToArray()
