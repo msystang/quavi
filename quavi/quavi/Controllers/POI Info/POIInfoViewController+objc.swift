@@ -44,10 +44,6 @@ extension POIInfoViewController {
          popupFinalVC.modalPresentationStyle = .fullScreen
          self.present(popupFinalVC, animated: true)
      }
-     
-     @objc func handlePresentingMLView(_ sender: UIButton){
-         self.showAlert(title: "Coming Soon...", message: "The team is currently working on the feature to allow for an easter egg scavenger hunt ")
-     }
     
     //MARK:-- Private func
     

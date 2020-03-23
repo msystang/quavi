@@ -191,7 +191,6 @@ class EditProfileViewController: UIViewController {
         return window
     }
     
-    
     //MARK: - Setup Functions
     func setUpDelegates() {
         usernameTextField.delegate = self

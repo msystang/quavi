@@ -41,12 +41,12 @@ struct Tour {
     
     private static func getPOIFromStops(tour: Tour) -> [POI] {
         var stops = [POI]()
-//        
+//
 //        //Determine if this is the right thread
 //        DispatchQueue.global(qos: .utility).async {
 //            tour.stops.forEach { (documentReference) in
 //                FirestoreService.manager.getPOI(from: documentReference) { (result) in
-//                    
+//
 //                    switch result {
 //                    case .failure(let error):
 //                        print(error)

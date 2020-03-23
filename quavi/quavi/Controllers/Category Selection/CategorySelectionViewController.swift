@@ -38,7 +38,7 @@ class CategorySelectionViewController: UIViewController {
         }
     }
     
-    var categoryCount = [String:Int]() 
+    var categoryCount = [String:Int]()
     
     //TODO: Load all tours and get number of tours for each category
     let tourCountForCategory = [4,6,7,3,2,8,6,3,20]

@@ -21,7 +21,6 @@ struct POI {
     let tableViewImage: String
     let poiImages: [String]
     
-    
     // MARK: - Computed Variables
     var waypoint: Waypoint {
         let coordinate = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)

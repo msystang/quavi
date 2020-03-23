@@ -9,9 +9,9 @@
 import Foundation
 
 //TODO: Refactor by directly using category enum or categories directly from firebase
-enum Category: String, CaseIterable {
-    case history = "History"
-    case culture = "Culture"
-    case foodAndDrink = "Food and Drink"
-    case spiritual = "Spiritual"
+struct CategoryData {
+    var name: String
+//    var tours: [Tours] = {
+//        //do tour filtering
+//    }()
 }
