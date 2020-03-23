@@ -27,7 +27,6 @@
 		85021F112404765600F8AD7B /* CatergoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */; };
 		85021F132405710100F8AD7B /* CategorySelectionViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F122405710100F8AD7B /* CategorySelectionViewController+Delegate.swift */; };
 		85021F15240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F14240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift */; };
-		85021F2A2406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85021F292406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift */; };
 		8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669523F215C0003AD65C /* MapViewController+Navigation.swift */; };
 		8502669823F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */; };
 		8502669C23F344C1003AD65C /* POIInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669B23F344C1003AD65C /* POIInfoViewController.swift */; };
@@ -117,7 +116,6 @@
 		85021F102404765600F8AD7B /* CatergoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		85021F122405710100F8AD7B /* CategorySelectionViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorySelectionViewController+Delegate.swift"; sourceTree = "<group>"; };
 		85021F14240571F100F8AD7B /* CategorySelectionViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategorySelectionViewController+DataSource.swift"; sourceTree = "<group>"; };
-		85021F292406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+PulseAnimation.swift"; sourceTree = "<group>"; };
 		8502669523F215C0003AD65C /* MapViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8502669723F31DA4003AD65C /* MapViewController+Navigation+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Navigation+Delegate.swift"; sourceTree = "<group>"; };
 		8502669B23F344C1003AD65C /* POIInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIInfoViewController.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 				852C38212414045800EDD0DD /* POIInfoViewController+objc.swift */,
 				852C3823241569D900EDD0DD /* POIInfoViewController+Navigation+Delegate.swift */,
 				EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */,
-				85021F292406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift */,
 				8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */,
 			);
 			path = "POI Info";
@@ -813,7 +810,6 @@
 				EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */,
 				EA97DA8C23FF2C1B00CB6B32 /* String+Validation.swift in Sources */,
 				EA97DA9123FF3B4000CB6B32 /* ForgotPasswordViewController.swift in Sources */,
-				85021F2A2406D1A200F8AD7B /* POIInfoViewController+PulseAnimation.swift in Sources */,
 				EC7D095023F5E3C7001D04CF /* MapViewController+CollectionView.swift in Sources */,
 				1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,

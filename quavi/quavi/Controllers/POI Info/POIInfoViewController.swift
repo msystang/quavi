@@ -241,7 +241,6 @@ class POIInfoViewController: UIViewController {
         walkButtonConstraints()
         rightChevronConstraint()
         leftChevronConstraint()
-        createPulse()
         bringPresentModesOfTransportToFront()
         getSelectedRoute(navigationType: modeOfTransit)
     }
