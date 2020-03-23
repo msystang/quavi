@@ -178,5 +178,18 @@ class FirestoreService {
             }
         }
     }
+    
+    //MARK: Favorites
+    func createFavorite(favorite: POI, completion: @escaping (Result<(), Error>) -> ()) {
+        var fields = favorite.fieldsDict
+        fields["dateCreated"] = Date()
+        db.collection(FireStoreCollections.favorite.rawValue).addDocument(data: fields) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
         private init () {}
 }
