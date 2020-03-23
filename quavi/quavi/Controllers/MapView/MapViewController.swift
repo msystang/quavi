@@ -17,7 +17,6 @@ class MapViewController: UIViewController {
     // MARK: - UI Properties
     let sliderView = SliderView()
     var startNavigationButton = NavigationUIButton()
-    
     // MARK: - Lazy UI Variables
     lazy var mapView = MapView(frame: view.bounds)
     lazy var poiTableView = QuaviTableView()
@@ -85,7 +84,8 @@ class MapViewController: UIViewController {
     
     var sliderViewState: Enums.sliderViewStates = .halfOpen
     let sliderViewHeight: CGFloat = 900
-    var selectedSections = Set<Int>()
+
+    var selectedSectionArray = [Bool]()
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -102,6 +102,10 @@ class MapViewController: UIViewController {
         loadGestures()
         addTargetToNavigationButton()
         hideNavigationBar()
+        
+        for _ in sampleData{
+            selectedSectionArray.append(false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

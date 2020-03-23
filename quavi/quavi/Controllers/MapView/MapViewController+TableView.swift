@@ -12,11 +12,7 @@ import  UIKit
 extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if selectedSections.contains(section) {
-            return 1
-        }else {
-            return 0
-        }
+        return selectedSectionArray[section] ? 1 : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

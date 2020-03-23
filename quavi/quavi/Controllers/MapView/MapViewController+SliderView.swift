@@ -167,14 +167,18 @@ extension MapViewController {
     @objc func tvCellSectionButtonPressed(sender: UIButton) {
         
         let section = sender.tag
-          if selectedSections.contains(section) {
-              selectedSections.remove(section)
-          } else {
-              selectedSections.insert(section)
-          }
-        let incides: IndexSet = [sender.tag]
-        poiTableView.reloadSections(incides, with: .fade)
-   
+
+        selectedSectionArray[section] = true
+
+            for (index,bool) in selectedSectionArray.enumerated() where index != section{
+                if bool == true{
+                  selectedSectionArray[index] = false
+                }
+            }
+        
+//        let incides: IndexSet = [section]
+//        poiTableView.reloadSections(incides, with: .fade)
+   poiTableView.reloadData()
     }
 }
 
