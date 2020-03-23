@@ -27,7 +27,7 @@ class StopsTableViewCell: UITableViewCell {
         view.layer.cornerRadius = view.frame.height / 2
         view.layer.masksToBounds = true
         view.layer.borderColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
-        view.layer.borderWidth = 2
+        view.layer.borderWidth = 1.5
         view.layoutMargins = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         return view
     }()
