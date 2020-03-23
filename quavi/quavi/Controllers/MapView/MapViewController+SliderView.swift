@@ -72,7 +72,7 @@ extension MapViewController {
                     self?.view.layoutIfNeeded()
                     self?.sliderView.alpha = 1.0
                     self?.poiTableView.alpha = 1.0
-                    self?.toursCollectionView.alpha = 1.0
+                    self?.categoriesCollectionView.alpha = 1.0
                     self?.addCornerRadiusToSliderView()
                     self?.sliderViewState = .halfOpen
                     self?.walkButton.isEnabled = true
@@ -155,7 +155,7 @@ extension MapViewController {
                     
                     self?.sliderView.alpha = 1.0
                     self?.poiTableView.alpha = 1.0
-                    self?.toursCollectionView.alpha = 1.0
+                    self?.categoriesCollectionView.alpha = 1.0
                     }, completion: nil)
                 
             default:
@@ -165,14 +165,13 @@ extension MapViewController {
     }
     
     @objc func tvCellSectionButtonPressed(sender: UIButton) {
-
+        
         let section = sender.tag
           if selectedSections.contains(section) {
               selectedSections.remove(section)
           } else {
               selectedSections.insert(section)
           }
-
         let incides: IndexSet = [sender.tag]
         poiTableView.reloadSections(incides, with: .fade)
    
