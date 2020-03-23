@@ -172,6 +172,13 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
+    lazy var quaviLogo: UIImageView = {
+        let image = UIImageView()
+    image.image = UIImage(named: "duck_icon_hallow")
+        image.tintColor = .systemPurple
+        return image
+    }()
+    
    lazy var leftChevron: UIImageView = {
         let image = UIImageView()
     image.image = UIImage(systemName: "chevron.left")

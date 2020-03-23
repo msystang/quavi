@@ -11,7 +11,7 @@ extension POIInfoViewController{
     
     func addSubviews() {
         view.addSubview(continueButton)
-        view.addSubview(easterEggButton)
+        view.addSubview(quaviLogo)
         view.addSubview(containerView)
         view.addSubview(pageControl)
         view.addSubview(likeButton)
