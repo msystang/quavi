@@ -85,13 +85,7 @@ class POIInfoViewController: UIViewController {
         return button
     }()
     
-    lazy var easterEggButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        button.setImage(UIImage(named: "quaviduckegg"), for: .normal)
-        button.setTitleColor(.purple, for: .normal)
-        button.addTarget(self, action: #selector(handlePresentingMLView(_:)), for: .touchUpInside)
-        return button
-    }()
+    
     
     lazy var containerView: UIScrollView = {
         print("\n Frame Width: \(self.view.frame.width)")
