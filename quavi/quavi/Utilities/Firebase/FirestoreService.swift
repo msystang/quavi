@@ -155,27 +155,25 @@ class FirestoreService {
         }
     }
     
-    // nested objects in Firebase comes back as an Array of document references, figure out how to use the pointer to get the document ID of the POI to cast as dictionary into POI. DocumentReference.documentID
+    // nested objects in Firebase come back as an Array of document references, figure out how to use the pointer to get the document ID of the POI to cast as dictionary into POI. DocumentReference.documentID
     // Make network call to get POI in firebase then turn into POI
     // Make private func to get POI from Document References
     func getPOI(from documentReference: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
         let id = documentReference.documentID
-        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (document, error) in
+        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (snapshot, error) in
             
-            if let document = document, document.exists {
-                if let poiDict = document.data() {
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                if let poiDict = snapshot.data() {
                     if let poi = POI(from: poiDict, id: id) {
                         completion(.success(poi))
-                    } else if let error = error {
-                        completion(.failure(error))
-                    }
-                } else if let error = error {
-                    completion(.failure(error))
+                    }   
                 }
-            } else if let error = error {
-                completion(.failure(error))
             }
         }
+        
     }
-        private init () {}
+    
+    private init () {}
 }
