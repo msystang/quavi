@@ -191,5 +191,20 @@ class FirestoreService {
             }
         }
     }
+    
+    func getFavorites(forUserID: String, completion: @escaping (Result<[POI], Error>) -> ()) {
+         db.collection(FireStoreCollections.favorite.rawValue).whereField("creatorID", isEqualTo: forUserID).getDocuments { (snapshot, error) in
+             if let error = error {
+                 completion(.failure(error))
+             } else {
+                 let favorite = snapshot?.documents.compactMap({ (snapshot) -> POI? in
+                     let favoriteID = snapshot.documentID
+                     let favorite = POI(from: snapshot.data(), id: favoriteID)
+                     return favorite
+                 })
+                 completion(.success(favorite ?? []))
+             }
+         }
+     }
         private init () {}
 }
