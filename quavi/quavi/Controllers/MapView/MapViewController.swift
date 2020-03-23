@@ -17,7 +17,6 @@ class MapViewController: UIViewController {
     // MARK: - UI Properties
     let sliderView = SliderView()
     var startNavigationButton = NavigationUIButton()
-    var selectedSections = Set<Int>()
     // MARK: - Lazy UI Variables
     lazy var mapView = MapView(frame: view.bounds)
     lazy var poiTableView = QuaviTableView()
