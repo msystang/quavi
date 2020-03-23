@@ -13,6 +13,7 @@ fileprivate enum FireStoreCollections: String {
     case users
     case tour
     case POI
+    case favorite
 }
 
 class FirestoreService {
