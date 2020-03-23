@@ -33,12 +33,14 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedTour = toursForCategory[indexPath.row]
         self.selectedTour = selectedTour
+        
         self.loadPOI(for: selectedTour) { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let pois):
                 self?.poiForTour = pois
+                print(self?.poiForTour)
             }
         }
         

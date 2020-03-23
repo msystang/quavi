@@ -139,6 +139,7 @@ class MapViewController: UIViewController {
         print("Selected tour: \(selectedTour?.name)")
         
         var poiFromDocumentReferences = [POI]()
+        poiFromDocumentReferences.sort { $0.index < $1.index }
         
         // TODO: Handle async
         DispatchQueue.main.async {
@@ -150,7 +151,6 @@ class MapViewController: UIViewController {
                         completion(.failure(error))
                     case .success(let poi):
                         poiFromDocumentReferences.append(poi)
-                        print("POI: \(poi.name)")
                     }
                 }
             }
