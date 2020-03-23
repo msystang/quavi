@@ -54,19 +54,40 @@ class MapViewController: UIViewController {
     // MARK: - Internal Properties
     
     // TODO: Refactor sampleData to tours when pulling from firebase
-    var sampleData = POI.pointsOfinterest
-    // TODO: Make Category enum case iterable and load directly, don't need this property. For MVP we can remove enum and get categories directly from the loaded tours.
-    let sampleCategoryData = ["Quavi History","LGBTQ History","Secret History","4th Dimension History"]
-    var currentSelectedCategory: String = Enums.categories.History.rawValue {
-        didSet { poiTableView.reloadData() }
-    }
+    var sampleData = [POI]()
+    
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
     
     var selectedRoute: Route?
     var currentLegRoute: Route?
     
-    var nextStopIndex = 0     
+    var toursForCategory = [Tour]() {
+        didSet {
+            toursCollectionView.reloadData()
+        }
+    }
+    
+    var selectedTour: Tour?
+    
+    var poiForTour = [POI]() {
+        didSet {
+//            self.poiTableView.reloadData()
+            print("Reload poiTBV. poiForTour.count = \(poiForTour.count)")
+        }
+    }
+    
+    
+    var nextStopIndex = 0 {
+        didSet {
+            guard let waypointCount = selectedRoute?.routeOptions.waypoints.count else {return}
+            if nextStopIndex > waypointCount {
+                nextStopIndex = 0
+            }
+        }
+    }
+    
+
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
@@ -92,27 +113,53 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
+ 
         setDelegates()
         setDataSources()
+        
+
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
-        addTargetToNavigationButton()
-        hideNavigationBar()
+
         
-        for _ in sampleData{
-            selectedSectionArray.append(false)
-        }
+        addTargetToNavigationButton()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideNavigationBar()
         addConstraints()
         getSelectedRoute(navigationType: modeOfTransit)
         switchTransitButtonState()
+    }
+    
+    //MARK: - Internal Methods
+    func loadPOI(for tour: Tour, completion: @escaping (Result<[POI],Error>)-> ()) {
+        print("Selected tour: \(selectedTour?.name)")
+        
+        DispatchQueue.global().async {
+            var poiFromDocumentReferences = [POI]()
+            
+            print("Stops in tour: \(tour.stops.count)")
+            
+            tour.stops.forEach() {
+                FirestoreService.manager.getPOI(from: $0) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        completion(.failure(error))
+                    case .success(let poi):
+                        poiFromDocumentReferences.append(poi)
+                    }
+                }
+            }
+            poiFromDocumentReferences.sort { $0.index < $1.index }
+            completion(.success(poiFromDocumentReferences))
+        }
     }
     
     //MARK: -PRIVATE FUNCTIONS
@@ -135,7 +182,7 @@ class MapViewController: UIViewController {
         self.startNavigationButton.addTarget(self, action: #selector(startNavigationButtonPressed), for: .touchUpInside)
     }
     
-    func switchTransitButtonState() {
+    private func switchTransitButtonState() {
         changeTransitButtonBackgroundColor()
         changeTransitButtonAlpha()
     }
@@ -151,6 +198,7 @@ class MapViewController: UIViewController {
         walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
         bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
     }
+    
     //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
         switch sender.tag{

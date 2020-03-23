@@ -9,20 +9,7 @@
 import UIKit
 
 extension MapViewController {
-    
-    func handleCollectionViewCellPressed(item: Int) {
-        if item == 0 {
-            currentSelectedCategory = Enums.categories.History.rawValue
-        } else if item == 1 {
-            currentSelectedCategory = Enums.categories.Art.rawValue
-        } else if item == 2 {
-            currentSelectedCategory = Enums.categories.Science.rawValue
-        } else if item == 3 {
-            currentSelectedCategory = Enums.categories.Religion.rawValue
-        } else if item == 4 {
-            currentSelectedCategory = Enums.categories.Yeet.rawValue
-        }
-    }
+
     
     func loadGestures() {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
