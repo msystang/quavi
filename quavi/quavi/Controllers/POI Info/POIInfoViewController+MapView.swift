@@ -48,26 +48,26 @@ extension POIInfoViewController: MGLMapViewDelegate {
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
         //TODO: User's current location must require mapView to load first, must deal with async
         
-        DispatchQueue.main.async {
-            do {
-                let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, navigationType: navigationType)
-                
-                //Generate route from options
-                //TODO: Make async
-                self.generateRoute(from: options) { (result) in
-                    switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(let route):
-                        self.selectedRoute = route
-                        self.addMapAnnotations(from: route)
-                        self.generateRouteForNextLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
-                    }
-                }
-            } catch let error {
-                print("error in getSelectedRoute: \(error)")
-            }
-        }
+//        DispatchQueue.main.async {
+//            do {
+//                let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, navigationType: navigationType)
+//                
+//                //Generate route from options
+//                //TODO: Make async
+//                self.generateRoute(from: options) { (result) in
+//                    switch result {
+//                    case .failure(let error):
+//                        print(error)
+//                    case .success(let route):
+//                        self.selectedRoute = route
+//                        self.addMapAnnotations(from: route)
+//                        self.generateRouteForNextLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
+//                    }
+//                }
+//            } catch let error {
+//                print("error in getSelectedRoute: \(error)")
+//            }
+//        }
     }
     
     func addMapAnnotations(from selectedRoute: Route) {
