@@ -138,12 +138,11 @@ class MapViewController: UIViewController {
     func loadPOI(for tour: Tour, completion: @escaping (Result<[POI],Error>)-> ()) {
         print("Selected tour: \(selectedTour?.name)")
         
-        var poiFromDocumentReferences = [POI]()
-        poiFromDocumentReferences.sort { $0.index < $1.index }
-        
-        // TODO: Handle async
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
+            var poiFromDocumentReferences = [POI]()
+            
             print("Stops in tour: \(tour.stops.count)")
+            
             tour.stops.forEach() {
                 FirestoreService.manager.getPOI(from: $0) { (result) in
                     switch result {
@@ -154,8 +153,9 @@ class MapViewController: UIViewController {
                     }
                 }
             }
+            poiFromDocumentReferences.sort { $0.index < $1.index }
+            completion(.success(poiFromDocumentReferences))
         }
-        completion(.success(poiFromDocumentReferences))
     }
     
     //MARK: -PRIVATE FUNCTIONS
