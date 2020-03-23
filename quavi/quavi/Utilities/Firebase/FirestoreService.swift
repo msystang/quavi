@@ -158,21 +158,71 @@ class FirestoreService {
     // nested objects in Firebase come back as an Array of document references, figure out how to use the pointer to get the document ID of the POI to cast as dictionary into POI. DocumentReference.documentID
     // Make network call to get POI in firebase then turn into POI
     // Make private func to get POI from Document References
-    func getPOI(from documentReference: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
-        let id = documentReference.documentID
-        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (snapshot, error) in
+    
+//    func getPOI(from documentReference: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
+//        let id = documentReference.documentID
+//        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (snapshot, error) in
+//
+//            if let error = error {
+//                completion(.failure(error))
+//            } else if let snapshot = snapshot {
+//                if let poiDict = snapshot.data() {
+//                    if let poi = POI(from: poiDict, id: id) {
+//                        completion(.success(poi))
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
+    
+    
+    func getPOIs(from tour: Tour, completion: @escaping (Result<[POI],Error>) -> ()) {
+
+        let tourReference = db.collection("tour").document(tour.id)
+
+        db.runTransaction({ (transaction, errorPointer) -> Any? in
+            let tourDocument: DocumentSnapshot
+            do {
+                try tourDocument = transaction.getDocument(tourReference)
+            } catch let fetchError as NSError {
+                errorPointer?.pointee = fetchError
+                return nil
+            }
+
+        
             
+            guard let stopsDict = tourDocument.data(), let stops = tourDocument.data()?["stops"] as? [DocumentReference] else {
+                let error = NSError(
+                    domain: "AppErrorDomain",
+                    code: -1,
+                    userInfo: [
+                        NSLocalizedDescriptionKey: "Unable to retrieve population from snapshot \(tourDocument)"
+                    ]
+                )
+                errorPointer?.pointee = error
+                return nil
+            }
+
+            var pois = [POI]()
+            
+            stops.forEach { (documentReference) in
+                //Handle this else
+                guard let poi = POI(from: stopsDict, id: documentReference.documentID) else { return }
+                pois.append(poi)
+            }
+            
+            pois.sort { $0.index < $1.index }
+            
+            return nil
+        }) { (object, error) in
             if let error = error {
-                completion(.failure(error))
-            } else if let snapshot = snapshot {
-                if let poiDict = snapshot.data() {
-                    if let poi = POI(from: poiDict, id: id) {
-                        completion(.success(poi))
-                    }   
-                }
+                print("Transaction failed: \(error)")
+            } else {
+                print("Transaction successfully committed!")
             }
         }
-        
+
     }
     
     private init () {}

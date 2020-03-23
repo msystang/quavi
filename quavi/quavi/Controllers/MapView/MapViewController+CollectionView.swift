@@ -37,15 +37,7 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
         let selectedTour = toursForCategory[indexPath.row]
         self.selectedTour = selectedTour
         
-        self.loadPOI(for: selectedTour) { [weak self] (result) in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let pois):
-                self?.poiForTour = pois
-                print(self?.poiForTour)
-            }
-        }
+        self.loadPOIs(for: selectedTour)
         
     }
     
