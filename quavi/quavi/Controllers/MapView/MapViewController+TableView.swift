@@ -36,11 +36,8 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             let sectionImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
             sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
             sectionImage.layer.masksToBounds = true
-
-            //TODO: Update image from FB data, not sampleData
-//            sectionImage.image = sampleData[section].popoverImage
-//            button.addSubview(sectionImage)
-
+            sectionImage.image = sampleData[section].popoverImage
+            button.addSubview(sectionImage)
             
             let sectionHeaderArrows = UIImageView(image: UIImage(systemName: "chevron.compact.down"))
             sectionHeaderArrows.tintColor = .black
@@ -72,7 +69,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.alpha = 1
         })
         cell.backgroundColor = .clear
-//        cell.stopImage.image = stop.tableViewImage
+        cell.stopImage.image = stop.tableViewImage
         cell.stopLabel.text = sampleData[indexPath.section].shortDesc
         return cell
     }

@@ -21,7 +21,6 @@ class EditProfileViewController: UIViewController {
         var button = UIButton()
         button.setTitle("Logout", for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
-        button.addTarget(self, action: #selector(handleLogOut), for: .touchUpInside)
         return button
     }()
     
@@ -153,44 +152,6 @@ class EditProfileViewController: UIViewController {
     @objc func handleCancelButtonPressed(){
         handleEditDismissal()
     }
-    
-    @objc func handleLogOut(){
-        logOut()
-    }
-    
-    //MARK: - Private Functions
-    
-    private func logOut() {
-        FirebaseAuthService.manager.logOut { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(()):
-                    self.segueToLogin()
-                case.failure(_):
-                    self.showAlert(title: "Error", message: "Could not go back to Login")
-                }
-            }
-        }
-    }
-    
-    private func segueToLogin() {
-        let window = uiWindow()
-    
-        UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromLeft, animations: {
-            window.rootViewController = LoginViewController()
-        }, completion: nil)
-    }
-    
-    func uiWindow() -> UIWindow {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-            let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
-            else {
-                print("error with segue")
-                return UIWindow()
-        }
-        return window
-    }
-    
     
     //MARK: - Setup Functions
     func setUpDelegates() {

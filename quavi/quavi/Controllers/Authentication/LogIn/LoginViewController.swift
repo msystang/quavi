@@ -94,9 +94,6 @@ class LoginViewController: UIViewController {
         }
         
         //TODO: Handle login button pressed with firebaseAuth service using email and passwordl
-        FirebaseAuthService.manager.loginUser(email: email, password: password) { (result) in
-            self.handleLoginResponse(with: result)
-        }
     }
     
     @objc func forgotPasswordButtonPressed() {
@@ -109,31 +106,5 @@ class LoginViewController: UIViewController {
         let signupVC = SignUpViewController()
         signupVC.modalPresentationStyle = .formSheet
         present(signupVC, animated: true, completion: nil)
-    }
-    
-    //MARK: - Private Functions
-    private func handleLoginResponse(with result: Result<(), Error>) {
-        switch result {
-        case .success:
-            let window = uiWindow()
-            
-            UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
-                window.rootViewController = QuaviTabBarController()
-            }, completion: nil)
-            
-        case .failure(let error):
-            showAlert(title: "Error", message: "Could not log in: \(error.localizedDescription)")
-            loginButton.isEnabled = true
-        }
-    }
-    
-    private func uiWindow() -> UIWindow {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-            let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
-            else {
-                showAlert(title: "Error", message: "Could not switch view controllers")
-                return UIWindow()
-        }
-        return window
     }
 }
