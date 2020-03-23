@@ -10,16 +10,14 @@ import UIKit
 
 extension CategorySelectionViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return tourNameArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.categoryCell.rawValue, for: indexPath) as? CatergoryCollectionViewCell else {return UICollectionViewCell()}
         
-        let category = categories[indexPath.row]
-        
-        cell.categoryLabel.text = category
-        cell.amountOfTourLabel.text = String(tourCountForCategory[indexPath.row])
+        cell.categoryLabel.text = tourNameArray[indexPath.row]
+        cell.amountOfTourLabel.text = String(numberOfTours[indexPath.row])
         cell.layer.borderWidth = 1
         cell.layer.borderColor = #colorLiteral(red: 0.2843827307, green: 0.6391303539, blue: 0.8293711543, alpha: 1)
         cell.layer.cornerRadius = 10
@@ -28,14 +26,7 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = categories[indexPath.row]
         let mapVC = MapViewController()
-        
-        let toursForCaregory = allTours.filter { (tour) -> Bool in
-            tour.category == category
-        }
-        
-        mapVC.toursForCategory = toursForCaregory
         navigationController?.pushViewController(mapVC, animated: true)
     }
 }

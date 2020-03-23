@@ -41,29 +41,27 @@ extension MapViewController: MGLMapViewDelegate {
     
     
     func getSelectedRoute(navigationType:MBDirectionsProfileIdentifier) {
-
-//        DispatchQueue.main.async {
-//            do {
-//                // TODO: refactor using tours from Firebase as opposed to dummyData
-//                let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, navigationType: navigationType)
-//                
-//                self.generateRoute(from: options) { (result) in
-//                    switch result {
-//                    case .failure(let error):
-//                        print(error)
-//                    case .success(let route):
-//                        self.selectedRoute = route
-//                        self.addMapAnnotations(from: route)
-//                        //TODO: Add polyline for whole route too
+        DispatchQueue.main.async {
+            do {
+                // TODO: refactor using tours from Firebase as opposed to dummyData
+                let options = try Tour.generateTourRouteOptions(from: Tour.dummyData, navigationType: navigationType)
+                
+                self.generateRoute(from: options) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let route):
+                        self.selectedRoute = route
+                        self.addMapAnnotations(from: route)
+                        //TODO: Add polyline for whole route too
 //                        self.generatePolylineSource(from: route, for: "full-route-source")
-//                        self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
-//                    }
-//                }
-//            } catch let error {
-//                print("error in getSelectedRoute: \(error)")
-//            }
-//        }
-
+                        self.generateRouteForCurrentLeg(from: route, nextStopIndex: self.nextStopIndex, navigationType: navigationType)
+                    }
+                }
+            } catch let error {
+                print("error in getSelectedRoute: \(error)")
+            }
+        }
     }
     
     func addMapAnnotations(from selectedRoute: Route) {

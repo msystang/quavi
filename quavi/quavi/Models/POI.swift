@@ -11,7 +11,6 @@ import UIKit
 import MapboxDirections
 
 struct POI {
-    let id: String
     let name: String
     let index: Int
     let lat: Double
@@ -20,7 +19,6 @@ struct POI {
     let longDesc: String
     let tableViewImage: String
     let poiImages: [String]
-    
     
     // MARK: - Computed Variables
     var waypoint: Waypoint {

@@ -17,24 +17,10 @@ class MapViewController: UIViewController {
     // MARK: - UI Properties
     let sliderView = SliderView()
     var startNavigationButton = NavigationUIButton()
-    
-    var halfScreenSliderViewConstraints: NSLayoutConstraint?
-    var closedSliderViewConstraints: NSLayoutConstraint?
-    var fullScreenSliderViewConstraints: NSLayoutConstraint?
-    
-    var mapViewTopConstraint: NSLayoutConstraint?
-    var mapViewBottomConstraintHalf: NSLayoutConstraint?
-    var mapViewBottomConstraintClosed: NSLayoutConstraint?
-    
-    var sliderViewState: Enums.sliderViewStates = .halfOpen
-    let sliderViewHeight: CGFloat = 900
-    
-    var selectedSections = Set<Int>()
-    
     // MARK: - Lazy UI Variables
     lazy var mapView = MapView(frame: view.bounds)
     lazy var poiTableView = QuaviTableView()
-    lazy var toursCollectionView = CollectionView(frame: view.bounds)
+    lazy var categoriesCollectionView = CollectionView(frame: view.bounds)
     
     // MARK: - Computed Lazy UI Variables
     lazy var chevronArrows: UIImageView = {
@@ -66,6 +52,7 @@ class MapViewController: UIViewController {
     
     
     // MARK: - Internal Properties
+    
     // TODO: Refactor sampleData to tours when pulling from firebase
     var sampleData = [POI]()
     
@@ -100,6 +87,7 @@ class MapViewController: UIViewController {
         }
     }
     
+
     var modeOfTransit = MBDirectionsProfileIdentifier.automobile {
         didSet{
             getSelectedRoute(navigationType: modeOfTransit)
@@ -107,23 +95,39 @@ class MapViewController: UIViewController {
         }
     }
     
+    var halfScreenSliderViewConstraints: NSLayoutConstraint?
+    var closedSliderViewConstraints: NSLayoutConstraint?
+    var fullScreenSliderViewConstraints: NSLayoutConstraint?
+    
+    var mapViewTopConstraint: NSLayoutConstraint?
+    var mapViewBottomConstraintHalf: NSLayoutConstraint?
+    var mapViewBottomConstraintClosed: NSLayoutConstraint?
+    
+    var sliderViewState: Enums.sliderViewStates = .halfOpen
+    let sliderViewHeight: CGFloat = 900
+
+    var selectedSectionArray = [Bool]()
+    
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
         addSubviews()
-        
+ 
         setDelegates()
         setDataSources()
         
+
         setBikeButtonConstraints()
         setCarButtonConstraints()
         setWalkButtonConstraints()
         addSliderViewSubViews()
         addSliderViewConstraints()
         loadGestures()
+
         
         addTargetToNavigationButton()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,12 +166,12 @@ class MapViewController: UIViewController {
     private func setDelegates() {
         mapView.delegate = self
         poiTableView.delegate = self
-        toursCollectionView.delegate = self
+        categoriesCollectionView.delegate = self
     }
     
     private func setDataSources() {
         poiTableView.dataSource = self
-        toursCollectionView.dataSource = self
+        categoriesCollectionView.dataSource = self
     }
     
     private func hideNavigationBar() {

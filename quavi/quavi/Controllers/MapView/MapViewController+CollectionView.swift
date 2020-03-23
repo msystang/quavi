@@ -10,14 +10,14 @@ import UIKit
 
 extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return toursForCategory.count
+        return sampleCategoryData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tour = toursForCategory[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.tourCell.rawValue, for: indexPath) as? TourCollectionViewCell else {return UICollectionViewCell()}
+        let category = sampleCategoryData[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Enums.cellIdentifiers.categoryCell.rawValue, for: indexPath) as? TourCategoryCollectionViewCell else {return UICollectionViewCell()}
         
-        cell.setUpCells(cell: cell, data: tour.name)
+        cell.setUpCells(cell: cell, data: category)
         
         return cell
     }
@@ -34,6 +34,7 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let selectedTour = toursForCategory[indexPath.row]
         self.selectedTour = selectedTour
         

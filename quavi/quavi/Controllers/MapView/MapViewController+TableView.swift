@@ -29,6 +29,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
         
         //TO-DO: SEPERATE INTO IT'S OWN FILE
@@ -56,6 +57,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         
         constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
         constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage)
+
         
         view.backgroundColor = .clear
         return view
@@ -77,7 +79,9 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.alpha = 1
         })
         cell.backgroundColor = .clear
+
         //        cell.stopImage.image = stop.tableViewImage
+
         cell.stopLabel.text = sampleData[indexPath.section].shortDesc
         return cell
     }

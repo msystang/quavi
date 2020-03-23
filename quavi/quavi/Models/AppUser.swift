@@ -11,61 +11,65 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct AppUser {
+    let email: String?
     let uid: String
-    let email: String
     let userName: String?
-    let photoURL: String?
-    let isOnboarded: Bool
-    let savedTours: [Tour]
-    let savedPOI: [POI]
-    let createdTours: [Tour]
     let dateCreated: Date?
+    let photoURL: String?
+//    let isOnboarded: Bool
+//    let savedTours: [Tour]?
+//    let savedPOI: [POI]?
+//    // TODO: Change to user generated tour model
+//    let createdTours: [Tour]?
     
-    // MARK: - Initializers
     // Initializing a user in Firebase/Auth (creating a new user)
     init(from user: User) {
-        self.uid = user.uid
-        self.email = user.email ?? "Could not retrieve email"
         self.userName = user.displayName
-        self.photoURL = user.photoURL?.absoluteString
-        self.isOnboarded = false
-        self.savedTours = []
-        self.savedPOI = []
-        self.createdTours = []
+        self.email = user.email
+        self.uid = user.uid
         self.dateCreated = user.metadata.creationDate
+        self.photoURL = user.photoURL?.absoluteString
+//        self.isOnboarded = false
+//        self.savedTours = nil
+//        self.savedPOI = nil
+//        self.createdTours = nil
     }
-    
+
     // Failing init for when we retreive user data from Firestore
-    init?(from dict: [String: Any], uid: String) {
-        guard let email = dict["email"] as? String,
-            let userName = dict["userName"] as? String,
+    init?(from dict: [String: Any], id: String) {
+        guard let userName = dict["userName"] as? String,
+            let email = dict["email"] as? String,
             let photoURL = dict["photoURL"] as? String,
-            let isOnboarded = dict["isOnboarded"] as? Bool,
-            let savedTours = (dict["savedTours"] as? [[String:Any]])?.compactMap( { Tour(from: $0)} ),
-            let savedPOI = (dict["savedPOI"] as? [[String:Any]])?.compactMap( { POI(from: $0)} ),
-            let createdTours = (dict["createdTours"] as? [[String:Any]])?.compactMap( { Tour(from: $0)} ),
+            //TODO: Update using dictionary logic from failing inits in other models
+//            let isOnboarded = dict["isOnboarded"] as? Bool,
+//            let savedTours = dict["savedTours"] as? [Tour],
+////            let savedTours = (dict["savedTours"] as? [[String:Any]])?.compactMap(Tour(from: $0)),
+//            let savedPOI = dict["savedPOI"] as? [POI],
+//            let createdTours = dict["createdTours"] as? [Tour],
+            //TODO - extend Date to convert from Timestamp?
             let dateCreated = (dict["dateCreated"] as? Timestamp)?.dateValue() else { return nil }
-        
-        self.uid = uid
-        self.email = email
+
         self.userName = userName
-        self.photoURL = photoURL
-        self.isOnboarded = isOnboarded
-        self.savedTours = savedTours
-        self.savedPOI = savedPOI
-        self.createdTours = createdTours
+        self.email = email
+        self.uid = id
         self.dateCreated = dateCreated
+        self.photoURL = photoURL
+//        self.isOnboarded = isOnboarded
+//        self.savedTours = savedTours
+//        self.savedPOI = savedPOI
+//        self.createdTours = createdTours
     }
-    
+
     var fieldsDict: [String: Any] {
         return [
-            "email": self.email,
             "userName": self.userName ?? "",
-            "photoURL": self.photoURL ?? "",
-            "isOnboarded": self.isOnboarded,
-            "savedTours": self.savedTours,
-            "savedPOI": self.savedPOI,
-            "createdTours": self.createdTours,
+            "email": self.email ?? "",
+//            "isOnboarded": self.isOnboarded ?? false,
+//            "savedTours": self.savedTours ?? [],
+//            "savedPOI": self.savedPOI ?? [],
+//            "createdTours": self.createdTours ?? []
         ]
     }
 }
+
+//update entry in firestore for specific fields
