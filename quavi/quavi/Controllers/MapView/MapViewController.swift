@@ -78,6 +78,7 @@ class MapViewController: UIViewController {
     var toursForCategory = [Tour]() {
         didSet {
             toursCollectionView.reloadData()
+            getSelectedRoute(navigationType: modeOfTransit)
         }
     }
     
