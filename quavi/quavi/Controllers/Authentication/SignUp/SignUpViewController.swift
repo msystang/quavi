@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController {
     lazy var usernameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Username"
+        textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
         return textField
     }()
     
@@ -71,7 +72,7 @@ class SignUpViewController: UIViewController {
     
     //MARK: - Objective-C Methods
     @objc func validateFields() {
-        guard emailTextField.hasText, passwordTextField.hasText else {
+        guard usernameTextField.hasText, emailTextField.hasText, passwordTextField.hasText else {
             signUpButton.isEnabled = false
             return
         }
@@ -79,7 +80,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func trySignUp() {
-        guard let email = emailTextField.text, let password = passwordTextField.text else {
+        guard let username = usernameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {
             showAlert(title: "Error", message: "Please fill out all fields.")
             return
         }
@@ -96,7 +97,6 @@ class SignUpViewController: UIViewController {
         
         //TODO: handle creating new user using FirebaseAuth
         createUser(email: email, password: password)
-
         print("Try sign up success")
     }
 
@@ -114,16 +114,14 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func saveUsers(with user: User) {
+    private func saveUsers(with user: User) {
         FirestoreService.manager.createAppUser(user: AppUser(from: user)) { [weak self] newResult in
             switch newResult {
             case .failure(let error):
                 self?.showAlert(title: "Error", message: "Couldn't Create New App User: \(error.localizedDescription)")
             case .success:
-                if let window = self?.uiWindow() {
-                    UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
-                        window.rootViewController = QuaviTabBarController()
-                    }, completion: nil)
+                if let username = self?.usernameTextField.text {
+                    self?.updateUsername(username: username)
                 }
             }
         }
@@ -137,6 +135,24 @@ class SignUpViewController: UIViewController {
                 return UIWindow()
         }
         return window
+    }
+    
+    private func updateUsername(username: String) {
+        FirestoreService.manager.updateCurrentUser(userName: username) { (result) in
+            switch result {
+            case .failure(let error):
+                self.showAlert(title: "Error", message: "Could not save your username.")
+                print("Error saving username: \(error.localizedDescription)")
+            case .success(()) :
+                let window = self.uiWindow()
+                
+                UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                    window.rootViewController = QuaviTabBarController()
+                }, completion: nil)
+                
+                print("username saved")
+            }
+        }
     }
 
 }
