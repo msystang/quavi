@@ -79,11 +79,10 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         })
         cell.backgroundColor = .clear
         
-        //TODO: Image Handling
-        let stopUrlStr = stop.tableViewImage
-        cell.stopImage.image = UIImage(named: "Quavi_Logo_Black")
-        
-        cell.stopLabel.text = poiForTour[indexPath.section].shortDesc
+        let placeholderImage = UIImage(named: "Quavi_Logo_Black")
+        cell.stopImage.kf.indicatorType = .activity
+        cell.stopImage.kf.setImage(with: URL(string: stop.tableViewImage), placeholder: placeholderImage, options: [.transition(.fade(0.2))])
+        cell.stopLabel.text = stop.shortDesc
         return cell
     }
     
