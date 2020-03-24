@@ -7,6 +7,7 @@
 //
 
 import  UIKit
+import Kingfisher
 
 //MARK: -EXT. TABLEVIEW DELEGATE & DATASOURCE
 extension MapViewController: UITableViewDelegate, UITableViewDataSource {
@@ -42,9 +43,11 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
         sectionImage.layer.masksToBounds = true
         
-        //TODO: Image Handling
+        let placeholderImage = UIImage(named: "Quavi_Logo_Black")
         let imgUrlLStr = poiForTour[section].tableViewImage
-        sectionImage.image = UIImage(named: "Quavi_Logo_Black")
+        sectionImage.kf.indicatorType = .activity
+        sectionImage.kf.setImage(with: URL(string: imgUrlLStr), placeholder: placeholderImage, options: [.transition(.fade(0.2))])
+        
         button.addSubview(sectionImage)
         
         
