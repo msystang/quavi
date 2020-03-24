@@ -85,7 +85,7 @@ class MapViewController: UIViewController {
     
     var poiForTour = [POI]() {
         didSet {
-//            self.poiTableView.reloadData()
+            //            self.poiTableView.reloadData()
             print("Reload poiTBV. poiForTour.count = \(poiForTour.count)")
         }
     }
@@ -137,18 +137,28 @@ class MapViewController: UIViewController {
     //MARK: - Internal Methods
     func loadPOIs(for tour: Tour) {
         print("Selected tour: \(selectedTour?.name)")
-       
         DispatchQueue.main.async {
-            FirestoreService.manager.getPOIs(from: tour) { [weak self] (result) in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let pois):
-                    self?.poiForTour = pois
+            let dispatchGroup = DispatchGroup()
+            var poisFromDR = [POI]()
+            
+            tour.stops.forEach {
+                dispatchGroup.enter()
+                FirestoreService.manager.getPOI(from: $0) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                        dispatchGroup.leave()
+                    case .success(let poi):
+                        dispatchGroup.leave()
+                        poisFromDR.append(poi)
+                    }
                 }
             }
+            
+            dispatchGroup.notify(queue: .main) {
+                self.poiForTour = poisFromDR
+            }
         }
-        
     }
     
     //MARK: -PRIVATE FUNCTIONS
