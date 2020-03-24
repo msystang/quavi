@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D26F484242A62B200A2CC76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D26F483242A62B200A2CC76 /* GoogleService-Info.plist */; };
+		1D26F488242A930400A2CC76 /* EditProfileVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D26F487242A930400A2CC76 /* EditProfileVC+ImagePicker.swift */; };
 		1D8B2F3224037645002F19F7 /* QuaviTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3124037645002F19F7 /* QuaviTabBarController.swift */; };
 		1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3324037754002F19F7 /* ProfileViewController.swift */; };
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
@@ -99,6 +100,7 @@
 		1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quaviTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.debug.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.debug.xcconfig"; sourceTree = "<group>"; };
 		1D26F483242A62B200A2CC76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1D26F487242A930400A2CC76 /* EditProfileVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+ImagePicker.swift"; sourceTree = "<group>"; };
 		1D8B2F3124037645002F19F7 /* QuaviTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaviTabBarController.swift; sourceTree = "<group>"; };
 		1D8B2F3324037754002F19F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */,
 				1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */,
 				1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */,
+				1D26F487242A930400A2CC76 /* EditProfileVC+ImagePicker.swift */,
 			);
 			path = "Edit ProfileVC";
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
+				1D26F488242A930400A2CC76 /* EditProfileVC+ImagePicker.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
 				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,

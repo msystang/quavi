@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class EditProfileViewController: UIViewController {
     
@@ -56,6 +57,7 @@ class EditProfileViewController: UIViewController {
         button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
         button.tintColor = .black
         button.contentMode = .bottom
+        button.addTarget(self, action: #selector(handleImagePicker), for: .touchUpInside)
         return button
     }()
     
@@ -124,7 +126,7 @@ class EditProfileViewController: UIViewController {
     
     var currentTextfield: UITextField!
     lazy var editTextFieldLayout = setEditTextFieldConstraint(textField: currentTextfield)
-
+    var photoLibraryAccess = false
     
     //MARK: - Life Cycle functions
     override func viewDidLoad() {
@@ -133,6 +135,7 @@ class EditProfileViewController: UIViewController {
         setUpSubviews()
         setUpConstraints()
         miscSetUp()
+        checkPhotoLibraryAccess()
     }
     
     override func viewDidLayoutSubviews() {
@@ -156,6 +159,24 @@ class EditProfileViewController: UIViewController {
     
     @objc func handleLogOut(){
         logOut()
+    }
+    @objc func handleImagePicker() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        if self.photoLibraryAccess {
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController,animated: true)
+        } else {
+            let noAuthenticationAlertalertVC = UIAlertController(title: "Acess Denied", message: "This app has not been authorized to access your photo library. Would you like to authorize it now?", preferredStyle: .alert)
+            noAuthenticationAlertalertVC.addAction(UIAlertAction (title: "Deny", style: .destructive, handler: nil))
+            self.present(noAuthenticationAlertalertVC, animated: true, completion: nil)
+            
+            noAuthenticationAlertalertVC.addAction(UIAlertAction (title: "Allow", style: .default, handler: { (action) in
+                self.photoLibraryAccess = true
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+        }
     }
     
     //MARK: - Private Functions
@@ -190,6 +211,39 @@ class EditProfileViewController: UIViewController {
         }
         return window
     }
+    
+    private func checkPhotoLibraryAccess() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        switch status {
+        case .authorized:
+            print(status)
+            self.photoLibraryAccess = true
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({status in
+                switch status {
+                case .authorized:
+                    self.photoLibraryAccess = true
+                    print(status)
+                case .denied:
+                    self.photoLibraryAccess = false
+                    print("denied")
+                case .notDetermined:
+                    print("not determined")
+                case .restricted:
+                    print("restricted")
+                }
+            })
+            
+        case .denied:
+            
+            showAlert(title: "Denied", message: "This app has not been authorized to access your photo library. Please change your settings.")
+            
+        case .restricted:
+            print("restricted")
+        }
+    }
+    
     
     //MARK: - Setup Functions
     func setUpDelegates() {
