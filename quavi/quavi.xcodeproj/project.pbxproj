@@ -64,8 +64,6 @@
 		EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */; };
 		EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC16690E242AA57000BDED2C /* GoogleService-Info.plist */; };
 		EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */; };
-		EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E8482404347600B53054 /* POIPopUpViewController.swift */; };
-		EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */; };
 		EC763AB52416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */; };
 		EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */; };
 		EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */; };
@@ -161,8 +159,6 @@
 		EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EC16690E242AA57000BDED2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView.swift"; sourceTree = "<group>"; };
-		EC41E8482404347600B53054 /* POIPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpViewController.swift; sourceTree = "<group>"; };
-		EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIPopUpViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviTableView.swift; sourceTree = "<group>"; };
 		EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView+Constraints.swift"; sourceTree = "<group>"; };
@@ -282,8 +278,6 @@
 		EA17DC642405B07800715DD4 /* POI PopUp */ = {
 			isa = PBXGroup;
 			children = (
-				EC41E8482404347600B53054 /* POIPopUpViewController.swift */,
-				EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */,
 				ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */,
 			);
 			path = "POI PopUp";
@@ -823,11 +817,9 @@
 				1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
 				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
-				EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */,
 				ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */,
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				ECE46D08240EF65100A22454 /* POIPopUpGallery.swift in Sources */,
-				EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */,
 				85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */,
 				ECE46D0A240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift in Sources */,
 				852C3824241569D900EDD0DD /* POIInfoViewController+Navigation+Delegate.swift in Sources */,
