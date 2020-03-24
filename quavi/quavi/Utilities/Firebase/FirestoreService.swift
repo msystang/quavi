@@ -160,28 +160,28 @@ class FirestoreService {
     // Make network call to get POI in firebase then turn into POI
     // Make private func to get POI from Document References
     
-//    func getPOI(from documentReference: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
-//        let id = documentReference.documentID
-//        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (snapshot, error) in
-//
-//            if let error = error {
-//                completion(.failure(error))
-//            } else if let snapshot = snapshot {
-//                if let poiDict = snapshot.data() {
-//                    if let poi = POI(from: poiDict, id: id) {
-//                        completion(.success(poi))
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
+    //    func getPOI(from documentReference: DocumentReference, completion: @escaping (Result<POI,Error>) -> ()) {
+    //        let id = documentReference.documentID
+    //        db.collection(FireStoreCollections.POI.rawValue).document(id).getDocument { (snapshot, error) in
+    //
+    //            if let error = error {
+    //                completion(.failure(error))
+    //            } else if let snapshot = snapshot {
+    //                if let poiDict = snapshot.data() {
+    //                    if let poi = POI(from: poiDict, id: id) {
+    //                        completion(.success(poi))
+    //                    }
+    //                }
+    //            }
+    //        }
+    //
+    //    }
     
     
     func getPOIs(from tour: Tour, completion: @escaping (Result<[POI],Error>) -> ()) {
-
+        
         let tourReference = db.collection("tour").document(tour.id)
-
+        
         db.runTransaction({ (transaction, errorPointer) -> Any? in
             let tourDocument: DocumentSnapshot
             do {
@@ -190,8 +190,8 @@ class FirestoreService {
                 errorPointer?.pointee = fetchError
                 return nil
             }
-
-        
+            
+            
             
             guard let stopsDict = tourDocument.data(), let stops = tourDocument.data()?["stops"] as? [DocumentReference] else {
                 let error = NSError(
@@ -204,7 +204,7 @@ class FirestoreService {
                 errorPointer?.pointee = error
                 return nil
             }
-
+            
             var pois = [POI]()
             
             stops.forEach { (documentReference) in
@@ -223,17 +223,56 @@ class FirestoreService {
                 print("Transaction successfully committed!")
             }
         }
-
+        
     }
     
     func updateCurrentUserPOI(favorite: POI?, completion: @escaping (Result<(), Error>) -> ()){
         guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
             return
         }
+        let reference = db.collection(FireStoreCollections.users.rawValue).document(userId)
+        
+        db.runTransaction({ (transaction, errorPointer) -> Any? in
+            let transactionDoc:DocumentSnapshot
+            do{
+                try transactionDoc = transaction.getDocument(reference)
+            }catch let error {
+                completion(.failure(error))
+                return nil
+            }
+            guard let oldPOIArray = transactionDoc.data()?["savedPOI"] as? [POI] else {
+                let error = NSError(
+                    domain: "AppErrorDomain",
+                    code: -1,
+                    userInfo: [
+                        NSLocalizedDescriptionKey: "Unable to retrieve population from snapshot \(transactionDoc)"
+                    ]
+                )
+                errorPointer?.pointee = error
+                return nil
+            }
+            
+            let newPOIArray = oldPOIArray + [favorite]
+            transaction.updateData(["savedPOI":newPOIArray], forDocument: reference)
+            
+            return newPOIArray
+        }) { (object, error) in
+            if let error = error {
+                print("Transaction failed: \(error)")
+            } else {
+                print("Transaction successfully committed!")
+            }
+        }
+    }
+    
+    func deletePOI(delete: POI?, completion: @escaping (Result<(), Error>) -> ()){
+        guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
+            return
+        }
         var updatePOIFields = [String:Any]()
-
-        if let favorite = favorite {
-            updatePOIFields["savedPOI"] = FieldValue.arrayUnion([favorite])
+        
+        if let deletePoi = delete {
+            updatePOIFields["savedPOI"] = FieldValue.arrayRemove([deletePoi])
         }
         db.collection(FireStoreCollections.users.rawValue).document(userId).updateData(updatePOIFields) { (error) in
             if let error = error {
