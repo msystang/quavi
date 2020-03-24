@@ -317,8 +317,8 @@ class POIInfoViewController: UIViewController {
     //MARK: -- Objc func
     @objc func handleLikeButtonPressed(sender:UIButton){
           guard FirebaseAuthService.manager.currentUser != nil else {return}
-
-         let favoritePOI = POI(name: "non", lat: 2.34, long: 4.56, shortDesc: "ok", longDesc: "no", tableViewImage: "ummm no", poiImage: ["Oh", "hell", "nooo"])
+        
+        let favoritePOI = POI(name:  "non", index: 3, lat: 2.34, long: 4.56, shortDesc: "ok", longDesc: "No", tableViewImage: "ummm no", poiImages:  ["Oh", "hell", "nooo"])
         // guard let favoritePOI = poiData else {return}
          FirestoreService.manager.updateCurrentUserPOI(favorite: favoritePOI) { (result) in
              switch result {
