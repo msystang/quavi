@@ -85,7 +85,7 @@ class MapViewController: UIViewController {
     
     var poiForTour = [POI]() {
         didSet {
-            //            self.poiTableView.reloadData()
+            self.poiTableView.reloadData()
             print("Reload poiTBV. poiForTour.count = \(poiForTour.count)")
         }
     }
@@ -156,7 +156,7 @@ class MapViewController: UIViewController {
             }
             
             dispatchGroup.notify(queue: .main) {
-                self.poiForTour = poisFromDR
+                self.poiForTour = poisFromDR.sorted { $0.index < $1.index }
             }
         }
     }
