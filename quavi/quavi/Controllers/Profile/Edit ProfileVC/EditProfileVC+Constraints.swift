@@ -9,6 +9,42 @@
 import UIKit
 
 extension EditProfileViewController {
+    
+    func setUpSubviews() {
+        self.view.addSubview(topBarView)
+        self.topBarView.addSubview(backButton)
+        self.topBarView.addSubview(confirmEditButton)
+        self.topBarView.addSubview(cancelEditButton)
+        self.view.addSubview(logoutButton)
+        
+        self.view.addSubview(userImage)
+        self.view.addSubview(changeImageButton)
+        self.view.addSubview(nameTextField)
+        self.view.addSubview(usernameTextField)
+        self.view.addSubview(emailTextField)
+        self.view.addSubview(nameLabel)
+        self.view.addSubview(usernameLabel)
+        self.view.addSubview(emailLabel)
+        self.view.addSubview(logoutButton)
+    }
+    
+    func setUpConstraints() {
+        constrainTopBarView()
+        constrainBackButton()
+        constrainConfirmButton()
+        constrainCancelEditButton()
+        constrainLogoutButton()
+        
+        constrainUserImageView()
+        constrainChangeImageButton()
+        constrainTextFields(textField: nameTextField, textFieldAbove: nil)
+        constrainTextFields(textField: usernameTextField, textFieldAbove: nameTextField)
+        constrainTextFields(textField: emailTextField, textFieldAbove: usernameTextField)
+        constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
+        constrainTextFieldLabels(label: usernameLabel, textFieldBelow: usernameTextField)
+        constrainTextFieldLabels(label: emailLabel, textFieldBelow: emailTextField)
+        
+    }
     //MARK: - TopBarView Constraints
     func constrainTopBarView() {
         topBarView.translatesAutoresizingMaskIntoConstraints = false
