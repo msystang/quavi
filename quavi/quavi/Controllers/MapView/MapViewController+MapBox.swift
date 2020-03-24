@@ -48,7 +48,7 @@ extension MapViewController: MGLMapViewDelegate {
                 //TODO: handle else
                 guard let selectedTour = self.selectedTour else { return }
                 
-                let options = try Tour.generateTourRouteOptions(from: selectedTour, navigationType: navigationType)
+                let options = try Tour.generateTourRouteOptions(from: self.poiForTour, navigationType: navigationType)
                 
                 self.generateRoute(from: options) { (result) in
                     switch result {
