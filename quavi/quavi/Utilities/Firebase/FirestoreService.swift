@@ -226,5 +226,22 @@ class FirestoreService {
 
     }
     
+    func updateCurrentUserPOI(favorite: POI?, completion: @escaping (Result<(), Error>) -> ()){
+        guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
+            return
+        }
+        var updatePOIFields = [String:Any]()
+
+        if let favorite = favorite {
+            updatePOIFields["savedPOI"] = FieldValue.arrayUnion([favorite])
+        }
+        db.collection(FireStoreCollections.users.rawValue).document(userId).updateData(updatePOIFields) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
     private init () {}
 }
