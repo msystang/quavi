@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import FirebaseAuth
+import FirebaseFirestore
 
 class EditProfileViewController: UIViewController {
     
@@ -135,6 +136,7 @@ class EditProfileViewController: UIViewController {
         setUpDelegates()
         setUpSubviews()
         setUpConstraints()
+        setUsernameAndEmail()
         getAndSetUserPhoto()
         miscSetUp()
         checkPhotoLibraryAccess()
@@ -271,6 +273,26 @@ class EditProfileViewController: UIViewController {
         
         confirmEditButton.alpha = 0
         cancelEditButton.alpha = 0
+    }
+    
+    private func setUsernameAndEmail() {
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "userName") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting username: \(error.localizedDescription)")
+            case .success(let username):
+                self.usernameTextField.text = username
+            }
+        }
+        
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "email") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting email: \(error.localizedDescription)")
+            case .success(let email):
+                self.emailTextField.text = email
+            }
+        }
     }
     
     private func getAndSetUserPhoto() {
