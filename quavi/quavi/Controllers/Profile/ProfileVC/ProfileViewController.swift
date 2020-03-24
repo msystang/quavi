@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     
@@ -36,21 +37,21 @@ class ProfileViewController: UIViewController {
         imageView.tintColor = .brown
         return imageView
     }()
-    lazy var fullname: UILabel = {
+    lazy var fullnameLabel: UILabel = {
         var label = UILabel()
         label.text = "Bob Marley"
         label.textAlignment = .center
         return label
     }()
     
-    lazy var username: UILabel = {
+    lazy var usernameLabel: UILabel = {
         var label = UILabel()
         label.text = "tour_master"
         label.textAlignment = .center
         return label
     }()
     
-    lazy var email: UILabel = {
+    lazy var emailLabel: UILabel = {
         var label = UILabel()
         label.text = "dntWrryBHappy@gmail.com"
         label.textAlignment = .center
@@ -112,13 +113,20 @@ class ProfileViewController: UIViewController {
     
     let toursTest = ["Historical LBGTQ Tour", "NYC Beer Tour", "NYC Speakeasies","Places of Worship"]
     let poiTest = ["Empire State Building", "National Museum of Mathematics", "Rubin Museum of art"]
+    var username: String?
+    var email: String?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        
         setUpSubviews()
         setUpConstraints()
+    
+        setUsernameAndEmail()
+        
         miscSetUp()
         setUpDelegates()
     }
@@ -142,48 +150,29 @@ class ProfileViewController: UIViewController {
         favoritesTableView.dataSource = self
     }
     
-    private func setUpSubviews() {
-        self.view.addSubview(profileInfoView)
-        self.profileInfoView.addSubview(editProfileButton)
-        self.profileInfoView.addSubview(userImage)
-        self.profileInfoView.addSubview(fullname)
-        self.profileInfoView.addSubview(username)
-        self.profileInfoView.addSubview(email)
-        
-        self.view.addSubview(favoritedView)
-        self.favoritedView.addSubview(faveToursLabel)
-        self.favoritedView.addSubview(tourNumber)
-        self.favoritedView.addSubview(favePOILabel)
-        self.favoritedView.addSubview(POINumber)
-        
-        self.view.addSubview(faveTypeSegmentControl)
-
-        self.view.addSubview(favoritesTableView)
-    }
-    
-    private func setUpConstraints() {
-        constrainProfileInfoView()
-        constrainEditButton()
-        constrainUserImage()
-        constrainFullName()
-        constrainUsername()
-        constrainEmail()
-        
-        constrainfavoritedView()
-        constrainFaveToursLabel()
-        constrainTourNumberLabel()
-        constrainFavePOILabel()
-        constrainPOINumberLabel()
-        
-        constrainFaveTypeSegmentControl()
-        
-        constrainTableView()
-    }
-    
     private func miscSetUp(){
         self.view.backgroundColor = .white
         self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
+    }
+    
+    private func setUsernameAndEmail() {
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "userName") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting username: \(error.localizedDescription)")
+            case .success(let username):
+                self.usernameLabel.text = username
+            }
+        }
         
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "email") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting email: \(error.localizedDescription)")
+            case .success(let email):
+                self.emailLabel.text = email
+            }
+        }
     }
 }

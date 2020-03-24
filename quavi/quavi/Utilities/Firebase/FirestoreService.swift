@@ -10,6 +10,8 @@ import Foundation
 
 import FirebaseFirestore
 
+import FirebaseAuth
+
 fileprivate enum FireStoreCollections: String {
     case users
     case tour
@@ -224,6 +226,32 @@ class FirestoreService {
             }
         }
 
+    }
+    
+    func getUsernameOrEmail(whichOne usernameOrEmail: String, completion: @escaping (Result<String, Error>) -> ()) {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("error, no user logged in")
+            return
+        }
+        let document = db.collection("users").document(userID)
+        
+        document.getDocument { (snapshot, error) in
+            if error == nil {
+                guard let data = snapshot?.data()?[usernameOrEmail] else {
+                    print("could not find field")
+                    return
+                }
+                
+                if let result = data as? String {
+                    print(result)
+                    completion(.success(result))
+                } else {
+                    print("failure downcasting experience as string")
+                }
+            } else {
+                completion(.failure(error!))
+            }
+        }
     }
     
     private init () {}
