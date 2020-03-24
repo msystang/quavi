@@ -308,6 +308,21 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK: -- Objc func
+    @objc func handleLikeButtonPressed(sender:UIButton){
+           guard FirebaseAuthService.manager.currentUser != nil else {return}
+
+        let favoritePOI = POI(name: "non", index: 3, lat: 2.34, long: 4.56, shortDesc: "ok", longDesc: "no", tableViewImage: "ummm no", poiImages: ["Oh", "hell", "nooo"])
+         // guard let favoritePOI = poiData else {return}
+          FirestoreService.manager.updateCurrentUserPOI(favorite: favoritePOI) { (result) in
+              switch result {
+              case .failure(let error):
+                  self.showAlert(title: "Hmmmm", message: "Seem to have ran into a snag. Please try again \(error)")
+              case .success(()):
+                  self.showAlert(title: "Quactastic", message: "This location has been saved")
+              }
+          }
+      }
+    
     @objc func handlePageControllerTapped(_ sender: UIPageControl) {
            let pageIndex = sender.currentPage
            // calls the goToPage func to animate and present the appropriate view by internally incrementing and decrimenting index
