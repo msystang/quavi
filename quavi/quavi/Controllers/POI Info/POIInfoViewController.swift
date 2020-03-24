@@ -117,7 +117,7 @@ class POIInfoViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         button.layer.borderWidth = 3
-        button.addTarget(self, action: #selector(handleLikeButtonPressed(sender:)), for: .touchUpInside)
+      //  button.addTarget(self, action: #selector(handleLikeButtonPressed(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -315,20 +315,20 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK: -- Objc func
-    @objc func handleLikeButtonPressed(sender:UIButton){
-          guard FirebaseAuthService.manager.currentUser != nil else {return}
-        
-        let favoritePOI = POI(name:  "non", index: 3, lat: 2.34, long: 4.56, shortDesc: "ok", longDesc: "No", tableViewImage: "ummm no", poiImages:  ["Oh", "hell", "nooo"])
-        // guard let favoritePOI = poiData else {return}
-         FirestoreService.manager.updateCurrentUserPOI(favorite: favoritePOI) { (result) in
-             switch result {
-             case .failure(let error):
-                 self.showAlert(title: "Hmmmm", message: "Seem to have ran into a snag. Please try again \(error)")
-             case .success(()):
-                 self.showAlert(title: "Quactastic", message: "This location has been saved")
-             }
-         }
-     }
+//    @objc func handleLikeButtonPressed(sender:UIButton){
+//          guard FirebaseAuthService.manager.currentUser != nil else {return}
+//
+//        let favoritePOI = POI(name:  "non", index: 3, lat: 2.34, long: 4.56, shortDesc: "ok", longDesc: "No", tableViewImage: "ummm no", poiImages:  ["Oh", "hell", "nooo"])
+//        // guard let favoritePOI = poiData else {return}
+//         FirestoreService.manager.updateCurrentUserPOI(favorite: favoritePOI) { (result) in
+//             switch result {
+//             case .failure(let error):
+//                 self.showAlert(title: "Hmmmm", message: "Seem to have ran into a snag. Please try again \(error)")
+//             case .success(()):
+//                 self.showAlert(title: "Quactastic", message: "This location has been saved")
+//             }
+//         }
+//     }
     
     @objc func handlePageControllerTapped(_ sender: UIPageControl) {
            let pageIndex = sender.currentPage
