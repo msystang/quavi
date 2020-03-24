@@ -22,12 +22,10 @@ struct Tour {
     let dateCreated: Date?
     
     // MARK: - Static Properties
-//        static let dummyData: Tour = Tour(creatorID: "quavi", name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
+    //        static let dummyData: Tour = Tour(creatorID: "quavi", name: "DummyHistory", category: "History", stops: POI.pointsOfinterest)
     
     // MARK: - Static Functions
-    static func generateTourRouteOptions(from tour: Tour, navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
-        
-        let pois = Tour.getPOIFromStops(tour: tour)
+    static func generateTourRouteOptions(from pois: [POI], navigationType: MBDirectionsProfileIdentifier) throws -> NavigationRouteOptions {
         
         // Get all waypoints for stops in tour
         let waypoints = pois.map { $0.waypoint }
@@ -39,25 +37,6 @@ struct Tour {
         return options
     }
     
-    private static func getPOIFromStops(tour: Tour) -> [POI] {
-        var stops = [POI]()
-//
-//        //Determine if this is the right thread
-//        DispatchQueue.global(qos: .utility).async {
-//            tour.stops.forEach { (documentReference) in
-//                FirestoreService.manager.getPOI(from: documentReference) { (result) in
-//
-//                    switch result {
-//                    case .failure(let error):
-//                        print(error)
-//                    case .success(let poi):
-//                        stops.append(poi)
-//                    }
-//                }
-//            }
-//        }
-        return stops
-    }
     
     // MARK: - Initializers
     // Initializing a Tour in Firestore (creating a new Tour)
