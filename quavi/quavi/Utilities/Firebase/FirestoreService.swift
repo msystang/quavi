@@ -242,7 +242,6 @@ class FirestoreService {
             } else {
                 completion(.success(()))
             }
-
         }
     }
     private init () {}
