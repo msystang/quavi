@@ -85,7 +85,7 @@ class MapViewController: UIViewController {
     
     var poiForTour = [POI]() {
         didSet {
-            //            self.poiTableView.reloadData()
+            self.poiTableView.reloadData()
             print("Reload poiTBV. poiForTour.count = \(poiForTour.count)")
         }
     }
