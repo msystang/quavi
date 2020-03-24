@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
 //        if Auth.auth().currentUser != nil {
-            window?.rootViewController = LoginViewController()
+            window?.rootViewController = OnBoardingViewController()
 //        } else {
 //            window?.rootViewController = OnBoardingViewController()
 //        }

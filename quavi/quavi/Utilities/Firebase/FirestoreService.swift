@@ -180,31 +180,24 @@ class FirestoreService {
     }
     
     //MARK: Favorites
-    func createFavorite(favorite: AppUser, completion: @escaping (Result<(), Error>) -> ()) {
-        var fields = favorite.fieldsDict
-        fields["dateCreated"] = Date()
-        db.collection(FireStoreCollections.favorite.rawValue).addDocument(data: fields) { (error) in
+    func updateCurrentUserPOI(favorite: POI?, completion: @escaping (Result<(), Error>) -> ()){
+        guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
+            return
+        }
+        var updatePOIFields = [String:Any]()
+        
+        if let favorite = favorite {
+            updatePOIFields["savedPOI"] = FieldValue.arrayUnion([favorite])
+        }
+        db.collection(FireStoreCollections.users.rawValue).document(userId).updateData(updatePOIFields) { (error) in
             if let error = error {
                 completion(.failure(error))
             } else {
                 completion(.success(()))
             }
+            
         }
     }
     
-    func getFavorites(forUserID: String, completion: @escaping (Result<[AppUser], Error>) -> ()) {
-         db.collection(FireStoreCollections.favorite.rawValue).whereField("creatorID", isEqualTo: forUserID).getDocuments { (snapshot, error) in
-             if let error = error {
-                 completion(.failure(error))
-             } else {
-                 let favorite = snapshot?.documents.compactMap({ (snapshot) -> POI? in
-                     let favoriteID = snapshot.documentID
-                     let favorite = POI(from: snapshot.data(), id: favoriteID)
-                     return favorite
-                 })
-                 completion(.success(favorite ?? []))
-             }
-         }
-     }
-        private init () {}
+    private init () {}
 }
