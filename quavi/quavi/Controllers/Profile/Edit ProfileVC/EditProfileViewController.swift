@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import FirebaseAuth
 
 class EditProfileViewController: UIViewController {
     
@@ -134,8 +135,10 @@ class EditProfileViewController: UIViewController {
         setUpDelegates()
         setUpSubviews()
         setUpConstraints()
+        getAndSetUserPhoto()
         miscSetUp()
         checkPhotoLibraryAccess()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -268,6 +271,19 @@ class EditProfileViewController: UIViewController {
         
         confirmEditButton.alpha = 0
         cancelEditButton.alpha = 0
+    }
+    
+    private func getAndSetUserPhoto() {
+        if let url = Auth.auth().currentUser?.photoURL {
+            FirebaseStorageService(imageType: .profileImage).getImage(photoUrl: url) { (result) in
+                switch result {
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: "Could not retrieve user photo: \(error.localizedDescription)")
+                case .success(let image):
+                    self.userImage.image = image
+                }
+            }
+        }
     }
     
     //MARK: - edit buttons' functions

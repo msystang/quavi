@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -126,6 +127,7 @@ class ProfileViewController: UIViewController {
         setUpConstraints()
     
         setUsernameAndEmail()
+        getAndSetUserPhoto()
         
         miscSetUp()
         setUpDelegates()
@@ -172,6 +174,19 @@ class ProfileViewController: UIViewController {
                 print("Error getting email: \(error.localizedDescription)")
             case .success(let email):
                 self.emailLabel.text = email
+            }
+        }
+    }
+    
+    private func getAndSetUserPhoto() {
+        if let url = Auth.auth().currentUser?.photoURL {
+            FirebaseStorageService(imageType: .profileImage).getImage(photoUrl: url) { (result) in
+                switch result {
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: "Could not retrieve user photo: \(error.localizedDescription)")
+                case .success(let image):
+                    self.userImage.image = image
+                }
             }
         }
     }

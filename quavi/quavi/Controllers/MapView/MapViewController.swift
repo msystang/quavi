@@ -66,14 +66,9 @@ class MapViewController: UIViewController {
     
     
     // MARK: - Internal Properties
-    // TODO: Refactor sampleData to tours when pulling from firebase
-    var sampleData = [POI]()
     
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
-    
-    var selectedRoute: Route?
-    var currentLegRoute: Route?
     
     var toursForCategory = [Tour]() {
         didSet {
@@ -85,11 +80,14 @@ class MapViewController: UIViewController {
     
     var poiForTour = [POI]() {
         didSet {
-            //            self.poiTableView.reloadData()
+            self.poiTableView.reloadData()
+            getSelectedRoute(navigationType: modeOfTransit)
             print("Reload poiTBV. poiForTour.count = \(poiForTour.count)")
         }
     }
     
+    var selectedRoute: Route?
+    var currentLegRoute: Route?
     
     var nextStopIndex = 0 {
         didSet {
@@ -130,7 +128,6 @@ class MapViewController: UIViewController {
         super.viewWillAppear(animated)
         hideNavigationBar()
         addConstraints()
-        getSelectedRoute(navigationType: modeOfTransit)
         switchTransitButtonState()
     }
     
@@ -156,7 +153,7 @@ class MapViewController: UIViewController {
             }
             
             dispatchGroup.notify(queue: .main) {
-                self.poiForTour = poisFromDR
+                self.poiForTour = poisFromDR.sorted { $0.index < $1.index }
             }
         }
     }

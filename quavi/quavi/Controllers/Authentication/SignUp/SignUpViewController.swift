@@ -138,6 +138,16 @@ class SignUpViewController: UIViewController {
     }
     
     private func updateUsername(username: String) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = username
+        changeRequest?.commitChanges(completion: { (error) in
+            if error == nil {
+                print("User displayName changed!")
+            } else {
+                print("error setting displayName: \(String(describing: error?.localizedDescription))")
+            }
+        })
+        
         FirestoreService.manager.updateCurrentUser(userName: username) { (result) in
             switch result {
             case .failure(let error):
@@ -149,6 +159,7 @@ class SignUpViewController: UIViewController {
                 UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
                     window.rootViewController = QuaviTabBarController()
                 }, completion: nil)
+                
                 
                 print("username saved")
             }

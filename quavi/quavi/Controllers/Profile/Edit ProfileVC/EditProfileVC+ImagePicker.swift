@@ -30,6 +30,8 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
                 changeRequest?.commitChanges(completion: { (error) in
                     if error == nil {
                         print("User photoURL changed!")
+                    } else {
+                        print("error setting photoURL: \(error?.localizedDescription)")
                     }
                     FirestoreService.manager.updateCurrentUser(photoURL: url) { (result) in
                         switch result {
