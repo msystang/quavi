@@ -503,8 +503,8 @@
 			isa = PBXGroup;
 			children = (
 				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
-				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 				EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */,
+				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 				EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */,
 			);
 			path = Firebase;
