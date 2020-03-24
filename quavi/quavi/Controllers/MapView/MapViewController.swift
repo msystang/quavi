@@ -156,7 +156,7 @@ class MapViewController: UIViewController {
             }
             
             dispatchGroup.notify(queue: .main) {
-                self.poiForTour = poisFromDR
+                self.poiForTour = poisFromDR.sorted { $0.index < $1.index }
             }
         }
     }
