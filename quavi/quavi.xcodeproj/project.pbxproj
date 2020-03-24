@@ -39,7 +39,6 @@
 		EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */; };
 		EA5D6AEE242977D200BEB9B2 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */; };
 		EA5D6AF0242977EB00BEB9B2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */; };
-		EA5D6AF22429789500BEB9B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA5D6AF12429789500BEB9B2 /* GoogleService-Info.plist */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
@@ -63,6 +62,7 @@
 		EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* MapboxError.swift */; };
 		EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */; };
 		EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */; };
+		EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC16690E242AA57000BDED2C /* GoogleService-Info.plist */; };
 		EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */; };
 		EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E8482404347600B53054 /* POIPopUpViewController.swift */; };
 		EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */; };
@@ -132,7 +132,6 @@
 		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
-		EA5D6AF12429789500BEB9B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 		EAF7174C23E388D000DD8703 /* MapboxError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxError.swift; sourceTree = "<group>"; };
 		EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapBox.swift"; sourceTree = "<group>"; };
 		EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Constraints.swift"; sourceTree = "<group>"; };
+		EC16690E242AA57000BDED2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView.swift"; sourceTree = "<group>"; };
 		EC41E8482404347600B53054 /* POIPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpViewController.swift; sourceTree = "<group>"; };
 		EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIPopUpViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -445,7 +445,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
-				EA5D6AF12429789500BEB9B2 /* GoogleService-Info.plist */,
+				EC16690E242AA57000BDED2C /* GoogleService-Info.plist */,
 			);
 			path = quavi;
 			sourceTree = "<group>";
@@ -686,7 +686,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EA5D6AF22429789500BEB9B2 /* GoogleService-Info.plist in Resources */,
+				EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
