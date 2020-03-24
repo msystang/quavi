@@ -20,6 +20,12 @@ class SignUpViewController: UIViewController {
         return label
     }()
     
+    lazy var usernameTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter Username"
+        return textField
+    }()
+    
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Email"
@@ -46,7 +52,7 @@ class SignUpViewController: UIViewController {
     }()
     
     lazy var signUpStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
+        let stackView = UIStackView(arrangedSubviews: [usernameTextField, emailTextField, passwordTextField])
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.axis = .vertical

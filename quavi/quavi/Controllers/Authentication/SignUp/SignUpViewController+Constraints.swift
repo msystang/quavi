@@ -37,6 +37,7 @@ extension SignUpViewController {
     
     private func setSignUpStackViewConstraints() {
         signUpStackView.translatesAutoresizingMaskIntoConstraints = false
+        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -45,6 +46,7 @@ extension SignUpViewController {
             signUpStackView.bottomAnchor.constraint(equalTo: view.centerYAnchor),
             signUpStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpStackView.heightAnchor.constraint(lessThanOrEqualToConstant: 100),
+            usernameTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
             emailTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
             passwordTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
         ])
