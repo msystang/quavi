@@ -23,6 +23,8 @@ class FirestoreService {
     
     private let db = Firestore.firestore()
     
+    
+    
     //MARK: AppUsers
     func createAppUser(user: AppUser, completion: @escaping (Result<(), Error>) -> ()) {
         var fields = user.fieldsDict

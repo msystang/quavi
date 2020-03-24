@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import FirebaseAuth
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
@@ -18,6 +19,30 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             return
         }
         self.userImage.image = image
+        
+        FirebaseStorageService(imageType: .profileImage).uploadProfileImage(image: image) { (result) in
+            switch result {
+            case .failure(let error):
+                self.showAlert(title: "Error", message: "Problem saving user photo: \(error.localizedDescription)")
+            case .success(let url):
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.photoURL = url
+                changeRequest?.commitChanges(completion: { (error) in
+                    if error == nil {
+                        print("User photoURL changed!")
+                    }
+                    FirestoreService.manager.updateCurrentUser(photoURL: url) { (result) in
+                        switch result {
+                        case .failure(let error):
+                            self.showAlert(title: "Error", message: "Problem saving photoURL: \(error.localizedDescription)")
+                        case .success(()):
+                            print("photoURL saved")
+                        }
+                    }
+                })
+            }
+        }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
