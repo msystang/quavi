@@ -102,7 +102,7 @@ extension MapViewController {
         sectionHeaderArrows.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             sectionHeaderArrows.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10),
-            sectionHeaderArrows.topAnchor.constraint(equalTo: button.topAnchor, constant: button.frame.height/2),
+            sectionHeaderArrows.topAnchor.constraint(equalTo: button.topAnchor, constant: button.frame.height/1.6),
             sectionHeaderArrows.heightAnchor.constraint(equalToConstant: 25),
             sectionHeaderArrows.widthAnchor.constraint(equalToConstant: 20)
             
@@ -110,8 +110,8 @@ extension MapViewController {
         ])
     }
     
-    func constrainTVSectionImage(button: UIButton, sectionHeaderImage:UIImageView){
+   func constrainTVSectionImage(button: UIButton, sectionHeaderImage:UIImageView, view:UIView){
         sectionHeaderImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([sectionHeaderImage.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 5), sectionHeaderImage.centerYAnchor.constraint(equalTo: button.centerYAnchor), sectionHeaderImage.heightAnchor.constraint(equalToConstant: 60), sectionHeaderImage.widthAnchor.constraint(equalToConstant: 60)])
+        NSLayoutConstraint.activate([sectionHeaderImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5), sectionHeaderImage.centerYAnchor.constraint(equalTo: button.centerYAnchor), sectionHeaderImage.heightAnchor.constraint(equalToConstant: 60), sectionHeaderImage.widthAnchor.constraint(equalToConstant: 60)])
     }
 }
