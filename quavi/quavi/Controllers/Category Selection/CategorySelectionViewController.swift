@@ -79,7 +79,13 @@ class CategorySelectionViewController: UIViewController {
     }
     
     private func setupNavBar(){
+        navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "Tour Categories"
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIDesign.quaviOrange]
+        //navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+
     }
 }
