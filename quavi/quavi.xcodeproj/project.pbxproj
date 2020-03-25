@@ -273,6 +273,15 @@
 			path = "POI Info";
 			sourceTree = "<group>";
 		};
+		EA17DC642405B07800715DD4 /* POI PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */,
+			);
+			path = "POI PopUp";
+			sourceTree = "<group>";
+		};
+>>>>>>> 64c28fafc23dec6a79785236a4d2617bd95ca9d2
 		EA17DC652405B15500715DD4 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,6 +815,8 @@
 				1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
 				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
+				ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */,
+>>>>>>> 64c28fafc23dec6a79785236a4d2617bd95ca9d2
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				ECE46D08240EF65100A22454 /* POIPopUpGallery.swift in Sources */,
 				85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */,
