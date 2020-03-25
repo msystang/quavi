@@ -20,7 +20,7 @@ class QuaviTableView: UITableView {
     }
     
     func configure() {
-        backgroundColor = .clear
+        backgroundColor = UIDesign.quaviDarkGrey
         register(StopsTableViewCell.self, forCellReuseIdentifier: Enums.cellIdentifiers.StopCell.rawValue)
         separatorStyle = .none
         translatesAutoresizingMaskIntoConstraints = false

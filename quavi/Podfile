@@ -11,6 +11,9 @@ target 'quavi' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Storage'
 
+  #Pod for Image  caching 
+        pod 'Kingfisher', '~> 5.0'
+
   target 'quaviTests' do
     inherit! :search_paths
     # Pods for testing

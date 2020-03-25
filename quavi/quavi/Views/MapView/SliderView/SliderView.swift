@@ -20,7 +20,7 @@ class SliderView: UIView {
     }
     
     func configure() {
-        backgroundColor = .white
+        backgroundColor = UIDesign.quaviDarkGrey
         translatesAutoresizingMaskIntoConstraints = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 1

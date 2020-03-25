@@ -23,11 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         
+
         if Auth.auth().currentUser != nil {
             window?.rootViewController = QuaviTabBarController()
         } else {
             window?.rootViewController = LoginViewController()
         }
+
        
         window?.makeKeyAndVisible()
         

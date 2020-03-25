@@ -13,6 +13,8 @@ class POIPopUpGallery: UIView {
     let padding: CGFloat = 20
     lazy var poiGalleryCollectionView = POIPopUpGalleryCollectionView()
     
+    var poiImageUrls = [String]()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         poiGalleryCollectionView.backgroundColor = .systemIndigo
@@ -47,11 +49,14 @@ extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return poiImageUrls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = poiGalleryCollectionView.dequeueReusableCell(withReuseIdentifier: POIPopUpGalleryCollectionViewCell.reuseID, for: indexPath) as! POIPopUpGalleryCollectionViewCell
+        
+        //TODO: HANDLE IMAGES
+        let currentImgUrl = poiImageUrls[indexPath.row]
         
         cell.poiGalleryImageView.image = UIImage(named: "moMath2")
         return cell
