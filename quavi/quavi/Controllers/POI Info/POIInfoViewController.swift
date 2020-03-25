@@ -279,7 +279,7 @@ class POIInfoViewController: UIViewController {
         continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
     }
     private func setBackgroundColor(){
-        view.backgroundColor = .white
+        UIDesign.styleBackgroundColor(self.view)
     }
     
     func goToPage(index: Int, animated:Bool) {
