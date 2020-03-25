@@ -23,10 +23,10 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let label = UILabel(frame: CGRect(x: 50, y: 50, width:  50, height: 45))
+        let label = UILabel(frame: CGRect(x: 50, y: 50, width:  50, height: 30))
         label.text = toursForCategory[indexPath.row].name
         label.sizeToFit()
-        return CGSize(width: label.frame.width, height: 45)
+        return CGSize(width: label.frame.width, height: 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

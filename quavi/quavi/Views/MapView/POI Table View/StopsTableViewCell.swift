@@ -23,7 +23,7 @@ class StopsTableViewCell: UITableViewCell {
     lazy var favoritedPOIImage: UIImageView = {
         var view = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         view.tintColor = .white
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = UIDesign.quaviOrange
         view.image = UIImage(named: "duck_icon_hallow")
         view.layer.cornerRadius = view.frame.height / 2
         view.layer.masksToBounds = true
@@ -37,7 +37,7 @@ class StopsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir-Light", size: 16)
-        label.textColor = .black
+        label.textColor = UIDesign.quaviWhite
         label.text = "Testing"
         label.numberOfLines = 0
         label.backgroundColor = .clear

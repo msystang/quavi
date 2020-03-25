@@ -190,9 +190,9 @@ class MapViewController: UIViewController {
     }
     
     private func changeTransitButtonBackgroundColor() {
-        carButton.backgroundColor = modeOfTransit == .automobile ? .systemPurple : .white
-        walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
-        bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
+        carButton.backgroundColor = modeOfTransit == .automobile ? UIDesign.quaviOrange : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? UIDesign.quaviOrange : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? UIDesign.quaviOrange : .white
     }
     
     //MARK: -OBJ-C FUNCTIONS
