@@ -16,16 +16,16 @@ struct UIDesign {
     static let quaviWhite = UIColor(red: 1.000, green: 1.000, blue: 0.843, alpha: 1.0)
     
     static func styleBackgroundColor(_ view: UIView) {
-        view.backgroundColor = UIColor(red: 0.204, green: 0.200, blue: 0.196, alpha: 1.0)
+        view.backgroundColor = quaviDarkGrey
     }
     
     static func styleTabBar(_ tabBar: UITabBar) {
         tabBar.tintColor = .white
-        tabBar.barTintColor = UIColor(red: 0.204, green: 0.200, blue: 0.196, alpha: 1.0)
+        tabBar.barTintColor = quaviDarkGrey
     }
     
     static func styleTableView(_ tableView: UITableView) {
-        tableView.backgroundColor = UIColor(red: 0.204, green: 0.200, blue: 0.196, alpha: 1.0)
+        tableView.backgroundColor = quaviDarkGrey
     }
 
 }
