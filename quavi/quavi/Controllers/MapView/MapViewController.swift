@@ -64,6 +64,15 @@ class MapViewController: UIViewController {
         return button
     }()
     
+    lazy var backButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.tintColor = .red
+        button.showsTouchWhenHighlighted = true
+        button.addTarget(self, action: #selector(handleBackButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     
     // MARK: - Internal Properties
     
@@ -207,6 +216,10 @@ class MapViewController: UIViewController {
         default :
             return
         }
+    }
+    
+    @objc func handleBackButtonPressed(sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
