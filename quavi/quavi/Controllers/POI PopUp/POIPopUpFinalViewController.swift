@@ -13,7 +13,7 @@ class POIPopUpFinalViewController: UIViewController {
     
     lazy var closeTourButton: UIButton = {
         var button = UIButton()
-        button.setTitle("Close Tour", for: .normal)
+        button.setTitle("End Tour", for: .normal)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(endTourButtonPressed), for: .touchUpInside)
