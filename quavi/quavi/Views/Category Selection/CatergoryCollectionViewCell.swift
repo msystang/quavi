@@ -29,7 +29,7 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
     
     lazy var containerView:UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.2890303433, green: 0.6429604888, blue: 0.8375045061, alpha: 1)
+        view.backgroundColor = UIDesign.quaviOrange
         return view
     }()
     
