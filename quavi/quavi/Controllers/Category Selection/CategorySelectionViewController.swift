@@ -15,7 +15,7 @@ class CategorySelectionViewController: UIViewController {
     lazy var categoryCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         collectionView.register(CatergoryCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.categoryCell.rawValue)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIDesign.quaviDarkGrey
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -39,9 +39,6 @@ class CategorySelectionViewController: UIViewController {
     }
     
     var categoryCount = [String:Int]()
-    
-    //TODO: Load all tours and get number of tours for each category
-    let tourCountForCategory = [4,6,7,3,2,8,6,3,20]
     
     var layout = UICollectionViewFlowLayout.init()
     
@@ -79,7 +76,14 @@ class CategorySelectionViewController: UIViewController {
     }
     
     private func setupNavBar(){
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.barTintColor = UIDesign.quaviDarkGrey
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "Tour Categories"
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIDesign.quaviWhite]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+
     }
 }

@@ -31,12 +31,17 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
         
         //TO-DO: SEPERATE INTO IT'S OWN FILE
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+        
+        let overLayView =  UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+               overLayView.backgroundColor = UIDesign.quaviYellow
+         let button = UIButton(frame: CGRect(x: 62, y: 0, width: self.view.frame.width - 62, height: 70))
         button.setTitle(poiForTour[section].name, for: .normal)
+        button.titleLabel!.adjustsFontSizeToFitWidth = true
         button.backgroundColor = UIDesign.quaviYellow
         button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
         button.setTitleColor(.black, for: .normal)
         button.tag = section
+        view.addSubview(overLayView)
         view.addSubview(button)
         
         let sectionImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -57,7 +62,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         button.addSubview(sectionHeaderArrows)
         
         constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
-        constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage)
+        constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage, view: view)
         
         view.backgroundColor = .clear
         return view
