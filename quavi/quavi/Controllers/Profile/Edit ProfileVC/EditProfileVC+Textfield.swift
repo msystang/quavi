@@ -28,6 +28,8 @@ extension EditProfileViewController: UITextFieldDelegate {
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         
+//        print(currentTextfield.text)
+        
         if textField == nameTextField {
             currentTextfield = nameTextField
             handleTextFieldFirstResponder(toChangeConstraintsOf: nameTextField, disable: usernameTextField, disable: emailTextField, disable: usernameLabel, disable: emailLabel)
@@ -50,12 +52,12 @@ extension EditProfileViewController: UITextFieldDelegate {
     
     func handleTextFieldFirstResponder(toChangeConstraintsOf selectedTextfield: UITextField, disable textfield1: UITextField, disable textfield2: UITextField, disable label1: UILabel, disable label2: UILabel) {
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.1) {
             self.userImage.alpha = 0
             self.changeImageButton.alpha = 0
         }
         
-        UIView.animate(withDuration: 1.0, delay: 0.3, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+        UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
             
             textfield1.alpha = 0
             textfield2.alpha = 0

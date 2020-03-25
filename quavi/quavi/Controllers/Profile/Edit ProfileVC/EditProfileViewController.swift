@@ -124,11 +124,41 @@ class EditProfileViewController: UIViewController {
         return textField
     }()
     
+    //MARK: - TextField Constraints
+    
+    lazy var nameTextFieldConstraint: [NSLayoutConstraint] = {
+        let constraints = [nameTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70),
+                           nameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+                           nameTextField.heightAnchor.constraint(equalToConstant: 40),
+                           nameTextField.widthAnchor.constraint(equalToConstant: 300)]
+        
+        return constraints
+    }()
+    
+    lazy var usernameTextFieldConstraint: [NSLayoutConstraint] = {
+        let constraints = [usernameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50),
+                           usernameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+                           usernameTextField.heightAnchor.constraint(equalToConstant: 40),
+                           usernameTextField.widthAnchor.constraint(equalToConstant: 300)]
+        
+        return constraints
+    }()
+    
+    lazy var emailTextFieldConstraints: [NSLayoutConstraint] = {
+        let constraints = [emailTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 50),
+                           emailTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+                           emailTextField.heightAnchor.constraint(equalToConstant: 40),
+                           emailTextField.widthAnchor.constraint(equalToConstant: 300)]
+        return constraints
+    }()
+    
+    
     //MARK: - Regular Properties
     
     var currentTextfield: UITextField!
     lazy var editTextFieldLayout = setEditTextFieldConstraint(textField: currentTextfield)
     var photoLibraryAccess = false
+    
     
     //MARK: - Life Cycle functions
     override func viewDidLoad() {
@@ -136,6 +166,7 @@ class EditProfileViewController: UIViewController {
         setUpDelegates()
         setUpSubviews()
         setUpConstraints()
+        setUpTextFieldConstraints()
         setUsernameAndEmail()
         getAndSetUserPhoto()
         miscSetUp()
@@ -331,16 +362,19 @@ class EditProfileViewController: UIViewController {
             if self.currentTextfield == self.nameTextField {
                 
                 self.editTextFieldLayout.isActive = false
+                self.setUpTextFieldConstraints()
                 self.currentTextfield.resignFirstResponder()
                 
             } else if self.currentTextfield == self.emailTextField {
                 
                 self.editTextFieldLayout.isActive = false
+                self.setUpTextFieldConstraints()
                 self.currentTextfield.resignFirstResponder()
                 
             } else if self.currentTextfield == self.usernameTextField {
                 
                 self.editTextFieldLayout.isActive = false
+                self.setUpTextFieldConstraints()
                 self.currentTextfield.resignFirstResponder()
             }
             
@@ -357,16 +391,32 @@ class EditProfileViewController: UIViewController {
     }
     
     func setEditTextFieldConstraint(textField: UITextField) -> NSLayoutConstraint {
+       
         var layout = NSLayoutConstraint()
         
         if textField == nameTextField {
             layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 110)
+            
+            usernameTextField.removeConstraints(usernameTextFieldConstraint)
+            emailTextField.removeConstraints(emailTextFieldConstraints)
+            nameTextField.removeConstraint(nameTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70))
+            
         } else if textField == usernameTextField {
             layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60)
+            
+            nameTextField.removeConstraints(nameTextFieldConstraint)
+            emailTextField.removeConstraints(emailTextFieldConstraints)
+            usernameTextField.removeConstraint(usernameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50))
+            
         } else if textField == emailTextField {
             layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10)
+            
+            nameTextField.removeConstraints(nameTextFieldConstraint)
+            usernameTextField.removeConstraints(usernameTextFieldConstraint)
+            emailTextField.removeConstraint(emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50))
         }
         return layout
+        
     }
     
     

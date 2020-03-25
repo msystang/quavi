@@ -37,13 +37,20 @@ extension EditProfileViewController {
         
         constrainUserImageView()
         constrainChangeImageButton()
+        
+    }
+    
+    func removeAllNonTextFieldConstraints() {
+        
+    }
+    
+    func setUpTextFieldConstraints() {
         constrainTextFields(textField: nameTextField, textFieldAbove: nil)
         constrainTextFields(textField: usernameTextField, textFieldAbove: nameTextField)
         constrainTextFields(textField: emailTextField, textFieldAbove: usernameTextField)
         constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
         constrainTextFieldLabels(label: usernameLabel, textFieldBelow: usernameTextField)
         constrainTextFieldLabels(label: emailLabel, textFieldBelow: emailTextField)
-        
     }
     //MARK: - TopBarView Constraints
     func constrainTopBarView() {

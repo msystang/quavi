@@ -197,7 +197,7 @@ class FirestoreService {
                 }
                 
                 if let result = data as? String {
-                    print(result)
+//                    print(result)
                     completion(.success(result))
                 } else {
                     print("failure downcasting experience as string")
