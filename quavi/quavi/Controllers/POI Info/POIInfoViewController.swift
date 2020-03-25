@@ -145,20 +145,7 @@ class POIInfoViewController: UIViewController {
     //MARK:-- Internal Properties
     var poiForTour = [POI]() {
         didSet {
-            let currentPOI = poiForTour[nextStopIndex - 1]
-            
-            let view1 = POIPopUpAboutView()
-            view1.poiName.text = currentPOI.name
-            view1.descriptionTextView.text = currentPOI.longDesc
-            //TODO: Handle image
-            view1.imageView.image = UIImage(named:"Quavi_Logo_Black")
-            
-            let view2 = POIPopUpGallery()
-            view2.poiImageUrls = currentPOI.poiImages
-            view2.poiGalleryCollectionView.alwaysBounceHorizontal = true
-            
-            viewArray = [view1, view2, view4]
-            populateContainerView()
+            setUpPageViews()
         }
     }
     
@@ -173,7 +160,10 @@ class POIInfoViewController: UIViewController {
     
     var nextStopIndex = 0 {
         didSet{
-            print(nextStopIndex)
+            guard poiForTour.count > 0 else {return}
+            guard nextStopIndex > 0 else {return}
+            setUpPageViews()
+            
         }
     }
     
@@ -244,6 +234,22 @@ class POIInfoViewController: UIViewController {
     }
     
     //MARK:-- Private func
+    private func setUpPageViews() {
+        let currentPOI = poiForTour[nextStopIndex - 1]
+        
+        let view1 = POIPopUpAboutView()
+        view1.poiName.text = currentPOI.name
+        view1.descriptionTextView.text = currentPOI.longDesc
+        //TODO: Handle image
+        view1.imageView.image = UIImage(named:"Quavi_Logo_Black")
+        
+        let view2 = POIPopUpGallery()
+        view2.poiImageUrls = currentPOI.poiImages
+        view2.poiGalleryCollectionView.alwaysBounceHorizontal = true
+        
+        viewArray = [view1, view2, view4]
+        populateContainerView()
+    }
     
     private func switchTransitBackgroundButton() {
         carButton.backgroundColor = modeOfTransit == .automobile ? .blue : .white
