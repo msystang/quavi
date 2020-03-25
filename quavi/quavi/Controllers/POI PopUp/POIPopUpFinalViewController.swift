@@ -31,8 +31,8 @@ class POIPopUpFinalViewController: UIViewController {
     
     private func configureGradient() {
         let gradient = GradientView()
-        gradient.startColor = UIColor(red: 1.00, green: 0.756, blue: 0.000, alpha: 1)
-        gradient.endColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
+        gradient.startColor = UIDesign.quaviOrange
+        gradient.endColor = UIDesign.quaviYellow
         gradient.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(gradient)
         NSLayoutConstraint.pin(view: gradient, to: view)
