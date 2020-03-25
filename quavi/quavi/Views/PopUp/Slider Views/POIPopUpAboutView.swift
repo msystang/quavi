@@ -14,7 +14,7 @@ class POIPopUpAboutView: UIView {
 
     lazy var poiName: UILabel = {
         var label = UILabel()
-        label.textColor = .black
+        label.textColor = UIDesign.quaviYellow
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
