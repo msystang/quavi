@@ -14,8 +14,10 @@ import MapboxCoreNavigation
 extension MapViewController {
 
     @objc func startNavigationButtonPressed() {
-        // TODO: Handle error (enum or alert?)
-        guard let currentLegRoute = currentLegRoute else { return }
+        guard let currentLegRoute = currentLegRoute else {
+            self.showAlert(title: "Quack!", message: "Please select a tour first.")
+            return
+        }
 
         let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
         let navigationOptions = NavigationOptions(navigationService: navigationService)
