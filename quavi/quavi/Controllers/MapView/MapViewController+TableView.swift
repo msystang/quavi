@@ -61,7 +61,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         button.addSubview(sectionHeaderArrows)
         
         constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
-        constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage)
+        constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage, view: view)
         
         view.backgroundColor = .clear
         return view
