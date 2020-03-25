@@ -16,16 +16,16 @@ class POIPopUpFinalViewController: UIViewController {
         button.setTitle("Close Tour", for: .normal)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 20
-        button.addTarget(self, action: #selector(cancelTourButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(endTourButtonPressed), for: .touchUpInside)
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGradient()
-        configureBirthdayCakeImage()
+        configureCongratsImage()
         configureConfetti()
-        configureHappyBirthdayLabel()
+        configureCongratsLabel()
         configureCloseTourButton()
     }
     
@@ -38,7 +38,7 @@ class POIPopUpFinalViewController: UIViewController {
         NSLayoutConstraint.pin(view: gradient, to: view)
     }
     
-    private func configureBirthdayCakeImage() {
+    private func configureCongratsImage() {
         let image = UIImage(named: "congrats")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
@@ -61,7 +61,7 @@ class POIPopUpFinalViewController: UIViewController {
         NSLayoutConstraint.pin(view: confetti, to: view)
     }
     
-    private func configureHappyBirthdayLabel() {
+    private func configureCongratsLabel() {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
@@ -90,7 +90,7 @@ class POIPopUpFinalViewController: UIViewController {
         
     }
     
-    @objc func cancelTourButtonPressed() {
+    @objc func endTourButtonPressed() {
         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
