@@ -93,8 +93,8 @@ extension MapViewController {
         NSLayoutConstraint.activate([
             toursCollectionView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             toursCollectionView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            toursCollectionView.bottomAnchor.constraint(equalTo: sliderView.topAnchor, constant: -15),
-            toursCollectionView.heightAnchor.constraint(equalToConstant: 40)
+            toursCollectionView.bottomAnchor.constraint(equalTo: sliderView.topAnchor, constant: -10),
+            toursCollectionView.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
     
