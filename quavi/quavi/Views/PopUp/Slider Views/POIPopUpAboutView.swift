@@ -17,7 +17,7 @@ class POIPopUpAboutView: UIView {
         label.textColor = .black
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.text = "Sorry, No Title Provided!"
+        label.text = poi?.name
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
@@ -26,6 +26,7 @@ class POIPopUpAboutView: UIView {
         var imageView = UIImageView()
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
+        //TODO: HANDLE IMAGE
         imageView.image = UIImage(named: "empireState2")
         return imageView
     }()
@@ -35,12 +36,19 @@ class POIPopUpAboutView: UIView {
         textView.backgroundColor = .clear
         textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        textView.text = "Quavi's intentions are to change how people explore the areas within and surrounding them. In a world full of information we yearn to have options for various categories while being able to share this information with others. Quavi solves this need by providing curated self guided tours for the everyday person and the ability to make and share tours. It's easy to use and fun interface will make you a stan automatically. Stay tuned for Quavi to take over the world of tourism by storm!"
+        textView.text = poi?.longDesc
         return textView
     }()
     
+    var poi: POI?
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        
+        if let poi = poi {
+            poiName.text = poi.name
+        }
+        
         configureGradient()
         configurePOIName()
         configureImageView()

@@ -133,6 +133,8 @@ class POIInfoViewController: UIViewController {
     //MARK: SLIDER VIEWS
     lazy var view1: UIView = {
         let view = POIPopUpAboutView()
+        print(poiForTour[nextStopIndex - 1])
+        view.poi = poiForTour[nextStopIndex - 1]
         //view.backgroundColor = .systemGray4
         return view
     }()
