@@ -33,16 +33,26 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var amountOfTourLabel:UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Verdana-Bold", size: 50)
-        label.text = "7"
-        label.textColor = .white
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .center
-        return label
-    }()
-    
+//    lazy var amountOfTourLabel:UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont(name: "Verdana-Bold", size: 50)
+//        label.text = "7"
+//        label.textColor = .white
+//        label.adjustsFontSizeToFitWidth = true
+//        label.textAlignment = .center
+//        return label
+//    }()
+//
+//
+//    lazy var numberOfTourLabel:UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont(name: "Verdana-Bold", size: 12)
+//        label.text = "# OF TOURS"
+//        label.textColor = .white
+//        label.adjustsFontSizeToFitWidth = true
+//        label.textAlignment = .center
+//        return label
+//    }()
     
     lazy var numberOfTourLabel:UILabel = {
         let label = UILabel()
