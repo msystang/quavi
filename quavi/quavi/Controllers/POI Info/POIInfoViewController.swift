@@ -253,9 +253,9 @@ class POIInfoViewController: UIViewController {
     }
     
     private func switchTransitBackgroundButton() {
-        carButton.backgroundColor = modeOfTransit == .automobile ? .blue : .white
-        walkButton.backgroundColor = modeOfTransit == .walking ? .blue : .white
-        bikeButton.backgroundColor = modeOfTransit == .cycling ? .blue : .white
+        carButton.backgroundColor = modeOfTransit == .automobile ? UIDesign.quaviYellow : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? UIDesign.quaviYellow : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? UIDesign.quaviYellow : .white
     }
     
     private func presentModesOfTransportCurrentState() {
