@@ -31,6 +31,7 @@ class POIPopUpAboutView: UIView {
     lazy var descriptionTextView: UITextView = {
         var textView = UITextView()
         textView.backgroundColor = .clear
+        textView.textColor = .white
         textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return textView
