@@ -206,6 +206,11 @@ class MapViewController: UIViewController {
     
     //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
+        guard selectedRoute != nil else {
+            self.showAlert(title: "Quack!", message: "Please select a tour first.")
+            return
+        }
+        
         switch sender.tag{
         case 0:
             modeOfTransit = .automobile
