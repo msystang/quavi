@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     
     lazy var profileInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 254/255, green: 233/255, blue: 154/255, alpha: 1)
+        view.backgroundColor = UIDesign.quaviDarkGrey
         return view
     }()
     
