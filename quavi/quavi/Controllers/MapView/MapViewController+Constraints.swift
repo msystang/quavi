@@ -21,16 +21,28 @@ extension MapViewController {
         mapView.addSubview(bikeButton)
         mapView.addSubview(carButton)
         mapView.addSubview(walkButton)
+        mapView.addSubview(backButton)
     }
     
     //TODO: rename to addMapViewConstraints()
     func addConstraints() {
         setMapViewConstraints()
         setStartNavigationButtonConstraints()
+        setBackButtonConstraints()
     }
     
     //MARK: -mapView Constraints
     //TODO: make funcs private
+    
+    func setBackButtonConstraints() {
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            backButton.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 20)
+        ])
+    }
+    
     func setMapViewConstraints() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
