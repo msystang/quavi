@@ -79,6 +79,33 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
             containerView.widthAnchor.constraint(equalToConstant:  self.frame.width * 0.25)]
         )}
     
+    private func constraintNumberOfTourLabel() {
+        containerView.addSubview(numberOfTourLabel)
+        numberOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([numberOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
+                                     numberOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
+                                     numberOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
+                                     numberOfTourLabel.heightAnchor.constraint(equalToConstant: 30)])
+    }
+    
+    private func constraintAmountOfTourLabel() {
+        containerView.addSubview(amountOfTourLabel)
+        amountOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([amountOfTourLabel.topAnchor.constraint(equalTo: numberOfTourLabel.bottomAnchor, constant: -30),
+                                     amountOfTourLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+                                     amountOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                                     amountOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
+    }
+    
+    private func constraintCategoryLabel() {
+           self.addSubview(categoryLabel)
+           categoryLabel.translatesAutoresizingMaskIntoConstraints = false
+           NSLayoutConstraint.activate([categoryLabel.topAnchor.constraint(equalTo: self.topAnchor),
+                                        categoryLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                                        categoryLabel.leadingAnchor.constraint(equalTo: containerView.trailingAnchor),
+                                        categoryLabel.trailingAnchor.constraint(equalTo: chevronIcon.leadingAnchor)])
+       }
+    
     private func constaintChevronIcon() {
         self.addSubview(chevronIcon)
         chevronIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -88,30 +115,5 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
                                         chevronIcon.heightAnchor.constraint(equalToConstant: 20)])
     }
     
-    private func constraintCategoryLabel() {
-        self.addSubview(categoryLabel)
-        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([categoryLabel.topAnchor.constraint(equalTo: self.topAnchor),
-                                     categoryLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                                     categoryLabel.leadingAnchor.constraint(equalTo: containerView.trailingAnchor),
-                                     categoryLabel.trailingAnchor.constraint(equalTo: chevronIcon.leadingAnchor)])
-    }
     
-    private func constraintAmountOfTourLabel() {
-        containerView.addSubview(amountOfTourLabel)
-        amountOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([amountOfTourLabel.topAnchor.constraint(equalTo: numberOfTourLabel.bottomAnchor),
-                                     amountOfTourLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                                     amountOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                                     amountOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)])
-    }
-    
-    private func constraintNumberOfTourLabel() {
-        containerView.addSubview(numberOfTourLabel)
-        numberOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([numberOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-                                     numberOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3),
-                                     numberOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -3),
-                                     numberOfTourLabel.heightAnchor.constraint(equalToConstant: 30)])
-    }
 }
