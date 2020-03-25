@@ -39,7 +39,6 @@
 		EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */; };
 		EA5D6AEE242977D200BEB9B2 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */; };
 		EA5D6AF0242977EB00BEB9B2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */; };
-		EA5D6AF22429789500BEB9B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA5D6AF12429789500BEB9B2 /* GoogleService-Info.plist */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
@@ -63,9 +62,8 @@
 		EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* MapboxError.swift */; };
 		EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */; };
 		EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */; };
+		EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC16690E242AA57000BDED2C /* GoogleService-Info.plist */; };
 		EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */; };
-		EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E8482404347600B53054 /* POIPopUpViewController.swift */; };
-		EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */; };
 		EC763AB52416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */; };
 		EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */; };
 		EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */; };
@@ -132,7 +130,6 @@
 		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
-		EA5D6AF12429789500BEB9B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -160,9 +157,8 @@
 		EAF7174C23E388D000DD8703 /* MapboxError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxError.swift; sourceTree = "<group>"; };
 		EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapBox.swift"; sourceTree = "<group>"; };
 		EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Constraints.swift"; sourceTree = "<group>"; };
+		EC16690E242AA57000BDED2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView.swift"; sourceTree = "<group>"; };
-		EC41E8482404347600B53054 /* POIPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpViewController.swift; sourceTree = "<group>"; };
-		EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIPopUpViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EC763AB42416922B009045D3 /* POIPopUpGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC7D094123F5B5E5001D04CF /* QuaviTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuaviTableView.swift; sourceTree = "<group>"; };
 		EC7D094323F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView+Constraints.swift"; sourceTree = "<group>"; };
@@ -282,8 +278,6 @@
 		EA17DC642405B07800715DD4 /* POI PopUp */ = {
 			isa = PBXGroup;
 			children = (
-				EC41E8482404347600B53054 /* POIPopUpViewController.swift */,
-				EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */,
 				ECE46CD82409A1DE00A22454 /* POIPopUpFinalViewController.swift */,
 			);
 			path = "POI PopUp";
@@ -445,7 +439,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
-				EA5D6AF12429789500BEB9B2 /* GoogleService-Info.plist */,
+				EC16690E242AA57000BDED2C /* GoogleService-Info.plist */,
 			);
 			path = quavi;
 			sourceTree = "<group>";
@@ -686,7 +680,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EA5D6AF22429789500BEB9B2 /* GoogleService-Info.plist in Resources */,
+				EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,11 +817,9 @@
 				1DCF1BDF240839E30052059A /* EditProfileVC+Constraints.swift in Sources */,
 				EC7D094623F5CDA7001D04CF /* SliderView.swift in Sources */,
 				1D91609223F0DB3F009B1F97 /* CategoryData.swift in Sources */,
-				EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */,
 				ECE46CD92409A1DE00A22454 /* POIPopUpFinalViewController.swift in Sources */,
 				EAF7173C23E3857500DD8703 /* FirestoreService.swift in Sources */,
 				ECE46D08240EF65100A22454 /* POIPopUpGallery.swift in Sources */,
-				EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */,
 				85021F052404243A00F8AD7B /* OnBoardingView.swift in Sources */,
 				ECE46D0A240EF6DF00A22454 /* POIPopUpGalleryCollectionView.swift in Sources */,
 				852C3824241569D900EDD0DD /* POIInfoViewController+Navigation+Delegate.swift in Sources */,
@@ -1031,13 +1023,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				DEVELOPMENT_TEAM = 26RHXP32FH;
 				INFOPLIST_FILE = quavi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1-Capstone.quavi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pursuit.quavi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1050,13 +1042,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94MQ8KPB58;
+				DEVELOPMENT_TEAM = 26RHXP32FH;
 				INFOPLIST_FILE = quavi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Pursuit-6.1-Capstone.quavi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pursuit.quavi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
