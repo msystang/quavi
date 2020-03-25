@@ -241,9 +241,8 @@ class POIInfoViewController: UIViewController {
         let view1 = POIPopUpAboutView()
         view1.poiName.text = currentPOI.name
         view1.descriptionTextView.text = currentPOI.longDesc
-        let placeholderImage = UIImage(named: "Quavi_Logo_Black")
         view1.imageView.kf.indicatorType = .activity
-        view1.imageView.kf.setImage(with: URL(string: currentPOI.tableViewImage), placeholder: placeholderImage, options: [.transition(.fade(0.2))])
+        view1.imageView.kf.setImage(with: URL(string: currentPOI.tableViewImage), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         
         let view2 = POIPopUpGallery()
         view2.poiImageUrls = currentPOI.poiImages

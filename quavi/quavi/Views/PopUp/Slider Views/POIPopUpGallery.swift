@@ -58,9 +58,8 @@ extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateF
         //TODO: HANDLE IMAGES
         let currentImgUrl = poiImageUrls[indexPath.row]
         
-        let placeholderImage = UIImage(named: "Quavi_Logo_Black")
         cell.poiGalleryImageView.kf.indicatorType = .activity
-        cell.poiGalleryImageView.kf.setImage(with: URL(string: currentImgUrl), placeholder: placeholderImage, options: [.transition(.fade(0.2))])
+        cell.poiGalleryImageView.kf.setImage(with: URL(string: currentImgUrl), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         return cell
     }
     
