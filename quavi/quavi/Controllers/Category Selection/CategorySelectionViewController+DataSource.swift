@@ -19,7 +19,7 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
         let category = categories[indexPath.row]
     
         cell.categoryLabel.text = category
-        cell.amountOfTourLabel.text = String(tourCountForCategory[indexPath.row])
+        //cell.amountOfTourLabel.text = String(tourCountForCategory[indexPath.row])
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIDesign.quaviOrange.cgColor
         cell.layer.cornerRadius = 10
