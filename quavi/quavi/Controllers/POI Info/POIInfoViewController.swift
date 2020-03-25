@@ -111,45 +111,24 @@ class POIInfoViewController: UIViewController {
     
     lazy var quaviLogo: UIImageView = {
         let image = UIImageView()
-    image.image = UIImage(named: "duck_icon_hallow")
+        image.image = UIImage(named: "duck_icon_hallow")
         image.tintColor = .systemPurple
         return image
     }()
     
-   lazy var leftChevron: UIImageView = {
+    lazy var leftChevron: UIImageView = {
         let image = UIImageView()
-    image.image = UIImage(systemName: "chevron.left")
-    image.tintColor = .black
+        image.image = UIImage(systemName: "chevron.left")
+        image.tintColor = .black
         return image
     }()
     
     lazy var rightChevron: UIImageView = {
         let image = UIImageView()
-    image.image = UIImage(systemName: "chevron.right")
-    image.tintColor = .black
+        image.image = UIImage(systemName: "chevron.right")
+        image.tintColor = .black
         return image
     }()
-    
-    //MARK: SLIDER VIEWS
-    lazy var view1: UIView = {
-        let view = POIPopUpAboutView()
-        print(poiForTour[nextStopIndex - 1])
-        view.poi = poiForTour[nextStopIndex - 1]
-        //view.backgroundColor = .systemGray4
-        return view
-    }()
-    
-    lazy var view2: UIView = {
-        let view = POIPopUpGallery()
-        view.poiGalleryCollectionView.alwaysBounceHorizontal = true
-        return view
-    }()
-    
-//    lazy var view3:UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .red
-//        return view
-//    }()
     
     lazy var view4 = MapView(frame: view.bounds)
     
@@ -164,7 +143,25 @@ class POIInfoViewController: UIViewController {
     var newWalkButtonTopConstraint: NSLayoutConstraint?
     
     //MARK:-- Internal Properties
-    var poiForTour = [POI]()
+    var poiForTour = [POI]() {
+        didSet {
+            let currentPOI = poiForTour[nextStopIndex - 1]
+            
+            let view1 = POIPopUpAboutView()
+            view1.poiName.text = currentPOI.name
+            view1.descriptionTextView.text = currentPOI.longDesc
+            //TODO: Handle image
+            view1.imageView.image = UIImage(named:"Quavi_Logo_Black")
+            
+            let view2 = POIPopUpGallery()
+            view2.poiImageUrls = currentPOI.poiImages
+            view2.poiGalleryCollectionView.alwaysBounceHorizontal = true
+            
+            viewArray = [view1, view2, view4]
+            populateContainerView()
+        }
+    }
+    
     var selectedTour: Tour?
     var selectedRoute: Route?
     var currentLegRoute: Route?
@@ -234,8 +231,6 @@ class POIInfoViewController: UIViewController {
         quaviLogoButtonConstraints()
         containerViewConstraints()
         pageControlConstraints()
-        assignViewsToArray()
-        populateContainerView()
         likeButtonConstraints()
         presentModesOfTransportConstraints()
         cancelTourButtonConstraints()
@@ -256,7 +251,7 @@ class POIInfoViewController: UIViewController {
         bikeButton.backgroundColor = modeOfTransit == .cycling ? .blue : .white
     }
     
-   private func presentModesOfTransportCurrentState() {
+    private func presentModesOfTransportCurrentState() {
         presentModesOfTransport.isEnabled = nextStopIndex == waypointCount ? false : true
         presentModesOfTransport.layer.borderColor = nextStopIndex == waypointCount ? UIColor.lightGray.cgColor : UIColor.black.cgColor
     }
@@ -280,14 +275,10 @@ class POIInfoViewController: UIViewController {
         view.backgroundColor = .white
     }
     
-    private func assignViewsToArray() {
-        viewArray = [view1, view2, view4]
-    }
-    
     func goToPage(index: Int, animated:Bool) {
-           let index = CGFloat(index)
-           containerView.setContentOffset(CGPoint(x: index * containerView.frame.width, y: 0), animated: animated)
-       }
+        let index = CGFloat(index)
+        containerView.setContentOffset(CGPoint(x: index * containerView.frame.width, y: 0), animated: animated)
+    }
     
     // func to calculate current position of scrollview
     private func calculateCurrentPosition()-> CGFloat {
@@ -311,11 +302,11 @@ class POIInfoViewController: UIViewController {
     
     //MARK: -- Objc func
     @objc func handlePageControllerTapped(_ sender: UIPageControl) {
-           let pageIndex = sender.currentPage
-           // calls the goToPage func to animate and present the appropriate view by internally incrementing and decrimenting index
-           goToPage(index: pageIndex, animated: true)
+        let pageIndex = sender.currentPage
+        // calls the goToPage func to animate and present the appropriate view by internally incrementing and decrimenting index
+        goToPage(index: pageIndex, animated: true)
         
-       }
+    }
     
     @objc func handleCancelButtonPressed(sender:UIButton) {
         self.cancelAlert(title: "Caution", message: "Are you sure you want to cancel the tour", actionOneTitle: "Yes") { (action) in
@@ -326,27 +317,27 @@ class POIInfoViewController: UIViewController {
     }
     
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
-          switch sender.tag{
-          case 0:
+        switch sender.tag{
+        case 0:
             modeOfTransit = .automobile
-          case 1:
-              modeOfTransit = .cycling
-          case 2:
-              modeOfTransit = .walking
-          default :
-              return
-          }
-      }
+        case 1:
+            modeOfTransit = .cycling
+        case 2:
+            modeOfTransit = .walking
+        default :
+            return
+        }
+    }
 }
 
 extension POIInfoViewController: UIScrollViewDelegate{
-     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(page)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
+        
         rightChevron.isHidden =  currentPage == viewArray.count - 1 ? true : false
         leftChevron.isHidden = currentPage == 0 ? true : false
     }

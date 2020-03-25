@@ -17,7 +17,6 @@ class POIPopUpAboutView: UIView {
         label.textColor = .black
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        label.text = poi?.name
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
@@ -26,8 +25,6 @@ class POIPopUpAboutView: UIView {
         var imageView = UIImageView()
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
-        //TODO: HANDLE IMAGE
-        imageView.image = UIImage(named: "empireState2")
         return imageView
     }()
     
@@ -36,18 +33,11 @@ class POIPopUpAboutView: UIView {
         textView.backgroundColor = .clear
         textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        textView.text = poi?.longDesc
         return textView
     }()
     
-    var poi: POI?
-    
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        if let poi = poi {
-            poiName.text = poi.name
-        }
         
         configureGradient()
         configurePOIName()

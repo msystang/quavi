@@ -13,6 +13,8 @@ class POIPopUpGallery: UIView {
     let padding: CGFloat = 20
     lazy var poiGalleryCollectionView = POIPopUpGalleryCollectionView()
     
+    var poiImageUrls = [String]()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         poiGalleryCollectionView.backgroundColor = .systemIndigo
