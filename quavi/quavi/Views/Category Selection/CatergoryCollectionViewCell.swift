@@ -20,7 +20,7 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var chevronIcon:UIImageView = {
+    lazy var chevronIcon: UIImageView = {
         let icon = UIImageView()
         icon.image = UIImage(systemName: "chevron.compact.right")
         icon.tintColor = UIDesign.quaviOrange
