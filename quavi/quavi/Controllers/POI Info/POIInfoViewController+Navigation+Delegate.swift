@@ -23,6 +23,7 @@ extension POIInfoViewController: NavigationViewControllerDelegate{
         nextStopIndex += 1
         navigationViewController.navigationService.stop()
         navigationViewController.navigationService.endNavigation(feedback: nil)
+
         navigationViewController.dismiss(animated: true, completion: nil)
         return false
     }

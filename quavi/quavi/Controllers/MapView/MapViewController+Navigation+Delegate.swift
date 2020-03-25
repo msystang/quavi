@@ -19,22 +19,22 @@ extension MapViewController: NavigationViewControllerDelegate{
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
-        let popupViewController = POIInfoViewController()
-        popupViewController.nextStopIndex += 1
-        popupViewController.poiForTour = poiForTour
-        popupViewController.selectedTour = selectedTour
-        popupViewController.selectedRoute = selectedRoute
+        let poiInfoViewController = POIInfoViewController()
+        poiInfoViewController.nextStopIndex += 1
+        poiInfoViewController.poiForTour = poiForTour
+        poiInfoViewController.selectedTour = selectedTour
+        poiInfoViewController.selectedRoute = selectedRoute
         
         let waypointCount = selectedRoute?.routeOptions.waypoints.count
         if nextStopIndex == waypointCount{
-        popupViewController.isAtLastLeg = true
+        poiInfoViewController.isAtLastLeg = true
         }else{
-        popupViewController.isAtLastLeg = false
+        poiInfoViewController.isAtLastLeg = false
         }
         
-        popupViewController.modalPresentationStyle = .fullScreen
+        poiInfoViewController.modalPresentationStyle = .fullScreen
         navigationViewController.navigationService.stop()
-        navigationViewController.present(popupViewController, animated: true)
+        navigationViewController.present(poiInfoViewController, animated: true)
         return false
     }
     
