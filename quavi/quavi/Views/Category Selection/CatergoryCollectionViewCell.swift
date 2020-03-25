@@ -109,9 +109,9 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
     private func constraintNumberOfTourLabel() {
         containerView.addSubview(numberOfTourLabel)
         numberOfTourLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([numberOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+        NSLayoutConstraint.activate([numberOfTourLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
                                      numberOfTourLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 3),
                                      numberOfTourLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -3),
-                                     numberOfTourLabel.heightAnchor.constraint(equalToConstant: 40)])
+                                     numberOfTourLabel.heightAnchor.constraint(equalToConstant: 30)])
     }
 }
