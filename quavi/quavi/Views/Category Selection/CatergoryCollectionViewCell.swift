@@ -54,14 +54,11 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
 //        return label
 //    }()
     
-    lazy var numberOfTourLabel:UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Verdana-Bold", size: 12)
-        label.text = "# OF TOURS"
-        label.textColor = .white
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .center
-        return label
+    lazy var mapIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = UIImage(systemName: "map")
+        icon.tintColor = UIDesign.quaviWhite
+        return icon
     }()
     
     //MARK: Lifecycle
