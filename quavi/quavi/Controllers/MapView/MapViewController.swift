@@ -218,4 +218,8 @@ class MapViewController: UIViewController {
         }
     }
     
+    @objc func handleBackButtonPressed(sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
