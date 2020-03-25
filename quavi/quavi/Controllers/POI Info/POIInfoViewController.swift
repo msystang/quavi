@@ -65,8 +65,8 @@ class POIInfoViewController: UIViewController {
         button.layer.cornerRadius = button.frame.height / 2
         button.setImage(UIImage(systemName: "location.fill"), for: .normal)
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = .white
+        button.layer.borderColor = UIDesign.quaviYellow.cgColor
+        button.backgroundColor = UIDesign.quaviLightGrey
         button.tintColor = .black
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(handlePresentingButton), for: .touchUpInside)
