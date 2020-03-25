@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
     
     lazy var userImage: UIImageView = {
         var imageView = UIImageView()
-        imageView.backgroundColor = UIDesign.quaviLightGrey
+        imageView.backgroundColor = .white
         imageView.image = UIImage(systemName: "person.fill")
         imageView.layer.borderWidth = 2
         imageView.tintColor = UIDesign.quaviLightGrey
