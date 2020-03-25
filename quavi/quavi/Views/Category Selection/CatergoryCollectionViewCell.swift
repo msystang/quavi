@@ -12,6 +12,7 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
     //MARK: -- Objects
     lazy var categoryLabel:UILabel = {
         let label = UILabel()
+        label.textColor = UIDesign.quaviOrange
         label.font = UIFont(name: "Verdana-Bold", size: 18)
         label.text = "Category name"
         label.adjustsFontSizeToFitWidth = true
