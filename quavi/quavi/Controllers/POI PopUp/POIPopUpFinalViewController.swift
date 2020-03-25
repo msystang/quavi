@@ -87,7 +87,7 @@ class POIPopUpFinalViewController: UIViewController {
         view.addSubview(closeTourButton)
         closeTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeTourButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120),
+            closeTourButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             closeTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             closeTourButton.heightAnchor.constraint(equalToConstant: 50),
             closeTourButton.widthAnchor.constraint(equalToConstant: 200)
