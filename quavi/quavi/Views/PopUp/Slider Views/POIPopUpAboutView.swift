@@ -14,7 +14,7 @@ class POIPopUpAboutView: UIView {
 
     lazy var poiName: UILabel = {
         var label = UILabel()
-        label.textColor = .black
+        label.textColor = UIDesign.quaviYellow
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
@@ -31,6 +31,7 @@ class POIPopUpAboutView: UIView {
     lazy var descriptionTextView: UITextView = {
         var textView = UITextView()
         textView.backgroundColor = .clear
+        textView.textColor = .white
         textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return textView
@@ -39,7 +40,8 @@ class POIPopUpAboutView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        configureGradient()
+        self.backgroundColor = .black
+//        configureGradient()
         configurePOIName()
         configureImageView()
         configureDescriptionTextView()
