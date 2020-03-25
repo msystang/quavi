@@ -23,7 +23,8 @@ class POIPopUpFinalViewController: UIViewController {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "congrats")
-        imageView.contentMode = .scaleAspectFit4        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
