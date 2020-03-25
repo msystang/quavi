@@ -75,6 +75,10 @@ class POIInfoViewController: UIViewController {
         }
     }
     
+    var poiForTour = [POI]()
+    var selectedTour: Tour?
+    var selectedRoute: Route?
+    
     //MARK:-- Objects
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
