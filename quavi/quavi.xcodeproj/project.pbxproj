@@ -126,7 +126,6 @@
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
-		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
@@ -496,7 +495,6 @@
 		EAF7173A23E3856900DD8703 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
 				EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */,
 				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 				EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */,
