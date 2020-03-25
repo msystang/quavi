@@ -67,8 +67,9 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
         constraintContainerView()
         constaintChevronIcon()
         constraintCategoryLabel()
-        constraintNumberOfTourLabel()
-        constraintAmountOfTourLabel()
+        constraintMapIcon()
+//        constraintNumberOfTourLabel()
+//        constraintAmountOfTourLabel()
     }
     
     required init?(coder: NSCoder) {
