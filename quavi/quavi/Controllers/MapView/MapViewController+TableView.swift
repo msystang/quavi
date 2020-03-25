@@ -36,6 +36,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                overLayView.backgroundColor = UIDesign.quaviYellow
          let button = UIButton(frame: CGRect(x: 62, y: 0, width: self.view.frame.width - 62, height: 70))
         button.setTitle(poiForTour[section].name, for: .normal)
+        button.titleLabel!.adjustsFontSizeToFitWidth = true
         button.backgroundColor = UIDesign.quaviYellow
         button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
         button.setTitleColor(.black, for: .normal)
