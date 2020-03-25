@@ -15,7 +15,7 @@ class SignUpViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign Up"
-        label.textColor = .black
+        label.textColor = UIDesign.quaviLightGrey
         label.textAlignment = .center
         return label
     }()
@@ -24,6 +24,8 @@ class SignUpViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Enter Username"
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -31,6 +33,8 @@ class SignUpViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Enter Email"
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -39,15 +43,17 @@ class SignUpViewController: UIViewController {
         textField.placeholder = "Enter Password"
         textField.isSecureTextEntry = true
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
     lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIDesign.quaviLightGrey, for: .normal)
         //TODO: Handle initial button color (should indicate disabled)
-        button.setTitleColor(.gray, for: .disabled)
+        button.setTitleColor(.darkGray, for: .disabled)
         button.addTarget(self, action: #selector(trySignUp), for: .touchUpInside)
         return button
     }()
@@ -64,7 +70,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIDesign.quaviDarkGrey
         addSubviews()
         addConstraints()
 

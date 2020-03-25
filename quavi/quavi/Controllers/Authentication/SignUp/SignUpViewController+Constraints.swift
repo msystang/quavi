@@ -45,7 +45,7 @@ extension SignUpViewController {
         NSLayoutConstraint.activate([
             signUpStackView.bottomAnchor.constraint(equalTo: view.centerYAnchor),
             signUpStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpStackView.heightAnchor.constraint(lessThanOrEqualToConstant: 100),
+            signUpStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
             usernameTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
             emailTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
             passwordTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
