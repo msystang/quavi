@@ -32,7 +32,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         //TO-DO: SEPERATE INTO IT'S OWN FILE
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
         button.setTitle(poiForTour[section].name, for: .normal)
-        button.backgroundColor = UIDesign.quaviLightGrey
+        button.backgroundColor = UIDesign.quaviYellow
         button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
         button.setTitleColor(.black, for: .normal)
         button.tag = section
