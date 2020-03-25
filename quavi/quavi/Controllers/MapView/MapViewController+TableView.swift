@@ -43,6 +43,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         sectionImage.layer.cornerRadius = sectionImage.frame.height / 2
         sectionImage.layer.masksToBounds = true
         
+        //This is the kingfisher code for the section if you guys dont like the fade in, the just delete the options: [.transition(.fade(0.2))].. its an optional so its not required not will it mess with the code
         let placeholderImage = UIImage(named: "Quavi_Logo_Black")
         let imgUrlLStr = poiForTour[section].tableViewImage
         sectionImage.kf.indicatorType = .activity
