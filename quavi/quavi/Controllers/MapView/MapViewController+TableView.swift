@@ -49,10 +49,9 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         sectionImage.layer.masksToBounds = true
         
         //This is the kingfisher code for the section if you guys dont like the fade in, the just delete the options: [.transition(.fade(0.2))].. its an optional so its not required not will it mess with the code
-        let placeholderImage = UIImage(named: "Quavi_Logo_Black")
         let imgUrlLStr = poiForTour[section].tableViewImage
         sectionImage.kf.indicatorType = .activity
-        sectionImage.kf.setImage(with: URL(string: imgUrlLStr), placeholder: placeholderImage, options: [.transition(.fade(0.2))])
+        sectionImage.kf.setImage(with: URL(string: imgUrlLStr), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         
         button.addSubview(sectionImage)
         
@@ -85,9 +84,8 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         })
         cell.backgroundColor = .clear
         
-        let placeholderImage = UIImage(named: "Quavi_Logo_Black")
         cell.stopImage.kf.indicatorType = .activity
-        cell.stopImage.kf.setImage(with: URL(string: stop.tableViewImage), placeholder: placeholderImage, options: [.transition(.fade(0.2))])
+        cell.stopImage.kf.setImage(with: URL(string: stop.tableViewImage), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         cell.stopLabel.text = stop.shortDesc
         return cell
     }

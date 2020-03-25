@@ -59,7 +59,8 @@ extension POIPopUpGallery: UICollectionViewDataSource, UICollectionViewDelegateF
         //TODO: HANDLE IMAGES
         let currentImgUrl = poiImageUrls[indexPath.row]
         
-        cell.poiGalleryImageView.image = UIImage(named: "moMath2")
+        cell.poiGalleryImageView.kf.indicatorType = .activity
+        cell.poiGalleryImageView.kf.setImage(with: URL(string: currentImgUrl), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         return cell
     }
     
