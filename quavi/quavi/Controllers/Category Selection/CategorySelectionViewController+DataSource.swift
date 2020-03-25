@@ -17,11 +17,11 @@ extension CategorySelectionViewController: UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.categoryCell.rawValue, for: indexPath) as? CatergoryCollectionViewCell else {return UICollectionViewCell()}
         
         let category = categories[indexPath.row]
-        
+    
         cell.categoryLabel.text = category
         cell.amountOfTourLabel.text = String(tourCountForCategory[indexPath.row])
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = #colorLiteral(red: 0.2843827307, green: 0.6391303539, blue: 0.8293711543, alpha: 1)
+        cell.layer.borderColor = UIDesign.quaviOrange.cgColor
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
         return cell
