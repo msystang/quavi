@@ -15,7 +15,7 @@ class CategorySelectionViewController: UIViewController {
     lazy var categoryCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         collectionView.register(CatergoryCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.categoryCell.rawValue)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIDesign.quaviDarkGrey
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
