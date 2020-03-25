@@ -40,7 +40,8 @@ class POIPopUpAboutView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        configureGradient()
+        self.backgroundColor = .black
+//        configureGradient()
         configurePOIName()
         configureImageView()
         configureDescriptionTextView()

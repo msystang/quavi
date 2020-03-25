@@ -17,7 +17,8 @@ class POIPopUpGallery: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        poiGalleryCollectionView.backgroundColor = .systemIndigo
+        self.backgroundColor = UIDesign.quaviLightGrey
+        
         poiGalleryCollectionView.delegate = self
         poiGalleryCollectionView.dataSource = self
         poiGalleryCollectionViewContraints()
