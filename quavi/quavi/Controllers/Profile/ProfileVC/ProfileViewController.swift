@@ -133,6 +133,11 @@ class ProfileViewController: UIViewController {
         setUpDelegates()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setUsernameAndEmail()
+        getAndSetUserPhoto()
+    }
+    
     //MARK: - Objc Functions
     
     @objc func editProfileButtonPressed(){
@@ -165,6 +170,7 @@ class ProfileViewController: UIViewController {
                 print("Error getting username: \(error.localizedDescription)")
             case .success(let username):
                 self.usernameLabel.text = username
+                print(username)
             }
         }
         

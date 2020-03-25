@@ -40,13 +40,16 @@ class FirestoreService {
         }
     }
     
-    func updateCurrentUser(userName: String? = nil, photoURL: URL? = nil, completion: @escaping (Result<(), Error>) -> ()){
+    func updateCurrentUser(userEmail: String? = nil, userName: String? = nil, photoURL: URL? = nil, completion: @escaping (Result<(), Error>) -> ()){
         guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
             //MARK: TODO - handle can't get current user
             return
         }
         var updateFields = [String:Any]()
         
+        if let email = userEmail {
+            updateFields["email"] = email
+        }
         if let user = userName {
             updateFields["userName"] = user
         }
@@ -197,7 +200,7 @@ class FirestoreService {
                 }
                 
                 if let result = data as? String {
-//                    print(result)
+
                     completion(.success(result))
                 } else {
                     print("failure downcasting experience as string")

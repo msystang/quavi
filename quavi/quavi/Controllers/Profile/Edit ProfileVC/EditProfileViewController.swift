@@ -136,7 +136,7 @@ class EditProfileViewController: UIViewController {
     }()
     
     lazy var usernameTextFieldConstraint: [NSLayoutConstraint] = {
-        let constraints = [usernameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50),
+        let constraints = [usernameTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 160),
                            usernameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
                            usernameTextField.heightAnchor.constraint(equalToConstant: 40),
                            usernameTextField.widthAnchor.constraint(equalToConstant: 300)]
@@ -145,7 +145,7 @@ class EditProfileViewController: UIViewController {
     }()
     
     lazy var emailTextFieldConstraints: [NSLayoutConstraint] = {
-        let constraints = [emailTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 50),
+        let constraints = [emailTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 250),
                            emailTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
                            emailTextField.heightAnchor.constraint(equalToConstant: 40),
                            emailTextField.widthAnchor.constraint(equalToConstant: 300)]
@@ -175,9 +175,11 @@ class EditProfileViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        nameTextField.styleTextView()
-        usernameTextField.styleTextView()
-        emailTextField.styleTextView()
+        if currentTextfield == nil {
+            nameTextField.styleTextView()
+            usernameTextField.styleTextView()
+            emailTextField.styleTextView()
+        }
     }
     
     //MARK: - Objc functions
@@ -186,6 +188,21 @@ class EditProfileViewController: UIViewController {
     }
     
     @objc func handleConfirmButtonPressed(){
+        
+        guard let email = emailTextField.text, let username = usernameTextField.text else {
+            self.showAlert(title: "Error", message: "Fields must not be empty")
+            return
+        }
+        
+        FirestoreService.manager.updateCurrentUser(userEmail: email, userName: username) { (result) in
+            switch result {
+            case .failure(let error):
+                self.showAlert(title: "Error", message: "could not save fields: \(error.localizedDescription)")
+            case .success(()):
+                print("fields saved")
+            }
+        }
+
         handleEditDismissal()
     }
     
@@ -288,12 +305,6 @@ class EditProfileViewController: UIViewController {
         emailTextField.delegate = self
     }
     
-    private func setUpStyling() {
-        styleTextViews(textfield: nameTextField)
-        styleTextViews(textfield: usernameTextField)
-        styleTextViews(textfield: emailTextField)
-    }
-    
     private func miscSetUp(){
         self.view.backgroundColor = .white
         self.userImage.layer.cornerRadius = 150/2
@@ -346,35 +357,33 @@ class EditProfileViewController: UIViewController {
         UIView.animate(withDuration: 0.70, animations: {
 
             self.backButton.alpha = 1
-            self.logoutButton.alpha = 1
             self.confirmEditButton.alpha = 0
             self.cancelEditButton.alpha = 0
             
-            self.emailLabel.alpha = 1
-            self.emailTextField.alpha = 1
+            self.emailLabel.isHidden = false
+            self.emailTextField.isHidden = false
             
-            self.usernameLabel.alpha = 1
-            self.usernameTextField.alpha = 1
+            self.usernameLabel.isHidden = false
+            self.usernameTextField.isHidden = false
             
-            self.nameLabel.alpha = 1
-            self.nameTextField.alpha = 1
+            self.nameLabel.isHidden = false
+            self.nameTextField.isHidden = false
+            
+            self.setUpTextFieldConstraints()
 
             if self.currentTextfield == self.nameTextField {
                 
                 self.editTextFieldLayout.isActive = false
-                self.setUpTextFieldConstraints()
                 self.currentTextfield.resignFirstResponder()
                 
             } else if self.currentTextfield == self.emailTextField {
                 
                 self.editTextFieldLayout.isActive = false
-                self.setUpTextFieldConstraints()
                 self.currentTextfield.resignFirstResponder()
                 
             } else if self.currentTextfield == self.usernameTextField {
                 
                 self.editTextFieldLayout.isActive = false
-                self.setUpTextFieldConstraints()
                 self.currentTextfield.resignFirstResponder()
             }
             
@@ -386,52 +395,38 @@ class EditProfileViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0.70, animations: {
             self.userImage.alpha = 1
             self.changeImageButton.alpha = 1
+            self.logoutButton.alpha = 1
             self.view.layoutIfNeeded()
         })
     }
     
     func setEditTextFieldConstraint(textField: UITextField) -> NSLayoutConstraint {
        
-        var layout = NSLayoutConstraint()
+        let layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 110)
         
         if textField == nameTextField {
-            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 110)
+            nameTextField.removeConstraint(nameTextFieldConstraint[0])
             
             usernameTextField.removeConstraints(usernameTextFieldConstraint)
             emailTextField.removeConstraints(emailTextFieldConstraints)
-            nameTextField.removeConstraint(nameTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70))
+
             
         } else if textField == usernameTextField {
-            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60)
+            usernameTextField.removeConstraint(usernameTextFieldConstraint[0])
             
             nameTextField.removeConstraints(nameTextFieldConstraint)
             emailTextField.removeConstraints(emailTextFieldConstraints)
-            usernameTextField.removeConstraint(usernameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50))
+            
             
         } else if textField == emailTextField {
-            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10)
+            emailTextField.removeConstraint(emailTextFieldConstraints[0])
             
             nameTextField.removeConstraints(nameTextFieldConstraint)
             usernameTextField.removeConstraints(usernameTextFieldConstraint)
-            emailTextField.removeConstraint(emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50))
+
         }
+        
         return layout
         
-    }
-    
-    
-    //MARK: - Styling functions
-    func styleTextViews(textfield: UITextField) {
-        
-        let bottomLine = CALayer()
-        
-        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - -4, width: textfield.frame.width, height: 2)
-        
-        bottomLine.backgroundColor = UIColor.init(red: 69/255, green: 69/255, blue: 69/255, alpha: 1).cgColor
-        
-        textfield.layer.addSublayer(bottomLine)
-        
-        textfield.borderStyle = .none
-        textfield.backgroundColor = .white
     }
 }
