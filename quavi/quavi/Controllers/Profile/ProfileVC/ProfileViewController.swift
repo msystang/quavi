@@ -23,14 +23,14 @@ class ProfileViewController: UIViewController {
     lazy var editProfileButton: UIButton = {
         var button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIDesign.quaviOrange
         button.addTarget(self, action: #selector(editProfileButtonPressed), for: .touchUpInside)
         return button
     }()
     
     lazy var userImage: UIImageView = {
         var imageView = UIImageView()
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = UIDesign.quaviLightGrey
         imageView.image = UIImage(systemName: "person.fill")
         imageView.layer.borderWidth = 2
         imageView.tintColor = UIDesign.quaviLightGrey
