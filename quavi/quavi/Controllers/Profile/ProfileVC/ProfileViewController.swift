@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     
     lazy var profileInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 254/255, green: 233/255, blue: 154/255, alpha: 1)
+        view.backgroundColor = UIDesign.quaviDarkGrey
         return view
     }()
     
@@ -31,13 +31,14 @@ class ProfileViewController: UIViewController {
     lazy var userImage: UIImageView = {
         var imageView = UIImageView()
         imageView.backgroundColor = .white
-        imageView.image = UIImage(systemName: "ant")
+        imageView.image = UIImage(systemName: "person.fill")
         imageView.layer.borderWidth = 2
-        imageView.tintColor = .brown
+        imageView.tintColor = UIDesign.quaviLightGrey
         return imageView
     }()
     lazy var fullname: UILabel = {
         var label = UILabel()
+        label.textColor = UIDesign.quaviWhite
         label.text = "Bob Marley"
         label.textAlignment = .center
         return label
@@ -45,6 +46,7 @@ class ProfileViewController: UIViewController {
     
     lazy var username: UILabel = {
         var label = UILabel()
+        label.textColor = UIDesign.quaviWhite
         label.text = "tour_master"
         label.textAlignment = .center
         return label
@@ -52,6 +54,7 @@ class ProfileViewController: UIViewController {
     
     lazy var email: UILabel = {
         var label = UILabel()
+        label.textColor = UIDesign.quaviWhite
         label.text = "dntWrryBHappy@gmail.com"
         label.textAlignment = .center
         label.numberOfLines = 0

@@ -34,7 +34,7 @@ extension ProfileViewController {
     func constrainUserImage() {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            userImage.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 100),
+            userImage.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 50),
             userImage.leadingAnchor.constraint(equalTo: self.profileInfoView.leadingAnchor, constant: 15),
             userImage.widthAnchor.constraint(equalToConstant: 150),
             userImage.heightAnchor.constraint(equalToConstant: 150)
