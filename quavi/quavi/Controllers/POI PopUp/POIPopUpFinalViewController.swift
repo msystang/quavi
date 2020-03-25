@@ -20,6 +20,14 @@ class POIPopUpFinalViewController: UIViewController {
         return button
     }()
     
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "congrats")
+        imageView.contentMode = .scaleAspectFit4        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGradient()
