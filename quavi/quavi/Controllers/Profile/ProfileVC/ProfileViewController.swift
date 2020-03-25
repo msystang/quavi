@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     
     lazy var profileInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 254/255, green: 233/255, blue: 154/255, alpha: 1)
+        view.backgroundColor = UIDesign.quaviWhite
         return view
     }()
     
@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
     
     lazy var favoritedView: UIView = {
         var view = UIView()
-        view.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
+        view.backgroundColor = UIDesign.quaviLightGrey
         return view
     }()
     
@@ -98,15 +98,17 @@ class ProfileViewController: UIViewController {
         var sc = UISegmentedControl()
         sc.insertSegment(with: UIImage(systemName: "map"), at: 0, animated: true)
         sc.insertSegment(with: UIImage(systemName: "mappin"), at: 1, animated: true)
+        sc.backgroundColor = UIDesign.quaviDarkGrey
+        sc.selectedSegmentTintColor = UIDesign.quaviLightGrey
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(switchTableView), for: .valueChanged)
-        sc.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
         return sc
         }()
     
     lazy var favoritesTableView: UITableView = {
         let tv = UITableView()
         tv.register(FaveToursCell.self, forCellReuseIdentifier: "faveCell")
+        tv.backgroundColor = UIDesign.quaviDarkGrey
         return tv
         }()
     
@@ -121,7 +123,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        self.view.backgroundColor = UIDesign.quaviDarkGrey
         
         setUpSubviews()
         setUpConstraints()
