@@ -67,17 +67,19 @@ class POIPopUpFinalViewController: UIViewController {
     private func configureCongratsLabel() {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.font = UIFont.boldSystemFont(ofSize: 25)
         label.text = "You Completed A Tour! \n It's Getting Quazy In Here!"
         label.textAlignment = .center
-        label.textColor = .blue
+        label.textColor = UIDesign.quaviWhite
         label.numberOfLines = 2
         label.sizeToFit()
         view.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            label.topAnchor.constraint(equalTo: imageView.topAnchor, constant: -60),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            label.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
     
