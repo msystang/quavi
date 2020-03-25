@@ -242,7 +242,7 @@ class POIInfoViewController: UIViewController {
         view1.poiName.text = currentPOI.name
         view1.descriptionTextView.text = currentPOI.longDesc
         //TODO: Handle image
-        view1.imageView.image = UIImage(named:"Quavi_Logo_Black")
+        view1.imageView.image = UIImage(named:"Quavi_Logo_White")
         
         let view2 = POIPopUpGallery()
         view2.poiImageUrls = currentPOI.poiImages
