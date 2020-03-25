@@ -46,8 +46,8 @@ class CatergoryCollectionViewCell: UICollectionViewCell {
     
     lazy var numberOfTourLabel:UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Verdana-Bold", size: 20)
-        label.text = "# of tours"
+        label.font = UIFont(name: "Verdana-Bold", size: 12)
+        label.text = "# OF TOURS"
         label.textColor = .white
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
