@@ -17,9 +17,10 @@ class POIInfoViewController: UIViewController {
     //MARK: -- UI Properties
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        button.setTitleColor(.purple, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIDesign.quaviLightGrey
         button.layer.borderWidth = 3
         return button
     }()
