@@ -35,8 +35,8 @@ extension MapViewController {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            //mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mapView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            mapView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            //mapView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mapView.heightAnchor.constraint(equalToConstant: view.bounds.height)
