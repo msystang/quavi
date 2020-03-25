@@ -11,6 +11,7 @@ import Mapbox
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
+import Kingfisher
 
 class POIInfoViewController: UIViewController {
     
