@@ -18,12 +18,12 @@ extension MapViewController: NavigationViewControllerDelegate{
         // This vc is where we could show information about a destination
         
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
         let popupViewController = POIInfoViewController()
         popupViewController.nextStopIndex += 1
         popupViewController.poiForTour = poiForTour
         popupViewController.selectedTour = selectedTour
         popupViewController.selectedRoute = selectedRoute
-    
         
         let waypointCount = selectedRoute?.routeOptions.waypoints.count
         if nextStopIndex == waypointCount{

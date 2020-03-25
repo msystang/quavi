@@ -14,72 +14,7 @@ import MapboxDirections
 
 class POIInfoViewController: UIViewController {
     
-    //MARK:-- Properties
-    var viewArray: [UIView]!
-    let shapeLayer = CAShapeLayer()
-    var showButtons:Enums.presentModeOfTransport = .hide
-    var bikeButtonTopConstraint: NSLayoutConstraint?
-    var carButtonTopConstraint: NSLayoutConstraint?
-    var walkButtonTopConstraint: NSLayoutConstraint?
-    var newBikeButtonTopConstraint: NSLayoutConstraint?
-    var newCarButtonTopConstraint: NSLayoutConstraint?
-    var newWalkButtonTopConstraint: NSLayoutConstraint?
-    var selectedRoute: Route?
-    var currentLegRoute: Route?
-    
-    //MARK: -- Computed properties
-    var currentPage:Int {
-        return Int(calculateCurrentPosition())
-    }
-    
-    var nextStopIndex = 0 {
-        didSet{
-            print(nextStopIndex)
-        }
-    }
-    
-    var modeOfTransit:MBDirectionsProfileIdentifier = .automobile{
-        didSet{
-            getSelectedRoute(navigationType: modeOfTransit)
-            switchTransitBackgroundButton()
-        }
-    }
-    
-    var waypointCount:Int! {
-        didSet{
-            presentModesOfTransportCurrentState()
-        }
-    }
-    
-    var showMapView:Bool = false {
-        didSet{
-            if showMapView == true {
-                let lastPage = CGFloat(viewArray.count - 1)
-                containerView.setContentOffset(CGPoint(x: lastPage * containerView.frame.width, y: 0), animated: true)
-                pageControl.currentPage = Int(lastPage)
-                
-            }
-        }
-    }
-    
-    var isAtLastLeg: Bool? = false{
-        didSet {
-            guard let isAtLastLeg = isAtLastLeg else {return}
-            
-            switch isAtLastLeg{
-            case false:
-                goToNextLeg()
-            case true:
-                presentConfettiVC()
-            }
-        }
-    }
-    
-    var poiForTour = [POI]()
-    var selectedTour: Tour?
-    var selectedRoute: Route?
-    
-    //MARK:-- Objects
+    //MARK: -- UI Properties
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         button.setTitleColor(.purple, for: .normal)
@@ -88,8 +23,6 @@ class POIInfoViewController: UIViewController {
         button.layer.borderWidth = 3
         return button
     }()
-    
-    
     
     lazy var containerView: UIScrollView = {
         print("\n Frame Width: \(self.view.frame.width)")
@@ -217,6 +150,70 @@ class POIInfoViewController: UIViewController {
 //    }()
     
     lazy var view4 = MapView(frame: view.bounds)
+    
+    var viewArray: [UIView]!
+    let shapeLayer = CAShapeLayer()
+    var showButtons:Enums.presentModeOfTransport = .hide
+    var bikeButtonTopConstraint: NSLayoutConstraint?
+    var carButtonTopConstraint: NSLayoutConstraint?
+    var walkButtonTopConstraint: NSLayoutConstraint?
+    var newBikeButtonTopConstraint: NSLayoutConstraint?
+    var newCarButtonTopConstraint: NSLayoutConstraint?
+    var newWalkButtonTopConstraint: NSLayoutConstraint?
+    
+    //MARK:-- Internal Properties
+    var poiForTour = [POI]()
+    var selectedTour: Tour?
+    var selectedRoute: Route?
+    var currentLegRoute: Route?
+    
+    //MARK: -- Computed properties
+    var currentPage:Int {
+        return Int(calculateCurrentPosition())
+    }
+    
+    var nextStopIndex = 0 {
+        didSet{
+            print(nextStopIndex)
+        }
+    }
+    
+    var modeOfTransit:MBDirectionsProfileIdentifier = .automobile{
+        didSet{
+            getSelectedRoute(navigationType: modeOfTransit)
+            switchTransitBackgroundButton()
+        }
+    }
+    
+    var waypointCount:Int! {
+        didSet{
+            presentModesOfTransportCurrentState()
+        }
+    }
+    
+    var showMapView:Bool = false {
+        didSet{
+            if showMapView == true {
+                let lastPage = CGFloat(viewArray.count - 1)
+                containerView.setContentOffset(CGPoint(x: lastPage * containerView.frame.width, y: 0), animated: true)
+                pageControl.currentPage = Int(lastPage)
+                
+            }
+        }
+    }
+    
+    var isAtLastLeg: Bool? = false{
+        didSet {
+            guard let isAtLastLeg = isAtLastLeg else {return}
+            
+            switch isAtLastLeg{
+            case false:
+                goToNextLeg()
+            case true:
+                presentConfettiVC()
+            }
+        }
+    }
     
     //TODO: For Testing... Refactor with initalLocation from user!
     var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
