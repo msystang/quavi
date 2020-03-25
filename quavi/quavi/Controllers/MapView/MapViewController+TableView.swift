@@ -34,7 +34,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         
         let overLayView =  UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
                overLayView.backgroundColor = UIDesign.quaviYellow
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+         let button = UIButton(frame: CGRect(x: 62, y: 0, width: self.view.frame.width - 62, height: 70))
         button.setTitle(poiForTour[section].name, for: .normal)
         button.backgroundColor = UIDesign.quaviYellow
         button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
