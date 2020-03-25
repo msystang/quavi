@@ -20,15 +20,15 @@ class NavigationUIButton: UIButton {
     }
     
     func configure() {
-        setTitle("GO", for: .normal)
-        layer.borderWidth = 2
-        layer.cornerRadius = frame.height / 2
-        layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
-        layer.borderWidth = 2
-        backgroundColor = UIDesign.quaviOrange
-        setTitleColor(.white, for: .normal)
-        showsTouchWhenHighlighted = true
-        
+       setTitle("GO", for: .normal)
+       layer.borderWidth = 2
+       layer.cornerRadius = frame.height / 2
+       layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
+       layer.borderWidth = 2
+       backgroundColor = .systemGreen
+       setTitleColor(.white, for: .normal)
+       showsTouchWhenHighlighted = true
+       
     }
-    
+
 }
