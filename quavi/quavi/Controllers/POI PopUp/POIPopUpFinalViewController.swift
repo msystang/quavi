@@ -47,17 +47,12 @@ class POIPopUpFinalViewController: UIViewController {
     }
     
     private func configureCongratsImage() {
-        let image = UIImage(named: "congrats")
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.masksToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 400),
-            imageView.widthAnchor.constraint(equalToConstant: 400),
+            imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 1.2),
+            imageView.widthAnchor.constraint(equalToConstant: view.frame.width / 1.2),
             imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)])
     }
     
