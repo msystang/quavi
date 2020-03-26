@@ -15,7 +15,7 @@ struct UIDesign {
     static let quaviOrange = UIColor(red: 0.930, green: 0.191, blue: 0.153, alpha: 1.0)
     static let quaviYellow = UIColor.systemYellow
     static let quaviWhite = UIColor(red: 1.000, green: 1.000, blue: 0.843, alpha: 1.0)
-    
+    static let placeholderImage = UIImage(named: "Quavi_Logo_Black")
     static func styleBackgroundColor(_ view: UIView) {
         view.backgroundColor = quaviDarkGrey
     }

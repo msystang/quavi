@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Photos
+import FirebaseAuth
+import FirebaseFirestore
 
 class EditProfileViewController: UIViewController {
     
@@ -56,6 +59,7 @@ class EditProfileViewController: UIViewController {
         button.setBackgroundImage(UIImage(systemName: "camera"), for: .normal)
         button.tintColor = .black
         button.contentMode = .bottom
+        button.addTarget(self, action: #selector(handleImagePicker), for: .touchUpInside)
         return button
     }()
     
@@ -120,11 +124,41 @@ class EditProfileViewController: UIViewController {
         return textField
     }()
     
+    //MARK: - TextField Constraints
+    
+    lazy var nameTextFieldConstraint: [NSLayoutConstraint] = {
+        let constraints = [nameTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70),
+                           nameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+                           nameTextField.heightAnchor.constraint(equalToConstant: 40),
+                           nameTextField.widthAnchor.constraint(equalToConstant: 300)]
+        
+        return constraints
+    }()
+    
+    lazy var usernameTextFieldConstraint: [NSLayoutConstraint] = {
+        let constraints = [usernameTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 160),
+                           usernameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+                           usernameTextField.heightAnchor.constraint(equalToConstant: 40),
+                           usernameTextField.widthAnchor.constraint(equalToConstant: 300)]
+        
+        return constraints
+    }()
+    
+    lazy var emailTextFieldConstraints: [NSLayoutConstraint] = {
+        let constraints = [emailTextField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 250),
+                           emailTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+                           emailTextField.heightAnchor.constraint(equalToConstant: 40),
+                           emailTextField.widthAnchor.constraint(equalToConstant: 300)]
+        return constraints
+    }()
+    
+    
     //MARK: - Regular Properties
     
     var currentTextfield: UITextField!
     lazy var editTextFieldLayout = setEditTextFieldConstraint(textField: currentTextfield)
-
+    var photoLibraryAccess = false
+    
     
     //MARK: - Life Cycle functions
     override func viewDidLoad() {
@@ -132,13 +166,20 @@ class EditProfileViewController: UIViewController {
         setUpDelegates()
         setUpSubviews()
         setUpConstraints()
+        setUpTextFieldConstraints()
+        setUsernameAndEmail()
+        getAndSetUserPhoto()
         miscSetUp()
+        checkPhotoLibraryAccess()
+        
     }
     
     override func viewDidLayoutSubviews() {
-        nameTextField.styleTextView()
-        usernameTextField.styleTextView()
-        emailTextField.styleTextView()
+        if currentTextfield == nil {
+            nameTextField.styleTextView()
+            usernameTextField.styleTextView()
+            emailTextField.styleTextView()
+        }
     }
     
     //MARK: - Objc functions
@@ -147,6 +188,21 @@ class EditProfileViewController: UIViewController {
     }
     
     @objc func handleConfirmButtonPressed(){
+        
+        guard let email = emailTextField.text, let username = usernameTextField.text else {
+            self.showAlert(title: "Error", message: "Fields must not be empty")
+            return
+        }
+        
+        FirestoreService.manager.updateCurrentUser(userEmail: email, userName: username) { (result) in
+            switch result {
+            case .failure(let error):
+                self.showAlert(title: "Error", message: "could not save fields: \(error.localizedDescription)")
+            case .success(()):
+                print("fields saved")
+            }
+        }
+
         handleEditDismissal()
     }
     
@@ -156,6 +212,24 @@ class EditProfileViewController: UIViewController {
     
     @objc func handleLogOut(){
         logOut()
+    }
+    @objc func handleImagePicker() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        if self.photoLibraryAccess {
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController,animated: true)
+        } else {
+            let noAuthenticationAlertalertVC = UIAlertController(title: "Acess Denied", message: "This app has not been authorized to access your photo library. Would you like to authorize it now?", preferredStyle: .alert)
+            noAuthenticationAlertalertVC.addAction(UIAlertAction (title: "Deny", style: .destructive, handler: nil))
+            self.present(noAuthenticationAlertalertVC, animated: true, completion: nil)
+            
+            noAuthenticationAlertalertVC.addAction(UIAlertAction (title: "Allow", style: .default, handler: { (action) in
+                self.photoLibraryAccess = true
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+        }
     }
     
     //MARK: - Private Functions
@@ -191,53 +265,44 @@ class EditProfileViewController: UIViewController {
         return window
     }
     
+    private func checkPhotoLibraryAccess() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        switch status {
+        case .authorized:
+            print(status)
+            self.photoLibraryAccess = true
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({status in
+                switch status {
+                case .authorized:
+                    self.photoLibraryAccess = true
+                    print(status)
+                case .denied:
+                    self.photoLibraryAccess = false
+                    print("denied")
+                case .notDetermined:
+                    print("not determined")
+                case .restricted:
+                    print("restricted")
+                }
+            })
+            
+        case .denied:
+            
+            showAlert(title: "Denied", message: "This app has not been authorized to access your photo library. Please change your settings.")
+            
+        case .restricted:
+            print("restricted")
+        }
+    }
+    
+    
     //MARK: - Setup Functions
     func setUpDelegates() {
         usernameTextField.delegate = self
         nameTextField.delegate = self
         emailTextField.delegate = self
-    }
-    
-    func setUpSubviews() {
-        self.view.addSubview(topBarView)
-        self.topBarView.addSubview(backButton)
-        self.topBarView.addSubview(confirmEditButton)
-        self.topBarView.addSubview(cancelEditButton)
-        self.view.addSubview(logoutButton)
-        
-        self.view.addSubview(userImage)
-        self.view.addSubview(changeImageButton)
-        self.view.addSubview(nameTextField)
-        self.view.addSubview(usernameTextField)
-        self.view.addSubview(emailTextField)
-        self.view.addSubview(nameLabel)
-        self.view.addSubview(usernameLabel)
-        self.view.addSubview(emailLabel)
-        self.view.addSubview(logoutButton)
-    }
-    
-    private func setUpConstraints() {
-        constrainTopBarView()
-        constrainBackButton()
-        constrainConfirmButton()
-        constrainCancelEditButton()
-        constrainLogoutButton()
-        
-        constrainUserImageView()
-        constrainChangeImageButton()
-        constrainTextFields(textField: nameTextField, textFieldAbove: nil)
-        constrainTextFields(textField: usernameTextField, textFieldAbove: nameTextField)
-        constrainTextFields(textField: emailTextField, textFieldAbove: usernameTextField)
-        constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
-        constrainTextFieldLabels(label: usernameLabel, textFieldBelow: usernameTextField)
-        constrainTextFieldLabels(label: emailLabel, textFieldBelow: emailTextField)
-        
-    }
-    
-    private func setUpStyling() {
-        styleTextViews(textfield: nameTextField)
-        styleTextViews(textfield: usernameTextField)
-        styleTextViews(textfield: emailTextField)
     }
     
     private func miscSetUp(){
@@ -252,6 +317,39 @@ class EditProfileViewController: UIViewController {
         cancelEditButton.alpha = 0
     }
     
+    private func setUsernameAndEmail() {
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "userName") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting username: \(error.localizedDescription)")
+            case .success(let username):
+                self.usernameTextField.text = username
+            }
+        }
+        
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "email") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting email: \(error.localizedDescription)")
+            case .success(let email):
+                self.emailTextField.text = email
+            }
+        }
+    }
+    
+    private func getAndSetUserPhoto() {
+        if let url = Auth.auth().currentUser?.photoURL {
+            FirebaseStorageService(imageType: .profileImage).getImage(photoUrl: url) { (result) in
+                switch result {
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: "Could not retrieve user photo: \(error.localizedDescription)")
+                case .success(let image):
+                    self.userImage.image = image
+                }
+            }
+        }
+    }
+    
     //MARK: - edit buttons' functions
     
     func handleEditDismissal(){
@@ -259,18 +357,19 @@ class EditProfileViewController: UIViewController {
         UIView.animate(withDuration: 0.70, animations: {
 
             self.backButton.alpha = 1
-            self.logoutButton.alpha = 1
             self.confirmEditButton.alpha = 0
             self.cancelEditButton.alpha = 0
             
-            self.emailLabel.alpha = 1
-            self.emailTextField.alpha = 1
+            self.emailLabel.isHidden = false
+            self.emailTextField.isHidden = false
             
-            self.usernameLabel.alpha = 1
-            self.usernameTextField.alpha = 1
+            self.usernameLabel.isHidden = false
+            self.usernameTextField.isHidden = false
             
-            self.nameLabel.alpha = 1
-            self.nameTextField.alpha = 1
+            self.nameLabel.isHidden = false
+            self.nameTextField.isHidden = false
+            
+            self.setUpTextFieldConstraints()
 
             if self.currentTextfield == self.nameTextField {
                 
@@ -296,36 +395,38 @@ class EditProfileViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0.70, animations: {
             self.userImage.alpha = 1
             self.changeImageButton.alpha = 1
+            self.logoutButton.alpha = 1
             self.view.layoutIfNeeded()
         })
     }
     
     func setEditTextFieldConstraint(textField: UITextField) -> NSLayoutConstraint {
-        var layout = NSLayoutConstraint()
+       
+        let layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 110)
         
         if textField == nameTextField {
-            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 110)
+            nameTextField.removeConstraint(nameTextFieldConstraint[0])
+            
+            usernameTextField.removeConstraints(usernameTextFieldConstraint)
+            emailTextField.removeConstraints(emailTextFieldConstraints)
+
+            
         } else if textField == usernameTextField {
-            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60)
+            usernameTextField.removeConstraint(usernameTextFieldConstraint[0])
+            
+            nameTextField.removeConstraints(nameTextFieldConstraint)
+            emailTextField.removeConstraints(emailTextFieldConstraints)
+            
+            
         } else if textField == emailTextField {
-            layout = textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10)
+            emailTextField.removeConstraint(emailTextFieldConstraints[0])
+            
+            nameTextField.removeConstraints(nameTextFieldConstraint)
+            usernameTextField.removeConstraints(usernameTextFieldConstraint)
+
         }
+        
         return layout
-    }
-    
-    
-    //MARK: - Styling functions
-    func styleTextViews(textfield: UITextField) {
         
-        let bottomLine = CALayer()
-        
-        bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - -4, width: textfield.frame.width, height: 2)
-        
-        bottomLine.backgroundColor = UIColor.init(red: 69/255, green: 69/255, blue: 69/255, alpha: 1).cgColor
-        
-        textfield.layer.addSublayer(bottomLine)
-        
-        textfield.borderStyle = .none
-        textfield.backgroundColor = .white
     }
 }

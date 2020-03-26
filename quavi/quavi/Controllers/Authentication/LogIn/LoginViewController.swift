@@ -14,12 +14,16 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.text = "Quavi"
         label.textAlignment = .center
+        label.textColor = UIDesign.quaviLightGrey
         return label
     }()
     
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Email"
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
+        
         return textField
     }()
     
@@ -27,13 +31,15 @@ class LoginViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Enter Password"
         textField.isSecureTextEntry = true
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
     lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIDesign.quaviLightGrey, for: .normal)
         button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -49,7 +55,7 @@ class LoginViewController: UIViewController {
     lazy var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.setTitle("Forgot Password?", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIDesign.quaviLightGrey, for: .normal)
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(forgotPasswordButtonPressed), for: .touchUpInside)
         return button
@@ -58,7 +64,7 @@ class LoginViewController: UIViewController {
     lazy var createAccountButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIDesign.quaviOrange, for: .normal)
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
         return button
@@ -68,7 +74,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = UIDesign.quaviDarkGrey
         addSubviews()
         addConstraints()
 

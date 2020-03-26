@@ -11,15 +11,17 @@ import Mapbox
 import MapboxCoreNavigation
 import MapboxNavigation
 import MapboxDirections
+import Kingfisher
 
 class POIInfoViewController: UIViewController {
     
     //MARK: -- UI Properties
     lazy var continueButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        button.setTitleColor(.purple, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = #colorLiteral(red: 0.2046233416, green: 0.1999312043, blue: 0.1955756545, alpha: 1)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIDesign.quaviLightGrey
         button.layer.borderWidth = 3
         return button
     }()
@@ -42,10 +44,10 @@ class POIInfoViewController: UIViewController {
     lazy var likeButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setImage(UIImage(named: "duck_icon_hallow"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIDesign.quaviYellow
         button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = UIColor.white.cgColor
-        button.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        button.layer.borderColor = UIDesign.quaviYellow.cgColor
+        button.backgroundColor = UIDesign.quaviLightGrey
         button.layer.borderWidth = 3
         return button
     }()
@@ -64,8 +66,8 @@ class POIInfoViewController: UIViewController {
         button.layer.cornerRadius = button.frame.height / 2
         button.setImage(UIImage(systemName: "location.fill"), for: .normal)
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = .white
+        button.layer.borderColor = UIDesign.quaviYellow.cgColor
+        button.backgroundColor = UIDesign.quaviLightGrey
         button.tintColor = .black
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(handlePresentingButton), for: .touchUpInside)
@@ -77,9 +79,9 @@ class POIInfoViewController: UIViewController {
         button.layer.cornerRadius = button.frame.height / 2
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.red.cgColor
-        button.backgroundColor = .white
-        button.tintColor = .red
+        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = .red
+        button.tintColor = .black
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(handleCancelButtonPressed), for: .touchUpInside)
         return button
@@ -111,22 +113,22 @@ class POIInfoViewController: UIViewController {
     
     lazy var quaviLogo: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "duck_icon_hallow")
-        image.tintColor = .systemPurple
+        image.image = UIImage(named: "Quavi_Logo_White")
+        image.tintColor = UIDesign.quaviYellow
         return image
     }()
     
     lazy var leftChevron: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "chevron.left")
-        image.tintColor = .black
+        image.tintColor = .red
         return image
     }()
     
     lazy var rightChevron: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "chevron.right")
-        image.tintColor = .black
+        image.tintColor = .red
         return image
     }()
     
@@ -240,8 +242,8 @@ class POIInfoViewController: UIViewController {
         let view1 = POIPopUpAboutView()
         view1.poiName.text = currentPOI.name
         view1.descriptionTextView.text = currentPOI.longDesc
-        //TODO: Handle image
-        view1.imageView.image = UIImage(named:"Quavi_Logo_Black")
+        view1.imageView.kf.indicatorType = .activity
+        view1.imageView.kf.setImage(with: URL(string: currentPOI.tableViewImage), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         
         let view2 = POIPopUpGallery()
         view2.poiImageUrls = currentPOI.poiImages
@@ -252,9 +254,9 @@ class POIInfoViewController: UIViewController {
     }
     
     private func switchTransitBackgroundButton() {
-        carButton.backgroundColor = modeOfTransit == .automobile ? .blue : .white
-        walkButton.backgroundColor = modeOfTransit == .walking ? .blue : .white
-        bikeButton.backgroundColor = modeOfTransit == .cycling ? .blue : .white
+        carButton.backgroundColor = modeOfTransit == .automobile ? UIDesign.quaviYellow : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? UIDesign.quaviYellow : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? UIDesign.quaviYellow : .white
     }
     
     private func presentModesOfTransportCurrentState() {
@@ -278,7 +280,7 @@ class POIInfoViewController: UIViewController {
         continueButton.addTarget(self, action: #selector(handleFinishButtonPressed(_:)), for: .touchUpInside)
     }
     private func setBackgroundColor(){
-        view.backgroundColor = .white
+        UIDesign.styleBackgroundColor(self.view)
     }
     
     func goToPage(index: Int, animated:Bool) {

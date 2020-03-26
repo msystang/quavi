@@ -43,6 +43,8 @@ extension EditProfileViewController: UITextFieldDelegate {
             handleTextFieldFirstResponder(toChangeConstraintsOf: emailTextField, disable: nameTextField, disable: usernameTextField, disable: nameLabel, disable: usernameLabel)
             
         }
+        
+                print(currentTextfield.text)
     }
     
     
@@ -50,22 +52,23 @@ extension EditProfileViewController: UITextFieldDelegate {
     
     func handleTextFieldFirstResponder(toChangeConstraintsOf selectedTextfield: UITextField, disable textfield1: UITextField, disable textfield2: UITextField, disable label1: UILabel, disable label2: UILabel) {
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.1) {
             self.userImage.alpha = 0
             self.changeImageButton.alpha = 0
+            self.logoutButton.alpha = 0
         }
         
-        UIView.animate(withDuration: 1.0, delay: 0.3, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
+        UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.80, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { [weak self] in
             
-            textfield1.alpha = 0
-            textfield2.alpha = 0
-            label1.alpha = 0
-            label2.alpha = 0
+            textfield1.isHidden = true
+            textfield2.isHidden = true
+            label1.isHidden = true
+            label2.isHidden = true
             self?.backButton.alpha = 0
-            self?.logoutButton.alpha = 0
             self?.confirmEditButton.alpha = 1
             self?.cancelEditButton.alpha = 1
             
+            self?.editTextFieldLayout = (self?.setEditTextFieldConstraint(textField: self!.currentTextfield))!
             self?.editTextFieldLayout.isActive = true
             self?.view.layoutIfNeeded()
         })

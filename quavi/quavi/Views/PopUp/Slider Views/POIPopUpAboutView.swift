@@ -12,9 +12,14 @@ class POIPopUpAboutView: UIView {
     
     let padding: CGFloat = 20
 
+    lazy var scrollview:UIScrollView = {
+        let scrollview = UIScrollView()
+        return scrollview
+    }()
+    
     lazy var poiName: UILabel = {
         var label = UILabel()
-        label.textColor = .black
+        label.textColor = UIDesign.quaviYellow
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
@@ -31,6 +36,7 @@ class POIPopUpAboutView: UIView {
     lazy var descriptionTextView: UITextView = {
         var textView = UITextView()
         textView.backgroundColor = .clear
+        textView.textColor = .white
         textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return textView
@@ -39,7 +45,9 @@ class POIPopUpAboutView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        configureGradient()
+        self.backgroundColor = .black
+//        configureGradient()
+        configureScrollViewConstraints()
         configurePOIName()
         configureImageView()
         configureDescriptionTextView()
@@ -47,6 +55,12 @@ class POIPopUpAboutView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureScrollViewConstraints(){
+        addSubview(scrollview)
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([scrollview.topAnchor.constraint(equalTo: topAnchor), scrollview.leadingAnchor.constraint(equalTo: leadingAnchor),scrollview.trailingAnchor.constraint(equalTo: trailingAnchor), scrollview.bottomAnchor.constraint(equalTo: bottomAnchor) ])
     }
     
     private func configureGradient() {
@@ -81,13 +95,13 @@ class POIPopUpAboutView: UIView {
     }
     
     private func configureDescriptionTextView() {
-        addSubview(descriptionTextView)
+        scrollview.addSubview(descriptionTextView)
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: padding),
             descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            descriptionTextView.heightAnchor.constraint(equalToConstant: 500)
+            descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30)
         ])
     }
 

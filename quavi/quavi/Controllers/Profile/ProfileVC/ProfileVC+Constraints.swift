@@ -9,8 +9,46 @@ import UIKit
 
 extension ProfileViewController {
     
+    func setUpSubviews() {
+        self.view.addSubview(profileInfoView)
+        self.profileInfoView.addSubview(editProfileButton)
+        self.profileInfoView.addSubview(userImage)
+        self.profileInfoView.addSubview(fullnameLabel)
+        self.profileInfoView.addSubview(usernameLabel)
+        self.profileInfoView.addSubview(emailLabel)
+        
+        self.view.addSubview(favoritedView)
+        self.favoritedView.addSubview(faveToursLabel)
+        self.favoritedView.addSubview(tourNumber)
+        self.favoritedView.addSubview(favePOILabel)
+        self.favoritedView.addSubview(POINumber)
+        
+        self.view.addSubview(faveTypeSegmentControl)
+
+        self.view.addSubview(favoritesTableView)
+    }
+    
+    func setUpConstraints() {
+        constrainProfileInfoView()
+        constrainEditButton()
+        constrainUserImage()
+        constrainFullName()
+        constrainUsername()
+        constrainEmail()
+        
+        constrainfavoritedView()
+        constrainFaveToursLabel()
+        constrainTourNumberLabel()
+        constrainFavePOILabel()
+        constrainPOINumberLabel()
+        
+        constrainFaveTypeSegmentControl()
+        
+        constrainTableView()
+    }
+    
     //MARK: profileInfoView Constraints
-    func constrainProfileInfoView(){
+    private func constrainProfileInfoView(){
         profileInfoView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileInfoView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -21,7 +59,7 @@ extension ProfileViewController {
     }
     
     
-    func constrainEditButton() {
+    private func constrainEditButton() {
         editProfileButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             editProfileButton.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 50),
@@ -31,49 +69,49 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainUserImage() {
+    private func constrainUserImage() {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            userImage.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 100),
+            userImage.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 50),
             userImage.leadingAnchor.constraint(equalTo: self.profileInfoView.leadingAnchor, constant: 15),
             userImage.widthAnchor.constraint(equalToConstant: 150),
             userImage.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
     
-    func constrainFullName() {
-        fullname.translatesAutoresizingMaskIntoConstraints = false
+    private func constrainFullName() {
+        fullnameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            fullname.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 120),
-            fullname.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 20),
-            fullname.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: -20),
-            fullname.heightAnchor.constraint(equalToConstant: 40)
+            fullnameLabel.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 120),
+            fullnameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 20),
+            fullnameLabel.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: -20),
+            fullnameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
-    func constrainUsername() {
-        username.translatesAutoresizingMaskIntoConstraints = false
+    private func constrainUsername() {
+        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            username.topAnchor.constraint(equalTo: fullname.bottomAnchor, constant: 5),
-            username.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: 20),
-            username.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -20),
-            username.heightAnchor.constraint(equalToConstant: 40)
+            usernameLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 5),
+            usernameLabel.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: 20),
+            usernameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -20),
+            usernameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
-    func constrainEmail() {
-        email.translatesAutoresizingMaskIntoConstraints = false
+    private func constrainEmail() {
+        emailLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            email.topAnchor.constraint(equalTo: username.bottomAnchor, constant: 10),
-            email.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: 20),
-            email.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -20),
-            username.heightAnchor.constraint(equalToConstant: 40)
+            emailLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 10),
+            emailLabel.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: 20),
+            emailLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -20),
+            usernameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
     //MARK: favoritedView Constraints
     
-    func constrainfavoritedView() {
+    private func constrainfavoritedView() {
         favoritedView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -84,7 +122,7 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainFaveToursLabel() {
+    private func constrainFaveToursLabel() {
         faveToursLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             faveToursLabel.leadingAnchor.constraint(equalTo: favoritedView.leadingAnchor, constant: 10),
@@ -94,7 +132,7 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainTourNumberLabel() {
+    private func constrainTourNumberLabel() {
         tourNumber.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -105,7 +143,7 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainFavePOILabel() {
+    private func constrainFavePOILabel() {
         favePOILabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             favePOILabel.bottomAnchor.constraint(equalTo: favoritedView.bottomAnchor, constant: -10),
@@ -115,7 +153,7 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainPOINumberLabel() {
+    private func constrainPOINumberLabel() {
         POINumber.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -128,7 +166,7 @@ extension ProfileViewController {
     
     //MARK: tableView & segmented control Constraints
     
-    func constrainFaveTypeSegmentControl() {
+    private func constrainFaveTypeSegmentControl() {
         faveTypeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             faveTypeSegmentControl.topAnchor.constraint(equalTo: favoritedView.bottomAnchor),
@@ -138,7 +176,7 @@ extension ProfileViewController {
         ])
     }
     
-    func constrainTableView() {
+    private func constrainTableView() {
         favoritesTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             favoritesTableView.topAnchor.constraint(equalTo: faveTypeSegmentControl.bottomAnchor),

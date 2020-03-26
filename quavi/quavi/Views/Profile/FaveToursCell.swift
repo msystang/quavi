@@ -20,7 +20,7 @@ class FaveToursCell: UITableViewCell {
     
     lazy var tourName: UILabel = {
         var label = UILabel()
-
+        label.textColor = UIDesign.quaviWhite
         return label
     }()
     //MARK: - Inits
@@ -40,6 +40,7 @@ class FaveToursCell: UITableViewCell {
     func setUpSubviews(){
         self.contentView.addSubview(tourImage)
         self.contentView.addSubview(tourName)
+        self.backgroundColor = .clear
     }
     
     func setUpConstraints() {

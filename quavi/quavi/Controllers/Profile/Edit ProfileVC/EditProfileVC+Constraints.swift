@@ -9,6 +9,47 @@
 import UIKit
 
 extension EditProfileViewController {
+    
+    func setUpSubviews() {
+        self.view.addSubview(topBarView)
+        self.topBarView.addSubview(backButton)
+        self.topBarView.addSubview(confirmEditButton)
+        self.topBarView.addSubview(cancelEditButton)
+        self.view.addSubview(logoutButton)
+        
+        self.view.addSubview(userImage)
+        self.view.addSubview(changeImageButton)
+        self.view.addSubview(nameTextField)
+        self.view.addSubview(usernameTextField)
+        self.view.addSubview(emailTextField)
+        self.view.addSubview(nameLabel)
+        self.view.addSubview(usernameLabel)
+        self.view.addSubview(emailLabel)
+        self.view.addSubview(logoutButton)
+    }
+    
+    func setUpConstraints() {
+        constrainTopBarView()
+        constrainBackButton()
+        constrainConfirmButton()
+        constrainCancelEditButton()
+        constrainLogoutButton()
+        
+        constrainUserImageView()
+        constrainChangeImageButton()
+        
+    }
+    
+    func setUpTextFieldConstraints() {
+        constrainNameTextField()
+        constrainUsernameTextField()
+        constrainEmailTextField()
+        
+        constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
+        constrainTextFieldLabels(label: usernameLabel, textFieldBelow: usernameTextField)
+        constrainTextFieldLabels(label: emailLabel, textFieldBelow: emailTextField)
+    }
+    
     //MARK: - TopBarView Constraints
     func constrainTopBarView() {
         topBarView.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +69,7 @@ extension EditProfileViewController {
             backButton.leadingAnchor.constraint(equalTo: topBarView.leadingAnchor, constant: 20),
             backButton.bottomAnchor.constraint(equalTo: topBarView.bottomAnchor, constant: -10),
             backButton.widthAnchor.constraint(equalToConstant: 30)
-
+            
         ])
     }
     
@@ -66,52 +107,70 @@ extension EditProfileViewController {
     }
     
     
-       func constrainUserImageView() {
-           userImage.translatesAutoresizingMaskIntoConstraints = false
-           
-           NSLayoutConstraint.activate([
-               userImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
-               userImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-               userImage.heightAnchor.constraint(equalToConstant: 150),
-               userImage.widthAnchor.constraint(equalToConstant: 150)
-           ])
-       }
-       
-       func constrainChangeImageButton() {
-           changeImageButton.translatesAutoresizingMaskIntoConstraints = false
-           
-           NSLayoutConstraint.activate([
-               changeImageButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: -50),
-               changeImageButton.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -50),
-               changeImageButton.heightAnchor.constraint(equalToConstant: 40),
-               changeImageButton.widthAnchor.constraint(equalToConstant: 40)
-           ])
-       }
-       //MARK: - labels 4 textFields Constraints
-       func constrainTextFieldLabels(label: UILabel, textFieldBelow: UITextField) {
-           label.translatesAutoresizingMaskIntoConstraints = false
-           
-           NSLayoutConstraint.activate([
-               label.leadingAnchor.constraint(equalTo: textFieldBelow.leadingAnchor),
-               label.bottomAnchor.constraint(equalTo: textFieldBelow.topAnchor, constant: 5),
-               label.heightAnchor.constraint(equalToConstant: 30),
-               label.widthAnchor.constraint(equalToConstant: 300)
-           ])
-       }
-       //MARK: - Textfield Constraints
-       func constrainTextFields(textField: UITextField, textFieldAbove: UITextField?) {
-           textField.translatesAutoresizingMaskIntoConstraints = false
-           
-           NSLayoutConstraint.activate([
-               textField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
-               textField.heightAnchor.constraint(equalToConstant: 40),
-               textField.widthAnchor.constraint(equalToConstant: 300)
-           ])
-           
-           if textFieldAbove == nil {
-               textField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70).isActive = true
-           } else {
-               textField.topAnchor.constraint(equalTo: textFieldAbove!.bottomAnchor, constant: 50).isActive = true
-           }
-       }
+    func constrainUserImageView() {
+        userImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            userImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
+            userImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            userImage.heightAnchor.constraint(equalToConstant: 150),
+            userImage.widthAnchor.constraint(equalToConstant: 150)
+        ])
+    }
+    
+    func constrainChangeImageButton() {
+        changeImageButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            changeImageButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: -50),
+            changeImageButton.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -50),
+            changeImageButton.heightAnchor.constraint(equalToConstant: 40),
+            changeImageButton.widthAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    //MARK: - labels 4 textFields Constraints
+    func constrainTextFieldLabels(label: UILabel, textFieldBelow: UITextField) {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: textFieldBelow.leadingAnchor),
+            label.bottomAnchor.constraint(equalTo: textFieldBelow.topAnchor, constant: 5),
+            label.heightAnchor.constraint(equalToConstant: 30),
+            label.widthAnchor.constraint(equalToConstant: 300)
+        ])
+    }
+    //MARK: - Textfield Constraints
+    
+    
+    func constrainNameTextField() {
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(nameTextFieldConstraint)
+    }
+    
+    func constrainUsernameTextField() {
+        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(usernameTextFieldConstraint)
+    }
+    
+    func constrainEmailTextField(){
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(emailTextFieldConstraints)
+    }
+    
+    func constrainTextFields(textField: UITextField, textFieldAbove: UITextField?) {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            textField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+            textField.heightAnchor.constraint(equalToConstant: 40),
+            textField.widthAnchor.constraint(equalToConstant: 300)
+        ])
+        
+        if textFieldAbove == nil {
+            textField.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 70).isActive = true
+        } else {
+            textField.topAnchor.constraint(equalTo: textFieldAbove!.bottomAnchor, constant: 50).isActive = true
+        }
+    }
 }
