@@ -53,8 +53,8 @@ class QuaviOnBoardingPage: UIView {
          self.addSubview(pageImageView)
          pageImageView.translatesAutoresizingMaskIntoConstraints = false
          NSLayoutConstraint.activate([pageImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
-                                      pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-                                      pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+                                      pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+                                      pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
                                       pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.75)])
      }
      
@@ -70,6 +70,9 @@ class QuaviOnBoardingPage: UIView {
      private func pageSubViewConstraint() {
          self.addSubview(pageSubTitle)
          pageSubTitle.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([pageSubTitle.topAnchor.constraint(equalTo: pageTitle.bottomAnchor, constant: 5), pageSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30), pageSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30), pageSubTitle.heightAnchor.constraint(equalToConstant: 100)])
+         NSLayoutConstraint.activate([pageSubTitle.topAnchor.constraint(equalTo: pageTitle.bottomAnchor, constant: 5),
+                                      pageSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+                                      pageSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+                                      pageSubTitle.heightAnchor.constraint(equalToConstant: 100)])
      }
 }

@@ -49,7 +49,10 @@ class OnBoardingViewController: UIViewController {
     
     private func configureScrollViewConstraints(){
         onBoardingScrollView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([onBoardingScrollView.topAnchor.constraint(equalTo: view.topAnchor), onBoardingScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor), onBoardingScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor) ,onBoardingScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+        NSLayoutConstraint.activate([onBoardingScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+                                     onBoardingScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                     onBoardingScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                     onBoardingScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
 }
 
