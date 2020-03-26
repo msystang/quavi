@@ -11,6 +11,7 @@ import UIKit
 class OnBoardingViewController: UIViewController {
     
     let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB01"),UIImage(named: "OB01")]
+    let headers = ["Welcome To Quavi", "How To Get Started", "When You Get To A Point", "Time To Get Quay Quay!"]
     
     //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoardingView = {
@@ -71,10 +72,11 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
         let page = QuaviOnBoardingPage()
         
         page.pageImageView.image = images[index]
+        page.pageTitle.text = headers[index]
         
         //hides the labels when its on the last page
-        page.pageTitle.isHidden = index == 3 ? true : false
-        page.pageSubTitle.isHidden = index == 3 ? true : false
+        //page.pageTitle.isHidden = index == 3 ? true : false
+        //page.pageSubTitle.isHidden = index == 3 ? true : false
         //TODO: Set information to each onboarding page here
         return page
     }

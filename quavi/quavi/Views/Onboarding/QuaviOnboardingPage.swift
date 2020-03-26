@@ -12,7 +12,8 @@ class QuaviOnBoardingPage: UIView {
     //MARK: -- objects
     lazy var pageTitle: UILabel = {
         let label = UILabel()
-        label.text = "Page Title"
+        label.textColor = UIDesign.quaviWhite
+        label.text = "Placeholder"
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -22,7 +23,7 @@ class QuaviOnBoardingPage: UIView {
     
     lazy var pageSubTitle: UILabel = {
         let label = UILabel()
-        label.text = "Page Sub Title"
+        
         label.isHidden = true
         label.textAlignment = .center
         label.numberOfLines = 0
