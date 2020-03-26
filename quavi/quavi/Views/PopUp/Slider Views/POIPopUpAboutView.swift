@@ -95,13 +95,13 @@ class POIPopUpAboutView: UIView {
     }
     
     private func configureDescriptionTextView() {
-        addSubview(descriptionTextView)
+        scrollview.addSubview(descriptionTextView)
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: padding),
             descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            descriptionTextView.heightAnchor.constraint(equalToConstant: 500)
+            descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30)
         ])
     }
 
