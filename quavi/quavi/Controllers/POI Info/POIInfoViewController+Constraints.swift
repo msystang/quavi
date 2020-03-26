@@ -56,7 +56,7 @@ extension POIInfoViewController{
     
     func cancelTourButtonConstraints() {
         cancelTourButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([cancelTourButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20), cancelTourButton.bottomAnchor.constraint(equalTo: continueButton.bottomAnchor),cancelTourButton.heightAnchor.constraint(equalToConstant: 40), cancelTourButton.widthAnchor.constraint(equalToConstant: 40)])
+        NSLayoutConstraint.activate([cancelTourButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5), cancelTourButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20), cancelTourButton.heightAnchor.constraint(equalToConstant: 40), cancelTourButton.widthAnchor.constraint(equalToConstant: 40)])
     }
     
     func bikeButtonConstraints() {

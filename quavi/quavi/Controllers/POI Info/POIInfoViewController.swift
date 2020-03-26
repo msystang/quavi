@@ -78,10 +78,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.layer.cornerRadius = button.frame.height / 2
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = .red
-        button.tintColor = .black
+        button.tintColor = UIDesign.quaviLightGrey
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(handleCancelButtonPressed), for: .touchUpInside)
         return button
