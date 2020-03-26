@@ -54,18 +54,7 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
     func quaviOnboardBackgroundColorFor(_ quaviOnBoarding: OnBoardingView, atIndex index: Int) -> UIColor? {
         
         //TODO: set background color dynamically
-        switch index{
-        case 0:
-            return .white
-        case 1:
-            return .blue
-        case 2:
-            return .yellow
-        case 3:
-            return .green
-        default:
-            return .white
-        }
+        return UIDesign.quaviDarkGrey
     }
     
     func quaviOnboardNumberOfPages(_ quaviOnBoarding: OnBoardingView) -> Int {
