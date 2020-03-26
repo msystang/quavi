@@ -31,12 +31,12 @@ extension POIInfoViewController{
     
     func quaviLogoButtonConstraints() {
         quaviLogo.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([quaviLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), quaviLogo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15), quaviLogo.widthAnchor.constraint(equalToConstant: 40), quaviLogo.heightAnchor.constraint(equalToConstant: 40)])
+        NSLayoutConstraint.activate([quaviLogo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5), quaviLogo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15), quaviLogo.widthAnchor.constraint(equalToConstant: 40), quaviLogo.heightAnchor.constraint(equalToConstant: 40)])
     }
     
     func containerViewConstraints() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: quaviLogo.bottomAnchor, constant: 50), containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor), containerView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.65), containerView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95) ])
+        NSLayoutConstraint.activate([containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90), containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor), containerView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.65), containerView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.95) ])
     }
     
     func pageControlConstraints() {
