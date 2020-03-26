@@ -34,13 +34,16 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         
         let overLayView =  UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
                overLayView.backgroundColor = UIDesign.quaviYellow
-         let button = UIButton(frame: CGRect(x: 62, y: 0, width: self.view.frame.width - 62, height: 70))
+         let button = UIButton(frame: CGRect(x: 65, y: 0, width: self.view.frame.width - 90, height: 70))
         button.setTitle(poiForTour[section].name, for: .normal)
         button.titleLabel!.adjustsFontSizeToFitWidth = true
         button.backgroundColor = UIDesign.quaviYellow
         button.addTarget(self, action: #selector(tvCellSectionButtonPressed(sender:)), for: .touchDown)
         button.setTitleColor(.black, for: .normal)
         button.tag = section
+        
+        view.layer.cornerRadius = button.frame.height / 2
+        view.clipsToBounds = true
         view.addSubview(overLayView)
         view.addSubview(button)
         
@@ -55,12 +58,11 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         
         button.addSubview(sectionImage)
         
-        
         let sectionHeaderArrows = UIImageView(image: UIImage(systemName: "chevron.compact.down"))
         sectionHeaderArrows.tintColor = .black
         button.addSubview(sectionHeaderArrows)
         
-        constrainTVSectionArrow(button: button, sectionHeaderArrows: sectionHeaderArrows)
+        constrainTVSectionArrow(view: view, sectionHeaderArrows: sectionHeaderArrows)
         constrainTVSectionImage(button: button, sectionHeaderImage: sectionImage, view: view)
         
         view.backgroundColor = .clear
@@ -75,15 +77,8 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         let stop = poiForTour[indexPath.section]
         
         guard let cell = poiTableView.dequeueReusableCell(withIdentifier: Enums.cellIdentifiers.StopCell.rawValue, for: indexPath) as? StopsTableViewCell else { return UITableViewCell() }
-        
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.05 * Double(indexPath.row),
-            animations: {
-                cell.alpha = 1
-        })
         cell.backgroundColor = .clear
-        
+        cell.selectionStyle = .none
         cell.stopImage.kf.indicatorType = .activity
         cell.stopImage.kf.setImage(with: URL(string: stop.tableViewImage), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         cell.stopLabel.text = stop.shortDesc

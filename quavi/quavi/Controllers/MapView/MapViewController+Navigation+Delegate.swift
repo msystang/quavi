@@ -31,7 +31,7 @@ extension MapViewController: NavigationViewControllerDelegate{
         }else{
         poiInfoViewController.isAtLastLeg = false
         }
-        
+        poiInfoViewController.modeOfTransit = self.modeOfTransit
         poiInfoViewController.modalPresentationStyle = .fullScreen
         navigationViewController.navigationService.stop()
         navigationViewController.present(poiInfoViewController, animated: true)
