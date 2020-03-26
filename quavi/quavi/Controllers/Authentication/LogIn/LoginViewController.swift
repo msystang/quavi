@@ -79,6 +79,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = UIDesign.quaviDarkGrey
         addSubviews()
         addConstraints()
+        setDelegate()
 
     }
 
@@ -120,6 +121,11 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Private Functions
+   private func setDelegate() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
     private func handleLoginResponse(with result: Result<(), Error>) {
         switch result {
         case .success:
