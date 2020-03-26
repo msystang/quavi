@@ -55,7 +55,7 @@ class POIInfoViewController: UIViewController {
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.hidesForSinglePage = true
-        pc.pageIndicatorTintColor = .blue
+        pc.pageIndicatorTintColor = UIDesign.quaviLightGrey
         pc.currentPageIndicatorTintColor = .red
         pc.addTarget(self, action: #selector(handlePageControllerTapped(_:)), for: .allTouchEvents)
         return pc
