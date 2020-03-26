@@ -19,7 +19,7 @@ extension EditProfileViewController {
         
         self.view.addSubview(userImage)
         self.view.addSubview(changeImageButton)
-        self.view.addSubview(nameTextField)
+//        self.view.addSubview(nameTextField)
         self.view.addSubview(usernameTextField)
         self.view.addSubview(emailTextField)
         self.view.addSubview(nameLabel)
@@ -41,11 +41,11 @@ extension EditProfileViewController {
     }
     
     func setUpTextFieldConstraints() {
-        constrainNameTextField()
+//        constrainNameTextField()
         constrainUsernameTextField()
         constrainEmailTextField()
         
-        constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
+//        constrainTextFieldLabels(label: nameLabel, textFieldBelow: nameTextField)
         constrainTextFieldLabels(label: usernameLabel, textFieldBelow: usernameTextField)
         constrainTextFieldLabels(label: emailLabel, textFieldBelow: emailTextField)
     }
