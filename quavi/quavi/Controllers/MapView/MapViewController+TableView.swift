@@ -85,7 +85,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.alpha = 1
         })
         cell.backgroundColor = .clear
-        
+        cell.selectionStyle = .none
         cell.stopImage.kf.indicatorType = .activity
         cell.stopImage.kf.setImage(with: URL(string: stop.tableViewImage), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         cell.stopLabel.text = stop.shortDesc
