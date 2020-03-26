@@ -21,7 +21,7 @@ class POIInfoViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
         button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = UIDesign.quaviLightGrey
+        button.backgroundColor = .systemGreen
         button.layer.borderWidth = 3
         return button
     }()
