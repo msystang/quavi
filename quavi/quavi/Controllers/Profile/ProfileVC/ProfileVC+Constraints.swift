@@ -13,7 +13,7 @@ extension ProfileViewController {
         self.view.addSubview(profileInfoView)
         self.profileInfoView.addSubview(editProfileButton)
         self.profileInfoView.addSubview(userImage)
-        self.profileInfoView.addSubview(fullnameLabel)
+//        self.profileInfoView.addSubview(fullnameLabel)
         self.profileInfoView.addSubview(usernameLabel)
         self.profileInfoView.addSubview(emailLabel)
         
@@ -32,7 +32,7 @@ extension ProfileViewController {
         constrainProfileInfoView()
         constrainEditButton()
         constrainUserImage()
-        constrainFullName()
+//        constrainFullName()
         constrainUsername()
         constrainEmail()
         
@@ -72,7 +72,7 @@ extension ProfileViewController {
     private func constrainUserImage() {
         userImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            userImage.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 50),
+            userImage.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 70),
             userImage.leadingAnchor.constraint(equalTo: self.profileInfoView.leadingAnchor, constant: 15),
             userImage.widthAnchor.constraint(equalToConstant: 150),
             userImage.heightAnchor.constraint(equalToConstant: 150)
@@ -92,7 +92,7 @@ extension ProfileViewController {
     private func constrainUsername() {
         usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            usernameLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 5),
+            usernameLabel.topAnchor.constraint(equalTo: self.profileInfoView.topAnchor, constant: 120),
             usernameLabel.trailingAnchor.constraint(equalTo: self.profileInfoView.trailingAnchor, constant: 20),
             usernameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: -20),
             usernameLabel.heightAnchor.constraint(equalToConstant: 40)
