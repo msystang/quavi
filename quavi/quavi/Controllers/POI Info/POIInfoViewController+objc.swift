@@ -30,15 +30,23 @@ extension POIInfoViewController {
      }
      
      @objc func continueButtonPressed(_ sender: UIButton) {
-        guard let currentLegRoute = currentLegRoute else { return }
-        let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
-        let navigationOptions = NavigationOptions(navigationService: navigationService)
-        let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
-        navigationVC.delegate = self
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: true)
+        
+        switch showButtons{
+        case .hide:
+           presentNavigationVC()
+            
+        case .show:
+           activateTopConstraints()
+            presentButtons()
+            showButtons = .hide
+           presentModesOfTransport.setImage(UIImage(systemName: "location.fill")!, for: .normal)
+           
+            if showButtons == .hide{
+            presentNavigationVC()
+        }
      }
-     
+    }
+    
      @objc func handleFinishButtonPressed(_ sender: UIButton) {
          let popupFinalVC = POIPopUpFinalViewController()
          popupFinalVC.modalPresentationStyle = .fullScreen
