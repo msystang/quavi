@@ -13,14 +13,14 @@ extension LoginViewController {
     //MARK: - UI Constraint Methods
     func addSubviews() {
         view.addSubview(logInStackView)
-        view.addSubview(titleLabel)
+        view.addSubview(imageView)
         view.addSubview(createAccountButton)
         view.addSubview(forgotPasswordButton)
     }
     
     func addConstraints() {
         setLogInStackViewConstraints()
-        setTitleLabelConstraints()
+        setImageViewConstraints()
         setCreateAccountButtonConstraints()
         setForgotPasswordButtonConstraints()
     }
@@ -33,7 +33,7 @@ extension LoginViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            logInStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            logInStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
             logInStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logInStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
             emailTextField.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
@@ -43,14 +43,16 @@ extension LoginViewController {
         ])
     }
     
-    private func setTitleLabelConstraints() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setImageViewConstraints() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            titleLabel.bottomAnchor.constraint(equalTo: logInStackView.topAnchor, constant: 30),
-            titleLabel.leadingAnchor.constraint(equalTo: logInStackView.leadingAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            //imageView.bottomAnchor.constraint(equalTo: logInStackView.topAnchor, constant: 30),
+            //imageView.leadingAnchor.constraint(equalTo: logInStackView.leadingAnchor),
+            imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 1.2),
+            imageView.widthAnchor.constraint(equalToConstant: view.frame.width / 1.2)
         ])
     }
     
