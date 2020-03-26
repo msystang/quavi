@@ -12,6 +12,11 @@ class POIPopUpAboutView: UIView {
     
     let padding: CGFloat = 20
 
+    lazy var scrollview:UIScrollView = {
+        let scrollview = UIScrollView()
+        return scrollview
+    }()
+    
     lazy var poiName: UILabel = {
         var label = UILabel()
         label.textColor = UIDesign.quaviYellow
@@ -42,6 +47,7 @@ class POIPopUpAboutView: UIView {
         
         self.backgroundColor = .black
 //        configureGradient()
+        configureScrollViewConstraints()
         configurePOIName()
         configureImageView()
         configureDescriptionTextView()
@@ -49,6 +55,12 @@ class POIPopUpAboutView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureScrollViewConstraints(){
+        addSubview(scrollview)
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([scrollview.topAnchor.constraint(equalTo: topAnchor), scrollview.leadingAnchor.constraint(equalTo: leadingAnchor),scrollview.trailingAnchor.constraint(equalTo: trailingAnchor), scrollview.bottomAnchor.constraint(equalTo: bottomAnchor) ])
     }
     
     private func configureGradient() {
