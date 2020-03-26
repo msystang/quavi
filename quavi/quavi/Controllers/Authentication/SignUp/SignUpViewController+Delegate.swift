@@ -6,4 +6,11 @@
 //  Copyright © 2020 Sunni Tang. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension SignUpViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
