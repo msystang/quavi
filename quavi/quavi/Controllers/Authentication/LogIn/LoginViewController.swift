@@ -10,12 +10,14 @@ import UIKit
 
 class LoginViewController: UIViewController {
     //MARK: - UI Objects
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Quavi"
-        label.textAlignment = .center
-        label.textColor = UIDesign.quaviLightGrey
-        return label
+    
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Quavi_Logo_White")
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     lazy var emailTextField: UITextField = {
