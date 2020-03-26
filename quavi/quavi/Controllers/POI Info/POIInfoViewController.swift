@@ -44,10 +44,10 @@ class POIInfoViewController: UIViewController {
     lazy var likeButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setImage(UIImage(named: "duck_icon_hallow"), for: .normal)
-        button.tintColor = UIDesign.quaviYellow
+        button.tintColor = .white
         button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = UIDesign.quaviYellow.cgColor
-        button.backgroundColor = UIDesign.quaviLightGrey
+        button.layer.borderColor = UIColor.white.cgColor
+        button.backgroundColor = UIDesign.quaviOrange
         button.layer.borderWidth = 3
         return button
     }()
