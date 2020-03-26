@@ -32,8 +32,9 @@ class QuaviOnboardOverlay:UIView {
         button.setTitle("Skip", for: .normal)
         button.contentHorizontalAlignment = .center
         button.showsTouchWhenHighlighted = true
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 1
+        button.tintColor = UIDesign.quaviLightGrey
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.layer.borderWidth = 1
         return button
     }()
     
@@ -100,7 +101,7 @@ class QuaviOnboardOverlay:UIView {
     private func skipButtonConstraint() {
         self.addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([skipButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10), skipButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 30), skipButton.heightAnchor.constraint(equalToConstant: 30), skipButton.widthAnchor.constraint(equalToConstant: 100)])
+        NSLayoutConstraint.activate([skipButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20), skipButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 30), skipButton.heightAnchor.constraint(equalToConstant: 30), skipButton.widthAnchor.constraint(equalToConstant: 100)])
     }
     
     private func prevLabelConstraint() {
