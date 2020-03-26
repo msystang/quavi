@@ -217,7 +217,7 @@ class POIInfoViewController: UIViewController {
         super.viewWillAppear(animated)
         setBackgroundColor()
         continueButtonConstraints()
-        quaviLogoButtonConstraints()
+       // quaviLogoButtonConstraints()
         containerViewConstraints()
         pageControlConstraints()
         likeButtonConstraints()
