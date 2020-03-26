@@ -15,15 +15,26 @@ class SignUpViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign Up"
-        label.textColor = .black
+        label.textColor = UIDesign.quaviLightGrey
         label.textAlignment = .center
         return label
+    }()
+    
+    lazy var usernameTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter Username"
+        textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
+        return textField
     }()
     
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter Email"
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -32,21 +43,23 @@ class SignUpViewController: UIViewController {
         textField.placeholder = "Enter Password"
         textField.isSecureTextEntry = true
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
+        textField.backgroundColor = UIDesign.quaviLightGrey
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
     lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create New Account", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIDesign.quaviLightGrey, for: .normal)
         //TODO: Handle initial button color (should indicate disabled)
-        button.setTitleColor(.gray, for: .disabled)
+        button.setTitleColor(.darkGray, for: .disabled)
         button.addTarget(self, action: #selector(trySignUp), for: .touchUpInside)
         return button
     }()
     
     lazy var signUpStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
+        let stackView = UIStackView(arrangedSubviews: [usernameTextField, emailTextField, passwordTextField])
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.axis = .vertical
@@ -57,7 +70,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIDesign.quaviDarkGrey
         addSubviews()
         addConstraints()
 
@@ -65,7 +78,7 @@ class SignUpViewController: UIViewController {
     
     //MARK: - Objective-C Methods
     @objc func validateFields() {
-        guard emailTextField.hasText, passwordTextField.hasText else {
+        guard usernameTextField.hasText, emailTextField.hasText, passwordTextField.hasText else {
             signUpButton.isEnabled = false
             return
         }
@@ -73,7 +86,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func trySignUp() {
-        guard let email = emailTextField.text, let password = passwordTextField.text else {
+        guard let username = usernameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {
             showAlert(title: "Error", message: "Please fill out all fields.")
             return
         }
@@ -90,7 +103,6 @@ class SignUpViewController: UIViewController {
         
         //TODO: handle creating new user using FirebaseAuth
         createUser(email: email, password: password)
-
         print("Try sign up success")
     }
 
@@ -108,16 +120,14 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func saveUsers(with user: User) {
+    private func saveUsers(with user: User) {
         FirestoreService.manager.createAppUser(user: AppUser(from: user)) { [weak self] newResult in
             switch newResult {
             case .failure(let error):
                 self?.showAlert(title: "Error", message: "Couldn't Create New App User: \(error.localizedDescription)")
             case .success:
-                if let window = self?.uiWindow() {
-                    UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
-                        window.rootViewController = QuaviTabBarController()
-                    }, completion: nil)
+                if let username = self?.usernameTextField.text {
+                    self?.updateUsername(username: username)
                 }
             }
         }
@@ -131,6 +141,35 @@ class SignUpViewController: UIViewController {
                 return UIWindow()
         }
         return window
+    }
+    
+    private func updateUsername(username: String) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = username
+        changeRequest?.commitChanges(completion: { (error) in
+            if error == nil {
+                print("User displayName changed!")
+            } else {
+                print("error setting displayName: \(String(describing: error?.localizedDescription))")
+            }
+        })
+        
+        FirestoreService.manager.updateCurrentUser(userName: username) { (result) in
+            switch result {
+            case .failure(let error):
+                self.showAlert(title: "Error", message: "Could not save your username.")
+                print("Error saving username: \(error.localizedDescription)")
+            case .success(()) :
+                let window = self.uiWindow()
+                
+                UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                    window.rootViewController = QuaviTabBarController()
+                }, completion: nil)
+                
+                
+                print("username saved")
+            }
+        }
     }
 
 }
