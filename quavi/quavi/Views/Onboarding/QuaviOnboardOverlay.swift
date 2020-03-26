@@ -40,6 +40,8 @@ class QuaviOnboardOverlay:UIView {
     
     open var prevLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Arial", size: 15.0)
+        label.textColor = UIDesign.quaviYellow
         label.text = "Prev"
         label.isHidden = false
         return label
@@ -47,6 +49,8 @@ class QuaviOnboardOverlay:UIView {
     
     open var nextLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Arial-BoldMT", size: 20.0)
+        label.textColor = UIDesign.quaviOrange
         label.text = "Next"
         return label
     }()
