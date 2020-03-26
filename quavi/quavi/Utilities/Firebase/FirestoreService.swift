@@ -10,6 +10,8 @@ import Foundation
 
 import FirebaseFirestore
 
+import FirebaseAuth
+
 fileprivate enum FireStoreCollections: String {
     case users
     case tour
@@ -20,6 +22,8 @@ class FirestoreService {
     static let manager = FirestoreService()
     
     private let db = Firestore.firestore()
+    
+    
     
     //MARK: AppUsers
     func createAppUser(user: AppUser, completion: @escaping (Result<(), Error>) -> ()) {
@@ -36,13 +40,16 @@ class FirestoreService {
         }
     }
     
-    func updateCurrentUser(userName: String? = nil, photoURL: URL? = nil, completion: @escaping (Result<(), Error>) -> ()){
+    func updateCurrentUser(userEmail: String? = nil, userName: String? = nil, photoURL: URL? = nil, completion: @escaping (Result<(), Error>) -> ()){
         guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
             //MARK: TODO - handle can't get current user
             return
         }
         var updateFields = [String:Any]()
         
+        if let email = userEmail {
+            updateFields["email"] = email
+        }
         if let user = userName {
             updateFields["userName"] = user
         }
@@ -177,6 +184,32 @@ class FirestoreService {
             }
         }
     
+
+    func getUsernameOrEmail(whichOne usernameOrEmail: String, completion: @escaping (Result<String, Error>) -> ()) {
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("error, no user logged in")
+            return
+        }
+        let document = db.collection("users").document(userID)
         
+        document.getDocument { (snapshot, error) in
+            if error == nil {
+                guard let data = snapshot?.data()?[usernameOrEmail] else {
+                    print("could not find field")
+                    return
+                }
+                
+                if let result = data as? String {
+
+                    completion(.success(result))
+                } else {
+                    print("failure downcasting experience as string")
+                }
+            } else {
+                completion(.failure(error!))
+            }
+        }
+    }
+    
     private init () {}
 }

@@ -8,8 +8,10 @@
 
 import Foundation
 import FirebaseStorage
+import FirebaseAuth
 
 class FirebaseStorageService {
+    
     enum ImageType {
         case profileImage
         case quaviTourPOIImage
@@ -26,7 +28,7 @@ class FirebaseStorageService {
     private let storageReference: StorageReference
     private let imagesFolderReference: StorageReference
     
-    private init(imageType: ImageType) {
+    init(imageType: ImageType) {
         storage = Storage.storage()
         storageReference = storage.reference()
         
@@ -64,6 +66,8 @@ class FirebaseStorageService {
     }
     
     // TODO: refactor based on if we use URL or String
+    
+    
     func getImage(photoUrl: URL? = nil, photoUrlStr: String? = nil, completion: @escaping (Result<UIImage,Error>) -> ()) {
         
         if let photoUrl = photoUrl {
@@ -82,6 +86,30 @@ class FirebaseStorageService {
                     completion(.failure(error))
                 } else if let data = data, let image = UIImage(data: data) {
                     completion(.success(image))
+                }
+            }
+        }
+    }
+    
+    func uploadProfileImage( image: UIImage, completion: @escaping (Result<URL,Error>) -> ()) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let profileImage = imagesFolderReference.child(uid)
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.75) else {return}
+    
+        profileImage.putData(imageData, metadata: metadata) { (metaData, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                profileImage.downloadURL { (url, error) in
+                    guard error == nil else {completion(.failure(error!));return}
+                    //MARK: TODO - set up custom app errors
+                    guard let url = url else {completion(.failure(error!));return}
+                    completion(.success(url))
                 }
             }
         }
