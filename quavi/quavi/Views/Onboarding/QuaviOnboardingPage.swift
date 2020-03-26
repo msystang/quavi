@@ -9,14 +9,16 @@
 import UIKit
 
 class QuaviOnBoardingPage: UIView {
+    
     //MARK: -- objects
     lazy var pageTitle: UILabel = {
         let label = UILabel()
-        label.textColor = UIDesign.quaviWhite
+        label.font = UIFont(name: "Arial-BoldMT", size: 30.0)
+        label.textColor = .white
         label.text = "Placeholder"
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.textAlignment = .left
+        label.numberOfLines = 1
+        //label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.sizeToFit()
         return label
     }()
