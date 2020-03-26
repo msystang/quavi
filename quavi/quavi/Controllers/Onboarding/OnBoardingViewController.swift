@@ -9,6 +9,9 @@
 import UIKit
 
 class OnBoardingViewController: UIViewController {
+    
+    let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB01"),UIImage(named: "OB01")]
+    
     //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoardingView = {
         let scrollView = OnBoardingView()
@@ -58,11 +61,13 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
     }
     
     func quaviOnboardNumberOfPages(_ quaviOnBoarding: OnBoardingView) -> Int {
-        return 4
+        return images.count
     }
     
     func quaviOnboardPageForIndex(_ quaviOnBoarding: OnBoardingView, index: Int) -> QuaviOnBoardingPage? {
         let page = QuaviOnBoardingPage()
+        
+        page.pageImageView.image = images[index]
         
         //hides the labels when its on the last page
         page.pageTitle.isHidden = index == 3 ? true : false

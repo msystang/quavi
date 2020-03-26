@@ -32,7 +32,7 @@ class QuaviOnBoardingPage: UIView {
      
      lazy var pageImageView: UIImageView = {
          let imageView = UIImageView()
-         imageView.contentMode = .scaleAspectFit
+         imageView.contentMode = .scaleToFill
          imageView.backgroundColor = .gray
          return imageView
      }()
