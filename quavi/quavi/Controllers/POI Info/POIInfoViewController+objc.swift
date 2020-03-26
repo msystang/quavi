@@ -83,7 +83,7 @@ extension POIInfoViewController {
     
     private func changePresentModesOfTransportBackgroundColor() {
         presentModesOfTransport.backgroundColor = presentModesOfTransport.backgroundColor == .white ? UIDesign.quaviLightGrey : .white
-        presentModesOfTransport.tintColor = presentModesOfTransport.tintColor == .white ? UIDesign.quaviLightGrey : .white
+        presentModesOfTransport.tintColor = presentModesOfTransport.tintColor == .black ? UIDesign.quaviLightGrey : .black
     }
     
     private func presentButtons() {
