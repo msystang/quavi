@@ -441,7 +441,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
-
+				EC16690E242AA57000BDED2C /* GoogleService-Info.plist */,
 
 			);
 			path = quavi;
@@ -682,8 +682,7 @@
 			files = (
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-
-
+				EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
