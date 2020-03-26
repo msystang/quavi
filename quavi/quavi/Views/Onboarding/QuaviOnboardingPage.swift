@@ -52,13 +52,19 @@ class QuaviOnBoardingPage: UIView {
      private func pageImageViewConstraint() {
          self.addSubview(pageImageView)
          pageImageView.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([pageImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 70), pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30), pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30), pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.45)])
+         NSLayoutConstraint.activate([pageImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
+                                      pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+                                      pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+                                      pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.75)])
      }
      
      private func pageTitleConstraint() {
          self.addSubview(pageTitle)
          pageTitle.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([pageTitle.topAnchor.constraint(equalTo: pageImageView.bottomAnchor, constant: 10), pageTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30), pageTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30), pageTitle.heightAnchor.constraint(equalToConstant: 50)])
+         NSLayoutConstraint.activate([pageTitle.topAnchor.constraint(equalTo: pageImageView.bottomAnchor, constant: 10),
+                                      pageTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+                                      pageTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+                                      pageTitle.heightAnchor.constraint(equalToConstant: 50)])
      }
      
      private func pageSubViewConstraint() {
