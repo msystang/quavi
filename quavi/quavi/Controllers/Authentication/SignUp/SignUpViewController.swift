@@ -73,7 +73,7 @@ class SignUpViewController: UIViewController {
         view.backgroundColor = UIDesign.quaviDarkGrey
         addSubviews()
         addConstraints()
-
+        setDelegate()
     }
     
     //MARK: - Objective-C Methods
@@ -107,6 +107,12 @@ class SignUpViewController: UIViewController {
     }
 
     //MARK: - Private Methods
+    private func setDelegate() {
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
     private func createUser(email: String, password: String) {
         FirebaseAuthService.manager.createNewUser(email: email, password: password) { [weak self] (result) in
             DispatchQueue.main.async { [weak self] in
