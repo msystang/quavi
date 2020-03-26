@@ -77,13 +77,6 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         let stop = poiForTour[indexPath.section]
         
         guard let cell = poiTableView.dequeueReusableCell(withIdentifier: Enums.cellIdentifiers.StopCell.rawValue, for: indexPath) as? StopsTableViewCell else { return UITableViewCell() }
-        
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.05 * Double(indexPath.row),
-            animations: {
-                cell.alpha = 1
-        })
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         cell.stopImage.kf.indicatorType = .activity
