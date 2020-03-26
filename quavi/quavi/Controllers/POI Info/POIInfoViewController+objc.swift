@@ -58,6 +58,16 @@ extension POIInfoViewController {
            bikeButton.alpha = bikeButton.alpha == 1 ? 0: 1
        }
     
+    private func presentNavigationVC(){
+        guard let currentLegRoute = currentLegRoute else { return }
+                   let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
+                   let navigationOptions = NavigationOptions(navigationService: navigationService)
+                   let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
+                   navigationVC.delegate = self
+                   navigationVC.modalPresentationStyle = .fullScreen
+                   present(navigationVC, animated: true)
+    }
+    
     private func activateNewTopConstraints() {
            NSLayoutConstraint.deactivate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
            NSLayoutConstraint.activate([newCarButtonTopConstraint!, newWalkButtonTopConstraint!, newBikeButtonTopConstraint!])
