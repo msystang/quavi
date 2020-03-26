@@ -98,11 +98,11 @@ extension MapViewController {
         ])
     }
     
-    func constrainTVSectionArrow(button: UIButton, sectionHeaderArrows:UIImageView) {
+    func constrainTVSectionArrow(view: UIView, sectionHeaderArrows:UIImageView) {
         sectionHeaderArrows.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            sectionHeaderArrows.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -10),
-            sectionHeaderArrows.topAnchor.constraint(equalTo: button.topAnchor, constant: button.frame.height/1.6),
+            sectionHeaderArrows.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            sectionHeaderArrows.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/2.6),
             sectionHeaderArrows.heightAnchor.constraint(equalToConstant: 25),
             sectionHeaderArrows.widthAnchor.constraint(equalToConstant: 20)
             
