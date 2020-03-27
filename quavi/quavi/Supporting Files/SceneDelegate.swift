@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 
         if Auth.auth().currentUser != nil {
-            window?.rootViewController = QuaviTabBarController()
+            window?.rootViewController = OnBoardingViewController()
         } else {
             window?.rootViewController = LoginViewController()
         }

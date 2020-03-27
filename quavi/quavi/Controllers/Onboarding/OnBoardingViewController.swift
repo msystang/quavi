@@ -34,10 +34,14 @@ class OnBoardingViewController: UIViewController {
     
     //MARK:-- Objc func
     @objc func handleSkip() {
-        onBoardingScrollView.goToPage(index: 3, animated: true)
+        loadTabBar()
     }
     
     @objc func handleContinue(sender: UIButton) {
+        loadTabBar()
+    }
+    
+    private func loadTabBar() {
         let tabBar = QuaviTabBarController()
         tabBar.modalPresentationStyle = .fullScreen
         present(tabBar, animated: true)
@@ -72,7 +76,7 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
         let page = QuaviOnBoardingPage()
         
         page.pageImageView.image = images[index]
-        page.pageTitle.text = headers[index].uppercased()
+        page.pageTitle.text = headers[index]
         
         //hides the labels when its on the last page
         //page.pageTitle.isHidden = index == 3 ? true : false

@@ -13,7 +13,7 @@ class QuaviOnBoardingPage: UIView {
     //MARK: -- objects
     lazy var pageTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial-BoldMT", size: 25.0)
+        label.font = UIFont(name: "Arial-BoldMT", size: 30.0)
         label.textColor = .white
         label.text = "Placeholder"
         label.textAlignment = .left
@@ -36,8 +36,8 @@ class QuaviOnBoardingPage: UIView {
     
     lazy var pageImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .gray
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = UIDesign.quaviDarkGrey
         return imageView
     }()
     
@@ -59,7 +59,7 @@ class QuaviOnBoardingPage: UIView {
         NSLayoutConstraint.activate([pageImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
                                      pageImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
                                      pageImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-                                     pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.75)])
+                                     pageImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.65)])
     }
     
     private func pageTitleConstraint() {
