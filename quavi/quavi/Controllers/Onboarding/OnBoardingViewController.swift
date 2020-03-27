@@ -10,8 +10,8 @@ import UIKit
 
 class OnBoardingViewController: UIViewController {
     
-    let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB01"),UIImage(named: "OB01")]
-    let headers = ["Welcome To Quavi!", "Get Started", "When At A Point", "Get Quay Quay!"]
+    let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB03"),UIImage(named: "OB01")]
+    let headers = ["Welcome To Quavi!", "Get Started", "When You Arrive", "Get Quay Quay!"]
     
     //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoardingView = {
