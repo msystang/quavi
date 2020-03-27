@@ -10,8 +10,8 @@ import UIKit
 
 class OnBoardingViewController: UIViewController {
     
-    let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB03"),UIImage(named: "OB01")]
-    let headers = ["Welcome To Quavi!", "Get Started", "When You Arrive", "Get Quay Quay!"]
+    let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB03"),UIImage(named: "OB04")]
+    let headers = ["Welcome To Quavi", "How To Get Started", "When You Arrive", "Off You Go!"]
     
     //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoardingView = {
@@ -72,7 +72,7 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
         let page = QuaviOnBoardingPage()
         
         page.pageImageView.image = images[index]
-        page.pageTitle.text = headers[index]
+        page.pageTitle.text = headers[index].uppercased()
         
         //hides the labels when its on the last page
         //page.pageTitle.isHidden = index == 3 ? true : false
