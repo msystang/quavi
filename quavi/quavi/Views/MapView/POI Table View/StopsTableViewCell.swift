@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 // TODO: Rename to POITableViewCell
 class StopsTableViewCell: UITableViewCell {
     
@@ -22,7 +23,7 @@ class StopsTableViewCell: UITableViewCell {
     lazy var favoritedPOIImage: UIImageView = {
         var view = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         view.tintColor = .white
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = UIDesign.quaviOrange
         view.image = UIImage(named: "duck_icon_hallow")
         view.layer.cornerRadius = view.frame.height / 2
         view.layer.masksToBounds = true
@@ -36,7 +37,7 @@ class StopsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont(name: "Avenir-Light", size: 16)
-        label.textColor = .black
+        label.textColor = UIDesign.quaviWhite
         label.text = "Testing"
         label.numberOfLines = 0
         label.backgroundColor = .clear
@@ -63,7 +64,7 @@ class StopsTableViewCell: UITableViewCell {
         stopImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stopImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            stopImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            stopImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             stopImage.widthAnchor.constraint(equalToConstant: 100),
             stopImage.heightAnchor.constraint(equalToConstant: 100)
         ])
@@ -86,7 +87,7 @@ class StopsTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             stopLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             stopLabel.leadingAnchor.constraint(equalTo: stopImage.trailingAnchor, constant: 10),
-            stopLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            stopLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
             stopLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)])
     }
     

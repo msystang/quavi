@@ -13,43 +13,47 @@ class POIPopUpFinalViewController: UIViewController {
     
     lazy var closeTourButton: UIButton = {
         var button = UIButton()
-        button.setTitle("Close Tour", for: .normal)
+        button.setTitle("End Tour", for: .normal)
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 20
-        button.addTarget(self, action: #selector(cancelTourButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(endTourButtonPressed), for: .touchUpInside)
         return button
+    }()
+    
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "congrats")
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGradient()
-        configureBirthdayCakeImage()
+        configureCongratsImage()
         configureConfetti()
-        configureHappyBirthdayLabel()
+        configureCongratsLabel()
         configureCloseTourButton()
     }
     
     private func configureGradient() {
         let gradient = GradientView()
-        gradient.startColor = UIColor(red: 1.00, green: 0.756, blue: 0.000, alpha: 1)
-        gradient.endColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
+        gradient.startColor = UIDesign.quaviOrange
+        gradient.endColor = UIDesign.quaviYellow
         gradient.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(gradient)
         NSLayoutConstraint.pin(view: gradient, to: view)
     }
     
-    private func configureBirthdayCakeImage() {
-        let image = UIImage(named: "congrats")
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.masksToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    private func configureCongratsImage() {
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 400),
-            imageView.widthAnchor.constraint(equalToConstant: 400),
+            imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 1.2),
+            imageView.widthAnchor.constraint(equalToConstant: view.frame.width / 1.2),
             imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)])
     }
     
@@ -61,20 +65,22 @@ class POIPopUpFinalViewController: UIViewController {
         NSLayoutConstraint.pin(view: confetti, to: view)
     }
     
-    private func configureHappyBirthdayLabel() {
+    private func configureCongratsLabel() {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.font = UIFont.boldSystemFont(ofSize: 25)
         label.text = "You Completed A Tour! \n It's Getting Quazy In Here!"
         label.textAlignment = .center
-        label.textColor = .blue
+        label.textColor = UIDesign.quaviWhite
         label.numberOfLines = 2
         label.sizeToFit()
         view.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            label.topAnchor.constraint(equalTo: imageView.topAnchor, constant: -60),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            label.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
     
@@ -82,7 +88,7 @@ class POIPopUpFinalViewController: UIViewController {
         view.addSubview(closeTourButton)
         closeTourButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeTourButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -120),
+            closeTourButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             closeTourButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             closeTourButton.heightAnchor.constraint(equalToConstant: 50),
             closeTourButton.widthAnchor.constraint(equalToConstant: 200)
@@ -90,7 +96,7 @@ class POIPopUpFinalViewController: UIViewController {
         
     }
     
-    @objc func cancelTourButtonPressed() {
+    @objc func endTourButtonPressed() {
         self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

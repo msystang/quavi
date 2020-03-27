@@ -30,15 +30,23 @@ extension POIInfoViewController {
      }
      
      @objc func continueButtonPressed(_ sender: UIButton) {
-        guard let currentLegRoute = currentLegRoute else { return }
-        let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
-        let navigationOptions = NavigationOptions(navigationService: navigationService)
-        let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
-        navigationVC.delegate = self
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: true)
+        
+        switch showButtons{
+        case .hide:
+           presentNavigationVC()
+            
+        case .show:
+           activateTopConstraints()
+            presentButtons()
+            showButtons = .hide
+           presentModesOfTransport.setImage(UIImage(systemName: "location.fill")!, for: .normal)
+           
+            if showButtons == .hide{
+            presentNavigationVC()
+        }
      }
-     
+    }
+    
      @objc func handleFinishButtonPressed(_ sender: UIButton) {
          let popupFinalVC = POIPopUpFinalViewController()
          popupFinalVC.modalPresentationStyle = .fullScreen
@@ -58,14 +66,24 @@ extension POIInfoViewController {
            bikeButton.alpha = bikeButton.alpha == 1 ? 0: 1
        }
     
+    private func presentNavigationVC(){
+        guard let currentLegRoute = currentLegRoute else { return }
+                   let navigationService = MapboxNavigationService(route: currentLegRoute, simulating: .always )
+                   let navigationOptions = NavigationOptions(navigationService: navigationService)
+                   let navigationVC = NavigationViewController(for: currentLegRoute, options: navigationOptions)
+                   navigationVC.delegate = self
+                   navigationVC.modalPresentationStyle = .fullScreen
+                   present(navigationVC, animated: true)
+    }
+    
     private func activateNewTopConstraints() {
            NSLayoutConstraint.deactivate([carButtonTopConstraint!, bikeButtonTopConstraint!, walkButtonTopConstraint!])
            NSLayoutConstraint.activate([newCarButtonTopConstraint!, newWalkButtonTopConstraint!, newBikeButtonTopConstraint!])
        }
     
     private func changePresentModesOfTransportBackgroundColor() {
-        presentModesOfTransport.backgroundColor = presentModesOfTransport.backgroundColor == .white ? .black : .white
-        presentModesOfTransport.tintColor = presentModesOfTransport.tintColor == .white ? .black : .white
+        presentModesOfTransport.backgroundColor = presentModesOfTransport.backgroundColor == .white ? UIDesign.quaviLightGrey : .white
+        presentModesOfTransport.tintColor = presentModesOfTransport.tintColor == .black ? UIDesign.quaviLightGrey : .black
     }
     
     private func presentButtons() {

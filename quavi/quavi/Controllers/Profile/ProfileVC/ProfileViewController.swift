@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -14,7 +16,7 @@ class ProfileViewController: UIViewController {
     
     lazy var profileInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 254/255, green: 233/255, blue: 154/255, alpha: 1)
+        view.backgroundColor = UIDesign.quaviDarkGrey
         return view
     }()
     
@@ -23,7 +25,7 @@ class ProfileViewController: UIViewController {
     lazy var editProfileButton: UIButton = {
         var button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "gear"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIDesign.quaviOrange
         button.addTarget(self, action: #selector(editProfileButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -31,27 +33,30 @@ class ProfileViewController: UIViewController {
     lazy var userImage: UIImageView = {
         var imageView = UIImageView()
         imageView.backgroundColor = .white
-        imageView.image = UIImage(systemName: "ant")
+        imageView.image = UIImage(systemName: "person.fill")
         imageView.layer.borderWidth = 2
-        imageView.tintColor = .brown
+        imageView.tintColor = UIDesign.quaviLightGrey
         return imageView
     }()
-    lazy var fullname: UILabel = {
+    lazy var fullnameLabel: UILabel = {
         var label = UILabel()
+        label.textColor = UIDesign.quaviWhite
         label.text = "Bob Marley"
         label.textAlignment = .center
         return label
     }()
     
-    lazy var username: UILabel = {
+    lazy var usernameLabel: UILabel = {
         var label = UILabel()
+        label.textColor = UIDesign.quaviWhite
         label.text = "tour_master"
         label.textAlignment = .center
         return label
     }()
     
-    lazy var email: UILabel = {
+    lazy var emailLabel: UILabel = {
         var label = UILabel()
+        label.textColor = UIDesign.quaviWhite
         label.text = "dntWrryBHappy@gmail.com"
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -62,7 +67,7 @@ class ProfileViewController: UIViewController {
     
     lazy var favoritedView: UIView = {
         var view = UIView()
-        view.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
+        view.backgroundColor = UIDesign.quaviLightGrey
         return view
     }()
     
@@ -96,15 +101,17 @@ class ProfileViewController: UIViewController {
         var sc = UISegmentedControl()
         sc.insertSegment(with: UIImage(systemName: "map"), at: 0, animated: true)
         sc.insertSegment(with: UIImage(systemName: "mappin"), at: 1, animated: true)
+        sc.backgroundColor = UIDesign.quaviDarkGrey
+        sc.selectedSegmentTintColor = UIDesign.quaviLightGrey
         sc.selectedSegmentIndex = 0
         sc.addTarget(self, action: #selector(switchTableView), for: .valueChanged)
-        sc.backgroundColor = UIColor.init(red: 255/255, green: 251/255, blue: 217/255, alpha: 1)
         return sc
         }()
     
     lazy var favoritesTableView: UITableView = {
         let tv = UITableView()
         tv.register(FaveToursCell.self, forCellReuseIdentifier: "faveCell")
+        tv.backgroundColor = UIDesign.quaviDarkGrey
         return tv
         }()
     
@@ -112,15 +119,28 @@ class ProfileViewController: UIViewController {
     
     let toursTest = ["Historical LBGTQ Tour", "NYC Beer Tour", "NYC Speakeasies","Places of Worship"]
     let poiTest = ["Empire State Building", "National Museum of Mathematics", "Rubin Museum of art"]
+    var username: String?
+    var email: String?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.view.backgroundColor = UIDesign.quaviDarkGrey
+        
         setUpSubviews()
         setUpConstraints()
+    
+        setUsernameAndEmail()
+        getAndSetUserPhoto()
+        
         miscSetUp()
         setUpDelegates()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUsernameAndEmail()
+        getAndSetUserPhoto()
     }
     
     //MARK: - Objc Functions
@@ -142,48 +162,43 @@ class ProfileViewController: UIViewController {
         favoritesTableView.dataSource = self
     }
     
-    private func setUpSubviews() {
-        self.view.addSubview(profileInfoView)
-        self.profileInfoView.addSubview(editProfileButton)
-        self.profileInfoView.addSubview(userImage)
-        self.profileInfoView.addSubview(fullname)
-        self.profileInfoView.addSubview(username)
-        self.profileInfoView.addSubview(email)
-        
-        self.view.addSubview(favoritedView)
-        self.favoritedView.addSubview(faveToursLabel)
-        self.favoritedView.addSubview(tourNumber)
-        self.favoritedView.addSubview(favePOILabel)
-        self.favoritedView.addSubview(POINumber)
-        
-        self.view.addSubview(faveTypeSegmentControl)
-
-        self.view.addSubview(favoritesTableView)
-    }
-    
-    private func setUpConstraints() {
-        constrainProfileInfoView()
-        constrainEditButton()
-        constrainUserImage()
-        constrainFullName()
-        constrainUsername()
-        constrainEmail()
-        
-        constrainfavoritedView()
-        constrainFaveToursLabel()
-        constrainTourNumberLabel()
-        constrainFavePOILabel()
-        constrainPOINumberLabel()
-        
-        constrainFaveTypeSegmentControl()
-        
-        constrainTableView()
-    }
-    
     private func miscSetUp(){
         self.view.backgroundColor = .white
         self.userImage.layer.cornerRadius = 150/2
         self.userImage.layer.masksToBounds = true
+    }
+    
+    private func setUsernameAndEmail() {
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "userName") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting username: \(error.localizedDescription)")
+            case .success(let username):
+                self.usernameLabel.text = username
+                print(username)
+            }
+        }
         
+        FirestoreService.manager.getUsernameOrEmail(whichOne: "email") { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error getting email: \(error.localizedDescription)")
+            case .success(let email):
+                self.emailLabel.text = email
+            }
+        }
+    }
+    
+    private func getAndSetUserPhoto() {
+        if let url = Auth.auth().currentUser?.photoURL {
+            FirebaseStorageService(imageType: .profileImage).getImage(photoUrl: url) { (result) in
+                switch result {
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: "Could not retrieve user photo: \(error.localizedDescription)")
+                case .success(let image):
+                    self.userImage.image = image
+                }
+            }
+        }
     }
 }

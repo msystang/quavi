@@ -64,6 +64,15 @@ class MapViewController: UIViewController {
         return button
     }()
     
+    lazy var backButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.tintColor = .red
+        button.showsTouchWhenHighlighted = true
+        button.addTarget(self, action: #selector(handleBackButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     
     // MARK: - Internal Properties
     
@@ -190,13 +199,18 @@ class MapViewController: UIViewController {
     }
     
     private func changeTransitButtonBackgroundColor() {
-        carButton.backgroundColor = modeOfTransit == .automobile ? .systemPurple : .white
-        walkButton.backgroundColor = modeOfTransit == .walking ? .systemPurple : .white
-        bikeButton.backgroundColor = modeOfTransit == .cycling ? .systemPurple : .white
+        carButton.backgroundColor = modeOfTransit == .automobile ? UIDesign.quaviOrange : .white
+        walkButton.backgroundColor = modeOfTransit == .walking ? UIDesign.quaviOrange : .white
+        bikeButton.backgroundColor = modeOfTransit == .cycling ? UIDesign.quaviOrange : .white
     }
     
     //MARK: -OBJ-C FUNCTIONS
     @objc func handleSelectingModeOfTransportation(sender:UIButton) {
+        guard selectedRoute != nil else {
+            self.showAlert(title: "Quack!", message: "Please select a tour first.")
+            return
+        }
+        
         switch sender.tag{
         case 0:
             modeOfTransit = .automobile
@@ -207,6 +221,10 @@ class MapViewController: UIViewController {
         default :
             return
         }
+    }
+    
+    @objc func handleBackButtonPressed(sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

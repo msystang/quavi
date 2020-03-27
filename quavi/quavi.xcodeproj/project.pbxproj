@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D26F488242A930400A2CC76 /* EditProfileVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D26F487242A930400A2CC76 /* EditProfileVC+ImagePicker.swift */; };
 		1D8B2F3224037645002F19F7 /* QuaviTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3124037645002F19F7 /* QuaviTabBarController.swift */; };
 		1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B2F3324037754002F19F7 /* ProfileViewController.swift */; };
 		1D91608A23F0DA4F009B1F97 /* StopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */; };
@@ -33,12 +34,15 @@
 		8502669E23F3529C003AD65C /* POIInfoViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */; };
 		852C38222414045800EDD0DD /* POIInfoViewController+objc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C38212414045800EDD0DD /* POIInfoViewController+objc.swift */; };
 		852C3824241569D900EDD0DD /* POIInfoViewController+Navigation+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C3823241569D900EDD0DD /* POIInfoViewController+Navigation+Delegate.swift */; };
+		8570B898242CFD2200839C46 /* LoginViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570B897242CFD2200839C46 /* LoginViewController+Delegate.swift */; };
+		8570B89A242CFF2900839C46 /* SignUpViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570B899242CFF2900839C46 /* SignUpViewController+Delegate.swift */; };
 		88E33231A7ED230343FC2BA1 /* Pods_quaviTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */; };
 		C47D7B80F123D596DC3ECE5B /* Pods_quavi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */; };
 		EA0E4C1D240D64C300C86775 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0E4C1C240D64C300C86775 /* AppUser.swift */; };
 		EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */; };
 		EA5D6AEE242977D200BEB9B2 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */; };
 		EA5D6AF0242977EB00BEB9B2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */; };
+		EA5D6B54242D05C400BEB9B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA5D6B51242D03C500BEB9B2 /* GoogleService-Info.plist */; };
 		EA97DA8223FF085900CB6B32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8123FF085900CB6B32 /* LoginViewController.swift */; };
 		EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */; };
 		EA97DA8823FF264200CB6B32 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */; };
@@ -62,7 +66,6 @@
 		EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174C23E388D000DD8703 /* MapboxError.swift */; };
 		EAF7174F23E894CF00DD8703 /* MapViewController+MapBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */; };
 		EAF7175223E8B00600DD8703 /* MapViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */; };
-		EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC16690E242AA57000BDED2C /* GoogleService-Info.plist */; };
 		EC3DAD8923F3316E00A63224 /* MapViewController+SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */; };
 		EC41E8492404347600B53054 /* POIPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E8482404347600B53054 /* POIPopUpViewController.swift */; };
 		EC41E84B24043AB800B53054 /* POIPopUpViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */; };
@@ -98,6 +101,7 @@
 /* Begin PBXFileReference section */
 		1036A64AE7CE1E667C7A8F7B /* Pods_quaviTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quaviTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F73CC64E8270EA014EC65B /* Pods-quavi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.debug.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.debug.xcconfig"; sourceTree = "<group>"; };
+		1D26F487242A930400A2CC76 /* EditProfileVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileVC+ImagePicker.swift"; sourceTree = "<group>"; };
 		1D8B2F3124037645002F19F7 /* QuaviTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaviTabBarController.swift; sourceTree = "<group>"; };
 		1D8B2F3324037754002F19F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1D91608923F0DA4F009B1F97 /* StopsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopsTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,14 +128,16 @@
 		8502669D23F3529C003AD65C /* POIInfoViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+Constraints.swift"; sourceTree = "<group>"; };
 		852C38212414045800EDD0DD /* POIInfoViewController+objc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+objc.swift"; sourceTree = "<group>"; };
 		852C3823241569D900EDD0DD /* POIInfoViewController+Navigation+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+Navigation+Delegate.swift"; sourceTree = "<group>"; };
+		8570B897242CFD2200839C46 /* LoginViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Delegate.swift"; sourceTree = "<group>"; };
+		8570B899242CFF2900839C46 /* SignUpViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+Delegate.swift"; sourceTree = "<group>"; };
 		B0B03775A60E1CB608599457 /* Pods-quavi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quavi.release.xcconfig"; path = "Target Support Files/Pods-quavi/Pods-quavi.release.xcconfig"; sourceTree = "<group>"; };
 		B79E9E4111B34390ECCC8BCB /* Pods_quavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A89C480654404057C1C946 /* Pods-quaviTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quaviTests.release.xcconfig"; path = "Target Support Files/Pods-quaviTests/Pods-quaviTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA0E4C1C240D64C300C86775 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
-		EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA28F9A62412EED0004BD0E5 /* POIInfoViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIInfoViewController+MapView.swift"; sourceTree = "<group>"; };
 		EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		EA5D6B51242D03C500BEB9B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA97DA8123FF085900CB6B32 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Constraints.swift"; sourceTree = "<group>"; };
 		EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +165,6 @@
 		EAF7174C23E388D000DD8703 /* MapboxError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxError.swift; sourceTree = "<group>"; };
 		EAF7174E23E894CF00DD8703 /* MapViewController+MapBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MapBox.swift"; sourceTree = "<group>"; };
 		EAF7175123E8B00600DD8703 /* MapViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Constraints.swift"; sourceTree = "<group>"; };
-		EC16690E242AA57000BDED2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC3DAD8823F3316E00A63224 /* MapViewController+SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+SliderView.swift"; sourceTree = "<group>"; };
 		EC41E8482404347600B53054 /* POIPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIPopUpViewController.swift; sourceTree = "<group>"; };
 		EC41E84A24043AB800B53054 /* POIPopUpViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIPopUpViewController+Constraints.swift"; sourceTree = "<group>"; };
@@ -238,6 +243,7 @@
 				1DCF1BDA2405CDA70052059A /* EditProfileViewController.swift */,
 				1DCF1BDE240839E30052059A /* EditProfileVC+Constraints.swift */,
 				1DCF1BE024083C0A0052059A /* EditProfileVC+Textfield.swift */,
+				1D26F487242A930400A2CC76 /* EditProfileVC+ImagePicker.swift */,
 			);
 			path = "Edit ProfileVC";
 			sourceTree = "<group>";
@@ -401,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				EA97DA8123FF085900CB6B32 /* LoginViewController.swift */,
+				8570B897242CFD2200839C46 /* LoginViewController+Delegate.swift */,
 				EA97DA8323FF0B3900CB6B32 /* LoginViewController+Constraints.swift */,
 			);
 			path = LogIn;
@@ -410,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				EA97DA8723FF264200CB6B32 /* SignUpViewController.swift */,
+				8570B899242CFF2900839C46 /* SignUpViewController+Delegate.swift */,
 				EA97DA8923FF279900CB6B32 /* SignUpViewController+Constraints.swift */,
 			);
 			path = SignUp;
@@ -452,7 +460,7 @@
 				EAF7173923E3854100DD8703 /* Utilities */,
 				EAF7174123E386FD00DD8703 /* Supporting Files */,
 				EAF7171D23E3804500DD8703 /* Info.plist */,
-				EC16690E242AA57000BDED2C /* GoogleService-Info.plist */,
+				EA5D6B51242D03C500BEB9B2 /* GoogleService-Info.plist */,
 			);
 			path = quavi;
 			sourceTree = "<group>";
@@ -509,7 +517,6 @@
 		EAF7173A23E3856900DD8703 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				EA0E4C1E240D6FB000C86775 /* GoogleService-Info.plist */,
 				EA5D6AED242977D200BEB9B2 /* FirebaseAuthService.swift */,
 				EAF7173B23E3857500DD8703 /* FirestoreService.swift */,
 				EA5D6AEF242977EB00BEB9B2 /* FirebaseStorageService.swift */,
@@ -691,9 +698,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA5D6B54242D05C400BEB9B2 /* GoogleService-Info.plist in Resources */,
 				EAF7171C23E3804500DD8703 /* LaunchScreen.storyboard in Resources */,
 				EAF7171923E3804500DD8703 /* Assets.xcassets in Resources */,
-				EC16690F242AA57000BDED2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +825,7 @@
 				EC7D094E23F5DFC5001D04CF /* NavigationUIButton.swift in Sources */,
 				8502669623F215C0003AD65C /* MapViewController+Navigation.swift in Sources */,
 				1D8B2F3224037645002F19F7 /* QuaviTabBarController.swift in Sources */,
+				8570B898242CFD2200839C46 /* LoginViewController+Delegate.swift in Sources */,
 				EA5D6AEE242977D200BEB9B2 /* FirebaseAuthService.swift in Sources */,
 				1DCF1BDD240839D00052059A /* ProfileVC+Constraints.swift in Sources */,
 				EC7D094423F5C9AE001D04CF /* MapViewController+SliderView+Constraints.swift in Sources */,
@@ -874,6 +882,7 @@
 				EA28F9A72412EED0004BD0E5 /* POIInfoViewController+MapView.swift in Sources */,
 				EAF7171223E3804200DD8703 /* SceneDelegate.swift in Sources */,
 				EA97DA8423FF0B3900CB6B32 /* LoginViewController+Constraints.swift in Sources */,
+				1D26F488242A930400A2CC76 /* EditProfileVC+ImagePicker.swift in Sources */,
 				EA97DA8A23FF279900CB6B32 /* SignUpViewController+Constraints.swift in Sources */,
 				ECA85AE424047E15005C33F7 /* TourCategoryCollectionViewCell.swift in Sources */,
 				ECE46CE0240D73F700A22454 /* POIPopUpAboutView.swift in Sources */,
@@ -881,6 +890,7 @@
 				EAF7174723E387D300DD8703 /* ProtocolFile.swift in Sources */,
 				EAF7174D23E388D000DD8703 /* MapboxError.swift in Sources */,
 				1D8B2F3424037754002F19F7 /* ProfileViewController.swift in Sources */,
+				8570B89A242CFF2900839C46 /* SignUpViewController+Delegate.swift in Sources */,
 				1DCF1BE124083C0B0052059A /* EditProfileVC+Textfield.swift in Sources */,
 				EC7D094223F5B5E5001D04CF /* QuaviTableView.swift in Sources */,
 				85021F0F24045AFA00F8AD7B /* Identifier.swift in Sources */,
