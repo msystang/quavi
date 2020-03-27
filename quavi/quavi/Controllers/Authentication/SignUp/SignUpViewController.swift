@@ -169,7 +169,7 @@ class SignUpViewController: UIViewController {
                 let window = self.uiWindow()
                 
                 UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
-                    window.rootViewController = QuaviTabBarController()
+                    window.rootViewController = OnBoardingViewController()
                 }, completion: nil)
                 
                 
