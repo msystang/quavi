@@ -49,6 +49,7 @@ class POIInfoViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.backgroundColor = UIDesign.quaviOrange
         button.layer.borderWidth = 3
+        button.addTarget(self, action: #selector(handleShowingAlert), for: .touchUpInside)
         return button
     }()
     
@@ -332,6 +333,13 @@ class POIInfoViewController: UIViewController {
         default :
             return
         }
+    }
+    
+    
+    #warning("delete this and use a delegate to like a POI")
+    
+    @objc func handleShowingAlert() {
+        self.showAlert(title: "Quack!", message: "The like feature is in working progress. Please continue to enjoy all the other features of the app ")
     }
 }
 
