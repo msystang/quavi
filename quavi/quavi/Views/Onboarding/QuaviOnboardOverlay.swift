@@ -18,6 +18,8 @@ class QuaviOnboardOverlay:UIView {
     
     open var continueButton: UIButton = {
         let button = UIButton(type: .system)
+        button.titleLabel?.font = UIFont(name: "Arial-BoldMT", size: 40.0)
+        button.setTitleColor(UIDesign.quaviOrange, for: .normal)
         button.setTitle("Continue", for: .normal)
         button.contentHorizontalAlignment = .center
         button.showsTouchWhenHighlighted = true
