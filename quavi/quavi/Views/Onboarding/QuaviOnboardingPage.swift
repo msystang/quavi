@@ -13,7 +13,7 @@ class QuaviOnBoardingPage: UIView {
     //MARK: -- objects
     lazy var pageTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial-BoldMT", size: 25.0)
+        label.font = UIFont(name: "Arial-BoldMT", size: 30.0)
         label.textColor = .white
         label.text = "Placeholder"
         label.textAlignment = .left

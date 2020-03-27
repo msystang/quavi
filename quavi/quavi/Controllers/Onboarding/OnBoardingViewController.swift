@@ -76,7 +76,7 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
         let page = QuaviOnBoardingPage()
         
         page.pageImageView.image = images[index]
-        page.pageTitle.text = headers[index].uppercased()
+        page.pageTitle.text = headers[index]
         
         //hides the labels when its on the last page
         //page.pageTitle.isHidden = index == 3 ? true : false
