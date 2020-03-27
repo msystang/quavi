@@ -9,6 +9,10 @@
 import UIKit
 
 class OnBoardingViewController: UIViewController {
+    
+    let images = [UIImage(named: "OB01"),UIImage(named: "OB02"),UIImage(named: "OB03"),UIImage(named: "OB04")]
+    let headers = ["Welcome To Quavi", "How To Get Started", "When You Arrive", "Off You Go!"]
+    
     //MARK:-- Objects
     lazy var onBoardingScrollView: OnBoardingView = {
         let scrollView = OnBoardingView()
@@ -46,7 +50,10 @@ class OnBoardingViewController: UIViewController {
     
     private func configureScrollViewConstraints(){
         onBoardingScrollView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([onBoardingScrollView.topAnchor.constraint(equalTo: view.topAnchor), onBoardingScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor), onBoardingScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor) ,onBoardingScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+        NSLayoutConstraint.activate([onBoardingScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+                                     onBoardingScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                     onBoardingScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                     onBoardingScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
 }
 
@@ -54,30 +61,22 @@ extension OnBoardingViewController: QuaviOnBoardingDataSource{
     func quaviOnboardBackgroundColorFor(_ quaviOnBoarding: OnBoardingView, atIndex index: Int) -> UIColor? {
         
         //TODO: set background color dynamically
-        switch index{
-        case 0:
-            return .white
-        case 1:
-            return .blue
-        case 2:
-            return .yellow
-        case 3:
-            return .green
-        default:
-            return .white
-        }
+        return UIDesign.quaviDarkGrey
     }
     
     func quaviOnboardNumberOfPages(_ quaviOnBoarding: OnBoardingView) -> Int {
-        return 4
+        return images.count
     }
     
     func quaviOnboardPageForIndex(_ quaviOnBoarding: OnBoardingView, index: Int) -> QuaviOnBoardingPage? {
         let page = QuaviOnBoardingPage()
         
+        page.pageImageView.image = images[index]
+        page.pageTitle.text = headers[index].uppercased()
+        
         //hides the labels when its on the last page
-        page.pageTitle.isHidden = index == 3 ? true : false
-        page.pageSubTitle.isHidden = index == 3 ? true : false
+        //page.pageTitle.isHidden = index == 3 ? true : false
+        //page.pageSubTitle.isHidden = index == 3 ? true : false
         //TODO: Set information to each onboarding page here
         return page
     }

@@ -48,11 +48,9 @@ extension LoginViewController {
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            //imageView.bottomAnchor.constraint(equalTo: logInStackView.topAnchor, constant: 30),
-            //imageView.leadingAnchor.constraint(equalTo: logInStackView.leadingAnchor),
             imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 1.2),
-            imageView.widthAnchor.constraint(equalToConstant: view.frame.width / 1.2)
+            imageView.heightAnchor.constraint(equalToConstant: view.frame.width * 0.75),
+            imageView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.75)
         ])
     }
     

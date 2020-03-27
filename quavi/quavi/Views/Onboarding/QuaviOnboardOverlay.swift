@@ -18,6 +18,8 @@ class QuaviOnboardOverlay:UIView {
     
     open var continueButton: UIButton = {
         let button = UIButton(type: .system)
+        button.titleLabel?.font = UIFont(name: "Arial-BoldMT", size: 40.0)
+        button.setTitleColor(UIDesign.quaviOrange, for: .normal)
         button.setTitle("Continue", for: .normal)
         button.contentHorizontalAlignment = .center
         button.showsTouchWhenHighlighted = true
@@ -32,13 +34,16 @@ class QuaviOnboardOverlay:UIView {
         button.setTitle("Skip", for: .normal)
         button.contentHorizontalAlignment = .center
         button.showsTouchWhenHighlighted = true
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 1
+        button.tintColor = UIDesign.quaviLightGrey
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.layer.borderWidth = 1
         return button
     }()
     
     open var prevLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Arial", size: 15.0)
+        label.textColor = UIDesign.quaviYellow
         label.text = "Prev"
         label.isHidden = false
         return label
@@ -46,6 +51,8 @@ class QuaviOnboardOverlay:UIView {
     
     open var nextLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Arial-BoldMT", size: 20.0)
+        label.textColor = UIDesign.quaviOrange
         label.text = "Next"
         return label
     }()
@@ -100,7 +107,7 @@ class QuaviOnboardOverlay:UIView {
     private func skipButtonConstraint() {
         self.addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([skipButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10), skipButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 30), skipButton.heightAnchor.constraint(equalToConstant: 30), skipButton.widthAnchor.constraint(equalToConstant: 100)])
+        NSLayoutConstraint.activate([skipButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20), skipButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 30), skipButton.heightAnchor.constraint(equalToConstant: 30), skipButton.widthAnchor.constraint(equalToConstant: 100)])
     }
     
     private func prevLabelConstraint() {
