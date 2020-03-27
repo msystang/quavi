@@ -82,6 +82,9 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         cell.stopImage.kf.indicatorType = .activity
         cell.stopImage.kf.setImage(with: URL(string: stop.tableViewImage), placeholder: UIDesign.placeholderImage, options: [.transition(.fade(0.2))])
         cell.stopLabel.text = stop.shortDesc
+        
+        //show Alert that like button is in progress
+        cell.likeButton.addTarget(self, action: #selector(handleShowingAlert), for: .touchUpInside)
         return cell
     }
     

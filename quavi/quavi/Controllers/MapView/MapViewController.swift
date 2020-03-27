@@ -227,4 +227,10 @@ class MapViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    #warning("delete this and use a delegate to like a POI")
+    
+    @objc func handleShowingAlert() {
+        self.showAlert(title: "Quack", message: "The like feature is in working progress. Please continue to enjoy all the other features of the app ")
+    }
 }
