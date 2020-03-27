@@ -20,17 +20,17 @@ class StopsTableViewCell: UITableViewCell {
         return view
     }()
     
-    lazy var favoritedPOIImage: UIImageView = {
-        var view = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        view.tintColor = .white
-        view.backgroundColor = UIDesign.quaviOrange
-        view.image = UIImage(named: "duck_icon_hallow")
-        view.layer.cornerRadius = view.frame.height / 2
-        view.layer.masksToBounds = true
-        view.layer.borderColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
-        view.layer.borderWidth = 1.5
-        view.layoutMargins = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        return view
+    lazy var likeButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        button.setImage(UIImage(named: "duck_icon_hallow"), for: .normal)
+        button.tintColor = .white
+        button.layer.cornerRadius = button.frame.height / 2
+        button.layer.masksToBounds = true
+        button.layer.borderColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
+        button.backgroundColor = UIDesign.quaviOrange
+        button.layer.borderWidth = 1.5
+        button.layoutMargins = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+        return button
     }()
     
     lazy var stopLabel: UILabel = {
@@ -48,7 +48,7 @@ class StopsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         constrainStopImage()
-        constrainFavoritePOIImage()
+        constrainLikeButton()
         constrainStopLabel()
         
     }
@@ -70,14 +70,14 @@ class StopsTableViewCell: UITableViewCell {
         ])
     }
     
-    private func constrainFavoritePOIImage() {
-        self.addSubview(favoritedPOIImage)
-        favoritedPOIImage.translatesAutoresizingMaskIntoConstraints = false
+    private func constrainLikeButton() {
+        self.addSubview(likeButton)
+        likeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            favoritedPOIImage.bottomAnchor.constraint(equalTo: stopImage.bottomAnchor, constant: 12.5),
-            favoritedPOIImage.centerXAnchor.constraint(equalTo: stopImage.centerXAnchor),
-            favoritedPOIImage.widthAnchor.constraint(equalToConstant: 35),
-            favoritedPOIImage.heightAnchor.constraint(equalToConstant: 35)
+            likeButton.bottomAnchor.constraint(equalTo: stopImage.bottomAnchor, constant: 12.5),
+            likeButton.centerXAnchor.constraint(equalTo: stopImage.centerXAnchor),
+            likeButton.widthAnchor.constraint(equalToConstant: 35),
+            likeButton.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
     

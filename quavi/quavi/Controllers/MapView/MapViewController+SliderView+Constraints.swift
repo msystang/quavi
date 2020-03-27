@@ -73,8 +73,8 @@ extension MapViewController {
         NSLayoutConstraint.activate([
             poiTableView.topAnchor.constraint(equalTo: chevronArrows.bottomAnchor, constant: 10),
             poiTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor)
+            poiTableView.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor, constant: 5),
+            poiTableView.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor, constant: -5)
         ])
     }
     

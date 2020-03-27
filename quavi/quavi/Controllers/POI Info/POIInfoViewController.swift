@@ -21,7 +21,7 @@ class POIInfoViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
         button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = UIDesign.quaviLightGrey
+        button.backgroundColor = .systemGreen
         button.layer.borderWidth = 3
         return button
     }()
@@ -44,18 +44,19 @@ class POIInfoViewController: UIViewController {
     lazy var likeButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.setImage(UIImage(named: "duck_icon_hallow"), for: .normal)
-        button.tintColor = UIDesign.quaviYellow
+        button.tintColor = .white
         button.layer.cornerRadius = button.frame.height / 2
-        button.layer.borderColor = UIDesign.quaviYellow.cgColor
-        button.backgroundColor = UIDesign.quaviLightGrey
+        button.layer.borderColor = UIColor.white.cgColor
+        button.backgroundColor = UIDesign.quaviOrange
         button.layer.borderWidth = 3
+        button.addTarget(self, action: #selector(handleShowingAlert), for: .touchUpInside)
         return button
     }()
     
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.hidesForSinglePage = true
-        pc.pageIndicatorTintColor = .blue
+        pc.pageIndicatorTintColor = UIDesign.quaviLightGrey
         pc.currentPageIndicatorTintColor = .red
         pc.addTarget(self, action: #selector(handlePageControllerTapped(_:)), for: .allTouchEvents)
         return pc
@@ -78,10 +79,7 @@ class POIInfoViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         button.layer.cornerRadius = button.frame.height / 2
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.backgroundColor = .red
-        button.tintColor = .black
+        button.tintColor = UIDesign.quaviLightGrey
         button.showsTouchWhenHighlighted = true
         button.addTarget(self, action: #selector(handleCancelButtonPressed), for: .touchUpInside)
         return button
@@ -220,7 +218,7 @@ class POIInfoViewController: UIViewController {
         super.viewWillAppear(animated)
         setBackgroundColor()
         continueButtonConstraints()
-        quaviLogoButtonConstraints()
+       // quaviLogoButtonConstraints()
         containerViewConstraints()
         pageControlConstraints()
         likeButtonConstraints()
@@ -335,6 +333,13 @@ class POIInfoViewController: UIViewController {
         default :
             return
         }
+    }
+    
+    
+    #warning("delete this and use a delegate to like a POI")
+    
+    @objc func handleShowingAlert() {
+        self.showAlert(title: "Quack!", message: "The like feature is in working progress. Please continue to enjoy all the other features of the app ")
     }
 }
 

@@ -44,17 +44,32 @@ extension MapViewController: MGLMapViewDelegate {
         
         let initialWaypoint = Waypoint(coordinate: userLocation, coordinateAccuracy: -1, name: "Initial Location")
         var allWaypoint = selectedRoute.routeOptions.waypoints
+        let firstLegWaypoint = selectedRoute.routeOptions.waypoints[0]
         allWaypoint.insert(initialWaypoint, at: 0)
         
         let options = NavigationRouteOptions(waypoints:  allWaypoint, profileIdentifier: navigationType)
         
+        let firstLegOptions2 = NavigationRouteOptions(waypoints:  [initialWaypoint, firstLegWaypoint], profileIdentifier: navigationType)
+        
+        //Creates a route for just the first leg index
+        DispatchQueue.main.async {
+            self.generateRoute(from: firstLegOptions2) { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let route):
+                    self.currentLegRoute = route
+                }
+            }
+        }
+
+        //Creates a route for generating polylines
         DispatchQueue.main.async {
             self.generateRoute(from: options) { (result) in
                 switch result {
                 case .failure(let error):
                     print(error)
                 case .success(let route):
-                    self.currentLegRoute = route
                     self.generatePolylineSource(from: route, for: "full-route")
                 }
             }
