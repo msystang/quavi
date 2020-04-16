@@ -27,7 +27,7 @@ class CategorySelectionViewController: UIViewController {
         didSet {
             categories = Array(Set(allTours.compactMap { (tour) -> String? in
                 tour.category
-            }))
+                })).sorted()
         }
     }
     
@@ -38,7 +38,7 @@ class CategorySelectionViewController: UIViewController {
         }
     }
     
-    var categoryCount = [String:Int]()
+//    var categoryCount = [String:Int]()
     
     var layout = UICollectionViewFlowLayout.init()
     
