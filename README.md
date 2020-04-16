@@ -1,5 +1,5 @@
 # QUAVI
-#### (pronounced KWEY-VEE)
+#### (pronounced KWAY-VEE)
 
 ## Introduction
 #### Problem Statement
@@ -21,6 +21,10 @@ Quavi makes exploring a new city easier and catered to the individual’s experi
   - ```git clone https://github.com/msystang/quavi.git```
 - Install CocoaPods in your terminal (relevant pods are already in the project Podfile):
   - ```pod install```
+- Set up Firebase plist file:
+  - Password protected download link: https://send.firefox.com/download/aed479c540612519/#kJmSNpwczi-ERM-VYdRu0g
+  - Email quavitheapp@gmail.com for password
+  - Drag and drop the .plist to the project file ./quavi/quavi
 - Set up your MapBox acccess token:
   - On your **Desktop**, create a file named `mapbox_access_token.mapbox`. Ensure that the file extension is `.mapbox` and not a `.txt`.
   - Add your MapBox access token in this file and save.
