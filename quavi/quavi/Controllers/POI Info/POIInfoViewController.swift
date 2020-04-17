@@ -205,7 +205,7 @@ class POIInfoViewController: UIViewController {
     }
     
     //TODO: For Testing... Refactor with initalLocation from user!
-    var userLocation = CLLocationCoordinate2D(latitude: 40.7489288, longitude: -73.9869172)
+    var userLocation = CLLocationCoordinate2D(latitude: 40.747034, longitude: -73.985096)
     
     
     //MARK:-- LifeCycle
